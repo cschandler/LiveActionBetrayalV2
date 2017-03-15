@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07E2A0E4522877ADE5E4F606 /* Pods_LiveActionBetrayal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */; };
+		081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081ECF301E7738DF006F9FF0 /* AppDelegate.swift */; };
+		081ECF331E7738DF006F9FF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081ECF321E7738DF006F9FF0 /* ViewController.swift */; };
+		081ECF361E7738DF006F9FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 081ECF341E7738DF006F9FF0 /* Main.storyboard */; };
+		081ECF381E7738DF006F9FF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 081ECF371E7738DF006F9FF0 /* Assets.xcassets */; };
+		081ECF3B1E7738DF006F9FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 081ECF391E7738DF006F9FF0 /* LaunchScreen.storyboard */; };
+		082056D11E78E58C00846370 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082056D01E78E58C00846370 /* Action.swift */; };
+		084F26601E78FC110058F3DF /* TorchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084F265F1E78FC110058F3DF /* TorchManager.swift */; };
+		089E1BBE1E78CD27002374A6 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E1BBD1E78CD27002374A6 /* ConnectionManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		081ECF2D1E7738DF006F9FF0 /* LiveActionBetrayal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveActionBetrayal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		081ECF301E7738DF006F9FF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		081ECF321E7738DF006F9FF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		081ECF351E7738DF006F9FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		081ECF371E7738DF006F9FF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		081ECF3A1E7738DF006F9FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		081ECF3C1E7738E0006F9FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		082056D01E78E58C00846370 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		084F265F1E78FC110058F3DF /* TorchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorchManager.swift; sourceTree = "<group>"; };
+		089E1BBD1E78CD27002374A6 /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectionManager.swift; path = Managers/ConnectionManager.swift; sourceTree = "<group>"; };
+		4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.debug.xcconfig"; sourceTree = "<group>"; };
+		8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.release.xcconfig"; sourceTree = "<group>"; };
+		98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveActionBetrayal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		081ECF2A1E7738DF006F9FF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07E2A0E4522877ADE5E4F606 /* Pods_LiveActionBetrayal.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		081ECF241E7738DF006F9FF0 = {
+			isa = PBXGroup;
+			children = (
+				081ECF2F1E7738DF006F9FF0 /* LiveActionBetrayal */,
+				081ECF2E1E7738DF006F9FF0 /* Products */,
+				0D667429607158E02D45BDA4 /* Pods */,
+				FB319C0E5076C28D7BBBC776 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		081ECF2E1E7738DF006F9FF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				081ECF2D1E7738DF006F9FF0 /* LiveActionBetrayal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		081ECF2F1E7738DF006F9FF0 /* LiveActionBetrayal */ = {
+			isa = PBXGroup;
+			children = (
+				081ECF301E7738DF006F9FF0 /* AppDelegate.swift */,
+				089E1BBD1E78CD27002374A6 /* ConnectionManager.swift */,
+				084F265F1E78FC110058F3DF /* TorchManager.swift */,
+				082056D01E78E58C00846370 /* Action.swift */,
+				081ECF321E7738DF006F9FF0 /* ViewController.swift */,
+				081ECF341E7738DF006F9FF0 /* Main.storyboard */,
+				081ECF371E7738DF006F9FF0 /* Assets.xcassets */,
+				081ECF391E7738DF006F9FF0 /* LaunchScreen.storyboard */,
+				081ECF3C1E7738E0006F9FF0 /* Info.plist */,
+			);
+			path = LiveActionBetrayal;
+			sourceTree = "<group>";
+		};
+		0D667429607158E02D45BDA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */,
+				8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB319C0E5076C28D7BBBC776 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		081ECF2C1E7738DF006F9FF0 /* LiveActionBetrayal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 081ECF3F1E7738E0006F9FF0 /* Build configuration list for PBXNativeTarget "LiveActionBetrayal" */;
+			buildPhases = (
+				31A396DF90AFCE479D15309E /* [CP] Check Pods Manifest.lock */,
+				081ECF291E7738DF006F9FF0 /* Sources */,
+				081ECF2A1E7738DF006F9FF0 /* Frameworks */,
+				081ECF2B1E7738DF006F9FF0 /* Resources */,
+				4BECF17AEFAAB0EBF89E03DE /* [CP] Embed Pods Frameworks */,
+				6FEE46061E9F8EF3FBFCC51A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LiveActionBetrayal;
+			productName = LiveActionBetrayal;
+			productReference = 081ECF2D1E7738DF006F9FF0 /* LiveActionBetrayal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		081ECF251E7738DF006F9FF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Charles Chander";
+				TargetAttributes = {
+					081ECF2C1E7738DF006F9FF0 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ZWE7Y5MFJ2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 081ECF281E7738DF006F9FF0 /* Build configuration list for PBXProject "LiveActionBetrayal" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 081ECF241E7738DF006F9FF0;
+			productRefGroup = 081ECF2E1E7738DF006F9FF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				081ECF2C1E7738DF006F9FF0 /* LiveActionBetrayal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		081ECF2B1E7738DF006F9FF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				081ECF3B1E7738DF006F9FF0 /* LaunchScreen.storyboard in Resources */,
+				081ECF381E7738DF006F9FF0 /* Assets.xcassets in Resources */,
+				081ECF361E7738DF006F9FF0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31A396DF90AFCE479D15309E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4BECF17AEFAAB0EBF89E03DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FEE46061E9F8EF3FBFCC51A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		081ECF291E7738DF006F9FF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				081ECF331E7738DF006F9FF0 /* ViewController.swift in Sources */,
+				082056D11E78E58C00846370 /* Action.swift in Sources */,
+				089E1BBE1E78CD27002374A6 /* ConnectionManager.swift in Sources */,
+				084F26601E78FC110058F3DF /* TorchManager.swift in Sources */,
+				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		081ECF341E7738DF006F9FF0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				081ECF351E7738DF006F9FF0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		081ECF391E7738DF006F9FF0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				081ECF3A1E7738DF006F9FF0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		081ECF3D1E7738E0006F9FF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		081ECF3E1E7738E0006F9FF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		081ECF401E7738E0006F9FF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZWE7Y5MFJ2;
+				INFOPLIST_FILE = LiveActionBetrayal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chandler.charles.LiveActionBetrayal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		081ECF411E7738E0006F9FF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZWE7Y5MFJ2;
+				INFOPLIST_FILE = LiveActionBetrayal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chandler.charles.LiveActionBetrayal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		081ECF281E7738DF006F9FF0 /* Build configuration list for PBXProject "LiveActionBetrayal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				081ECF3D1E7738E0006F9FF0 /* Debug */,
+				081ECF3E1E7738E0006F9FF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		081ECF3F1E7738E0006F9FF0 /* Build configuration list for PBXNativeTarget "LiveActionBetrayal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				081ECF401E7738E0006F9FF0 /* Debug */,
+				081ECF411E7738E0006F9FF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 081ECF251E7738DF006F9FF0 /* Project object */;
+}

@@ -1,0 +1,12 @@
+ #Xcode
+.DS_Store
+*/build/*
+xcuserdata
+profile
+DerivedData
+  
+#Building
+artifacts/
+ 
+#bundler
+.bundle

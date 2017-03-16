@@ -9,12 +9,35 @@
 import Foundation
 import MultipeerConnectivity
 
-protocol ConnectionDelegate {
+protocol ActionDelegate {
     func perform(action: Action)
 }
 
-protocol ExplorerConnectionDelegate: ConnectionDelegate {}
-protocol WatcherConnectionDelegate: ConnectionDelegate {}
+protocol ConnectionDelegate {
+    func peer(_ peer: MCPeerID, didChangeState: MCSessionState)
+}
+
+final class ConnectionHandler {
+    
+    static let sharedInstance = ConnectionHandler()
+    
+    var manager: ConnectionManager! {
+        get {
+            if self.manager == nil {
+                self.manager = ConnectionManager()
+                return self.manager
+            }
+            return self.manager
+        }
+        set {
+            self.manager = newValue
+        }
+    }
+    
+    func setup(withPeerName name: String) {
+        manager = ConnectionManager(peerName: name)
+    }
+}
 
 final class ConnectionManager: NSObject {
     
@@ -22,32 +45,32 @@ final class ConnectionManager: NSObject {
     // and can contain only ASCII lowercase letters, numbers and hyphens.
     private let serviceName = "lab-v2"
     private let peerId: MCPeerID
-    private let serviceAdvertiser : MCNearbyServiceAdvertiser
-    private let serviceBrowser : MCNearbyServiceBrowser
+    private let serviceAdvertiser: MCNearbyServiceAdvertiser
+    private let serviceBrowser: MCNearbyServiceBrowser
     
-    var delegate: ConnectionDelegate?
+    public let session: MCSession
     
-    lazy var session: MCSession = {
-        let session = MCSession(peer: self.peerId, securityIdentity: nil, encryptionPreference: .required)
-        session.delegate = self
-        return session
-    }()
+    var actionDelegate: ActionDelegate?
+    var connectionDelegate: ConnectionDelegate?
     
     init(peerName: String = UIDevice.current.name) {
-        peerId = MCPeerID(displayName: peerName)
+        peerId = MCPeerID(displayName: UIDevice.current.name)
+        session = MCSession(peer: self.peerId, securityIdentity: nil, encryptionPreference: .required)
         serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerId, discoveryInfo: nil, serviceType: serviceName)
         serviceBrowser = MCNearbyServiceBrowser(peer: peerId, serviceType: serviceName)
         
         super.init()
         
-        self.serviceAdvertiser.delegate = self
-        self.serviceAdvertiser.startAdvertisingPeer()
+        session.delegate = self
         
-        self.serviceBrowser.delegate = self
-        self.serviceBrowser.startBrowsingForPeers()
+        serviceAdvertiser.delegate = self
+        serviceAdvertiser.startAdvertisingPeer()
+        
+        serviceBrowser.delegate = self
+        serviceBrowser.startBrowsingForPeers()
     }
     
-    func send(action: Action) {
+    func send(action: Action, toPeers: [MCPeerID] = ConnectionHandler.sharedInstance.manager.session.connectedPeers) {
         print("send: \(action.description) to peers:")
         dump(session.connectedPeers)
         
@@ -115,6 +138,7 @@ extension ConnectionManager: MCSessionDelegate {
                  peer peerID: MCPeerID,
                  didChange state: MCSessionState) {
         print("peer \(peerID) didChangeState: \(state.rawValue)")
+        connectionDelegate?.peer(peerID, didChangeState: state)
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
@@ -129,14 +153,12 @@ extension ConnectionManager: MCSessionDelegate {
         
         print(action.description)
         
-        delegate?.perform(action: action)
+        actionDelegate?.perform(action: action)
     }
     
     // Required but unused functions
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {}
-    
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {}
-    
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {}
 }

@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import ReSwift
 
 class ViewController: UIViewController {
     
-    let manager = ConnectionManager()
+    var manager: ConnectionManager {
+        return ConnectionHandler.sharedInstance.manager
+    }
+    
     @IBOutlet weak var messageTextField: UITextField!
 
     @IBAction func onButtonTapped(_ sender: UIButton) {
@@ -33,23 +37,7 @@ extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manager.delegate = self
     }
     
-}
-
-extension ViewController: ConnectionDelegate {
-    
-    func perform(action: Action) {
-        switch action {
-        case .LightsOn:
-            TorchManager.turn(on: true)
-        case .LightsOff:
-            TorchManager.turn(on: false)
-        case .Message(_):
-            break
-        }
-    }
-
 }
 

@@ -13,7 +13,8 @@ class TorchManager {
     
     static func turn(on: Bool) {
         guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo),
-            device.hasTorch else {
+            device.hasTorch
+             else {
                 return
         }
         
@@ -23,6 +24,20 @@ class TorchManager {
             device.unlockForConfiguration()
         } catch {
             print("Torch unavailable")
+        }
+    }
+    
+    static var isOn: Bool {
+        guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo),
+            device.hasTorch else {
+                return false
+        }
+        
+        switch device.torchMode {
+        case .on:
+            return true
+        default:
+            return false
         }
     }
 

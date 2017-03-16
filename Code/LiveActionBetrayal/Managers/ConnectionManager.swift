@@ -8,10 +8,7 @@
 
 import Foundation
 import MultipeerConnectivity
-
-protocol ActionDelegate {
-    func perform(action: Action)
-}
+import ReSwift
 
 protocol ConnectionDelegate {
     func peer(_ peer: MCPeerID, didChangeState: MCSessionState)
@@ -47,17 +44,18 @@ final class ConnectionManager: NSObject {
     private let peerId: MCPeerID
     private let serviceAdvertiser: MCNearbyServiceAdvertiser
     private let serviceBrowser: MCNearbyServiceBrowser
+    fileprivate let store: Store<AppState>
     
     public let session: MCSession
     
-    var actionDelegate: ActionDelegate?
     var connectionDelegate: ConnectionDelegate?
     
-    init(peerName: String = UIDevice.current.name) {
+    init(peerName: String = UIDevice.current.name, store: Store<AppState> = AppStore.shared) {
         peerId = MCPeerID(displayName: UIDevice.current.name)
         session = MCSession(peer: self.peerId, securityIdentity: nil, encryptionPreference: .required)
         serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerId, discoveryInfo: nil, serviceType: serviceName)
         serviceBrowser = MCNearbyServiceBrowser(peer: peerId, serviceType: serviceName)
+        self.store = store
         
         super.init()
         
@@ -70,7 +68,7 @@ final class ConnectionManager: NSObject {
         serviceBrowser.startBrowsingForPeers()
     }
     
-    func send(action: Action, toPeers: [MCPeerID] = ConnectionHandler.sharedInstance.manager.session.connectedPeers) {
+    func send(action: PeerAction, toPeers: [MCPeerID] = ConnectionHandler.sharedInstance.manager.session.connectedPeers) {
         print("send: \(action.description) to peers:")
         dump(session.connectedPeers)
         
@@ -146,14 +144,14 @@ extension ConnectionManager: MCSessionDelegate {
         
         guard let object = try? JSONSerialization.jsonObject(with: data, options: []),
             let json = object as? [String:String],
-            let action = Action(json: json) else {
+            let action = PeerAction(json: json) else {
             print("json from data serialization failed")
             return
         }
         
         print(action.description)
         
-        actionDelegate?.perform(action: action)
+        store.dispatch(action)
     }
     
     // Required but unused functions

@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import ReSwift
 
 typealias JSON = [String:String]
 
-enum Action: CustomStringConvertible {
+enum PeerAction: Action, CustomStringConvertible {
     case LightsOn
     case LightsOff
     case Message(String)
@@ -44,9 +45,9 @@ enum Action: CustomStringConvertible {
         guard let action = json["action"] else { return nil }
         
         switch action {
-        case Action.LightsOn.description:
+        case PeerAction.LightsOn.description:
             self = .LightsOn
-        case Action.LightsOff.description:
+        case PeerAction.LightsOff.description:
             self = .LightsOff
         case "Message":
             guard let message = json["message"] else { return nil }

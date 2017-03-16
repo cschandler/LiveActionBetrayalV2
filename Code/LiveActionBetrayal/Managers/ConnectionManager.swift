@@ -51,8 +51,10 @@ final class ConnectionManager: NSObject {
         print("send: \(action.description) to peers:")
         dump(session.connectedPeers)
         
-        let wrapper = ActionWrapper(action: action)
-        let data = Data(from: wrapper)
+        guard let data = try? JSONSerialization.data(withJSONObject: action.toJSON(), options: []) else {
+            print("action JSON serialization failed")
+            return
+        }
         
         if session.connectedPeers.count > 0 {
             do {
@@ -118,11 +120,16 @@ extension ConnectionManager: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("didReceiveData: \(data)")
         
-        let wrapper: ActionWrapper = data.to(type: ActionWrapper.self)
+        guard let object = try? JSONSerialization.jsonObject(with: data, options: []),
+            let json = object as? [String:String],
+            let action = Action(json: json) else {
+            print("json from data serialization failed")
+            return
+        }
         
-        print(wrapper.action.description)
+        print(action.description)
         
-        delegate?.perform(action: wrapper.action)
+        delegate?.perform(action: action)
     }
     
     // Required but unused functions
@@ -132,17 +139,4 @@ extension ConnectionManager: MCSessionDelegate {
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {}
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {}
-}
-
-extension Data {
-    
-    init<T>(from value: T) {
-        var value = value
-        self.init(buffer: UnsafeBufferPointer(start: &value, count: 1))
-    }
-    
-    func to<T>(type: T.Type) -> T {
-        return self.withUnsafeBytes { $0.pointee }
-    }
-
 }

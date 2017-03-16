@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias JSON = [String:String]
+
 enum Action: CustomStringConvertible {
     case LightsOn
     case LightsOff
@@ -23,8 +25,34 @@ enum Action: CustomStringConvertible {
             return "Message: \(string)"
         }
     }
-}
-
-struct ActionWrapper {
-    let action: Action
+    
+    func toJSON() -> JSON {
+        switch self {
+        case .LightsOn, .LightsOff:
+            return [
+                "action": self.description
+            ]
+        case .Message(let string):
+            return [
+                "action": "Message",
+                "message": string
+            ]
+        }
+    }
+    
+    init?(json: JSON) {
+        guard let action = json["action"] else { return nil }
+        
+        switch action {
+        case Action.LightsOn.description:
+            self = .LightsOn
+        case Action.LightsOff.description:
+            self = .LightsOff
+        case "Message":
+            guard let message = json["message"] else { return nil }
+            self = .Message(message)
+        default:
+            return nil
+        }
+    }
 }

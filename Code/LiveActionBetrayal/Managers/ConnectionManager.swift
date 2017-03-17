@@ -16,23 +16,21 @@ protocol ConnectionDelegate {
 
 final class ConnectionHandler {
     
-    static let sharedInstance = ConnectionHandler()
+    static let shared = ConnectionHandler()
     
-    var manager: ConnectionManager! {
-        get {
-            if self.manager == nil {
-                self.manager = ConnectionManager()
-                return self.manager
-            }
-            return self.manager
-        }
-        set {
-            self.manager = newValue
-        }
-    }
+    private var connectionManager: ConnectionManager?
     
     func setup(withPeerName name: String) {
-        manager = ConnectionManager(peerName: name)
+        connectionManager = ConnectionManager(peerName: name)
+    }
+    
+    var manager: ConnectionManager {
+        if let manager = connectionManager {
+            return manager
+        } else {
+            connectionManager = ConnectionManager()
+            return connectionManager!
+        }
     }
 }
 
@@ -51,10 +49,10 @@ final class ConnectionManager: NSObject {
     var connectionDelegate: ConnectionDelegate?
     
     init(peerName: String = UIDevice.current.name, store: Store<AppState> = AppStore.shared) {
-        peerId = MCPeerID(displayName: UIDevice.current.name)
-        session = MCSession(peer: self.peerId, securityIdentity: nil, encryptionPreference: .required)
-        serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerId, discoveryInfo: nil, serviceType: serviceName)
-        serviceBrowser = MCNearbyServiceBrowser(peer: peerId, serviceType: serviceName)
+        self.peerId = MCPeerID(displayName: peerName)
+        self.session = MCSession(peer: self.peerId, securityIdentity: nil, encryptionPreference: .required)
+        self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerId, discoveryInfo: nil, serviceType: serviceName)
+        self.serviceBrowser = MCNearbyServiceBrowser(peer: peerId, serviceType: serviceName)
         self.store = store
         
         super.init()
@@ -68,7 +66,7 @@ final class ConnectionManager: NSObject {
         serviceBrowser.startBrowsingForPeers()
     }
     
-    func send(action: PeerAction, toPeers: [MCPeerID] = ConnectionHandler.sharedInstance.manager.session.connectedPeers) {
+    func send(action: PeerAction, toPeers: [MCPeerID] = ConnectionHandler.shared.manager.session.connectedPeers) {
         print("send: \(action.description) to peers:")
         dump(session.connectedPeers)
         

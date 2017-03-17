@@ -9,10 +9,10 @@
 import UIKit
 import ReSwift
 
-class ViewController: UIViewController {
+class ProfileViewController: UIViewController {
     
     var manager: ConnectionManager {
-        return ConnectionHandler.sharedInstance.manager
+        return ConnectionHandler.shared.manager
     }
     
     @IBOutlet weak var messageTextField: UITextField!
@@ -32,11 +32,12 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController {
+extension ProfileViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ConnectionHandler.shared.setup(withPeerName: "Test Name")
     }
     
 }

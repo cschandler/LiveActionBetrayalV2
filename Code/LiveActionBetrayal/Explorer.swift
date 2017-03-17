@@ -6,7 +6,6 @@
 //  Copyright © 2017 Charles Chander. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct Explorer {

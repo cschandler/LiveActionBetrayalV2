@@ -30,6 +30,11 @@ class ProfileViewController: UIViewController {
         manager.send(action: .Message(text))
     }
     
+    @IBAction func connectionsButtonTapped(_ sender: UIBarButtonItem) {
+        let vc = StatusViewController.build()        
+        present(vc, animated: true, completion: nil)
+    }
+    
 }
 
 extension ProfileViewController {

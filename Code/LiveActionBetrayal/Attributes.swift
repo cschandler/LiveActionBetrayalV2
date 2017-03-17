@@ -24,16 +24,18 @@ typealias Position = Int
 struct Stat {
     let values: [StatValue]
     let starting: Position
-    var current: StatValue
+    var current: StatValue = 0
     
-    init() {
-        <#statements#>
+    init(values: [StatValue], starting: Position) {
+        assert(values.count == 8, "Stats should have 8 values.")
+        
+        self.values = values
+        self.starting = starting
+        self.current = value(for: starting)
     }
     
     func value(for position: Position) -> StatValue {
-        guard values.count == 8 else {
-            
-        }
+        return values[position - 1]
     }
 }
 

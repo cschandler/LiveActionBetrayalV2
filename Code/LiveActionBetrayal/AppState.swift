@@ -8,9 +8,12 @@
 
 import Foundation
 import ReSwift
+import MultipeerConnectivity
+
+fileprivate let combinedReducer = CombinedReducer([AppReducer()])
 
 struct AppStore {
-    static let shared = Store(reducer: AppReducer(), state: AppState())
+    static let shared = Store(reducer: combinedReducer, state: AppState())
 }
 
 struct AppState: StateType {
@@ -23,10 +26,10 @@ struct AppReducer: Reducer {
         var newState = state ?? AppState()
         
         switch action as! PeerAction {
-        case .LightsOn:
+        case .lightsOn:
             TorchManager.turn(on: true)
             newState.torchOn = true
-        case .LightsOff:
+        case .lightsOff:
             TorchManager.turn(on: false)
             newState.torchOn = false
         default:

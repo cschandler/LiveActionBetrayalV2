@@ -10,10 +10,6 @@ import Foundation
 import MultipeerConnectivity
 import ReSwift
 
-protocol ConnectionDelegate {
-    func peer(_ peer: MCPeerID, didChangeState: MCSessionState)
-}
-
 final class ConnectionHandler {
     
     static let shared = ConnectionHandler()
@@ -42,18 +38,18 @@ final class ConnectionManager: NSObject {
     private let peerId: MCPeerID
     private let serviceAdvertiser: MCNearbyServiceAdvertiser
     private let serviceBrowser: MCNearbyServiceBrowser
-    fileprivate let store: Store<AppState>
+    fileprivate let gameStore: Store<AppState>
+    fileprivate let connectionStore: Store<ConnectionState>
     
     public let session: MCSession
-    
-    var connectionDelegate: ConnectionDelegate?
     
     init(peerName: String = UIDevice.current.name, store: Store<AppState> = AppStore.shared) {
         self.peerId = MCPeerID(displayName: peerName)
         self.session = MCSession(peer: self.peerId, securityIdentity: nil, encryptionPreference: .required)
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerId, discoveryInfo: nil, serviceType: serviceName)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: peerId, serviceType: serviceName)
-        self.store = store
+        self.gameStore = store
+        self.connectionStore = ConnectionStore.shared
         
         super.init()
         
@@ -114,7 +110,6 @@ extension ConnectionManager: MCNearbyServiceBrowserDelegate {
                  foundPeer peerID: MCPeerID,
                  withDiscoveryInfo info: [String : String]?) {
         print("foundPeer: \(peerID)")
-        print("invitePeer: \(peerID)")
         browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: 10)
     }
     
@@ -134,7 +129,10 @@ extension ConnectionManager: MCSessionDelegate {
                  peer peerID: MCPeerID,
                  didChange state: MCSessionState) {
         print("peer \(peerID) didChangeState: \(state.rawValue)")
-        connectionDelegate?.peer(peerID, didChangeState: state)
+        
+        DispatchQueue.main.async {
+            self.connectionStore.dispatch(ConnectionAction.peerChangedState(peerID, state))
+        }
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
@@ -149,7 +147,9 @@ extension ConnectionManager: MCSessionDelegate {
         
         print(action.description)
         
-        store.dispatch(action)
+        DispatchQueue.main.async {
+            self.gameStore.dispatch(action)
+        }
     }
     
     // Required but unused functions

@@ -18,16 +18,16 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
 
     @IBAction func onButtonTapped(_ sender: UIButton) {
-        manager.send(action: .LightsOn)
+        manager.send(action: .lightsOn)
     }
     
     @IBAction func offButtonTapped(_ sender: UIButton) {
-        manager.send(action: .LightsOff)
+        manager.send(action: .lightsOff)
     }
     
     @IBAction func sendMessage(_ sender: UIButton) {
         guard let text = messageTextField.text else { return }
-        manager.send(action: .Message(text))
+        manager.send(action: .message(text))
     }
     
     @IBAction func connectionsButtonTapped(_ sender: UIBarButtonItem) {

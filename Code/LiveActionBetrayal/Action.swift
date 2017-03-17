@@ -12,28 +12,28 @@ import ReSwift
 typealias JSON = [String:String]
 
 enum PeerAction: Action, CustomStringConvertible {
-    case LightsOn
-    case LightsOff
-    case Message(String)
+    case lightsOn
+    case lightsOff
+    case message(String)
     
     var description: String {
         switch self {
-        case .LightsOn:
+        case .lightsOn:
             return "Lights ON"
-        case .LightsOff:
+        case .lightsOff:
             return "Lights OFF"
-        case .Message(let string):
+        case .message(let string):
             return "Message: \(string)"
         }
     }
     
     func toJSON() -> JSON {
         switch self {
-        case .LightsOn, .LightsOff:
+        case .lightsOn, .lightsOff:
             return [
                 "action": self.description
             ]
-        case .Message(let string):
+        case .message(let string):
             return [
                 "action": "Message",
                 "message": string
@@ -45,13 +45,13 @@ enum PeerAction: Action, CustomStringConvertible {
         guard let action = json["action"] else { return nil }
         
         switch action {
-        case PeerAction.LightsOn.description:
-            self = .LightsOn
-        case PeerAction.LightsOff.description:
-            self = .LightsOff
+        case PeerAction.lightsOn.description:
+            self = .lightsOn
+        case PeerAction.lightsOff.description:
+            self = .lightsOff
         case "Message":
             guard let message = json["message"] else { return nil }
-            self = .Message(message)
+            self = .message(message)
         default:
             return nil
         }

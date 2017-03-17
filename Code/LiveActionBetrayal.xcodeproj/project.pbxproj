@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07E2A0E4522877ADE5E4F606 /* Pods_LiveActionBetrayal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */; };
+		081120591E7C8234003B52D3 /* Explorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081120581E7C8234003B52D3 /* Explorer.swift */; };
 		081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081ECF301E7738DF006F9FF0 /* AppDelegate.swift */; };
 		081ECF331E7738DF006F9FF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081ECF321E7738DF006F9FF0 /* ProfileViewController.swift */; };
 		081ECF361E7738DF006F9FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 081ECF341E7738DF006F9FF0 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		081120581E7C8234003B52D3 /* Explorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explorer.swift; sourceTree = "<group>"; };
 		081ECF2D1E7738DF006F9FF0 /* LiveActionBetrayal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveActionBetrayal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		081ECF301E7738DF006F9FF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		081ECF321E7738DF006F9FF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				081ECF301E7738DF006F9FF0 /* AppDelegate.swift */,
 				084F26681E7B9CE80058F3DF /* Attributes.swift */,
 				089E1BBD1E78CD27002374A6 /* ConnectionManager.swift */,
+				081120581E7C8234003B52D3 /* Explorer.swift */,
 				084F265F1E78FC110058F3DF /* TorchManager.swift */,
 				081ECF321E7738DF006F9FF0 /* ProfileViewController.swift */,
 				081ECF341E7738DF006F9FF0 /* Main.storyboard */,
@@ -229,6 +232,7 @@
 			files = (
 				081ECF331E7738DF006F9FF0 /* ProfileViewController.swift in Sources */,
 				082056D11E78E58C00846370 /* Action.swift in Sources */,
+				081120591E7C8234003B52D3 /* Explorer.swift in Sources */,
 				089E1BBE1E78CD27002374A6 /* ConnectionManager.swift in Sources */,
 				084F26621E7A75AC0058F3DF /* AppState.swift in Sources */,
 				084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */,

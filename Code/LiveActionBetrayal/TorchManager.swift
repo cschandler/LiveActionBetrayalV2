@@ -13,8 +13,7 @@ class TorchManager {
     
     static func turn(on: Bool) {
         guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo),
-            device.hasTorch
-             else {
+            device.hasTorch else {
                 return
         }
         

@@ -14,13 +14,7 @@ struct AppStore {
 }
 
 struct AppState: StateType {
-    
-    var torchOn: Bool
-    
-    init(torchOn: Bool = TorchManager.isOn) {
-        self.torchOn = torchOn
-    }
-    
+    var torchOn: Bool = TorchManager.isOn
 }
 
 struct AppReducer: Reducer {

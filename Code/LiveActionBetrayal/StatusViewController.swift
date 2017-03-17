@@ -39,6 +39,9 @@ extension StatusViewController: UITableViewDataSource {
         let cell = UITableViewCell(style: .default, reuseIdentifier: IDs.Cells.PeerCell.rawValue)
         
         cell.textLabel?.text = "Test text"
+        cell.textLabel?.textColor = .white
+        cell.imageView?.image = #imageLiteral(resourceName: "ic-avatar-default")
+        cell.backgroundColor = .clear
         
         return cell
     }

@@ -144,7 +144,7 @@ extension ConnectionManager: MCSessionDelegate {
         print("peer \(peerID) didChangeState: \(state.rawValue)")
         
         if state == .connected, let peer = peer {
-            send(metadata: peer)
+            send(metadata: peer, toPeers: [peerID])
         }
         
         DispatchQueue.main.async {

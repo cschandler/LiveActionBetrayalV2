@@ -23,31 +23,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UIn-rP-Dxg">
-                                <rect key="frame" x="26" y="244" width="323" height="180"/>
+                                <rect key="frame" x="26" y="219" width="323" height="230"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRS-zz-eZ3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC0-Yh-MFY">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
+                                        <state key="normal" title="Connect"/>
+                                        <connections>
+                                            <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mxu-vG-1bf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRS-zz-eZ3">
+                                        <rect key="frame" x="0.0" y="50" width="323" height="30"/>
                                         <state key="normal" title="ON"/>
                                         <connections>
                                             <action selector="onButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="doF-Fu-hSu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZC0-jp-NV0">
-                                        <rect key="frame" x="0.0" y="50" width="323" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="323" height="30"/>
                                         <state key="normal" title="OFF"/>
                                         <connections>
                                             <action selector="offButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nEF-7r-akT"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wvb-wM-eqT">
-                                        <rect key="frame" x="0.0" y="100" width="323" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="323" height="30"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXT-2E-4sY">
-                                        <rect key="frame" x="0.0" y="150" width="323" height="30"/>
+                                        <rect key="frame" x="0.0" y="200" width="323" height="30"/>
                                         <state key="normal" title="Send"/>
                                         <connections>
                                             <action selector="sendMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BRP-Ov-9A5"/>
@@ -85,7 +92,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RTG-6k-Cdh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="8eE-7N-6J4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="8eE-7N-6J4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

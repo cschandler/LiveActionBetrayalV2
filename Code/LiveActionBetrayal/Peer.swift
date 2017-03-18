@@ -18,7 +18,7 @@ extension PeerType {
     func toJSON() -> JSON {
         return [
             "name": name as AnyObject,
-            "pictureData": UIImagePNGRepresentation(picture) as AnyObject
+            "pictureData": UIImagePNGRepresentation(picture)?.base64EncodedString() as AnyObject
         ]
     }
 
@@ -31,7 +31,8 @@ extension PeerType {
     }
     
     static func parsePicture(json: [String:AnyObject]) throws -> UIImage {
-        guard let data = json["pictureData"] as? Data else {
+        guard let base64String = json["pictureData"] as? String,
+            let data = Data(base64Encoded: base64String) else {
             throw SerializationError.missing("pictureData")
         }
         

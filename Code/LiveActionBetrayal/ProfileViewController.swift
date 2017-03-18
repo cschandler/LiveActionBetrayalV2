@@ -17,6 +17,10 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var messageTextField: UITextField!
 
+    @IBAction func connect(_ sender: UIButton) {
+        let testPeer = Peer(name: UIDevice.current.name, picture: #imageLiteral(resourceName: "ic-connection-settings"))
+        ConnectionHandler.shared.setup(withPeer: testPeer)
+    }
     @IBAction func onButtonTapped(_ sender: UIButton) {
         manager.send(action: .lightsOn)
     }
@@ -42,7 +46,6 @@ extension ProfileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ConnectionHandler.shared.setup(withPeerName: UIDevice.current.name)
     }
     
 }

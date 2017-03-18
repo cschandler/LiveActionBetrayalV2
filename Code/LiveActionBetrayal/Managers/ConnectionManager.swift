@@ -16,8 +16,8 @@ final class ConnectionHandler {
     
     private var connectionManager: ConnectionManager?
     
-    func setup(withPeerName name: String) {
-        connectionManager = ConnectionManager(peerName: name)
+    func setup(withPeer peer: Peer) {
+        connectionManager = ConnectionManager(peer: peer)
     }
     
     var manager: ConnectionManager {
@@ -43,8 +43,11 @@ final class ConnectionManager: NSObject {
     
     public let session: MCSession
     
-    init(peerName: String = UIDevice.current.name, store: Store<AppState> = AppStore.shared) {
-        self.peerId = MCPeerID(displayName: peerName)
+    fileprivate let peer: Peer?
+    
+    init(peer: Peer? = nil, store: Store<AppState> = AppStore.shared) {
+        self.peer = peer
+        self.peerId = MCPeerID(displayName: peer?.name ?? UIDevice.current.name)
         self.session = MCSession(peer: self.peerId, securityIdentity: nil, encryptionPreference: .required)
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerId, discoveryInfo: nil, serviceType: serviceName)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: peerId, serviceType: serviceName)
@@ -84,13 +87,11 @@ final class ConnectionManager: NSObject {
     }
     
     private func send(data: Data, toPeers: [MCPeerID] = ConnectionHandler.shared.manager.session.connectedPeers) {
-        if session.connectedPeers.count > 0 {
-            do {
-                try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
-            }
-            catch let error {
-                print("Error for sending: \(error)")
-            }
+        do {
+            try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
+        }
+        catch let error {
+            print("Error for sending: \(error)")
         }
     }
     
@@ -141,6 +142,10 @@ extension ConnectionManager: MCSessionDelegate {
                  peer peerID: MCPeerID,
                  didChange state: MCSessionState) {
         print("peer \(peerID) didChangeState: \(state.rawValue)")
+        
+        if state == .connected, let peer = peer {
+            send(metadata: peer)
+        }
         
         DispatchQueue.main.async {
             self.connectionStore.dispatch(ConnectionAction.peerChangedState(peerID, state))

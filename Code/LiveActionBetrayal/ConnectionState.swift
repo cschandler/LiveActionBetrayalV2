@@ -33,6 +33,7 @@ struct ConnectionReducer: Reducer {
         case .peerChangedState(let peerID, let sessionState):
             switch sessionState {
             case .connected:
+                guard !newState.connectedPeers.contains(where: { $0.name == peerID.displayName }) else { break }
                 let peer = Peer(name: peerID.displayName, picture: nil)
                 newState.connectedPeers.append(peer)
                 

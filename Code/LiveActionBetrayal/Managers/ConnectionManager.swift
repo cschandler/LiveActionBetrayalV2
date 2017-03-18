@@ -62,6 +62,15 @@ final class ConnectionManager: NSObject {
         serviceBrowser.startBrowsingForPeers()
     }
     
+    func send(metadata: Peer, toPeers: [MCPeerID] = ConnectionHandler.shared.manager.session.connectedPeers) {
+        guard let data = try? JSONSerialization.data(withJSONObject: metadata.toJSON(), options: []) else {
+            print("action JSON serialization failed")
+            return
+        }
+        
+        send(data: data)
+    }
+    
     func send(action: PeerAction, toPeers: [MCPeerID] = ConnectionHandler.shared.manager.session.connectedPeers) {
         print("send: \(action.description) to peers:")
         dump(session.connectedPeers)
@@ -71,6 +80,10 @@ final class ConnectionManager: NSObject {
             return
         }
         
+        send(data: data)
+    }
+    
+    private func send(data: Data, toPeers: [MCPeerID] = ConnectionHandler.shared.manager.session.connectedPeers) {
         if session.connectedPeers.count > 0 {
             do {
                 try self.session.send(data, toPeers: session.connectedPeers, with: .reliable)
@@ -79,7 +92,6 @@ final class ConnectionManager: NSObject {
                 print("Error for sending: \(error)")
             }
         }
-        
     }
     
     deinit {
@@ -139,17 +151,30 @@ extension ConnectionManager: MCSessionDelegate {
         print("didReceiveData: \(data)")
         
         guard let object = try? JSONSerialization.jsonObject(with: data, options: []),
-            let json = object as? [String:String],
-            let action = PeerAction(json: json) else {
+            let json = object as? JSON else {
             print("json from data serialization failed")
             return
         }
         
-        print(action.description)
-        
-        DispatchQueue.main.async {
-            self.gameStore.dispatch(action)
+        if let action = PeerAction(json: json) {
+            print(action.description)
+            
+            DispatchQueue.main.async {
+                self.gameStore.dispatch(action)
+            }
+            return
         }
+        
+        do {
+            let peer = try Peer(json: json)
+            DispatchQueue.main.async {
+                self.connectionStore.dispatch(ConnectionAction.recievedMetadata(peer))
+            }
+            return
+        } catch {
+            print(error)
+        }
+
     }
     
     // Required but unused functions
@@ -157,4 +182,11 @@ extension ConnectionManager: MCSessionDelegate {
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {}
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {}
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {}
+}
+
+enum SerializationError: Error {
+    case failed
+    case missing(String)
+    case corrupted(String)
+    case invalid(String, Any)
 }

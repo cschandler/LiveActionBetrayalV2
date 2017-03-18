@@ -9,7 +9,7 @@
 import Foundation
 import ReSwift
 
-typealias JSON = [String:String]
+typealias JSON = [String:AnyObject]
 
 enum PeerAction: Action, CustomStringConvertible {
     case lightsOn
@@ -31,18 +31,18 @@ enum PeerAction: Action, CustomStringConvertible {
         switch self {
         case .lightsOn, .lightsOff:
             return [
-                "action": self.description
+                "action": self.description as AnyObject
             ]
         case .message(let string):
             return [
-                "action": "Message",
-                "message": string
+                "action": "Message" as AnyObject,
+                "message": string as AnyObject
             ]
         }
     }
     
     init?(json: JSON) {
-        guard let action = json["action"] else { return nil }
+        guard let action = json["action"] as? String else { return nil }
         
         switch action {
         case PeerAction.lightsOn.description:
@@ -50,7 +50,7 @@ enum PeerAction: Action, CustomStringConvertible {
         case PeerAction.lightsOff.description:
             self = .lightsOff
         case "Message":
-            guard let message = json["message"] else { return nil }
+            guard let message = json["message"] as? String else { return nil }
             self = .message(message)
         default:
             return nil

@@ -16,10 +16,11 @@ struct ConnectionStore {
 
 enum ConnectionAction: Action {
     case peerChangedState(MCPeerID, MCSessionState)
+    case recievedMetadata(Peer)
 }
 
 struct ConnectionState: StateType {
-    var connectedPeers: [MCPeerID] = []
+    var connectedPeers: [Peer] = []
 }
 
 struct ConnectionReducer: Reducer {
@@ -28,17 +29,26 @@ struct ConnectionReducer: Reducer {
         var newState = state ?? ConnectionState()
         
         switch action as! ConnectionAction {
-        case .peerChangedState(let peer, let sessionState):
+            
+        case .peerChangedState(let peerID, let sessionState):
             switch sessionState {
             case .connected:
+                let peer = Peer(name: peerID.displayName, picture: nil)
                 newState.connectedPeers.append(peer)
+                
             case .connecting:
                 break
+                
             case .notConnected:
-                newState.connectedPeers = newState.connectedPeers.filter { $0.displayName != peer.displayName }
+                newState.connectedPeers = newState.connectedPeers.filter { $0.name != peerID.displayName }
             }
+            
+        case .recievedMetadata(let peer):
+            newState.connectedPeers = newState.connectedPeers.filter { $0.name != peer.name }
+            newState.connectedPeers.append(peer)
         }
         
         return newState
     }
+    
 }

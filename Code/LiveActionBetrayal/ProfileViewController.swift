@@ -42,7 +42,7 @@ extension ProfileViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ConnectionHandler.shared.setup(withPeerName: "Test Name")
+        ConnectionHandler.shared.setup(withPeerName: UIDevice.current.name)
     }
     
 }

@@ -22,8 +22,8 @@ class StatusViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    var state: ConnectionState {
-        return ConnectionStore.shared.state
+    var peers: [Peer] {
+        return ConnectionStore.shared.state.connectedPeers
     }
 }
 
@@ -45,15 +45,17 @@ extension StatusViewController {
 extension StatusViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return state.connectedPeers.count
+        return peers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: IDs.Cells.PeerCell.rawValue)
         
-        cell.textLabel?.text = state.connectedPeers[indexPath.row].displayName
+        let peer = peers[indexPath.row]
+        
+        cell.textLabel?.text = peer.name
         cell.textLabel?.textColor = .white
-        cell.imageView?.image = #imageLiteral(resourceName: "ic-avatar-default")
+        cell.imageView?.image = peer.picture
         cell.backgroundColor = .clear
         
         return cell

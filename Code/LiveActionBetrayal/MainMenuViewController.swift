@@ -22,12 +22,12 @@ class MainMenuViewController: BaseViewController {
     
 }
 
-extension MainMenuViewController {
+extension MainMenuViewController: MainMenuType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setBackground(image: #imageLiteral(resourceName: "img-intro-cropped"))
+        setupView()
     }
     
 }

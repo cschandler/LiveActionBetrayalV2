@@ -13,11 +13,11 @@ final class ChooseNameViewController: BaseViewController {
     
 }
 
-extension ChooseNameViewController {
+extension ChooseNameViewController: MainMenuType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setBackground(image: #imageLiteral(resourceName: "img-intro-cropped"))
+        setupView()
     }
 }

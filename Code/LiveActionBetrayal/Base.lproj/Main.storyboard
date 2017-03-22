@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="972" y="38.23088455772114"/>
         </scene>
-        <!--View Controller-->
+        <!--Choose Name View Controller-->
         <scene sceneID="1S9-JY-WEB">
             <objects>
-                <viewController id="kru-gp-7FT" sceneMemberID="viewController">
+                <viewController id="kru-gp-7FT" customClass="ChooseNameViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Ix-AN-lS9"/>
                         <viewControllerLayoutGuide type="bottom" id="tXj-L5-mli"/>

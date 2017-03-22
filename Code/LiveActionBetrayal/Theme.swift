@@ -8,21 +8,33 @@
 
 import UIKit
 
+protocol Themeable: class {
+    var theme: Theme { get }
+}
+
+extension Themeable where Self: BaseViewController {
+    
+    func setupView() {
+        setBackground(image: theme.backgroundImage)
+    }
+    
+}
+
 struct Theme {
     let backgroundImage: UIImage?
-    let color1: UIColor
-    let color2: UIColor
-    let color3: UIColor
-    let color4: UIColor
-    let color5: UIColor
+    let dark: UIColor // dark
+    let mid: UIColor // mid
+    let light: UIColor // light
+    let bright: UIColor // bright
+    let dim: UIColor // dim
     
-    init(background: UIImage?, color1: String, color2: String, color3: String, color4: String, color5: String) {
+    init(background: UIImage?, dark: String, mid: String, light: String, bright: String, dim: String) {
         self.backgroundImage = background
-        self.color1 = UIColor(hex: color1)
-        self.color2 = UIColor(hex: color2)
-        self.color3 = UIColor(hex: color3)
-        self.color4 = UIColor(hex: color4)
-        self.color5 = UIColor(hex: color5)
+        self.dark = UIColor(hex: dark)
+        self.mid = UIColor(hex: mid)
+        self.light = UIColor(hex: light)
+        self.bright = UIColor(hex: bright)
+        self.dim = UIColor(hex: dim)
     }
 }
 

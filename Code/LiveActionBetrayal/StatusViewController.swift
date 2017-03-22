@@ -32,7 +32,7 @@ extension StatusViewController: StatusType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
+        setBackground(image: theme.backgroundImage, withBlurRadius: 0.0)
         ConnectionStore.shared.subscribe(self)
     }
     

@@ -94,6 +94,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kru-gp-7FT" id="WrG-bl-gV4"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE A NAME: This is the name that will represent your character throughout the game." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koy-Be-xGS">
                                 <rect key="frame" x="36" y="84" width="303" height="61"/>
@@ -113,6 +116,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="directions" destination="koy-Be-xGS" id="t35-my-sIq"/>
+                        <outlet property="nameEntry" destination="Kae-Dj-p6D" id="hr8-CY-fBX"/>
                         <segue destination="il9-zz-tmE" kind="show" id="wCk-Xv-IXB"/>
                     </connections>
                 </viewController>

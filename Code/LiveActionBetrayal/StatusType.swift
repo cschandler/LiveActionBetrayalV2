@@ -6,7 +6,7 @@
 //  Copyright © 2017 Charles Chander. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol StatusType: Themeable {}
 

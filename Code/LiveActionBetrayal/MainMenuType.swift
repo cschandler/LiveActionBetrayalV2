@@ -20,4 +20,5 @@ extension MainMenuType where Self: BaseViewController {
                      bright: "4BC484",
                      dim: "598C6E")
     }
+
 }

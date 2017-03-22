@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LIVE ACTION BETRAYAL-->
+        <!--Main Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainMenuViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,16 +48,24 @@
                                     <constraint firstAttribute="width" constant="150" id="Xaz-pQ-lVD"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxf-rD-nc4">
+                                <rect key="frame" x="26" y="74" width="323" height="68"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oxf-rD-nc4" secondAttribute="trailing" constant="10" id="MJa-sG-nRP"/>
                             <constraint firstItem="Aa2-kC-yHM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PZu-vo-XNP"/>
+                            <constraint firstItem="Oxf-rD-nc4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Ux3-pB-KWI"/>
+                            <constraint firstItem="Oxf-rD-nc4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="dJf-Rc-b1S"/>
                             <constraint firstItem="Aa2-kC-yHM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="to1-lk-VTc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="LIVE ACTION BETRAYAL" id="lhj-UT-g1A">
+                    <navigationItem key="navigationItem" id="lhj-UT-g1A">
                         <barButtonItem key="rightBarButtonItem" image="ic-connection-settings" id="Q23-eV-7A2">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="connectionButtonTapped:" destination="BYZ-38-t0r" id="OKm-oy-lMD"/>
                             </connections>

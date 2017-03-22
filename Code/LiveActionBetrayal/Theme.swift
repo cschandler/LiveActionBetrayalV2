@@ -9,19 +9,25 @@
 import UIKit
 
 protocol Themeable: class {
+
     var theme: Theme { get }
+
 }
 
 extension Themeable where Self: BaseViewController {
     
     func setupView() {
         setBackground(image: theme.backgroundImage)
+        view.tintColor = theme.mid
+        navigationController?.navigationBar.tintColor = theme.mid
     }
     
 }
 
 struct Theme {
+
     let backgroundImage: UIImage?
+    
     let dark: UIColor // dark
     let mid: UIColor // mid
     let light: UIColor // light
@@ -36,9 +42,11 @@ struct Theme {
         self.bright = UIColor(hex: bright)
         self.dim = UIColor(hex: dim)
     }
+
 }
 
 extension UIColor {
+    
     convenience init(hex: String) {
         let scanner = Scanner(string: hex)
         scanner.scanLocation = 0
@@ -57,4 +65,5 @@ extension UIColor {
             blue: CGFloat(b) / 0xff, alpha: 1
         )
     }
+
 }

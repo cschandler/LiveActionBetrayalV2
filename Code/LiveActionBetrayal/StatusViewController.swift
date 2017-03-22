@@ -27,12 +27,12 @@ class StatusViewController: BaseViewController {
     }
 }
 
-extension StatusViewController {
+extension StatusViewController: StatusType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setBackground(image: #imageLiteral(resourceName: "img-water"), withBlurRadius: 0.5)
+        setupView()
         ConnectionStore.shared.subscribe(self)
     }
     

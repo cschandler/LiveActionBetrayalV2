@@ -28,6 +28,7 @@
 		08FE3CA61E82DCD3005E3C3A /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3CA51E82DCD3005E3C3A /* ConnectionManager.swift */; };
 		08FE3CA91E82DD09005E3C3A /* Status.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FE3CA71E82DD09005E3C3A /* Status.storyboard */; };
 		08FE3CAC1E82DD6B005E3C3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FE3CAA1E82DD6B005E3C3A /* Main.storyboard */; };
+		08FE3CAE1E82DDC1005E3C3A /* ChooseNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3CAD1E82DDC1005E3C3A /* ChooseNameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		08FE3CA51E82DCD3005E3C3A /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		08FE3CA81E82DD09005E3C3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Status.storyboard; sourceTree = "<group>"; };
 		08FE3CAB1E82DD6B005E3C3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LiveActionBetrayal/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		08FE3CAD1E82DDC1005E3C3A /* ChooseNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseNameViewController.swift; path = LiveActionBetrayal/ChooseNameViewController.swift; sourceTree = SOURCE_ROOT; };
 		4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.debug.xcconfig"; sourceTree = "<group>"; };
 		8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.release.xcconfig"; sourceTree = "<group>"; };
 		98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveActionBetrayal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 			children = (
 				08FE3CAA1E82DD6B005E3C3A /* Main.storyboard */,
 				08FE3CA31E82DCC8005E3C3A /* MainMenuViewController.swift */,
+				08FE3CAD1E82DDC1005E3C3A /* ChooseNameViewController.swift */,
 			);
 			path = "Main Menu";
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */,
 				084F26621E7A75AC0058F3DF /* AppState.swift in Sources */,
 				084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */,
+				08FE3CAE1E82DDC1005E3C3A /* ChooseNameViewController.swift in Sources */,
 				084F26601E78FC110058F3DF /* TorchManager.swift in Sources */,
 				0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */,
 				08FE3CA61E82DCD3005E3C3A /* ConnectionManager.swift in Sources */,

@@ -15,5 +15,6 @@ enum IDs {
     
     enum Cells: String {
         case PeerCell
+        case AttributeCell
     }
 }

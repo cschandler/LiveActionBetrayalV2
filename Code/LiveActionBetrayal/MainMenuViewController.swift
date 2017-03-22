@@ -1,0 +1,33 @@
+//
+//  ViewController.swift
+//  LiveActionBetrayal
+//
+//  Created by Charles Chandler on 3/13/17.
+//  Copyright © 2017 Charles Chander. All rights reserved.
+//
+
+import UIKit
+import ReSwift
+
+class MainMenuViewController: BaseViewController {
+
+    var manager: ConnectionManager {
+        return ConnectionHandler.shared.manager
+    }
+    
+    @IBAction func connectionButtonTapped(_ sender: UIBarButtonItem) {
+        let vc = StatusViewController.build()
+        present(vc, animated: true, completion: nil)
+    }
+    
+}
+
+extension MainMenuViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setBackground(image: #imageLiteral(resourceName: "img-intro-cropped"))
+    }
+    
+}

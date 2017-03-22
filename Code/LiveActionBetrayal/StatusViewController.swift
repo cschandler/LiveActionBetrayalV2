@@ -10,7 +10,7 @@ import UIKit
 import ReSwift
 import MultipeerConnectivity
 
-class StatusViewController: UIViewController {
+class StatusViewController: BaseViewController {
     
     static func build() -> UINavigationController {
         return UIStoryboard(name: IDs.Storyboards.Status.rawValue, bundle: nil).instantiateInitialViewController() as! UINavigationController
@@ -32,6 +32,7 @@ extension StatusViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackground(image: #imageLiteral(resourceName: "img-water"), withBlurRadius: 0.5)
         ConnectionStore.shared.subscribe(self)
     }
     

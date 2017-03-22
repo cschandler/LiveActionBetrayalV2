@@ -16,10 +16,50 @@ class AppDelegate: UIResponder {
 
 }
 
+extension UIButton {
+    
+    dynamic var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+    
+    dynamic var borderColor: UIColor? {
+        get {
+            if let color = layer.borderColor {
+                return UIColor(cgColor: color)
+            }
+            return nil
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+    
+    dynamic var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+}
+
 extension AppDelegate: UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        UIButton.appearance().backgroundColor = .lightGray
+        UIButton.appearance().tintColor = .white
+        UIButton.appearance().cornerRadius = 4.0
+        UIButton.appearance().borderWidth = 1.0
+        UIButton.appearance().borderColor = .white
+        
         return true
     }
     

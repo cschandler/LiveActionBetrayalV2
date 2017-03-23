@@ -118,7 +118,7 @@
                     <connections>
                         <outlet property="directions" destination="koy-Be-xGS" id="t35-my-sIq"/>
                         <outlet property="nameEntry" destination="Kae-Dj-p6D" id="hr8-CY-fBX"/>
-                        <segue destination="il9-zz-tmE" kind="show" id="wCk-Xv-IXB"/>
+                        <segue destination="il9-zz-tmE" kind="show" identifier="NameToAttributes" id="wCk-Xv-IXB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKY-qM-c0S" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,4 +17,8 @@ enum IDs {
         case PeerCell
         case AttributeCell
     }
+    
+    enum Segue: String {
+        case NameToAttributes
+    }
 }

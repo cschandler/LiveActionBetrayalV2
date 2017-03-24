@@ -28,13 +28,21 @@ final class AttributeCell: UITableViewCell {
         
         selectedBackgroundView = UIView()
         gradientView.alpha = 0.0
-        stackViewHieghtConstraint.constant = 0.0
+        isExpanded = false
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
         gradientView.alpha = 0.0
+        gradientView.startColor = .clear
+        gradientView.endColor = .clear
+        isExpanded = false
+        
+        speedValues.text = ""
+        mightValues.text = ""
+        sanityValues.text = ""
+        knowledgeValues.text = ""
     }
     
     var isExpanded: Bool = false {

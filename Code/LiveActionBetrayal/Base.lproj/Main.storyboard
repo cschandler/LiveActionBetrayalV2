@@ -129,19 +129,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2D-5K-YqQ">
-                                <rect key="frame" x="16" y="165" width="343" height="482"/>
+                                <rect key="frame" x="16" y="84" width="343" height="563"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2LP-Oy-0O4">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="482"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="563"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HR-yj-7Dk">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="482"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="563"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="njQ-wV-3vx">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="482"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="563"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WPC-eM-aZh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="482"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="563"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                                         <prototypes>
@@ -149,11 +149,11 @@
                                                                 <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xoX-8L-ewh" id="fZN-OA-AvJ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TWQ-b2-zCR">
-                                                                            <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                                            <rect key="frame" x="15" y="0.0" width="313" height="43"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -192,28 +192,17 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE AN ATTRIBUTE: Determine your Speed, Sanity, and Knowledge." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mJ-RC-43F">
-                                <rect key="frame" x="36" y="84" width="303" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9mJ-RC-43F" firstAttribute="top" secondItem="6Uc-bf-Wgh" secondAttribute="bottom" constant="20" id="7Qj-3u-cUK"/>
-                            <constraint firstItem="9mJ-RC-43F" firstAttribute="leading" secondItem="WZ4-ge-iVr" secondAttribute="leadingMargin" constant="20" id="8Qw-ZJ-0FT"/>
-                            <constraint firstItem="p2D-5K-YqQ" firstAttribute="top" secondItem="9mJ-RC-43F" secondAttribute="bottom" constant="20" id="CGd-ls-Kmy"/>
-                            <constraint firstItem="9mJ-RC-43F" firstAttribute="centerX" secondItem="WZ4-ge-iVr" secondAttribute="centerX" id="Fnd-GQ-5fg"/>
+                            <constraint firstItem="p2D-5K-YqQ" firstAttribute="top" secondItem="6Uc-bf-Wgh" secondAttribute="bottom" constant="20" id="Mc2-vH-y1l"/>
                             <constraint firstItem="p2D-5K-YqQ" firstAttribute="leading" secondItem="WZ4-ge-iVr" secondAttribute="leadingMargin" id="YrR-Gl-zRl"/>
                             <constraint firstItem="CbC-xt-JPj" firstAttribute="top" secondItem="p2D-5K-YqQ" secondAttribute="bottom" constant="20" id="gHD-Lb-nHm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p2D-5K-YqQ" secondAttribute="trailing" id="n7U-cg-3K3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9mJ-RC-43F" secondAttribute="trailing" constant="20" id="wCI-DF-M4b"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="blurView" destination="p2D-5K-YqQ" id="rfQ-bL-QJw"/>
-                        <outlet property="directions" destination="9mJ-RC-43F" id="CUP-Qb-jbX"/>
                         <outlet property="tableView" destination="WPC-eM-aZh" id="8Xf-NP-E4N"/>
                         <outlet property="vibrancyView" destination="4HR-yj-7Dk" id="7JN-R0-K8x"/>
                     </connections>

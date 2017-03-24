@@ -10,7 +10,6 @@ import UIKit
 
 final class ChooseAttributeViewController: BaseViewController {
     
-    @IBOutlet weak var directions: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var vibrancyView: UIVisualEffectView!
@@ -25,10 +24,12 @@ extension ChooseAttributeViewController: MainMenuType {
         super.viewDidLoad()
         
         setupView()
-        directions.textColor = theme.light
+        title = "ATTRIBUTE"
         
         let nib = UINib(nibName: IDs.Cells.AttributeCell.rawValue, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: IDs.Cells.AttributeCell.rawValue)
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 150, 0)
+        
         blurView.layer.cornerRadius = 12.0
     }
     

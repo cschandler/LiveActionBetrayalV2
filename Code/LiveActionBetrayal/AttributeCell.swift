@@ -10,7 +10,6 @@ import UIKit
 
 final class AttributeCell: UITableViewCell {
     
-    @IBOutlet weak var gradientView: AttributeGradientView!
     @IBOutlet weak var attribute: UILabel!
     @IBOutlet weak var stackViewHieghtConstraint: NSLayoutConstraint!
     
@@ -27,18 +26,13 @@ final class AttributeCell: UITableViewCell {
         super.awakeFromNib()
         
         selectedBackgroundView = UIView()
-        gradientView.alpha = 0.0
         isExpanded = false
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        gradientView.alpha = 0.0
-        gradientView.startColor = .clear
-        gradientView.endColor = .clear
         isExpanded = false
-        
         speedValues.text = ""
         mightValues.text = ""
         sanityValues.text = ""

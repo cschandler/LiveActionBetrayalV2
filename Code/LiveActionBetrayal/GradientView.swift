@@ -16,6 +16,7 @@ import UIKit
     override func draw(_ rect: CGRect) {
         guard let superview = superview else { return }
         
+        
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = CGRect(x: CGFloat(0),
                                 y: CGFloat(0),
@@ -23,6 +24,8 @@ import UIKit
                                 height: 200)
         
         gradient.colors = [startColor.cgColor, endColor.cgColor]
+        
+        print("adding gradient layer")
         
         layer.addSublayer(gradient)
     }

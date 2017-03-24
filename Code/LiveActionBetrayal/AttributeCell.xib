@@ -16,21 +16,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w76-05-JV8" id="nZp-UB-saK">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="169.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct7-GC-9g4" customClass="AttributeGradientView" customModule="LiveActionBetrayal" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="169.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="0.61176470589999998" green="0.43921568630000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfe-uP-BXS">
                         <rect key="frame" x="154" y="8" width="67" height="53.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -117,13 +105,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="ct7-GC-9g4" secondAttribute="bottom" id="1kf-PN-93T"/>
-                    <constraint firstItem="ct7-GC-9g4" firstAttribute="top" secondItem="nZp-UB-saK" secondAttribute="top" id="FKl-ch-XMg"/>
-                    <constraint firstAttribute="trailing" secondItem="ct7-GC-9g4" secondAttribute="trailing" id="Ig7-oQ-d2S"/>
                     <constraint firstItem="pfe-uP-BXS" firstAttribute="top" secondItem="nZp-UB-saK" secondAttribute="topMargin" id="TP2-RL-zJC"/>
                     <constraint firstAttribute="trailingMargin" secondItem="r9W-vq-vge" secondAttribute="trailing" id="ZsF-up-Og8"/>
                     <constraint firstItem="pfe-uP-BXS" firstAttribute="centerX" secondItem="nZp-UB-saK" secondAttribute="centerX" id="fy3-uc-tX8"/>
-                    <constraint firstItem="ct7-GC-9g4" firstAttribute="leading" secondItem="nZp-UB-saK" secondAttribute="leading" id="lJo-ne-F8H"/>
                     <constraint firstItem="r9W-vq-vge" firstAttribute="top" secondItem="pfe-uP-BXS" secondAttribute="bottom" id="mWl-JI-9ZS"/>
                     <constraint firstItem="r9W-vq-vge" firstAttribute="leading" secondItem="nZp-UB-saK" secondAttribute="leadingMargin" id="ohx-2F-SHd"/>
                     <constraint firstAttribute="bottomMargin" secondItem="r9W-vq-vge" secondAttribute="bottom" id="saM-Ic-dec"/>
@@ -132,7 +116,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="attribute" destination="pfe-uP-BXS" id="LTh-ef-ttW"/>
-                <outlet property="gradientView" destination="ct7-GC-9g4" id="gRN-71-2kr"/>
                 <outlet property="knowledge" destination="sxh-BX-ZYh" id="fR1-XW-QP4"/>
                 <outlet property="knowledgeValues" destination="2iQ-le-SpU" id="ESV-K8-MCF"/>
                 <outlet property="might" destination="30L-ai-ghs" id="3JK-aQ-rJF"/>

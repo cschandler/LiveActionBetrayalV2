@@ -47,7 +47,6 @@ extension ChooseAttributeViewController: UITableViewDataSource {
         
         cell.attribute.text = attribute.name
         cell.attribute.textColor = theme.bright
-        cell.gradientView.endColor = attribute.color
         cell.setupLabels(withAttribute: attribute, andColor: theme.light)
         
         return cell
@@ -62,11 +61,6 @@ extension ChooseAttributeViewController: UITableViewDelegate {
         
         cell.isExpanded = true
         
-        UIView.animate(withDuration: 0.3) { 
-            cell.gradientView.alpha = 1.0
-            cell.layoutIfNeeded()
-        }
-        
         tableView.beginUpdates()
         tableView.endUpdates()
     }
@@ -75,11 +69,6 @@ extension ChooseAttributeViewController: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
         
         cell.isExpanded = false
-        
-        UIView.animate(withDuration: 0.3) {
-            cell.gradientView.alpha = 0.0
-            cell.layoutIfNeeded()
-        }
         
         tableView.beginUpdates()
         tableView.endUpdates()

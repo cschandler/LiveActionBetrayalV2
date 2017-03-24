@@ -18,7 +18,7 @@ enum IDs {
         case AttributeCell
     }
     
-    enum Segue: String {
+    enum Segues: String {
         case NameToAttributes
     }
 }

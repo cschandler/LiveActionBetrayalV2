@@ -28,7 +28,7 @@ final class ChooseNameViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == IDs.Segue.NameToAttributes.rawValue,
+        guard segue.identifier == IDs.Segues.NameToAttributes.rawValue,
             let destination = segue.destination as? ChooseAttributeViewController,
             let name = nameEntry.text else {
             return
@@ -58,7 +58,7 @@ extension ChooseNameViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if validateName(name: textField.text) {
             textField.resignFirstResponder()
-            performSegue(withIdentifier: IDs.Segue.NameToAttributes.rawValue, sender: nil)
+            performSegue(withIdentifier: IDs.Segues.NameToAttributes.rawValue, sender: nil)
             return true
         } else {
             UIView.animate(withDuration: 0.3, animations: { 

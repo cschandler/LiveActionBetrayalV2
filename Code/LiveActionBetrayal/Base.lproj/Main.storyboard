@@ -48,19 +48,10 @@
                                     <constraint firstAttribute="width" constant="150" id="Xaz-pQ-lVD"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxf-rD-nc4">
-                                <rect key="frame" x="26" y="74" width="323" height="68"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Oxf-rD-nc4" secondAttribute="trailing" constant="10" id="MJa-sG-nRP"/>
                             <constraint firstItem="Aa2-kC-yHM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PZu-vo-XNP"/>
-                            <constraint firstItem="Oxf-rD-nc4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Ux3-pB-KWI"/>
-                            <constraint firstItem="Oxf-rD-nc4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="dJf-Rc-b1S"/>
                             <constraint firstItem="Aa2-kC-yHM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="to1-lk-VTc"/>
                         </constraints>
                     </view>
@@ -136,12 +127,63 @@
                     <view key="view" contentMode="scaleToFill" id="WZ4-ge-iVr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WPC-eM-aZh">
+                                <rect key="frame" x="0.0" y="165" width="375" height="502"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AttributeCell" textLabel="TWQ-b2-zCR" style="IBUITableViewCellStyleDefault" id="xoX-8L-ewh">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xoX-8L-ewh" id="fZN-OA-AvJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TWQ-b2-zCR">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="il9-zz-tmE" id="VXE-xV-do7"/>
+                                    <outlet property="delegate" destination="il9-zz-tmE" id="khh-EY-y4M"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE AN ATTRIBUTE: Determine your Might, Speed, Knowledge, and Sanity." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mJ-RC-43F">
+                                <rect key="frame" x="36" y="84" width="303" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9mJ-RC-43F" firstAttribute="top" secondItem="6Uc-bf-Wgh" secondAttribute="bottom" constant="20" id="7Qj-3u-cUK"/>
+                            <constraint firstItem="9mJ-RC-43F" firstAttribute="leading" secondItem="WZ4-ge-iVr" secondAttribute="leadingMargin" constant="20" id="8Qw-ZJ-0FT"/>
+                            <constraint firstItem="WPC-eM-aZh" firstAttribute="top" secondItem="9mJ-RC-43F" secondAttribute="bottom" constant="20" id="9T3-BU-AXl"/>
+                            <constraint firstItem="WPC-eM-aZh" firstAttribute="leading" secondItem="WZ4-ge-iVr" secondAttribute="leading" id="B6o-uD-jAj"/>
+                            <constraint firstItem="9mJ-RC-43F" firstAttribute="centerX" secondItem="WZ4-ge-iVr" secondAttribute="centerX" id="Fnd-GQ-5fg"/>
+                            <constraint firstAttribute="trailing" secondItem="WPC-eM-aZh" secondAttribute="trailing" id="IuP-aN-JoZ"/>
+                            <constraint firstItem="CbC-xt-JPj" firstAttribute="top" secondItem="WPC-eM-aZh" secondAttribute="bottom" id="atl-EA-M0R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9mJ-RC-43F" secondAttribute="trailing" constant="20" id="wCI-DF-M4b"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="directions" destination="9mJ-RC-43F" id="CUP-Qb-jbX"/>
+                        <outlet property="tableView" destination="WPC-eM-aZh" id="8Xf-NP-E4N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0S-hI-YHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2679" y="38"/>
+            <point key="canvasLocation" x="2677.5999999999999" y="37.331334332833585"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p1y-my-WgJ">

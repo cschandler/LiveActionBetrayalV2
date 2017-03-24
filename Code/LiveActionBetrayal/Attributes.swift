@@ -43,7 +43,7 @@ var attributes: [Attribute] {
                            color: .red,
                            speed: Stat(values: [2, 2, 2, 3, 4, 5, 5, 6], starting: 5),
                            might: Stat(values: [4, 5, 5, 6, 6, 7, 8, 8], starting: 3),
-                           sanity: Stat(values: [2, 3, 4, 5, 5, 6, 7], starting: 3),
+                           sanity: Stat(values: [2, 2, 3, 4, 5, 5, 6, 7], starting: 3),
                            knowledge: Stat(values: [2, 2, 3, 3, 5, 5, 6, 6], starting: 3))
     
     let quick = Attribute(name: "Quick",
@@ -117,7 +117,7 @@ var attributes: [Attribute] {
                           knowledge: Stat(values: [1, 3, 3, 4, 5, 6, 6, 8], starting: 4))
     
     let erudite = Attribute(name: "Erudite",
-                            color: .yellow,
+                            color: .white,
                             speed: Stat(values: [2, 2, 4, 4, 5, 5, 6, 6], starting: 4),
                             might: Stat(values: [1, 2, 3, 4, 5, 5, 6, 6], starting: 3),
                             sanity: Stat(values: [1, 3, 3, 4, 5, 5, 6, 7], starting: 3),

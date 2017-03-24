@@ -24,6 +24,9 @@ extension ChooseAttributeViewController: MainMenuType {
         
         setupView()
         directions.textColor = theme.light
+        
+        let nib = UINib(nibName: IDs.Cells.AttributeCell.rawValue, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: IDs.Cells.AttributeCell.rawValue)
     }
     
 }
@@ -35,15 +38,51 @@ extension ChooseAttributeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.AttributeCell.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.AttributeCell.rawValue, for: indexPath) as! AttributeCell
         
         let attribute = attributes[indexPath.row]
         
-        cell.textLabel?.text = attribute.name
-        cell.textLabel?.textColor = attribute.color
-        cell.textLabel?.alpha = 0.5
+        cell.attribute.text = attribute.name
+        cell.attribute.textColor = theme.light
+        cell.gradientView.endColor = attribute.color
         
         return cell
     }
 
+}
+
+extension ChooseAttributeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
+        
+        cell.isExpanded = true
+        
+        UIView.animate(withDuration: 0.3) { 
+            cell.gradientView.alpha = 1.0
+            cell.layoutIfNeeded()
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
+        
+        cell.isExpanded = false
+        
+        UIView.animate(withDuration: 0.3) {
+            cell.gradientView.alpha = 0.0
+            cell.layoutIfNeeded()
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
 }

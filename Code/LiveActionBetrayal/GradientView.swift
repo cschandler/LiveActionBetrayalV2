@@ -13,10 +13,6 @@ import UIKit
     @IBInspectable var startColor: UIColor = .clear
     @IBInspectable var endColor: UIColor = .clear
     
-    var midColor: UIColor {
-        return .clear
-    }
-    
     override func draw(_ rect: CGRect) {
         guard let superview = superview else { return }
         
@@ -26,10 +22,7 @@ import UIKit
                                 width: superview.frame.size.width,
                                 height: 200)
         
-        gradient.colors = [startColor.cgColor, midColor.cgColor, endColor.cgColor]
-        
-        gradient.startPoint = CGPoint(x: -0.3, y: -1.5)
-        gradient.endPoint = CGPoint(x: 1.3, y: 1.5)
+        gradient.colors = [startColor.cgColor, endColor.cgColor]
         
         layer.addSublayer(gradient)
     }

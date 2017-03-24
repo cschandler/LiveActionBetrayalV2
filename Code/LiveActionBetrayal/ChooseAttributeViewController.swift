@@ -12,6 +12,8 @@ final class ChooseAttributeViewController: BaseViewController {
     
     @IBOutlet weak var directions: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var vibrancyView: UIVisualEffectView!
     
     var metadata: PlayerMetadata?
     
@@ -27,6 +29,7 @@ extension ChooseAttributeViewController: MainMenuType {
         
         let nib = UINib(nibName: IDs.Cells.AttributeCell.rawValue, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: IDs.Cells.AttributeCell.rawValue)
+        blurView.layer.cornerRadius = 8.0
     }
     
 }

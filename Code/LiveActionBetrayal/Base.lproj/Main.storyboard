@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="1814" y="38"/>
         </scene>
-        <!--View Controller-->
+        <!--Choose Attribute View Controller-->
         <scene sceneID="Tg0-rW-KWK">
             <objects>
-                <viewController id="il9-zz-tmE" sceneMemberID="viewController">
+                <viewController id="il9-zz-tmE" customClass="ChooseAttributeViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Uc-bf-Wgh"/>
                         <viewControllerLayoutGuide type="bottom" id="CbC-xt-JPj"/>

@@ -28,12 +28,14 @@ final class ChooseNameViewController: BaseViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let destination = segue.destination as? UIViewController {
-            print("pass the name")
+        guard segue.identifier == IDs.Segue.NameToAttributes.rawValue,
+            let destination = segue.destination as? ChooseAttributeViewController,
+            let name = nameEntry.text else {
+            return
         }
-        
-        super.prepare(for: segue, sender: sender)
+
+        let metadata = PlayerMetadata(name: name)
+        destination.metadata = metadata
     }
     
 }

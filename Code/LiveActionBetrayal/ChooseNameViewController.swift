@@ -61,9 +61,11 @@ extension ChooseNameViewController: UITextFieldDelegate {
             performSegue(withIdentifier: IDs.Segue.NameToAttributes.rawValue, sender: nil)
             return true
         } else {
-            nameEntry.backgroundColor = .red
-            directions.textColor = .red
-            directions.text = "CHOOSE A NAME:\nThat name is unavailable.  Please choose another."
+            UIView.animate(withDuration: 0.3, animations: { 
+                self.nameEntry.backgroundColor = .red
+                self.directions.textColor = .red
+                self.directions.text = "CHOOSE A NAME:\nThat name is unavailable.  Please choose another."
+            })
             return false
         }
     }

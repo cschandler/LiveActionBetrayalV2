@@ -43,7 +43,15 @@ struct Stat {
     
     func toString() -> String {
         var string = ""
-        values.forEach { string.append(" \($0)") }
+        
+        for (index, value) in values.enumerated() {
+            if index == (starting - 1) {
+                string.append(" (\(value))")
+            } else {
+                string.append(" \(value)")
+            }
+        }
+        
         return string
     }
 }

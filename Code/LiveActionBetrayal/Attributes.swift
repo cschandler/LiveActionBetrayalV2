@@ -15,6 +15,10 @@ struct Attribute {
     let might: Stat
     let sanity: Stat
     let knowledge: Stat
+    
+    var stats: [Stat] {
+        return [speed, might, sanity, knowledge]
+    }
 }
 
 typealias StatValue = Int
@@ -35,6 +39,12 @@ struct Stat {
     
     func value(for position: Position) -> StatValue {
         return values[position - 1]
+    }
+    
+    func toString() -> String {
+        var string = ""
+        values.forEach { string.append(" \($0)") }
+        return string
     }
 }
 

@@ -28,8 +28,8 @@ import UIKit
         
         gradient.colors = [startColor.cgColor, midColor.cgColor, endColor.cgColor]
         
-        gradient.startPoint = CGPoint(x: -0.5, y: -2.0)
-        gradient.endPoint = CGPoint(x: 1.5, y: 2.0)
+        gradient.startPoint = CGPoint(x: -0.3, y: -1.5)
+        gradient.endPoint = CGPoint(x: 1.3, y: 1.5)
         
         layer.addSublayer(gradient)
     }

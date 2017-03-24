@@ -45,6 +45,7 @@ extension ChooseAttributeViewController: UITableViewDataSource {
         cell.attribute.text = attribute.name
         cell.attribute.textColor = theme.light
         cell.gradientView.endColor = attribute.color
+        cell.setupLabels(withAttribute: attribute, andColor: theme.light)
         
         return cell
     }

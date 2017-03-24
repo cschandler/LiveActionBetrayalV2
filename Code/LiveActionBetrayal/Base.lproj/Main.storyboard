@@ -129,19 +129,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2D-5K-YqQ">
-                                <rect key="frame" x="16" y="84" width="343" height="563"/>
+                                <rect key="frame" x="16" y="69" width="343" height="544"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2LP-Oy-0O4">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="563"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="544"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HR-yj-7Dk">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="563"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="544"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="njQ-wV-3vx">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="563"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="544"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WPC-eM-aZh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="563"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="544"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                                         <prototypes>
@@ -192,12 +192,18 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-5m-hBi">
+                                <rect key="frame" x="159.5" y="625" width="55" height="30"/>
+                                <state key="normal" title="SELECT"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="p2D-5K-YqQ" firstAttribute="top" secondItem="6Uc-bf-Wgh" secondAttribute="bottom" constant="20" id="Mc2-vH-y1l"/>
+                            <constraint firstItem="CbC-xt-JPj" firstAttribute="top" secondItem="B0f-5m-hBi" secondAttribute="bottom" constant="12" id="EL2-xV-0TV"/>
+                            <constraint firstItem="B0f-5m-hBi" firstAttribute="centerX" secondItem="WZ4-ge-iVr" secondAttribute="centerX" id="H3V-DX-BU6"/>
+                            <constraint firstItem="p2D-5K-YqQ" firstAttribute="top" secondItem="6Uc-bf-Wgh" secondAttribute="bottom" constant="5" id="Mc2-vH-y1l"/>
+                            <constraint firstItem="B0f-5m-hBi" firstAttribute="top" secondItem="p2D-5K-YqQ" secondAttribute="bottom" constant="12" id="XGx-C8-4qT"/>
                             <constraint firstItem="p2D-5K-YqQ" firstAttribute="leading" secondItem="WZ4-ge-iVr" secondAttribute="leadingMargin" id="YrR-Gl-zRl"/>
-                            <constraint firstItem="CbC-xt-JPj" firstAttribute="top" secondItem="p2D-5K-YqQ" secondAttribute="bottom" constant="20" id="gHD-Lb-nHm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p2D-5K-YqQ" secondAttribute="trailing" id="n7U-cg-3K3"/>
                         </constraints>
                     </view>

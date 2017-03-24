@@ -62,6 +62,9 @@ extension ChooseAttributeViewController: UITableViewDelegate {
         
         cell.isExpanded = true
         
+        cell.backgroundColor = .white
+        cell.tintColor = .black
+        
         tableView.beginUpdates()
         tableView.endUpdates()
     }
@@ -70,6 +73,9 @@ extension ChooseAttributeViewController: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
         
         cell.isExpanded = false
+        
+        cell.backgroundColor = .clear
+        cell.tintColor = .white
         
         tableView.beginUpdates()
         tableView.endUpdates()

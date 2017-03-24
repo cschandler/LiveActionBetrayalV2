@@ -46,8 +46,8 @@ extension ChooseAttributeViewController: UITableViewDataSource {
         let attribute = attributes[indexPath.row]
         
         cell.attribute.text = attribute.name
-        cell.attribute.textColor = theme.bright
-        cell.setupLabels(withAttribute: attribute, andColor: theme.light)
+        cell.setupLabels(withAttribute: attribute)
+        cell.tintColor = .white
         
         return cell
     }

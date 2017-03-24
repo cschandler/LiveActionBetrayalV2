@@ -45,20 +45,10 @@ final class AttributeCell: UITableViewCell {
         }
     }
     
-    func setupLabels(withAttribute attribute: Attribute, andColor color: UIColor) {
+    func setupLabels(withAttribute attribute: Attribute) {
         speedValues.text?.append(attribute.speed.toString())
         mightValues.text?.append(attribute.might.toString())
         sanityValues.text?.append(attribute.sanity.toString())
         knowledgeValues.text?.append(attribute.knowledge.toString())
-        
-        speed.textColor = color
-        might.textColor = color
-        sanity.textColor = color
-        knowledge.textColor = color
-        
-        speedValues.textColor = .white
-        mightValues.textColor = .white
-        sanityValues.textColor = .white
-        knowledgeValues.textColor = .white
     }
 }

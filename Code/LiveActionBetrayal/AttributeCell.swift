@@ -15,9 +15,13 @@ final class AttributeCell: UITableViewCell {
     @IBOutlet weak var stackViewHieghtConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var might: UILabel!
+    @IBOutlet weak var mightValues: UILabel!
     @IBOutlet weak var speed: UILabel!
+    @IBOutlet weak var speedValues: UILabel!
     @IBOutlet weak var knowledge: UILabel!
+    @IBOutlet weak var knowledgeValues: UILabel!
     @IBOutlet weak var sanity: UILabel!
+    @IBOutlet weak var sanityValues: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,14 +44,19 @@ final class AttributeCell: UITableViewCell {
     }
     
     func setupLabels(withAttribute attribute: Attribute, andColor color: UIColor) {
-        speed.text?.append(attribute.speed.toString())
-        might.text?.append(attribute.might.toString())
-        sanity.text?.append(attribute.sanity.toString())
-        knowledge.text?.append(attribute.knowledge.toString())
+        speedValues.text?.append(attribute.speed.toString())
+        mightValues.text?.append(attribute.might.toString())
+        sanityValues.text?.append(attribute.sanity.toString())
+        knowledgeValues.text?.append(attribute.knowledge.toString())
         
         speed.textColor = color
         might.textColor = color
         sanity.textColor = color
         knowledge.textColor = color
+        
+        speedValues.textColor = .white
+        mightValues.textColor = .white
+        sanityValues.textColor = .white
+        knowledgeValues.textColor = .white
     }
 }

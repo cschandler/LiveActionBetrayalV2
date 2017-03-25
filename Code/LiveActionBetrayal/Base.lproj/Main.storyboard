@@ -23,10 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Aa2-kC-yHM">
-                                <rect key="frame" x="112.5" y="268.5" width="150" height="130"/>
+                                <rect key="frame" x="36" y="259.5" width="303" height="148"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vha-Ec-7Vq" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="3vz-S6-DMM"/>
+                                        </constraints>
                                         <state key="normal" title="NEW GAME"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="style">
@@ -38,7 +41,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wy-iF-b77" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="150" height="30"/>
+                                        <rect key="frame" x="0.0" y="56" width="303" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="Mq9-mf-CZ7"/>
+                                        </constraints>
                                         <state key="normal" title="CONTINUE"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="style">
@@ -50,7 +56,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fx-Ge-p9h" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="100" width="150" height="30"/>
+                                        <rect key="frame" x="0.0" y="112" width="303" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="BJy-M5-r4w"/>
+                                        </constraints>
                                         <state key="normal" title="WATCHER"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="style">
@@ -59,14 +68,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Xaz-pQ-lVD"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Aa2-kC-yHM" secondAttribute="trailing" constant="20" id="FoL-dZ-J4E"/>
                             <constraint firstItem="Aa2-kC-yHM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PZu-vo-XNP"/>
+                            <constraint firstItem="Aa2-kC-yHM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="b6B-cA-VgN"/>
                             <constraint firstItem="Aa2-kC-yHM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="to1-lk-VTc"/>
                         </constraints>
                     </view>
@@ -96,22 +104,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-1Y-od7">
-                                <rect key="frame" x="16" y="84" width="343" height="30"/>
+                                <rect key="frame" x="16" y="114" width="343" height="36"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bHZ-xF-dBM">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2L-Rc-nrm">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dSL-cu-ncl">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a name." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kae-Dj-p6D">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="9Kf-i1-MMF"/>
+                                                        </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="kru-gp-7FT" id="WrG-bl-gV4"/>
@@ -148,7 +159,7 @@
                         <constraints>
                             <constraint firstItem="rNk-1Y-od7" firstAttribute="leading" secondItem="1RI-DX-BpG" secondAttribute="leadingMargin" id="ALc-oR-1Up"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rNk-1Y-od7" secondAttribute="trailing" id="WYG-N7-Sq7"/>
-                            <constraint firstItem="rNk-1Y-od7" firstAttribute="top" secondItem="9Ix-AN-lS9" secondAttribute="bottom" constant="20" id="t3w-2E-nYl"/>
+                            <constraint firstItem="rNk-1Y-od7" firstAttribute="top" secondItem="9Ix-AN-lS9" secondAttribute="bottom" constant="50" id="t3w-2E-nYl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -174,19 +185,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2D-5K-YqQ">
-                                <rect key="frame" x="16" y="69" width="343" height="544"/>
+                                <rect key="frame" x="16" y="76" width="343" height="531"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2LP-Oy-0O4">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="544"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="531"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HR-yj-7Dk">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="544"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="531"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="njQ-wV-3vx">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="544"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="531"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WPC-eM-aZh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="544"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="531"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                                         <prototypes>
@@ -238,7 +249,10 @@
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-5m-hBi" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
-                                <rect key="frame" x="16" y="625" width="343" height="30"/>
+                                <rect key="frame" x="16" y="619" width="343" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="cYK-Yh-1lv"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="X8Q-1x-8g8" kind="show" identifier="AttributeToPicture" id="967-MX-pcI"/>
                                 </connections>
@@ -247,7 +261,7 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CbC-xt-JPj" firstAttribute="top" secondItem="B0f-5m-hBi" secondAttribute="bottom" constant="12" id="EL2-xV-0TV"/>
-                            <constraint firstItem="p2D-5K-YqQ" firstAttribute="top" secondItem="6Uc-bf-Wgh" secondAttribute="bottom" constant="5" id="Mc2-vH-y1l"/>
+                            <constraint firstItem="p2D-5K-YqQ" firstAttribute="top" secondItem="6Uc-bf-Wgh" secondAttribute="bottom" constant="12" id="Mc2-vH-y1l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="B0f-5m-hBi" secondAttribute="trailing" id="VLh-uU-Wsi"/>
                             <constraint firstItem="B0f-5m-hBi" firstAttribute="top" secondItem="p2D-5K-YqQ" secondAttribute="bottom" constant="12" id="XGx-C8-4qT"/>
                             <constraint firstItem="p2D-5K-YqQ" firstAttribute="leading" secondItem="WZ4-ge-iVr" secondAttribute="leadingMargin" id="YrR-Gl-zRl"/>
@@ -290,7 +304,10 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-xy-2gm" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
-                                <rect key="frame" x="16" y="625" width="343" height="30"/>
+                                <rect key="frame" x="16" y="619" width="343" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="icj-OB-pAG"/>
+                                </constraints>
                                 <state key="normal" title="DONE"/>
                                 <connections>
                                     <segue destination="2Xi-wi-chC" kind="presentation" identifier="PictureToExplorer" id="Ihc-Sa-O6t"/>
@@ -378,6 +395,6 @@
         <image name="img-avatar-default" width="116" height="108"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ihc-Sa-O6t"/>
+        <segue reference="uWf-6I-5G5"/>
     </inferredMetricsTieBreakers>
 </document>

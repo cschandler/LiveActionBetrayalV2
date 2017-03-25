@@ -16,11 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w76-05-JV8" id="nZp-UB-saK">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="169.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attribute" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfe-uP-BXS">
-                        <rect key="frame" x="154" y="8" width="67" height="53.5"/>
+                        <rect key="frame" x="154" y="13" width="67" height="43.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -105,10 +105,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="pfe-uP-BXS" firstAttribute="top" secondItem="nZp-UB-saK" secondAttribute="topMargin" id="TP2-RL-zJC"/>
+                    <constraint firstItem="pfe-uP-BXS" firstAttribute="top" secondItem="nZp-UB-saK" secondAttribute="topMargin" constant="5" id="TP2-RL-zJC"/>
                     <constraint firstAttribute="trailingMargin" secondItem="r9W-vq-vge" secondAttribute="trailing" id="ZsF-up-Og8"/>
                     <constraint firstItem="pfe-uP-BXS" firstAttribute="centerX" secondItem="nZp-UB-saK" secondAttribute="centerX" id="fy3-uc-tX8"/>
-                    <constraint firstItem="r9W-vq-vge" firstAttribute="top" secondItem="pfe-uP-BXS" secondAttribute="bottom" id="mWl-JI-9ZS"/>
+                    <constraint firstItem="r9W-vq-vge" firstAttribute="top" secondItem="pfe-uP-BXS" secondAttribute="bottom" constant="5" id="mWl-JI-9ZS"/>
                     <constraint firstItem="r9W-vq-vge" firstAttribute="leading" secondItem="nZp-UB-saK" secondAttribute="leadingMargin" id="ohx-2F-SHd"/>
                     <constraint firstAttribute="bottomMargin" secondItem="r9W-vq-vge" secondAttribute="bottom" id="saM-Ic-dec"/>
                 </constraints>

@@ -238,9 +238,8 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-5m-hBi" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-5m-hBi" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                 <rect key="frame" x="16" y="625" width="343" height="30"/>
-                                <state key="normal" title="SELECT"/>
                                 <connections>
                                     <segue destination="X8Q-1x-8g8" kind="show" identifier="AttributeToPicture" id="967-MX-pcI"/>
                                 </connections>
@@ -259,6 +258,7 @@
                     </view>
                     <connections>
                         <outlet property="blurView" destination="p2D-5K-YqQ" id="rfQ-bL-QJw"/>
+                        <outlet property="selectButton" destination="B0f-5m-hBi" id="NHS-RT-iQ8"/>
                         <outlet property="tableView" destination="WPC-eM-aZh" id="8Xf-NP-E4N"/>
                         <outlet property="vibrancyView" destination="4HR-yj-7Dk" id="7JN-R0-K8x"/>
                     </connections>

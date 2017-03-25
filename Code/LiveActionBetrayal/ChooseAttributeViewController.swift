@@ -13,6 +13,7 @@ final class ChooseAttributeViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var vibrancyView: UIVisualEffectView!
+    @IBOutlet weak var selectButton: BlurButton!
     
     var metadata: PlayerMetadata?
     
@@ -80,6 +81,13 @@ extension ChooseAttributeViewController: UITableViewDelegate {
         
         tableView.beginUpdates()
         tableView.endUpdates()
+        
+        if !selectButton.isEnabled {
+            UIView.transition(with: selectButton, duration: 0.3, options: .curveEaseIn, animations: {
+                self.selectButton.isEnabled = true
+                self.selectButton.setTitle("SELECT", for: .normal)
+            }, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

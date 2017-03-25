@@ -10,13 +10,13 @@ import UIKit
 
 final class ChooseNameViewController: BaseViewController {
     
-    @IBOutlet weak var directions: UILabel!
+    @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var nameEntry: UITextField!
     
     func validateName(name: String?) -> Bool {
         guard let name = name else { return false }
         
-        guard name != "watcher" else { return false }
+        guard name.lowercased() != "watcher" else { return false }
         
         for peer in ConnectionStore.shared.state.connectedPeers {
             if peer.name == name {
@@ -45,10 +45,17 @@ extension ChooseNameViewController: MainMenuType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "CHOOSE NAME"
         setupView()
-        directions.textColor = theme.light
-        nameEntry.backgroundColor = theme.light
-        nameEntry.textColor = theme.dark
+        blurView.layer.cornerRadius = 4.0
+        blurView.layer.borderWidth = 1.0
+        blurView.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        nameEntry.becomeFirstResponder()
     }
 
 }
@@ -63,8 +70,6 @@ extension ChooseNameViewController: UITextFieldDelegate {
         } else {
             UIView.animate(withDuration: 0.3, animations: { 
                 self.nameEntry.backgroundColor = .red
-                self.directions.textColor = .red
-                self.directions.text = "CHOOSE A NAME:\nThat name is unavailable.  Please choose another."
             })
             return false
         }

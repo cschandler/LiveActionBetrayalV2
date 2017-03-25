@@ -23,8 +23,9 @@ extension ChooseAttributeViewController: MainMenuType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "CHOOSE ATTRIBUTE"
+        
         setupView()
-        title = "ATTRIBUTE"
         
         let nib = UINib(nibName: IDs.Cells.AttributeCell.rawValue, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: IDs.Cells.AttributeCell.rawValue)

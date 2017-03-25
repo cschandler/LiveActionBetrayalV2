@@ -95,34 +95,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CHOOSE A NAME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kae-Dj-p6D">
-                                <rect key="frame" x="36" y="165" width="303" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kru-gp-7FT" id="WrG-bl-gV4"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE A NAME: This is the name that will represent your character throughout the game." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koy-Be-xGS">
-                                <rect key="frame" x="36" y="84" width="303" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-1Y-od7">
+                                <rect key="frame" x="16" y="84" width="343" height="30"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bHZ-xF-dBM">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2L-Rc-nrm">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dSL-cu-ncl">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CHOOSE A NAME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kae-Dj-p6D">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="kru-gp-7FT" id="WrG-bl-gV4"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Kae-Dj-p6D" secondAttribute="trailing" id="Gu8-au-FYt"/>
+                                                    <constraint firstItem="Kae-Dj-p6D" firstAttribute="top" secondItem="dSL-cu-ncl" secondAttribute="top" id="Y4x-0i-Ppx"/>
+                                                    <constraint firstItem="Kae-Dj-p6D" firstAttribute="leading" secondItem="dSL-cu-ncl" secondAttribute="leading" id="cmZ-LQ-Saf"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Kae-Dj-p6D" secondAttribute="bottom" id="xuD-GV-PXC"/>
+                                                </constraints>
+                                            </view>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <vibrancyEffect>
+                                                <blurEffect style="dark"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="X2L-Rc-nrm" firstAttribute="top" secondItem="bHZ-xF-dBM" secondAttribute="top" id="EhV-TY-R8U"/>
+                                        <constraint firstAttribute="bottom" secondItem="X2L-Rc-nrm" secondAttribute="bottom" id="e4Q-gE-VeC"/>
+                                        <constraint firstItem="X2L-Rc-nrm" firstAttribute="leading" secondItem="bHZ-xF-dBM" secondAttribute="leading" id="gs9-f1-nvC"/>
+                                        <constraint firstAttribute="trailing" secondItem="X2L-Rc-nrm" secondAttribute="trailing" id="spG-uO-7zx"/>
+                                    </constraints>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kae-Dj-p6D" firstAttribute="leading" secondItem="1RI-DX-BpG" secondAttribute="leadingMargin" constant="20" id="0Ws-ht-k7i"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kae-Dj-p6D" secondAttribute="trailing" constant="20" id="LqM-N1-g6a"/>
-                            <constraint firstItem="koy-Be-xGS" firstAttribute="top" secondItem="9Ix-AN-lS9" secondAttribute="bottom" constant="20" id="O8L-iD-T1X"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="koy-Be-xGS" secondAttribute="trailing" constant="20" id="Za8-r8-WNh"/>
-                            <constraint firstItem="koy-Be-xGS" firstAttribute="leading" secondItem="1RI-DX-BpG" secondAttribute="leadingMargin" constant="20" id="geO-Hl-nRs"/>
-                            <constraint firstItem="Kae-Dj-p6D" firstAttribute="top" secondItem="koy-Be-xGS" secondAttribute="bottom" constant="20" id="ll6-yc-2To"/>
+                            <constraint firstItem="rNk-1Y-od7" firstAttribute="leading" secondItem="1RI-DX-BpG" secondAttribute="leadingMargin" id="ALc-oR-1Up"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rNk-1Y-od7" secondAttribute="trailing" id="WYG-N7-Sq7"/>
+                            <constraint firstItem="rNk-1Y-od7" firstAttribute="top" secondItem="9Ix-AN-lS9" secondAttribute="bottom" constant="20" id="t3w-2E-nYl"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="directions" destination="koy-Be-xGS" id="t35-my-sIq"/>
+                        <outlet property="blurView" destination="rNk-1Y-od7" id="Jtn-um-1rQ"/>
                         <outlet property="nameEntry" destination="Kae-Dj-p6D" id="hr8-CY-fBX"/>
                         <segue destination="il9-zz-tmE" kind="show" identifier="NameToAttributes" id="wCk-Xv-IXB"/>
                     </connections>

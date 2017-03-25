@@ -20,5 +20,6 @@ enum IDs {
     
     enum Segues: String {
         case NameToAttributes
+        case AttributeToPicture
     }
 }

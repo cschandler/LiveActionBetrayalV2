@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -240,6 +241,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-5m-hBi" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                 <rect key="frame" x="16" y="625" width="343" height="30"/>
                                 <state key="normal" title="SELECT"/>
+                                <connections>
+                                    <segue destination="X8Q-1x-8g8" kind="show" identifier="AttributeToPicture" id="967-MX-pcI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -262,6 +266,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0S-hI-YHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2677.5999999999999" y="37.331334332833585"/>
+        </scene>
+        <!--Choose Picture View Controller-->
+        <scene sceneID="guh-0t-o23">
+            <objects>
+                <viewController id="X8Q-1x-8g8" customClass="ChoosePictureViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hGb-Ny-hbg"/>
+                        <viewControllerLayoutGuide type="bottom" id="hAb-cQ-NZy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IO1-Zl-KD3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="y07-Qm-6Gl">
+                                <rect key="frame" x="50" y="114" width="275" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="y07-Qm-6Gl" secondAttribute="height" multiplier="1:1" id="hjb-K8-8C9"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-xy-2gm" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
+                                <rect key="frame" x="16" y="625" width="343" height="30"/>
+                                <state key="normal" title="DONE"/>
+                            </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaJ-CD-cgQ">
+                                <rect key="frame" x="58" y="401" width="259" height="21"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OdS-gh-r3f">
+                                    <rect key="frame" x="0.0" y="0.0" width="259" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to take picture." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUG-Wd-bCW">
+                                            <rect key="frame" x="0.0" y="0.0" width="259" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="YUG-Wd-bCW" secondAttribute="trailing" id="Hjp-jR-m0k"/>
+                                        <constraint firstAttribute="bottom" secondItem="YUG-Wd-bCW" secondAttribute="bottom" id="Vt7-Cz-MkU"/>
+                                        <constraint firstItem="YUG-Wd-bCW" firstAttribute="top" secondItem="OdS-gh-r3f" secondAttribute="top" id="ean-EE-8wT"/>
+                                        <constraint firstItem="YUG-Wd-bCW" firstAttribute="leading" secondItem="OdS-gh-r3f" secondAttribute="leading" id="xmO-8U-nun"/>
+                                    </constraints>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="dark"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y07-Qm-6Gl" firstAttribute="top" secondItem="hGb-Ny-hbg" secondAttribute="bottom" priority="750" constant="50" id="6EO-5E-9J3"/>
+                            <constraint firstItem="Cpw-xy-2gm" firstAttribute="leading" secondItem="IO1-Zl-KD3" secondAttribute="leadingMargin" id="C64-sP-9r9"/>
+                            <constraint firstAttribute="trailing" secondItem="y07-Qm-6Gl" secondAttribute="trailing" priority="750" constant="50" id="CKa-me-jqY"/>
+                            <constraint firstItem="hAb-cQ-NZy" firstAttribute="top" secondItem="Cpw-xy-2gm" secondAttribute="bottom" constant="12" id="GwW-Qs-a3j"/>
+                            <constraint firstItem="MaJ-CD-cgQ" firstAttribute="leading" secondItem="IO1-Zl-KD3" secondAttribute="leadingMargin" constant="42" id="IO2-5v-lD2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cpw-xy-2gm" secondAttribute="trailing" id="Ih7-u2-TpE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MaJ-CD-cgQ" secondAttribute="trailing" constant="42" id="P1l-EA-5gs"/>
+                            <constraint firstItem="MaJ-CD-cgQ" firstAttribute="top" secondItem="y07-Qm-6Gl" secondAttribute="bottom" constant="12" id="iTb-xt-2FB"/>
+                            <constraint firstItem="y07-Qm-6Gl" firstAttribute="leading" secondItem="IO1-Zl-KD3" secondAttribute="leading" priority="750" constant="50" id="yuJ-9H-ZvG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="picture" destination="y07-Qm-6Gl" id="d5N-Q1-13N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nhd-1d-2Ou" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3486" y="38"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p1y-my-WgJ">
@@ -292,5 +364,6 @@
     </scenes>
     <resources>
         <image name="ic-connection-settings" width="24" height="24"/>
+        <image name="img-avatar-default" width="116" height="108"/>
     </resources>
 </document>

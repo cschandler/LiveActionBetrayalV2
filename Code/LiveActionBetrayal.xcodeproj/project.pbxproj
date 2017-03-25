@@ -26,6 +26,7 @@
 		084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084F26681E7B9CE80058F3DF /* Attributes.swift */; };
 		085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 085F070E1E80A1F1001B99EE /* Explorer.storyboard */; };
 		085F07131E815D2A001B99EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F07121E815D2A001B99EE /* Theme.swift */; };
+		08AC82A01E86211100BA9DDD /* ChoosePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC829F1E86211100BA9DDD /* ChoosePictureViewController.swift */; };
 		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
 		08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFFABD1E7CA0780042E206 /* ConnectionState.swift */; };
 		08FE3C9D1E82A5DD005E3C3A /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */; };
@@ -60,6 +61,7 @@
 		084F26681E7B9CE80058F3DF /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 		085F070F1E80A1F1001B99EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Explorer.storyboard; sourceTree = "<group>"; };
 		085F07121E815D2A001B99EE /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		08AC829F1E86211100BA9DDD /* ChoosePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoosePictureViewController.swift; path = LiveActionBetrayal/ChoosePictureViewController.swift; sourceTree = SOURCE_ROOT; };
 		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		08DFFABD1E7CA0780042E206 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				08FE3CA31E82DCC8005E3C3A /* MainMenuViewController.swift */,
 				08FE3CAD1E82DDC1005E3C3A /* ChooseNameViewController.swift */,
 				084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */,
+				08AC829F1E86211100BA9DDD /* ChoosePictureViewController.swift */,
 				084B375C1E849FF100088472 /* PlayerMetadata.swift */,
 				084B37601E84AC7200088472 /* AttributeCell.xib */,
 				084B37621E84B08900088472 /* AttributeCell.swift */,
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08AC82A01E86211100BA9DDD /* ChoosePictureViewController.swift in Sources */,
 				08FE3CA41E82DCC8005E3C3A /* MainMenuViewController.swift in Sources */,
 				084B375D1E849FF100088472 /* PlayerMetadata.swift in Sources */,
 				084B37631E84B08900088472 /* AttributeCell.swift in Sources */,

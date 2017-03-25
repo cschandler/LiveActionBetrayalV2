@@ -16,6 +16,15 @@ final class ChooseAttributeViewController: BaseViewController {
     
     var metadata: PlayerMetadata?
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == IDs.Segues.AttributeToPicture.rawValue,
+            let destination = segue.destination as? ChoosePictureViewController else {
+            return
+        }
+        
+        destination.metadata = metadata
+    }
+    
 }
 
 extension ChooseAttributeViewController: MainMenuType {
@@ -63,8 +72,9 @@ extension ChooseAttributeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
         
-        cell.isExpanded = true
+        metadata?.attribute = attributes[indexPath.row]
         
+        cell.isExpanded = true
         cell.backgroundColor = .white
         cell.tintColor = .black
         
@@ -76,7 +86,6 @@ extension ChooseAttributeViewController: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
         
         cell.isExpanded = false
-        
         cell.backgroundColor = .clear
         cell.tintColor = .white
         

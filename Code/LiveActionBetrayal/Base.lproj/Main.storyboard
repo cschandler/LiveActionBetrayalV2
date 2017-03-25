@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -195,11 +194,11 @@
                                                                 <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xoX-8L-ewh" id="fZN-OA-AvJ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TWQ-b2-zCR">
-                                                                            <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
+                                                                            <rect key="frame" x="15" y="0.0" width="313" height="43"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -279,18 +278,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="y07-Qm-6Gl">
-                                <rect key="frame" x="50" y="114" width="275" height="275"/>
+                            <imageView clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="y07-Qm-6Gl">
+                                <rect key="frame" x="87.5" y="114" width="200" height="200"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="y07-Qm-6Gl" secondAttribute="height" multiplier="1:1" id="hjb-K8-8C9"/>
+                                    <constraint firstAttribute="height" constant="200" id="S9f-Ei-xty"/>
+                                    <constraint firstAttribute="width" constant="200" id="ejM-dm-ga9"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2zY-Vd-V3M" appends="YES" id="yi3-vr-UlL"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-xy-2gm" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                 <rect key="frame" x="16" y="625" width="343" height="30"/>
                                 <state key="normal" title="DONE"/>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaJ-CD-cgQ">
-                                <rect key="frame" x="58" y="401" width="259" height="21"/>
+                                <rect key="frame" x="58" y="326" width="259" height="21"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OdS-gh-r3f">
                                     <rect key="frame" x="0.0" y="0.0" width="259" height="21"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -317,14 +321,13 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="y07-Qm-6Gl" firstAttribute="top" secondItem="hGb-Ny-hbg" secondAttribute="bottom" priority="750" constant="50" id="6EO-5E-9J3"/>
+                            <constraint firstItem="y07-Qm-6Gl" firstAttribute="centerX" secondItem="IO1-Zl-KD3" secondAttribute="centerX" id="7Tk-Y8-BSh"/>
                             <constraint firstItem="Cpw-xy-2gm" firstAttribute="leading" secondItem="IO1-Zl-KD3" secondAttribute="leadingMargin" id="C64-sP-9r9"/>
-                            <constraint firstAttribute="trailing" secondItem="y07-Qm-6Gl" secondAttribute="trailing" priority="750" constant="50" id="CKa-me-jqY"/>
                             <constraint firstItem="hAb-cQ-NZy" firstAttribute="top" secondItem="Cpw-xy-2gm" secondAttribute="bottom" constant="12" id="GwW-Qs-a3j"/>
                             <constraint firstItem="MaJ-CD-cgQ" firstAttribute="leading" secondItem="IO1-Zl-KD3" secondAttribute="leadingMargin" constant="42" id="IO2-5v-lD2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Cpw-xy-2gm" secondAttribute="trailing" id="Ih7-u2-TpE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MaJ-CD-cgQ" secondAttribute="trailing" constant="42" id="P1l-EA-5gs"/>
                             <constraint firstItem="MaJ-CD-cgQ" firstAttribute="top" secondItem="y07-Qm-6Gl" secondAttribute="bottom" constant="12" id="iTb-xt-2FB"/>
-                            <constraint firstItem="y07-Qm-6Gl" firstAttribute="leading" secondItem="IO1-Zl-KD3" secondAttribute="leading" priority="750" constant="50" id="yuJ-9H-ZvG"/>
                         </constraints>
                     </view>
                     <connections>
@@ -332,6 +335,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhd-1d-2Ou" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2zY-Vd-V3M">
+                    <connections>
+                        <action selector="pictureTapped:" destination="X8Q-1x-8g8" id="4ku-kV-bWP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3486" y="38"/>
         </scene>

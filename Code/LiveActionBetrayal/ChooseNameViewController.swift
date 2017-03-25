@@ -45,7 +45,7 @@ extension ChooseNameViewController: MainMenuType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "CHOOSE NAME"
+        title = "NAME"
         setupView()
         blurView.layer.cornerRadius = 4.0
         blurView.layer.borderWidth = 1.0

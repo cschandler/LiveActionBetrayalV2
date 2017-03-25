@@ -13,6 +13,15 @@ final class ChoosePictureViewController: BaseViewController {
     @IBOutlet weak var picture: UIImageView!
     
     var metadata: PlayerMetadata?
+    
+    @IBAction func pictureTapped(_ sender: UITapGestureRecognizer) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate =  self
+        imagePicker.sourceType = .camera
+        imagePicker.cameraDevice = .front
+        imagePicker.allowsEditing = true
+        self.present(imagePicker, animated: true, completion: nil)
+    }
 }
 
 extension ChoosePictureViewController: MainMenuType {
@@ -25,12 +34,22 @@ extension ChoosePictureViewController: MainMenuType {
         setupView()
         picture.layer.borderWidth = 4.0
         picture.layer.borderColor = UIColor.gray.cgColor
+        picture.layer.cornerRadius = (picture.bounds.width / 2)
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        picture.layer.cornerRadius = (picture.bounds.width / 2)
-        
+}
+
+extension ChoosePictureViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        picture.image = image
+        metadata?.picture = image
+        dismiss(animated: true, completion: nil)
     }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

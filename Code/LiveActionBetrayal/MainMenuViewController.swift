@@ -7,13 +7,18 @@
 //
 
 import UIKit
-import ReSwift
+import Spruce
 
 final class MainMenuViewController: BaseViewController {
 
+    @IBOutlet weak var stackView: UIStackView!
+    
     var manager: ConnectionManager {
         return ConnectionHandler.shared.manager
     }
+    
+    var animations: [StockAnimation] = []
+    var shouldAnimate = true
     
     @IBAction func connectionButtonTapped(_ sender: UIBarButtonItem) {
         let vc = StatusViewController.build()
@@ -28,6 +33,19 @@ extension MainMenuViewController: MainMenuType {
         super.viewDidLoad()
         
         setupView()
+        
+        animations = [.fadeIn, .expand(.slightly), .slide(.up, .slightly)]
+        stackView.spruce.prepare(with: animations)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if shouldAnimate {
+            stackView.spruce.animate(animations, duration: 0.3) { _ in
+                self.shouldAnimate = false
+            }
+        }
     }
     
 }

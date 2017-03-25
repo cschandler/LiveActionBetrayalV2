@@ -31,6 +31,8 @@ extension ChooseAttributeViewController: MainMenuType {
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 150, 0)
         
         blurView.layer.cornerRadius = 12.0
+        blurView.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
+        blurView.layer.borderWidth = 1.0
     }
     
 }

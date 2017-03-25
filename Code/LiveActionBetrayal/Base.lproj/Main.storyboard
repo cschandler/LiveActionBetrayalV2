@@ -25,23 +25,38 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Aa2-kC-yHM">
                                 <rect key="frame" x="112.5" y="268.5" width="150" height="130"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vha-Ec-7Vq">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vha-Ec-7Vq" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
                                         <state key="normal" title="NEW GAME"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="kru-gp-7FT" kind="show" id="Zfa-8p-vGS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wy-iF-b77">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wy-iF-b77" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="150" height="30"/>
                                         <state key="normal" title="CONTINUE"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="2Xi-wi-chC" kind="presentation" id="uWf-6I-5G5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fx-Ge-p9h">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fx-Ge-p9h" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="100" width="150" height="30"/>
                                         <state key="normal" title="WATCHER"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -149,11 +164,11 @@
                                                                 <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xoX-8L-ewh" id="fZN-OA-AvJ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TWQ-b2-zCR">
-                                                                            <rect key="frame" x="15" y="0.0" width="313" height="43"/>
+                                                                            <rect key="frame" x="15" y="0.0" width="313" height="43.5"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -192,18 +207,19 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-5m-hBi">
-                                <rect key="frame" x="159.5" y="625" width="55" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0f-5m-hBi" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
+                                <rect key="frame" x="16" y="625" width="343" height="30"/>
                                 <state key="normal" title="SELECT"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CbC-xt-JPj" firstAttribute="top" secondItem="B0f-5m-hBi" secondAttribute="bottom" constant="12" id="EL2-xV-0TV"/>
-                            <constraint firstItem="B0f-5m-hBi" firstAttribute="centerX" secondItem="WZ4-ge-iVr" secondAttribute="centerX" id="H3V-DX-BU6"/>
                             <constraint firstItem="p2D-5K-YqQ" firstAttribute="top" secondItem="6Uc-bf-Wgh" secondAttribute="bottom" constant="5" id="Mc2-vH-y1l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B0f-5m-hBi" secondAttribute="trailing" id="VLh-uU-Wsi"/>
                             <constraint firstItem="B0f-5m-hBi" firstAttribute="top" secondItem="p2D-5K-YqQ" secondAttribute="bottom" constant="12" id="XGx-C8-4qT"/>
                             <constraint firstItem="p2D-5K-YqQ" firstAttribute="leading" secondItem="WZ4-ge-iVr" secondAttribute="leadingMargin" id="YrR-Gl-zRl"/>
+                            <constraint firstItem="B0f-5m-hBi" firstAttribute="leading" secondItem="WZ4-ge-iVr" secondAttribute="leadingMargin" id="h4M-kM-Vri"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p2D-5K-YqQ" secondAttribute="trailing" id="n7U-cg-3K3"/>
                         </constraints>
                     </view>

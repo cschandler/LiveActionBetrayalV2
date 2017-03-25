@@ -26,6 +26,7 @@
 		084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084F26681E7B9CE80058F3DF /* Attributes.swift */; };
 		085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 085F070E1E80A1F1001B99EE /* Explorer.storyboard */; };
 		085F07131E815D2A001B99EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F07121E815D2A001B99EE /* Theme.swift */; };
+		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
 		08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFFABD1E7CA0780042E206 /* ConnectionState.swift */; };
 		08FE3C9D1E82A5DD005E3C3A /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */; };
 		08FE3C9F1E82A660005E3C3A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */; };
@@ -59,6 +60,7 @@
 		084F26681E7B9CE80058F3DF /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 		085F070F1E80A1F1001B99EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Explorer.storyboard; sourceTree = "<group>"; };
 		085F07121E815D2A001B99EE /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		08DFFABD1E7CA0780042E206 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				081ECF301E7738DF006F9FF0 /* AppDelegate.swift */,
 				084F26681E7B9CE80058F3DF /* Attributes.swift */,
 				08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */,
+				08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */,
 				08FE3CA51E82DCD3005E3C3A /* ConnectionManager.swift */,
 				08DFFABD1E7CA0780042E206 /* ConnectionState.swift */,
 				084B375E1E84AC2B00088472 /* GradientView.swift */,
@@ -321,6 +324,7 @@
 				08FE3CA61E82DCD3005E3C3A /* ConnectionManager.swift in Sources */,
 				08FE3CB21E82E6B1005E3C3A /* StatusType.swift in Sources */,
 				0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */,
+				08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */,
 				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

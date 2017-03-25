@@ -66,10 +66,13 @@ extension ChooseNameViewController: UITextFieldDelegate {
         if validateName(name: textField.text) {
             textField.resignFirstResponder()
             performSegue(withIdentifier: IDs.Segues.NameToAttributes.rawValue, sender: nil)
+            nameEntry.backgroundColor = .clear
             return true
         } else {
             UIView.animate(withDuration: 0.3, animations: { 
                 self.nameEntry.backgroundColor = .red
+                self.nameEntry.text = ""
+                self.nameEntry.placeholder = "Please choose another."
             })
             return false
         }

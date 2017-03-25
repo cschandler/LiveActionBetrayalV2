@@ -21,5 +21,7 @@ enum IDs {
     enum Segues: String {
         case NameToAttributes
         case AttributeToPicture
+        case MainMenuToExplorer
+        case PictureToExplorer
     }
 }

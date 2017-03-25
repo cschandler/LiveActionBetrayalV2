@@ -46,7 +46,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="2Xi-wi-chC" kind="presentation" id="uWf-6I-5G5"/>
+                                            <segue destination="2Xi-wi-chC" kind="presentation" identifier="MainMenuToExplorer" id="uWf-6I-5G5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fx-Ge-p9h" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKY-qM-c0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="38"/>
+            <point key="canvasLocation" x="1841" y="37"/>
         </scene>
         <!--Choose Attribute View Controller-->
         <scene sceneID="Tg0-rW-KWK">
@@ -292,6 +292,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-xy-2gm" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                 <rect key="frame" x="16" y="625" width="343" height="30"/>
                                 <state key="normal" title="DONE"/>
+                                <connections>
+                                    <segue destination="2Xi-wi-chC" kind="presentation" identifier="PictureToExplorer" id="Ihc-Sa-O6t"/>
+                                </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaJ-CD-cgQ">
                                 <rect key="frame" x="58" y="326" width="259" height="21"/>
@@ -374,4 +377,7 @@
         <image name="ic-connection-settings" width="24" height="24"/>
         <image name="img-avatar-default" width="116" height="108"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ihc-Sa-O6t"/>
+    </inferredMetricsTieBreakers>
 </document>

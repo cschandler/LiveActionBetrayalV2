@@ -22,6 +22,15 @@ final class ChoosePictureViewController: BaseViewController {
         imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == IDs.Segues.PictureToExplorer.rawValue,
+            let destination = segue.destination as? UIViewController else {
+            return
+        }
+        
+        // TODO: Pass metadata
+    }
 }
 
 extension ChoosePictureViewController: MainMenuType {

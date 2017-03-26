@@ -20,6 +20,7 @@ final class ChoosePictureViewController: BaseViewController {
         imagePicker.sourceType = .camera
         imagePicker.cameraDevice = .front
         imagePicker.allowsEditing = true
+        imagePicker.cameraFlashMode = .off
         self.present(imagePicker, animated: true, completion: nil)
     }
     
@@ -41,9 +42,7 @@ extension ChoosePictureViewController: MainMenuType {
         title = "PICTURE"
         
         setupView()
-        picture.layer.borderWidth = 4.0
-        picture.layer.borderColor = UIColor.gray.cgColor
-        picture.layer.cornerRadius = (picture.bounds.width / 2)
+        picture.setBorder()
     }
 
 }
@@ -59,6 +58,16 @@ extension ChoosePictureViewController: UIImagePickerControllerDelegate, UINaviga
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension UIImageView {
+    
+    func setBorder(withColor color: UIColor = .gray) {
+        layer.borderWidth = 4.0
+        layer.borderColor = color.cgColor
+        layer.cornerRadius = (bounds.width / 2)
     }
     
 }

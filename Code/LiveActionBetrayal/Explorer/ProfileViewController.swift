@@ -10,8 +10,24 @@ import UIKit
 
 final class ProfileViewController: BaseViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var picture: UIImageView! {
+        didSet {
+            picture.setBorder()
+            if let image = metadata?.picture {
+                picture.image = image
+            }
+        }
+    }
     
+    var metadata: PlayerMetadata? {
+        guard let tabBar = tabBarController as? ExplorerTabController,
+            let metadata = tabBar.metadata else {
+                return nil
+        }
+        return metadata
+    }
 }
 
 extension ProfileViewController: ExplorerType {
@@ -19,7 +35,7 @@ extension ProfileViewController: ExplorerType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "PROFILE"
+        title = metadata?.name ?? "PROFILE"
         
         setupView()
     }

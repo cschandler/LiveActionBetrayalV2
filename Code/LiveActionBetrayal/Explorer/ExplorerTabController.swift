@@ -19,6 +19,8 @@ extension ExplorerTabController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dump(self.viewControllers)
+        
         
     }
 }

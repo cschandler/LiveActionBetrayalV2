@@ -29,6 +29,8 @@
 		08AC82A01E86211100BA9DDD /* ChoosePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC829F1E86211100BA9DDD /* ChoosePictureViewController.swift */; };
 		08AC82A21E88485300BA9DDD /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A11E88485300BA9DDD /* TransitionViewController.swift */; };
 		08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A41E884CBB00BA9DDD /* ExplorerTabController.swift */; };
+		08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */; };
+		08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A81E88546000BA9DDD /* ProfileViewController.swift */; };
 		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
 		08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFFABD1E7CA0780042E206 /* ConnectionState.swift */; };
 		08FE3C9D1E82A5DD005E3C3A /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */; };
@@ -66,6 +68,8 @@
 		08AC829F1E86211100BA9DDD /* ChoosePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoosePictureViewController.swift; path = LiveActionBetrayal/ChoosePictureViewController.swift; sourceTree = SOURCE_ROOT; };
 		08AC82A11E88485300BA9DDD /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		08AC82A41E884CBB00BA9DDD /* ExplorerTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerTabController.swift; sourceTree = "<group>"; };
+		08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerType.swift; sourceTree = "<group>"; };
+		08AC82A81E88546000BA9DDD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		08DFFABD1E7CA0780042E206 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
@@ -161,7 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				085F070E1E80A1F1001B99EE /* Explorer.storyboard */,
+				08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */,
 				08AC82A41E884CBB00BA9DDD /* ExplorerTabController.swift */,
+				08AC82A81E88546000BA9DDD /* ProfileViewController.swift */,
 			);
 			path = Explorer;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 				084B37631E84B08900088472 /* AttributeCell.swift in Sources */,
 				082056D11E78E58C00846370 /* Action.swift in Sources */,
 				081120591E7C8234003B52D3 /* Peer.swift in Sources */,
+				08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */,
 				085F07131E815D2A001B99EE /* Theme.swift in Sources */,
 				08FE3C9F1E82A660005E3C3A /* BaseViewController.swift in Sources */,
 				081120611E7C8E99003B52D3 /* Finishable.swift in Sources */,
@@ -337,6 +344,7 @@
 				084B375F1E84AC2B00088472 /* GradientView.swift in Sources */,
 				084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */,
 				08FE3CAE1E82DDC1005E3C3A /* ChooseNameViewController.swift in Sources */,
+				08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */,
 				084F26601E78FC110058F3DF /* TorchManager.swift in Sources */,
 				084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */,
 				0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */,

@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijZ-5H-Cbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4016.8000000000002" y="-1049.3253373313344"/>
+            <point key="canvasLocation" x="4006" y="-961"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qpO-iG-pLp">
@@ -124,7 +124,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gg-0T-l1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3077.5999999999999" y="-1049.3253373313344"/>
+            <point key="canvasLocation" x="3054" y="-961"/>
         </scene>
         <!--Messages-->
         <scene sceneID="cQ5-cR-DMH">
@@ -168,7 +168,7 @@
         <scene sceneID="txm-Uw-87l">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wVy-8Z-ERj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Haunt" image="ic-locked" id="jmX-56-PpO"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="Haunt" image="ic-locked" id="jmX-56-PpO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="YEb-yU-XPa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

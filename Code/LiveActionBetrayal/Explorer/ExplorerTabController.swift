@@ -14,14 +14,12 @@ final class ExplorerTabController: UITabBarController {
     
 }
 
-extension ExplorerTabController {
+extension ExplorerTabController: ExplorerType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dump(self.viewControllers)
-        
-        
+        tabBar.tintColor = theme.mid
     }
 }
 

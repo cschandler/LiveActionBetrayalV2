@@ -92,7 +92,7 @@
         <scene sceneID="VFX-ka-Hzu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R4R-Ve-xdk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Items" id="5mI-Iq-xx8"/>
+                    <tabBarItem key="tabBarItem" title="Items" image="ic-items" id="5mI-Iq-xx8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="TjP-kn-taU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -111,7 +111,7 @@
         <scene sceneID="H7f-a9-Bz9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QRC-zI-0EO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="q7q-Yt-ASh"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ic-profile" id="q7q-Yt-ASh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="l5C-nN-HAl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -130,7 +130,7 @@
         <scene sceneID="cQ5-cR-DMH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02r-6Z-7HN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" id="bJM-AZ-JQz"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="ic-messages" id="bJM-AZ-JQz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="hO8-d4-8Yk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -168,7 +168,7 @@
         <scene sceneID="txm-Uw-87l">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wVy-8Z-ERj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Haunt" id="jmX-56-PpO"/>
+                    <tabBarItem key="tabBarItem" title="Haunt" image="ic-locked" id="jmX-56-PpO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="YEb-yU-XPa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -184,4 +184,10 @@
             <point key="canvasLocation" x="3054" y="1339"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic-items" width="24" height="24"/>
+        <image name="ic-locked" width="24" height="24"/>
+        <image name="ic-messages" width="24" height="24"/>
+        <image name="ic-profile" width="24" height="24"/>
+    </resources>
 </document>

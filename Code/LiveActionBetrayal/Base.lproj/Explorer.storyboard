@@ -67,12 +67,13 @@
             </objects>
             <point key="canvasLocation" x="2647" y="579"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Explorer Tab Controller-->
         <scene sceneID="uCS-7P-HwH">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OSJ-I2-f3k" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OSJ-I2-f3k" customClass="ExplorerTabController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="X7O-QK-jX6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

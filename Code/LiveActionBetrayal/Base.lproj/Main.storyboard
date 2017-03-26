@@ -52,7 +52,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="2Xi-wi-chC" kind="presentation" identifier="MainMenuToExplorer" id="uWf-6I-5G5"/>
+                                            <action selector="continueButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9vS-ui-Q8G"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fx-Ge-p9h" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
@@ -86,6 +86,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="continueButton" destination="2wy-iF-b77" id="jSu-fd-vKi"/>
                         <outlet property="stackView" destination="Aa2-kC-yHM" id="21j-g7-c9d"/>
                     </connections>
                 </viewController>
@@ -173,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKY-qM-c0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1841" y="37"/>
+            <point key="canvasLocation" x="1828" y="38"/>
         </scene>
         <!--Choose Attribute View Controller-->
         <scene sceneID="Tg0-rW-KWK">
@@ -313,7 +314,7 @@
                                 </constraints>
                                 <state key="normal" title="DONE"/>
                                 <connections>
-                                    <segue destination="2Xi-wi-chC" kind="presentation" identifier="PictureToExplorer" id="Ihc-Sa-O6t"/>
+                                    <action selector="doneButtonTapped:" destination="X8Q-1x-8g8" eventType="touchUpInside" id="aVU-GP-bKH"/>
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaJ-CD-cgQ">
@@ -384,20 +385,9 @@
             </objects>
             <point key="canvasLocation" x="-15" y="38"/>
         </scene>
-        <!--Explorer-->
-        <scene sceneID="gDH-cs-odQ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Explorer" id="2Xi-wi-chC" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MZF-4W-6FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2406" y="-515"/>
-        </scene>
     </scenes>
     <resources>
         <image name="ic-connection-settings" width="24" height="24"/>
         <image name="img-avatar-default" width="116" height="108"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="uWf-6I-5G5"/>
-    </inferredMetricsTieBreakers>
 </document>

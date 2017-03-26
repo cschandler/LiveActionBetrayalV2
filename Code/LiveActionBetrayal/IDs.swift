@@ -11,6 +11,7 @@ import Foundation
 enum IDs {
     enum Storyboards: String {
         case Status
+        case Explorer
     }
     
     enum Cells: String {
@@ -21,7 +22,6 @@ enum IDs {
     enum Segues: String {
         case NameToAttributes
         case AttributeToPicture
-        case MainMenuToExplorer
-        case PictureToExplorer
+        case TransitionToExplorer
     }
 }

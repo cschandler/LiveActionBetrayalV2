@@ -47,6 +47,7 @@ extension ChooseNameViewController: MainMenuType {
         super.viewDidLoad()
         
         title = "NAME"
+        
         setupView()
         blurView.layer.cornerRadius = 4.0
         blurView.layer.borderWidth = 1.0

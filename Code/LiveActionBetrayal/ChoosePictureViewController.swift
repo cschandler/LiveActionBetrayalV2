@@ -23,14 +23,14 @@ final class ChoosePictureViewController: BaseViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == IDs.Segues.PictureToExplorer.rawValue,
-            let destination = segue.destination as? UIViewController else {
-            return
-        }
-        
-        // TODO: Pass metadata
+    @IBAction func doneButtonTapped(_ sender: BlurButton) {
+        let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-explorer"),
+                                                  storyboardIdentifier: IDs.Storyboards.Explorer.rawValue,
+                                                  metadata: metadata)
+
+        present(transition, animated: true, completion: nil)
     }
+    
 }
 
 extension ChoosePictureViewController: MainMenuType {

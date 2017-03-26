@@ -12,6 +12,7 @@ import Spruce
 final class MainMenuViewController: BaseViewController {
 
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var continueButton: BlurButton!
     
     var manager: ConnectionManager {
         return ConnectionHandler.shared.manager
@@ -25,6 +26,13 @@ final class MainMenuViewController: BaseViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func continueButtonTapped(_ sender: BlurButton) {
+        let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-explorer"),
+                                                  storyboardIdentifier: IDs.Storyboards.Explorer.rawValue,
+                                                  metadata: nil)
+
+        present(transition, animated: true, completion: nil)
+    }
 }
 
 extension MainMenuViewController: MainMenuType {

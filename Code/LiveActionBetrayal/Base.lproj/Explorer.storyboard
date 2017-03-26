@@ -81,6 +81,7 @@
                         <segue destination="QRC-zI-0EO" kind="relationship" relationship="viewControllers" id="YIe-WH-ceI"/>
                         <segue destination="R4R-Ve-xdk" kind="relationship" relationship="viewControllers" id="DOY-H9-wmY"/>
                         <segue destination="02r-6Z-7HN" kind="relationship" relationship="viewControllers" id="21o-Wc-0S8"/>
+                        <segue destination="wVy-8Z-ERj" kind="relationship" relationship="viewControllers" id="GEf-go-8Xh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGz-rS-Npw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -143,6 +144,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lfs-X7-ObS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3054" y="582"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TUW-Dw-0Bt">
+            <objects>
+                <viewController id="hta-Zq-MWP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kTW-uI-U0N"/>
+                        <viewControllerLayoutGuide type="bottom" id="CHK-ma-Hda"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cJq-uG-fIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jO6-iE-naM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XHB-8R-Sci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4017" y="1339"/>
+        </scene>
+        <!--Haunt-->
+        <scene sceneID="txm-Uw-87l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wVy-8Z-ERj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Haunt" id="jmX-56-PpO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="YEb-yU-XPa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hta-Zq-MWP" kind="relationship" relationship="rootViewController" id="08s-ad-V7O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVE-uR-BFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3054" y="1339"/>
         </scene>
     </scenes>
 </document>

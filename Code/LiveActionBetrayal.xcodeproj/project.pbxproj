@@ -16,6 +16,7 @@
 		081ECF381E7738DF006F9FF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 081ECF371E7738DF006F9FF0 /* Assets.xcassets */; };
 		081ECF3B1E7738DF006F9FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 081ECF391E7738DF006F9FF0 /* LaunchScreen.storyboard */; };
 		082056D11E78E58C00846370 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082056D01E78E58C00846370 /* Action.swift */; };
+		083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083B70531E88DE4100D6DC01 /* StatStepper.xib */; };
 		084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */; };
 		084B375D1E849FF100088472 /* PlayerMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375C1E849FF100088472 /* PlayerMetadata.swift */; };
 		084B375F1E84AC2B00088472 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375E1E84AC2B00088472 /* GradientView.swift */; };
@@ -31,6 +32,7 @@
 		08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A41E884CBB00BA9DDD /* ExplorerTabController.swift */; };
 		08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */; };
 		08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A81E88546000BA9DDD /* ProfileViewController.swift */; };
+		08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82AC1E88C68900BA9DDD /* StatStepper.swift */; };
 		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
 		08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFFABD1E7CA0780042E206 /* ConnectionState.swift */; };
 		08FE3C9D1E82A5DD005E3C3A /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */; };
@@ -55,6 +57,7 @@
 		081ECF3A1E7738DF006F9FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		081ECF3C1E7738E0006F9FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		082056D01E78E58C00846370 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		083B70531E88DE4100D6DC01 /* StatStepper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatStepper.xib; sourceTree = "<group>"; };
 		084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseAttributeViewController.swift; path = LiveActionBetrayal/ChooseAttributeViewController.swift; sourceTree = SOURCE_ROOT; };
 		084B375C1E849FF100088472 /* PlayerMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerMetadata.swift; path = LiveActionBetrayal/PlayerMetadata.swift; sourceTree = SOURCE_ROOT; };
 		084B375E1E84AC2B00088472 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		08AC82A41E884CBB00BA9DDD /* ExplorerTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerTabController.swift; sourceTree = "<group>"; };
 		08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerType.swift; sourceTree = "<group>"; };
 		08AC82A81E88546000BA9DDD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		08AC82AC1E88C68900BA9DDD /* StatStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatStepper.swift; sourceTree = "<group>"; };
 		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		08DFFABD1E7CA0780042E206 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */,
 				08AC82A41E884CBB00BA9DDD /* ExplorerTabController.swift */,
 				08AC82A81E88546000BA9DDD /* ProfileViewController.swift */,
+				083B70531E88DE4100D6DC01 /* StatStepper.xib */,
+				08AC82AC1E88C68900BA9DDD /* StatStepper.swift */,
 			);
 			path = Explorer;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			files = (
 				085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */,
 				08FE3CAC1E82DD6B005E3C3A /* Main.storyboard in Resources */,
+				083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */,
 				084B37611E84AC7200088472 /* AttributeCell.xib in Resources */,
 				08FE3CA91E82DD09005E3C3A /* Status.storyboard in Resources */,
 				081ECF3B1E7738DF006F9FF0 /* LaunchScreen.storyboard in Resources */,
@@ -353,6 +360,7 @@
 				0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */,
 				08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */,
 				08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */,
+				08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */,
 				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

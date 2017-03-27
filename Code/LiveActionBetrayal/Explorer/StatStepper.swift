@@ -21,6 +21,8 @@ class StatStepper: UIView {
         }
         
         view.stat = stat
+        view.layer.cornerRadius = 24.0
+        
         return view
     }
     
@@ -39,6 +41,9 @@ class StatStepper: UIView {
             label.backgroundColor = .clear
             label.textColor = .white
             label.text = "\(value)"
+            label.textAlignment = .center
+            label.layer.cornerRadius = 4.0
+            label.clipsToBounds = true
             stackView.addArrangedSubview(label)
         }
         
@@ -46,13 +51,16 @@ class StatStepper: UIView {
     }
     
     func selectPosition(position: Position) {
+        guard position >= -1, position < 8 else { return }
+        
         for (index, view) in stackView.arrangedSubviews.enumerated() {
-            if index == position, let label = view as? UILabel {
-                label.backgroundColor = .white
-                label.textColor = .clear
-                selectedPosition = position
+            if let label = view as? UILabel {
+                label.backgroundColor = index == position ? UIColor.red.withAlphaComponent(0.8) : .clear
+                label.textColor = index == position ? .white : .black
             }
         }
+        
+        selectedPosition = position
     }
     
     @IBAction func minusTapped(_ sender: UIButton) {

@@ -1,10 +1,12 @@
 PODS:
+  - CircleMenu (2.0.1)
   - PinkyPromise (0.4.0)
   - ReSwift (3.0.0)
   - Spruce (1.0.0)
   - TableDiff (0.1.0)
 
 DEPENDENCIES:
+  - CircleMenu (~> 2.0.0)
   - PinkyPromise (from `https://github.com/willowtreeapps/PinkyPromise.git`, branch `swift-3`)
   - ReSwift
   - Spruce
@@ -27,11 +29,12 @@ CHECKOUT OPTIONS:
     :tag: v0.5
 
 SPEC CHECKSUMS:
+  CircleMenu: a964e8b03aae58c84b40d5cf64630b62bef077eb
   PinkyPromise: 17079cbfddf344d9d33fd9938c56b50937f154e1
   ReSwift: f0255f4b4f2dacd12c5d97d34d13fc5dad6d6371
   Spruce: 07ffdb990923f500111fcbf13d102e16075b230e
   TableDiff: 01788e2c60189b4c16dbabebcc14f73aeed8e700
 
-PODFILE CHECKSUM: ee9133a84d87dbe7a2ad4039c4784e719a23e489
+PODFILE CHECKSUM: 6df42a6ff594f3a68027efad5cbaee3ea5a0b737
 
 COCOAPODS: 1.1.1

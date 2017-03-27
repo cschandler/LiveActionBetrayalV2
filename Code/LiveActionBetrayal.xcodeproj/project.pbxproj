@@ -34,6 +34,7 @@
 		08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A81E88546000BA9DDD /* ProfileViewController.swift */; };
 		08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82AC1E88C68900BA9DDD /* StatStepper.swift */; };
 		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
+		08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */; };
 		08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFFABD1E7CA0780042E206 /* ConnectionState.swift */; };
 		08FE3C9D1E82A5DD005E3C3A /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */; };
 		08FE3C9F1E82A660005E3C3A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */; };
@@ -75,6 +76,7 @@
 		08AC82A81E88546000BA9DDD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		08AC82AC1E88C68900BA9DDD /* StatStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatStepper.swift; sourceTree = "<group>"; };
 		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
+		08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrantLabel.swift; sourceTree = "<group>"; };
 		08DFFABD1E7CA0780042E206 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				085F07121E815D2A001B99EE /* Theme.swift */,
 				08AC82A11E88485300BA9DDD /* TransitionViewController.swift */,
 				08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */,
+				08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */,
 				081ECF371E7738DF006F9FF0 /* Assets.xcassets */,
 				081ECF391E7738DF006F9FF0 /* LaunchScreen.storyboard */,
 				081ECF3C1E7738E0006F9FF0 /* Info.plist */,
@@ -352,6 +355,7 @@
 				084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */,
 				08FE3CAE1E82DDC1005E3C3A /* ChooseNameViewController.swift in Sources */,
 				08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */,
+				08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */,
 				084F26601E78FC110058F3DF /* TorchManager.swift in Sources */,
 				084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */,
 				0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */,

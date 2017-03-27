@@ -29,6 +29,8 @@ final class ProfileViewController: BaseViewController {
         }
         return metadata
     }
+    
+    
 }
 
 extension ProfileViewController: ExplorerType {
@@ -40,13 +42,14 @@ extension ProfileViewController: ExplorerType {
         
         setupView()
         
-        guard let speedStepper = StatStepper.build(stat: metadata?.attribute?.speed),
-            let mightStepper = StatStepper.build(stat: metadata?.attribute?.might),
-            let sanityStepper = StatStepper.build(stat: metadata?.attribute?.sanity),
-            let knowledgeStepper = StatStepper.build(stat: metadata?.attribute?.knowledge)
+        guard let speedStepper = StatStepper.build(stat: metadata?.attribute?.speed, withTitle: "SPEED"),
+            let mightStepper = StatStepper.build(stat: metadata?.attribute?.might, withTitle: "MIGHT"),
+            let sanityStepper = StatStepper.build(stat: metadata?.attribute?.sanity, withTitle: "SANITY"),
+            let knowledgeStepper = StatStepper.build(stat: metadata?.attribute?.knowledge, withTitle: "KNOWLEDGE")
             else { return }
         
         stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
         stackView.addArrangedSubview(speedStepper)
         stackView.addArrangedSubview(mightStepper)
         stackView.addArrangedSubview(sanityStepper)

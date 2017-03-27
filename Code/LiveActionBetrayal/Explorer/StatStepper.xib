@@ -29,7 +29,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11h-28-jXT">
-                                            <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                            <rect key="frame" x="0.0" y="21" width="75" height="75"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="11h-28-jXT" secondAttribute="height" multiplier="1:1" id="WNd-gl-hGa"/>
                                             </constraints>
@@ -39,7 +39,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKQ-D8-FYc">
-                                            <rect key="frame" x="279" y="0.0" width="96" height="96"/>
+                                            <rect key="frame" x="300" y="21" width="75" height="75"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="NKQ-D8-FYc" secondAttribute="height" multiplier="1:1" id="885-4M-tAE"/>
                                             </constraints>
@@ -49,20 +49,29 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PEN-fY-nmb">
-                                            <rect key="frame" x="96" y="0.0" width="183" height="96"/>
+                                            <rect key="frame" x="75" y="21" width="225" height="75"/>
                                         </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2f-KX-KTM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="11h-28-jXT" firstAttribute="leading" secondItem="IIz-Wu-cOp" secondAttribute="leading" id="2iZ-hS-qAa"/>
                                         <constraint firstAttribute="bottom" secondItem="NKQ-D8-FYc" secondAttribute="bottom" id="Lw4-Xy-cPB"/>
                                         <constraint firstAttribute="trailing" secondItem="NKQ-D8-FYc" secondAttribute="trailing" id="MZU-Qz-B4D"/>
+                                        <constraint firstItem="NKQ-D8-FYc" firstAttribute="top" secondItem="t2f-KX-KTM" secondAttribute="bottom" id="Reb-MK-2L8"/>
                                         <constraint firstItem="PEN-fY-nmb" firstAttribute="leading" secondItem="11h-28-jXT" secondAttribute="trailing" id="SbQ-Nm-tDB"/>
-                                        <constraint firstItem="11h-28-jXT" firstAttribute="top" secondItem="IIz-Wu-cOp" secondAttribute="top" id="VJL-21-HJP"/>
+                                        <constraint firstAttribute="trailing" secondItem="t2f-KX-KTM" secondAttribute="trailing" id="cHY-qj-1J7"/>
                                         <constraint firstAttribute="bottom" secondItem="PEN-fY-nmb" secondAttribute="bottom" id="ele-1N-5QV"/>
                                         <constraint firstAttribute="bottom" secondItem="11h-28-jXT" secondAttribute="bottom" id="gCZ-H5-7ki"/>
+                                        <constraint firstItem="11h-28-jXT" firstAttribute="top" secondItem="t2f-KX-KTM" secondAttribute="bottom" id="j2P-mK-ngO"/>
                                         <constraint firstItem="NKQ-D8-FYc" firstAttribute="leading" secondItem="PEN-fY-nmb" secondAttribute="trailing" id="ooS-8k-5yF"/>
-                                        <constraint firstItem="PEN-fY-nmb" firstAttribute="top" secondItem="IIz-Wu-cOp" secondAttribute="top" id="tQc-l0-ehH"/>
-                                        <constraint firstItem="NKQ-D8-FYc" firstAttribute="top" secondItem="IIz-Wu-cOp" secondAttribute="top" id="u9R-ag-Xg8"/>
+                                        <constraint firstItem="PEN-fY-nmb" firstAttribute="top" secondItem="t2f-KX-KTM" secondAttribute="bottom" id="rRx-SC-M3J"/>
+                                        <constraint firstItem="t2f-KX-KTM" firstAttribute="leading" secondItem="IIz-Wu-cOp" secondAttribute="leading" id="yYK-U9-2Jd"/>
+                                        <constraint firstItem="t2f-KX-KTM" firstAttribute="top" secondItem="IIz-Wu-cOp" secondAttribute="top" id="zlR-At-BPM"/>
                                     </constraints>
                                 </view>
                                 <vibrancyEffect>
@@ -94,6 +103,7 @@
                 <outlet property="minus" destination="11h-28-jXT" id="YmX-TZ-w50"/>
                 <outlet property="plus" destination="NKQ-D8-FYc" id="ViY-mc-bBx"/>
                 <outlet property="stackView" destination="PEN-fY-nmb" id="aGS-YN-Gd5"/>
+                <outlet property="title" destination="t2f-KX-KTM" id="Ula-PR-lDC"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="-232"/>
         </view>

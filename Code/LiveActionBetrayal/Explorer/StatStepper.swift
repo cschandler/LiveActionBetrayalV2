@@ -11,16 +11,18 @@ import UIKit
 class StatStepper: UIView {
     
     @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var minus: UIButton!
     @IBOutlet weak var plus: UIButton!
     @IBOutlet weak var stackView: UIStackView!
     
-    static func build(stat: Stat?) -> StatStepper? {
+    static func build(stat: Stat?, withTitle title: String) -> StatStepper? {
         guard let view = Bundle.main.loadNibNamed("StatStepper", owner: nil, options: nil)?.last as? StatStepper else {
             return nil
         }
         
         view.stat = stat
+        view.titleText = title
         view.layer.cornerRadius = 24.0
         
         return view
@@ -33,6 +35,13 @@ class StatStepper: UIView {
         }
     }
     
+    var titleText: String? {
+        didSet {
+            guard let title = titleText else { return }
+            self.title.text = title
+        }
+    }
+    
     var selectedPosition: Position = 0
     
     func setup(withStat stat: Stat) {
@@ -42,7 +51,7 @@ class StatStepper: UIView {
             label.textColor = .white
             label.text = "\(value)"
             label.textAlignment = .center
-            label.layer.cornerRadius = 4.0
+            label.layer.cornerRadius = 12.0
             label.clipsToBounds = true
             stackView.addArrangedSubview(label)
         }

@@ -8,6 +8,7 @@
 
 import UIKit
 import CircleMenu
+import Spruce
 
 class DiceViewController: BaseViewController {
     
@@ -36,9 +37,16 @@ class DiceViewController: BaseViewController {
     
     var circleMenu: CircleMenu! {
         didSet {
-            circleMenu.alpha = 0.0
             circleMenu.delegate = self
             view.addSubview(circleMenu)
+            circleMenu.alpha = 0.0
+            circleMenu.spruce.prepare(with: [.expand(.severely), .slide(.up, .severely)])
+        }
+    }
+    
+    var result: UIView! {
+        didSet {
+            
         }
     }
     
@@ -66,7 +74,7 @@ extension DiceViewController: MainMenuType {
                                 normalIcon: "ic-dice",
                                 selectedIcon: "ic-clear",
                                 buttonsCount: 8,
-                                duration: 0.3,
+                                duration: 0.5,
                                 distance: 130)
         
         let xButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic-clear"), style: .plain, target: self, action: #selector(dismissSelf))
@@ -81,7 +89,8 @@ extension DiceViewController: MainMenuType {
             self.blurView.effect = UIBlurEffect(style: .dark)
         }) { (finished) in
             if finished {
-                UIView.animate(withDuration: 0.2, animations: { 
+                self.circleMenu.spruce.animate([.expand(.severely), .slide(.up, .severely)])
+                UIView.animate(withDuration: 0.3, animations: { 
                     self.circleMenu.alpha = 1.0
                 })
             }

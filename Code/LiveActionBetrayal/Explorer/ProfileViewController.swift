@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CircleMenu
 
 final class ProfileViewController: BaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var diceBarButtonItem: UIBarButtonItem!
     
     @IBOutlet weak var picture: UIImageView! {
         didSet {
@@ -30,6 +32,10 @@ final class ProfileViewController: BaseViewController {
         return metadata
     }
     
+    @IBAction func diceButtonTapped(_ sender: UIBarButtonItem) {
+        let vc = DiceViewController.build()
+        present(vc, animated: false, completion: nil)
+    }
     
 }
 
@@ -56,4 +62,25 @@ extension ProfileViewController: ExplorerType {
         stackView.addArrangedSubview(knowledgeStepper)
     }
 
+}
+
+extension ProfileViewController: CircleMenuDelegate {
+    
+    func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+        print("will display button at index \(atIndex)")
+        button.setTitle("\(atIndex + 1)", for: .normal)
+    }
+    
+    func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
+        print("button did selected")
+    }
+    
+    func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
+        print("button will selected")
+    }
+    
+    func menuCollapsed(_ circleMenu: CircleMenu) {
+        print("circle menu collapsed")
+    }
+    
 }

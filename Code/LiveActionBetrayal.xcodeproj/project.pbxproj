@@ -35,6 +35,7 @@
 		08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82AC1E88C68900BA9DDD /* StatStepper.swift */; };
 		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
 		08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */; };
+		08DCEAEF1E8A032500F0E094 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */; };
 		08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFFABD1E7CA0780042E206 /* ConnectionState.swift */; };
 		08FE3C9D1E82A5DD005E3C3A /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */; };
 		08FE3C9F1E82A660005E3C3A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */; };
@@ -77,6 +78,7 @@
 		08AC82AC1E88C68900BA9DDD /* StatStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatStepper.swift; sourceTree = "<group>"; };
 		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrantLabel.swift; sourceTree = "<group>"; };
+		08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 		08DFFABD1E7CA0780042E206 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */,
 				08FE3CA51E82DCD3005E3C3A /* ConnectionManager.swift */,
 				08DFFABD1E7CA0780042E206 /* ConnectionState.swift */,
+				08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */,
 				084B375E1E84AC2B00088472 /* GradientView.swift */,
 				081120581E7C8234003B52D3 /* Peer.swift */,
 				081120601E7C8E99003B52D3 /* Finishable.swift */,
@@ -362,6 +365,7 @@
 				08FE3CA61E82DCD3005E3C3A /* ConnectionManager.swift in Sources */,
 				08FE3CB21E82E6B1005E3C3A /* StatusType.swift in Sources */,
 				0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */,
+				08DCEAEF1E8A032500F0E094 /* DiceViewController.swift in Sources */,
 				08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */,
 				08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */,
 				08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */,

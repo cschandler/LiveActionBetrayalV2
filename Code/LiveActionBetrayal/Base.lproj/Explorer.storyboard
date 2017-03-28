@@ -44,7 +44,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-bg-iei">
-                                        <rect key="frame" x="87.5" y="84" width="200" height="200"/>
+                                        <rect key="frame" x="88" y="84" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Ky0-1K-Y6T"/>
                                             <constraint firstAttribute="height" constant="200" id="NYT-KC-PNj"/>
@@ -84,9 +84,17 @@
                             <constraint firstAttribute="trailing" secondItem="ur2-IN-34k" secondAttribute="trailing" id="yLJ-7Z-wAG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ysx-ts-S1j"/>
+                    <navigationItem key="navigationItem" id="ysx-ts-S1j">
+                        <barButtonItem key="rightBarButtonItem" title="Dice" id="cUS-r3-aiJ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="diceButtonTapped:" destination="RVg-rT-Wd4" id="rog-OG-bam"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="diceBarButtonItem" destination="cUS-r3-aiJ" id="uXD-bm-Ecl"/>
                         <outlet property="picture" destination="HG3-bg-iei" id="CwP-DX-n6q"/>
                         <outlet property="scrollView" destination="ur2-IN-34k" id="yWm-K2-lA5"/>
                         <outlet property="stackView" destination="i3R-70-wP0" id="H2i-KA-3uc"/>

@@ -49,6 +49,8 @@ class BlurButton: UIButton {
         
         guard let title = titleLabel else { return }
         vibrantView.contentView.addSubview(title)
+        
+        addBorder()
     }
 }
 
@@ -82,6 +84,13 @@ extension UIButton {
         set {
             layer.borderWidth = newValue
         }
+    }
+    
+    func addBorder() {
+        tintColor = .white
+        cornerRadius = 4.0
+        borderWidth = 1.0
+        borderColor = UIColor.gray.withAlphaComponent(0.4)
     }
     
 }

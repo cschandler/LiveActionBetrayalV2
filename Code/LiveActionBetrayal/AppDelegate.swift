@@ -19,11 +19,6 @@ class AppDelegate: UIResponder {
 extension AppDelegate: UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        //UIButton.appearance().tintColor = .white
-        //UIButton.appearance().cornerRadius = 4.0
-        //UIButton.appearance().borderWidth = 1.0
-        //UIButton.appearance().borderColor = UIColor.gray.withAlphaComponent(0.4)
  
         return true
     }

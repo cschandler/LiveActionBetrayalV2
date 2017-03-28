@@ -12,7 +12,11 @@ import Spruce
 final class MainMenuViewController: BaseViewController {
 
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var continueButton: BlurButton!
+    @IBOutlet weak var continueButton: BlurButton! {
+        didSet {
+            
+        }
+    }
     
     var manager: ConnectionManager {
         return ConnectionHandler.shared.manager

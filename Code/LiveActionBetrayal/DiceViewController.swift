@@ -12,6 +12,10 @@ import Spruce
 import GameKit
 import PinkyPromise
 
+protocol DiceDelegate: class {
+    func didRoll(withResult result: Int)
+}
+
 class DiceViewController: BaseViewController {
     
     static func build() -> UINavigationController {
@@ -27,6 +31,8 @@ class DiceViewController: BaseViewController {
         
         return nav
     }
+    
+    weak var delegate: DiceDelegate?
     
     var blurView: UIVisualEffectView! {
         didSet {
@@ -139,6 +145,7 @@ extension DiceViewController: CircleMenuDelegate {
     
     func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
         let result = total(forRolls: atIndex + 1)
+        delegate?.didRoll(withResult: result)
         
         if let _ = resultView {
             animateResultViewOut().call(completion: { _ in

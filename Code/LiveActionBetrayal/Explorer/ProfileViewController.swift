@@ -33,8 +33,13 @@ final class ProfileViewController: BaseViewController {
     }
     
     @IBAction func diceButtonTapped(_ sender: UIBarButtonItem) {
-        let vc = DiceViewController.build()
-        present(vc, animated: false, completion: nil)
+        let nav = DiceViewController.build()
+        
+        if let vc = nav.topViewController as? DiceViewController {
+            vc.delegate = self
+        }
+        
+        present(nav, animated: false, completion: nil)
     }
     
 }
@@ -61,26 +66,21 @@ extension ProfileViewController: ExplorerType {
         stackView.addArrangedSubview(sanityStepper)
         stackView.addArrangedSubview(knowledgeStepper)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if Defaults.shared.lastRoll != 0 {
+            diceBarButtonItem.title = "Roll: \(Defaults.shared.lastRoll)"
+        }
+    }
 
 }
 
-extension ProfileViewController: CircleMenuDelegate {
+extension ProfileViewController: DiceDelegate {
     
-    func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
-        print("will display button at index \(atIndex)")
-        button.setTitle("\(atIndex + 1)", for: .normal)
-    }
-    
-    func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
-        print("button did selected")
-    }
-    
-    func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
-        print("button will selected")
-    }
-    
-    func menuCollapsed(_ circleMenu: CircleMenu) {
-        print("circle menu collapsed")
+    func didRoll(withResult result: Int) {
+        diceBarButtonItem.title = "Roll: \(result)"
     }
     
 }

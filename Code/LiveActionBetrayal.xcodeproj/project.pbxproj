@@ -27,6 +27,7 @@
 		084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084F26681E7B9CE80058F3DF /* Attributes.swift */; };
 		085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 085F070E1E80A1F1001B99EE /* Explorer.storyboard */; };
 		085F07131E815D2A001B99EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F07121E815D2A001B99EE /* Theme.swift */; };
+		088E60E61E8CC605004AF072 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E51E8CC605004AF072 /* ResultView.swift */; };
 		08AC82A01E86211100BA9DDD /* ChoosePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC829F1E86211100BA9DDD /* ChoosePictureViewController.swift */; };
 		08AC82A21E88485300BA9DDD /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A11E88485300BA9DDD /* TransitionViewController.swift */; };
 		08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A41E884CBB00BA9DDD /* ExplorerTabController.swift */; };
@@ -70,6 +71,7 @@
 		084F26681E7B9CE80058F3DF /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 		085F070F1E80A1F1001B99EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Explorer.storyboard; sourceTree = "<group>"; };
 		085F07121E815D2A001B99EE /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		088E60E51E8CC605004AF072 /* ResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		08AC829F1E86211100BA9DDD /* ChoosePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoosePictureViewController.swift; path = LiveActionBetrayal/ChoosePictureViewController.swift; sourceTree = SOURCE_ROOT; };
 		08AC82A11E88485300BA9DDD /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		08AC82A41E884CBB00BA9DDD /* ExplorerTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerTabController.swift; sourceTree = "<group>"; };
@@ -139,12 +141,13 @@
 				08FE3CA51E82DCD3005E3C3A /* ConnectionManager.swift */,
 				08DFFABD1E7CA0780042E206 /* ConnectionState.swift */,
 				08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */,
-				084B375E1E84AC2B00088472 /* GradientView.swift */,
-				081120581E7C8234003B52D3 /* Peer.swift */,
 				081120601E7C8E99003B52D3 /* Finishable.swift */,
+				084B375E1E84AC2B00088472 /* GradientView.swift */,
 				0811205E1E7C8AFE003B52D3 /* IDs.swift */,
-				084F265F1E78FC110058F3DF /* TorchManager.swift */,
+				081120581E7C8234003B52D3 /* Peer.swift */,
+				088E60E51E8CC605004AF072 /* ResultView.swift */,
 				085F07121E815D2A001B99EE /* Theme.swift */,
+				084F265F1E78FC110058F3DF /* TorchManager.swift */,
 				08AC82A11E88485300BA9DDD /* TransitionViewController.swift */,
 				08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */,
 				08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */,
@@ -344,6 +347,7 @@
 				084B375D1E849FF100088472 /* PlayerMetadata.swift in Sources */,
 				08AC82A21E88485300BA9DDD /* TransitionViewController.swift in Sources */,
 				084B37631E84B08900088472 /* AttributeCell.swift in Sources */,
+				088E60E61E8CC605004AF072 /* ResultView.swift in Sources */,
 				082056D11E78E58C00846370 /* Action.swift in Sources */,
 				081120591E7C8234003B52D3 /* Peer.swift in Sources */,
 				08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */,

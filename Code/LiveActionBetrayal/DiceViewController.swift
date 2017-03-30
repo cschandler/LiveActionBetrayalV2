@@ -9,6 +9,8 @@
 import UIKit
 import CircleMenu
 import Spruce
+import GameKit
+import PinkyPromise
 
 class DiceViewController: BaseViewController {
     
@@ -33,7 +35,11 @@ class DiceViewController: BaseViewController {
         }
     }
     
-    let width: CGFloat = 100
+    fileprivate struct Constants {
+        struct CircleMenu {
+            static let width: CGFloat = 100
+        }
+    }
     
     var circleMenu: CircleMenu! {
         didSet {
@@ -44,16 +50,28 @@ class DiceViewController: BaseViewController {
         }
     }
     
-    var result: UIView! {
+    var resultView: ResultView? {
         didSet {
-            
+            if let resultView = resultView {
+                view.addSubview(resultView)
+            }
         }
+    }
+    
+    func buildResultView(withResult result: Int) -> ResultView {
+        let width: CGFloat = 100.0
+        
+        let frame = CGRect(x: circleMenu.center.x - (width / 2),
+                           y: circleMenu.center.y - (width / 2),
+                           width: width,
+                           height: width)
+        
+        return ResultView(frame: frame, color: theme.dim, result: result)
     }
     
     func dismissSelf() {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension DiceViewController: MainMenuType {
@@ -65,10 +83,10 @@ extension DiceViewController: MainMenuType {
         
         blurView = UIVisualEffectView()
 
-        let frame = CGRect(x: (view.bounds.width / 2) - (width / 2),
-                           y: (view.bounds.height / 2) - (width / 2),
-                           width: width,
-                           height: width)
+        let frame = CGRect(x: (view.bounds.width / 2) - (Constants.CircleMenu.width / 2),
+                           y: (view.bounds.height / 2) - (Constants.CircleMenu.width / 2),
+                           width: Constants.CircleMenu.width,
+                           height: Constants.CircleMenu.width)
         
         circleMenu = CircleMenu(frame: frame,
                                 normalIcon: "ic-dice",
@@ -103,10 +121,118 @@ extension DiceViewController: CircleMenuDelegate {
     
     func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
         button.setTitle("\(atIndex + 1)", for: .normal)
-        let frame = CGRect(x: button.bounds.origin.x + (width / 4), y: button.bounds.origin.y + (width / 4), width: (width / 2), height: (width / 2))
+        let frame = CGRect(x: button.bounds.origin.x + (Constants.CircleMenu.width / 4),
+                           y: button.bounds.origin.y + (Constants.CircleMenu.width / 4),
+                           width: (Constants.CircleMenu.width / 2),
+                           height: (Constants.CircleMenu.width / 2))
         button.frame = frame
-        button.layer.cornerRadius = (width / 4)
+        button.layer.cornerRadius = (Constants.CircleMenu.width / 4)
         button.backgroundColor = theme.dim
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+    }
+    
+    func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
+        animateResultViewIn().call { _ in
+            self.animateResultViewUp().call()
+        }
+    }
+    
+    func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
+        let result = total(forRolls: atIndex + 1)
+        
+        if let _ = resultView {
+            animateResultViewOut().call(completion: { _ in
+                self.resultView = self.buildResultView(withResult: result)
+            })
+        } else {
+            resultView = buildResultView(withResult: result)
+        }
+    }
+    
+    func menuCollapsed(_ circleMenu: CircleMenu) {
+        print("menu collapsed")
+    }
+    
+}
+
+extension DiceViewController {
+    
+    func total(forRolls rolls: Int) -> Int {
+        var total: Int = 0
+        for _ in 1...rolls {
+            total += d6
+        }
+        return total
+    }
+    
+    var d6: Int {
+        return GKRandomDistribution.d6().nextInt()
+    }
+    
+}
+
+// MARK: Animations
+
+extension DiceViewController {
+    
+    func animateResultViewIn() -> Promise<Void> {
+        return Promise { fulfill in
+            guard let resultView = self.resultView else { return }
+            
+            resultView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            
+            UIView.animate(withDuration: 1.0,
+                           delay: 0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 0.5,
+                           options: .curveEaseOut,
+                           animations:
+            {
+                resultView.alpha = 1.0
+                resultView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                    
+            }) { finished in
+                if finished {
+                    fulfill(.success())
+                }
+            }
+        }
+    }
+    
+    func animateResultViewUp() -> Promise<Void> {
+        return Promise { fulfill in
+            guard let resultView = self.resultView else { return }
+            
+            UIView.animate(withDuration: 1.0,
+                           delay: 0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 0.5,
+                           options: .curveEaseInOut,
+                           animations:
+            {
+                resultView.center = CGPoint(x: resultView.center.x,
+                                            y: resultView.center.y * 0.333)
+                
+            }, completion: { finished in
+                if finished {
+                    fulfill(.success())
+                }
+            })
+        }
+    }
+    
+    func animateResultViewOut() -> Promise<Void> {
+        return Promise { fulfill in
+            guard let resultView = self.resultView else { return }
+            
+            UIView.animate(withDuration: 0.3, animations: { 
+                resultView.alpha = 0.0
+            }, completion: { finished in
+                resultView.removeFromSuperview()
+                self.resultView = nil
+                fulfill(.success())
+            })
+        }
     }
     
 }

@@ -56,6 +56,8 @@ class DiceViewController: BaseViewController {
         }
     }
     
+    typealias Result = (Int, String)
+    
     var resultView: ResultView? {
         didSet {
             if let resultView = resultView {
@@ -64,13 +66,23 @@ class DiceViewController: BaseViewController {
         }
     }
     
-    func buildResultView(withResult result: Int) -> ResultView {
-        let width: CGFloat = 100.0
+    func buildResultView(withResult result: Result) -> ResultView {
+        var width: CGFloat = result.1.width(withConstrainedHeight: 200, font: .boldSystemFont(ofSize: 40))
+        
+        if width > view.bounds.width {
+            width = view.bounds.width
+        } else if width <= 80 {
+            width = 100
+        } else {
+            width += 20
+        }
+        
+        let height: CGFloat = result.1.height(withConstrainedWidth: width, font: .boldSystemFont(ofSize: 40)) + 20
         
         let frame = CGRect(x: circleMenu.center.x - (width / 2),
-                           y: circleMenu.center.y - (width / 2),
+                           y: circleMenu.center.y - (height / 2),
                            width: width,
-                           height: width)
+                           height: height)
         
         return ResultView(frame: frame, color: theme.dim, result: result)
     }
@@ -145,7 +157,7 @@ extension DiceViewController: CircleMenuDelegate {
     
     func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
         let result = total(forRolls: atIndex + 1)
-        delegate?.didRoll(withResult: result)
+        delegate?.didRoll(withResult: result.0)
         
         if let _ = resultView {
             animateResultViewOut().call(completion: { _ in
@@ -164,12 +176,26 @@ extension DiceViewController: CircleMenuDelegate {
 
 extension DiceViewController {
     
-    func total(forRolls rolls: Int) -> Int {
-        var total: Int = 0
+    func total(forRolls rolls: Int) -> Result {
+        var die: String = ""
+        var num: Int = 0
         for _ in 1...rolls {
-            total += d6
+            let result = d6
+            
+            num += result
+            
+            switch result {
+            case 1: die.append("\u{2680} ")
+            case 2: die.append("\u{2681} ")
+            case 3: die.append("\u{2682} ")
+            case 4: die.append("\u{2683} ")
+            case 5: die.append("\u{2684} ")
+            case 6: die.append("\u{2685} ")
+            default: break
+            }
         }
-        return total
+        
+        return (num, "\(num)\n\(die)")
     }
     
     var d6: Int {
@@ -218,7 +244,7 @@ extension DiceViewController {
                            animations:
             {
                 resultView.center = CGPoint(x: resultView.center.x,
-                                            y: resultView.center.y * 0.333)
+                                            y: resultView.center.y * 0.4)
                 
             }, completion: { finished in
                 if finished {

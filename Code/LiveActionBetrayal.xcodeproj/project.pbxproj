@@ -247,7 +247,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Charles Chander";
 				TargetAttributes = {
 					081ECF2C1E7738DF006F9FF0 = {
@@ -517,6 +517,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZWE7Y5MFJ2;
 				INFOPLIST_FILE = LiveActionBetrayal/Info.plist;
@@ -532,6 +533,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZWE7Y5MFJ2;
 				INFOPLIST_FILE = LiveActionBetrayal/Info.plist;

@@ -12,4 +12,7 @@ target :LiveActionBetrayal do
 	pod 'PinkyPromise', :git => 'https://github.com/willowtreeapps/PinkyPromise.git', :branch => 'swift-3'
 	pod 'Spruce'
 	pod 'CircleMenu', '~> 2.0.0'
+	pod 'Firebase/Core'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Database'
 end

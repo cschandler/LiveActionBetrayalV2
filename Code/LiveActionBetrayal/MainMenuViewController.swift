@@ -18,10 +18,6 @@ final class MainMenuViewController: BaseViewController {
         }
     }
     
-    var manager: ConnectionManager {
-        return ConnectionHandler.shared.manager
-    }
-    
     var animations: [StockAnimation] = []
     var shouldAnimate = true
     

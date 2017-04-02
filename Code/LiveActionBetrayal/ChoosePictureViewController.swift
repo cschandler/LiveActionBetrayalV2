@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import PinkyPromise
 
 final class ChoosePictureViewController: BaseViewController {
     
@@ -25,9 +27,13 @@ final class ChoosePictureViewController: BaseViewController {
     }
     
     @IBAction func doneButtonTapped(_ sender: BlurButton) {
+        guard let metadata = metadata else { return }
+        
         let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-explorer"),
                                                   storyboardIdentifier: IDs.Storyboards.Explorer.rawValue,
                                                   metadata: metadata)
+        
+        ConnectionManager.shared.addPlayer(withMetadata: metadata)
 
         present(transition, animated: true, completion: nil)
     }

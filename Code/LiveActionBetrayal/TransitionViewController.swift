@@ -61,9 +61,7 @@ extension TransitionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        Thread.sleep(forTimeInterval: 1.0) // TODO: Remove when actually loading
-        
-        transition()
+
     }
     
 }

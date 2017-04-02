@@ -85,6 +85,8 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CircleMenu/CircleMenu.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PinkyPromise/PinkyPromise.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ReSwift/ReSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Spruce/Spruce.framework"
@@ -92,6 +94,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CircleMenu/CircleMenu.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PinkyPromise/PinkyPromise.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ReSwift/ReSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Spruce/Spruce.framework"

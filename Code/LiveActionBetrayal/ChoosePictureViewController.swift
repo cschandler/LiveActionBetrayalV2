@@ -32,8 +32,6 @@ final class ChoosePictureViewController: BaseViewController {
         let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-explorer"),
                                                   storyboardIdentifier: IDs.Storyboards.Explorer.rawValue,
                                                   metadata: metadata)
-        
-        ConnectionManager.shared.addPlayer(withMetadata: metadata)
 
         present(transition, animated: true, completion: nil)
     }

@@ -61,7 +61,16 @@ extension TransitionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-
+        if let metadata = metadata {
+            ConnectionManager.shared.addPlayer(withMetadata: metadata)
+                .onSuccess {
+                    DispatchQueue.main.async {
+                        self.transition()
+                    }
+                }
+                .onFailure { error in }
+                .call()
+        }
     }
     
 }

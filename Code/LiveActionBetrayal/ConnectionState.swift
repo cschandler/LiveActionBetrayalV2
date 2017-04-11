@@ -15,12 +15,12 @@ struct ConnectionStore {
 }
 
 enum ConnectionAction: Action {
-    case peerChangedState(MCPeerID, MCSessionState)
-    case recievedMetadata(Peer)
+    case updated(Explorer)
+    case added(Explorer)
 }
 
 struct ConnectionState: StateType {
-    var connectedPeers: [Peer] = []
+    var connectedPlayers: [Explorer] = []
 }
 
 struct ConnectionReducer: Reducer {
@@ -29,24 +29,19 @@ struct ConnectionReducer: Reducer {
         var newState = state ?? ConnectionState()
         
         switch action as! ConnectionAction {
+        case .added(let explorer):
+            newState.connectedPlayers.append(explorer)
             
-        case .peerChangedState(let peerID, let sessionState):
-            switch sessionState {
-            case .connected:
-                guard !newState.connectedPeers.contains(where: { $0.name == peerID.displayName }) else { break }
-                let peer = Peer(name: peerID.displayName, picture: nil)
-                newState.connectedPeers.append(peer)
-                
-            case .connecting:
-                break
-                
-            case .notConnected:
-                newState.connectedPeers = newState.connectedPeers.filter { $0.name != peerID.displayName }
+        case .updated(let explorer):
+            for (index, player) in newState.connectedPlayers.enumerated() {
+                if player.identifier == explorer.identifier {
+                    let start = newState.connectedPlayers.startIndex.advanced(by: index)
+                    let end = newState.connectedPlayers.startIndex.advanced(by: index + 1)
+                    let range = start ..< end
+                    newState.connectedPlayers.replaceSubrange(range, with: [explorer])
+                    break
+                }
             }
-            
-        case .recievedMetadata(let peer):
-            newState.connectedPeers = newState.connectedPeers.filter { $0.name != peer.name }
-            newState.connectedPeers.append(peer)
         }
         
         return newState

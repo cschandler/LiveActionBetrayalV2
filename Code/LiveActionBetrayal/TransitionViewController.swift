@@ -64,11 +64,19 @@ extension TransitionViewController {
         if let metadata = metadata {
             ConnectionManager.shared.addPlayer(withMetadata: metadata)
                 .onSuccess {
-                    DispatchQueue.main.async {
-                        self.transition()
+                    DispatchQueue.main.async { self.transition() }
+                }
+                .onFailure { error in
+                    if let serializationError = error as? SerializationError {
+                        switch serializationError {
+                        case .missing("Picture"):
+                            DispatchQueue.main.async { self.transition() }
+                        default:
+                            print("ADD USER ERROR")
+                            print(error)
+                        }
                     }
                 }
-                .onFailure { error in }
                 .call()
         }
     }

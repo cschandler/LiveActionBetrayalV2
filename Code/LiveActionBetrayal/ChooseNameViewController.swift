@@ -19,8 +19,8 @@ final class ChooseNameViewController: BaseViewController {
         
         guard name.lowercased() != "watcher" else { return false }
         
-        for peer in ConnectionStore.shared.state.connectedPeers {
-            if peer.name == name {
+        for player in ConnectionStore.shared.state.connectedPlayers {
+            if player.name == name {
                 return false
             }
         }

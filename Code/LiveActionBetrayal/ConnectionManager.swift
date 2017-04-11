@@ -18,6 +18,8 @@ final class ConnectionManager {
     static let shared = ConnectionManager()
     
     private let firepass = "P7mYDDnT&M[UcZU2Q7"
+    private let playerUpdatedListener: UInt
+    private let playerAddedListener: UInt
     
     lazy var database: FIRDatabaseReference = {
         return FIRDatabase.database().reference()
@@ -28,7 +30,19 @@ final class ConnectionManager {
     }()
     
     init() {
+        let playerRef = FIRDatabase.database().reference().child("players")
         
+        playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
+            print("PLAYER UPDATED LISTENER")
+            dump(snapshot.value)
+            print("------")
+        })
+        
+        playerAddedListener = playerRef.observe(.childAdded, with: { snapshot in
+            print("PLAYER ADDED LISTENER")
+            dump(snapshot.value)
+            print("------")
+        })
     }
     
     func addPlayer(withMetadata player: PlayerMetadata?) -> Promise<Void> {
@@ -71,7 +85,7 @@ final class ConnectionManager {
         }
     }
     
-    func addPlayerToDatabase(withId uid: String, name: String, andAttribute attribute: Attribute) -> Promise<Void> {
+    private func addPlayerToDatabase(withId uid: String, name: String, andAttribute attribute: Attribute) -> Promise<Void> {
         return Promise { fulfill in
             
             let values: [String: AnyObject] = [
@@ -81,22 +95,27 @@ final class ConnectionManager {
                 "traitor": false as AnyObject
             ]
             
-            self.database.child("players/\(uid)").setValue(values, withCompletionBlock: { (error, ref) in
-                print("FIREBASE DATABASE ADD USER")
+            self.database.child("players/\(uid)").setValue(values) { (error, ref) in
+                print("FIREBASE ADD USER")
                 if let error = error {
                     fulfill(.failure(error))
                     return
                 }
                 print("------")
                 fulfill(.success())
-            })
+            }
         }
     }
     
-    func uploadPicture(image: UIImage?, withId uid: String) -> Promise<Void> {
+    private func uploadPicture(image: UIImage?, withId uid: String) -> Promise<Void> {
         return Promise { fulfill in
             
-            guard let image = image, let data = UIImageJPEGRepresentation(image, 0.8) else {
+            guard let image = image else {
+                fulfill(.failure(SerializationError.missing("Picture")))
+                return
+            }
+            
+            guard let data = UIImageJPEGRepresentation(image, 0.8) else {
                 fulfill(.failure(SerializationError.corrupted("Failed to convert UIImage to Data")))
                 return
             }
@@ -107,7 +126,7 @@ final class ConnectionManager {
             let metadata = FIRStorageMetadata()
             metadata.contentType = "image/jpeg"
             
-            imageRef.put(data, metadata: metadata, completion: { (metadata, error) in
+            imageRef.put(data, metadata: metadata) { (metadata, error) in
                 print("FIREBASE PUT DATA")
                 guard let metadata = metadata else {
                     guard let error = error else { return }
@@ -117,7 +136,7 @@ final class ConnectionManager {
                 print("metadata: \(String(describing: metadata))")
                 print("------")
                 fulfill(.success())
-            })
+            }
         }
     }
     

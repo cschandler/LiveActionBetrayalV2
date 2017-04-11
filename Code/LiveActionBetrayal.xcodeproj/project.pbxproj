@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07E2A0E4522877ADE5E4F606 /* Pods_LiveActionBetrayal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */; };
-		081120591E7C8234003B52D3 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081120581E7C8234003B52D3 /* Peer.swift */; };
+		081120591E7C8234003B52D3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081120581E7C8234003B52D3 /* Player.swift */; };
 		0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811205A1E7C84E9003B52D3 /* StatusViewController.swift */; };
 		0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811205E1E7C8AFE003B52D3 /* IDs.swift */; };
 		081120611E7C8E99003B52D3 /* Finishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081120601E7C8E99003B52D3 /* Finishable.swift */; };
@@ -52,7 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		081120581E7C8234003B52D3 /* Peer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
+		081120581E7C8234003B52D3 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0811205A1E7C84E9003B52D3 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		0811205E1E7C8AFE003B52D3 /* IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDs.swift; sourceTree = "<group>"; };
 		081120601E7C8E99003B52D3 /* Finishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finishable.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				081120601E7C8E99003B52D3 /* Finishable.swift */,
 				084B375E1E84AC2B00088472 /* GradientView.swift */,
 				0811205E1E7C8AFE003B52D3 /* IDs.swift */,
-				081120581E7C8234003B52D3 /* Peer.swift */,
+				081120581E7C8234003B52D3 /* Player.swift */,
 				088E60E51E8CC605004AF072 /* ResultView.swift */,
 				085F07121E815D2A001B99EE /* Theme.swift */,
 				084F265F1E78FC110058F3DF /* TorchManager.swift */,
@@ -356,7 +356,7 @@
 				084B37631E84B08900088472 /* AttributeCell.swift in Sources */,
 				088E60E61E8CC605004AF072 /* ResultView.swift in Sources */,
 				082056D11E78E58C00846370 /* Action.swift in Sources */,
-				081120591E7C8234003B52D3 /* Peer.swift in Sources */,
+				081120591E7C8234003B52D3 /* Player.swift in Sources */,
 				08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */,
 				085F07131E815D2A001B99EE /* Theme.swift in Sources */,
 				08FE3C9F1E82A660005E3C3A /* BaseViewController.swift in Sources */,

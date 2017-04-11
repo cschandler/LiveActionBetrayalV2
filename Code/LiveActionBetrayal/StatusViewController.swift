@@ -8,7 +8,6 @@
 
 import UIKit
 import ReSwift
-import MultipeerConnectivity
 
 class StatusViewController: BaseViewController {
     
@@ -22,8 +21,8 @@ class StatusViewController: BaseViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    var peers: [Peer] {
-        return ConnectionStore.shared.state.connectedPeers
+    var players: [Explorer] {
+        return ConnectionStore.shared.state.connectedPlayers
     }
 }
 
@@ -46,17 +45,17 @@ extension StatusViewController: StatusType {
 extension StatusViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return peers.count
+        return players.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: IDs.Cells.PeerCell.rawValue)
         
-        let peer = peers[indexPath.row]
+        let player = players[indexPath.row]
         
-        cell.textLabel?.text = peer.name
+        cell.textLabel?.text = player.name
         cell.textLabel?.textColor = .white
-        cell.imageView?.image = peer.picture
+        cell.imageView?.image = player.picture
         cell.backgroundColor = .clear
         
         return cell

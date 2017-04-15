@@ -21,6 +21,7 @@ extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
  
         FIRApp.configure()
+        ConnectionManager.shared.getConnectedPlayers()
         
         return true
     }

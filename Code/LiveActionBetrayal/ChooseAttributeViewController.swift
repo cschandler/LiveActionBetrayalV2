@@ -51,13 +51,13 @@ extension ChooseAttributeViewController: MainMenuType {
 extension ChooseAttributeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return attributes.count
+        return Attributes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.AttributeCell.rawValue, for: indexPath) as! AttributeCell
         
-        let attribute = attributes[indexPath.row]
+        let attribute = Attributes.atIndexPath(row: indexPath.row)
         
         cell.attribute.text = attribute.name
         cell.setupLabels(withAttribute: attribute)
@@ -73,7 +73,7 @@ extension ChooseAttributeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
         
-        metadata?.attribute = attributes[indexPath.row]
+        metadata?.attribute = Attributes.atIndexPath(row: indexPath.row)
         
         cell.isExpanded = true
         cell.backgroundColor = .white

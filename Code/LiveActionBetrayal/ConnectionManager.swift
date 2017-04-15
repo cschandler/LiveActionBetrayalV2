@@ -18,8 +18,8 @@ final class ConnectionManager {
     static let shared = ConnectionManager()
     
     private let firepass = "P7mYDDnT&M[UcZU2Q7"
-    private let playerUpdatedListener: UInt
-    private let playerAddedListener: UInt
+    private let playerUpdatedListener: FIRDatabaseHandle
+    private let playerAddedListener: FIRDatabaseHandle
     
     lazy var database: FIRDatabaseReference = {
         return FIRDatabase.database().reference()
@@ -34,15 +34,39 @@ final class ConnectionManager {
         
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
-            dump(snapshot.value)
             print("------")
         })
         
         playerAddedListener = playerRef.observe(.childAdded, with: { snapshot in
             print("PLAYER ADDED LISTENER")
-            dump(snapshot.value)
             print("------")
+            
+            guard let json = snapshot.value as? JSON,
+                let explorer = Explorer(json: json) else {
+                    return
+            }
+            
+            ConnectionStore.shared.dispatch(ConnectionAction.added(explorer))
         })
+    }
+    
+    func getConnectedPlayers() {
+        
+        database.child("players").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let json = snapshot.value as? JSON else {
+                return
+            }
+            
+            for value in json.values {
+               guard let json = value as? JSON,
+                let explorer = Explorer(json: json) else {
+                    return
+                }
+                
+                ConnectionStore.shared.dispatch(ConnectionAction.added(explorer))
+            }
+        })
+        
     }
     
     func addPlayer(withMetadata player: PlayerMetadata?) -> Promise<Void> {
@@ -89,6 +113,7 @@ final class ConnectionManager {
         return Promise { fulfill in
             
             let values: [String: AnyObject] = [
+                "uid": uid as NSString,
                 "name": name as NSString,
                 "attribute": attribute.name as NSString,
                 "torch": false as AnyObject,
@@ -137,6 +162,28 @@ final class ConnectionManager {
                 print("------")
                 fulfill(.success())
             }
+        }
+    }
+    
+    func downloadPicture(withId uid: String) -> Promise<UIImage> {
+        return Promise { fulfill in
+            let imageRef = self.storage.child("images/\(uid).jpg")
+            
+            imageRef.data(withMaxSize: .max, completion: { (data, error) in
+                print("FIREBASE DOWNLOAD DATA")
+                guard let data = data else {
+                    guard let error = error else { return }
+                    fulfill(.failure(error))
+                    return
+                }
+                
+                guard let image = UIImage(data: data) else {
+                    fulfill(.failure(SerializationError.corrupted("Could not convert data into UIImage.")))
+                    return
+                }
+                
+                fulfill(.success(image))
+            })
         }
     }
     

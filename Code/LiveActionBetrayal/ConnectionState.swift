@@ -31,6 +31,7 @@ struct ConnectionReducer: Reducer {
         switch action as! ConnectionAction {
         case .added(let explorer):
             newState.connectedPlayers.append(explorer)
+            getPicture(forExplorer: explorer)
             
         case .updated(let explorer):
             for (index, player) in newState.connectedPlayers.enumerated() {
@@ -45,6 +46,16 @@ struct ConnectionReducer: Reducer {
         }
         
         return newState
+    }
+    
+    private func getPicture(forExplorer explorer: Explorer) {
+        ConnectionManager.shared.downloadPicture(withId: explorer.identifier)
+            .onSuccess { image in
+                var new = explorer
+                new.picture = image
+                ConnectionStore.shared.dispatch(ConnectionAction.updated(explorer))
+            }
+            .call()
     }
     
 }

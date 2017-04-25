@@ -21,9 +21,7 @@ class StatusViewController: BaseViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    var players: [Explorer] {
-        return ConnectionStore.shared.state.connectedPlayers
-    }
+    var players: [Explorer] = []
 }
 
 extension StatusViewController: StatusType {
@@ -52,7 +50,7 @@ extension StatusViewController: UITableViewDataSource {
         let cell = UITableViewCell(style: .default, reuseIdentifier: IDs.Cells.PeerCell.rawValue)
         
         let player = players[indexPath.row]
-        
+        print(player.picture)
         cell.textLabel?.text = player.name
         cell.textLabel?.textColor = .white
         cell.imageView?.image = player.picture
@@ -65,6 +63,8 @@ extension StatusViewController: UITableViewDataSource {
 extension StatusViewController: StoreSubscriber {
     
     func newState(state: ConnectionState) {
+        players = state.connectedPlayers
+        state.connectedPlayers.forEach { print($0.picture) }
         tableView.reloadData()
     }
 }

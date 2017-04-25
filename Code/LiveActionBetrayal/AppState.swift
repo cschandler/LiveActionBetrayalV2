@@ -10,17 +10,15 @@ import Foundation
 import ReSwift
 import MultipeerConnectivity
 
-fileprivate let combinedReducer = CombinedReducer([AppReducer()])
-
 struct AppStore {
-    static let shared = Store(reducer: combinedReducer, state: AppState())
+    static let shared = Store(reducer: AppReducer().handleAction, state: AppState())
 }
 
 struct AppState: StateType {
     var torchOn: Bool = TorchManager.isOn
 }
 
-struct AppReducer: Reducer {
+struct AppReducer {
     
     func handleAction(action: Action, state: AppState?) -> AppState {
         var newState = state ?? AppState()

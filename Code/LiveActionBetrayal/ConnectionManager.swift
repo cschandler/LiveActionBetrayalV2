@@ -169,20 +169,29 @@ final class ConnectionManager {
         return Promise { fulfill in
             let imageRef = self.storage.child("images/\(uid).jpg")
             
-            imageRef.data(withMaxSize: .max, completion: { (data, error) in
-                print("FIREBASE DOWNLOAD DATA")
-                guard let data = data else {
+            imageRef.downloadURL(completion: { (url, error) in
+                print("FIREBASE DOWNLOAD IMAGE URL")
+                guard let url = url else {
                     guard let error = error else { return }
                     fulfill(.failure(error))
                     return
                 }
                 
-                guard let image = UIImage(data: data) else {
-                    fulfill(.failure(SerializationError.corrupted("Could not convert data into UIImage.")))
-                    return
-                }
-                
-                fulfill(.success(image))
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    guard let data = data else {
+                        guard let error = error else { return }
+                        fulfill(.failure(error))
+                        return
+                    }
+                    
+                    guard let image = UIImage(data: data) else {
+                        fulfill(.failure(SerializationError.corrupted("Could not convert data into UIImage.")))
+                        return
+                    }
+                    
+                    fulfill(.success(image))
+
+                }.resume()
             })
         }
     }

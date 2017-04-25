@@ -11,7 +11,7 @@ target :LiveActionBetrayal do
 	pod 'PinkyPromise', :git => 'https://github.com/willowtreeapps/PinkyPromise.git', :branch => 'swift-3'
 	pod 'CircleMenu', '~> 2.0.0'
 	pod 'Spruce'
-	pod 'ReSwift'
+	pod 'ReSwift', '~> 4.0.0'
 	pod 'SDWebImage'
 	pod 'Firebase/Core'
 	pod 'Firebase/Auth'

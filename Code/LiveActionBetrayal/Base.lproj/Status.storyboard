@@ -13,7 +13,7 @@
         <!--CONNECTED PEERS-->
         <scene sceneID="N9u-JQ-1Ue">
             <objects>
-                <viewController id="99d-rW-csK" customClass="StatusViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="99d-rW-csK" customClass="StatusViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gYV-rA-JmP"/>
                         <viewControllerLayoutGuide type="bottom" id="yfI-xo-fK1"/>

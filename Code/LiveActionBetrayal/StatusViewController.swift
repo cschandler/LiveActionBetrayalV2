@@ -15,7 +15,11 @@ class StatusViewController: BaseViewController {
         return UIStoryboard(name: IDs.Storyboards.Status.rawValue, bundle: nil).instantiateInitialViewController() as! UINavigationController
     }
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
+        }
+    }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

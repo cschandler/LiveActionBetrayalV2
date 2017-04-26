@@ -19,6 +19,8 @@
 		083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083B70531E88DE4100D6DC01 /* StatStepper.xib */; };
 		08455C1F1E919A2A007ED3C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08455C1E1E919A2A007ED3C5 /* GoogleService-Info.plist */; };
 		08455D2E1EB0C58700B4898F /* Watcher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08455D2D1EB0C58700B4898F /* Watcher.storyboard */; };
+		08455D301EB0CB8600B4898F /* WatcherType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08455D2F1EB0CB8600B4898F /* WatcherType.swift */; };
+		08455D321EB0CBDA00B4898F /* LightsViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08455D311EB0CBDA00B4898F /* LightsViewControllers.swift */; };
 		084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */; };
 		084B375D1E849FF100088472 /* PlayerMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375C1E849FF100088472 /* PlayerMetadata.swift */; };
 		084B375F1E84AC2B00088472 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375E1E84AC2B00088472 /* GradientView.swift */; };
@@ -66,6 +68,8 @@
 		083B70531E88DE4100D6DC01 /* StatStepper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatStepper.xib; sourceTree = "<group>"; };
 		08455C1E1E919A2A007ED3C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		08455D2D1EB0C58700B4898F /* Watcher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Watcher.storyboard; sourceTree = "<group>"; };
+		08455D2F1EB0CB8600B4898F /* WatcherType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatcherType.swift; sourceTree = "<group>"; };
+		08455D311EB0CBDA00B4898F /* LightsViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsViewControllers.swift; sourceTree = "<group>"; };
 		084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseAttributeViewController.swift; path = LiveActionBetrayal/ChooseAttributeViewController.swift; sourceTree = SOURCE_ROOT; };
 		084B375C1E849FF100088472 /* PlayerMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerMetadata.swift; path = LiveActionBetrayal/PlayerMetadata.swift; sourceTree = SOURCE_ROOT; };
 		084B375E1E84AC2B00088472 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				08455D2D1EB0C58700B4898F /* Watcher.storyboard */,
+				08455D2F1EB0CB8600B4898F /* WatcherType.swift */,
+				08455D311EB0CBDA00B4898F /* LightsViewControllers.swift */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 				085F07131E815D2A001B99EE /* Theme.swift in Sources */,
 				08FE3C9F1E82A660005E3C3A /* BaseViewController.swift in Sources */,
 				081120611E7C8E99003B52D3 /* Finishable.swift in Sources */,
+				08455D301EB0CB8600B4898F /* WatcherType.swift in Sources */,
 				08FE3C9D1E82A5DD005E3C3A /* UIImageEffects.swift in Sources */,
 				08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */,
 				088E60E81E8CDD9C004AF072 /* UserDefaults.swift in Sources */,
@@ -391,6 +398,7 @@
 				0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */,
 				08DCEAEF1E8A032500F0E094 /* DiceViewController.swift in Sources */,
 				08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */,
+				08455D321EB0CBDA00B4898F /* LightsViewControllers.swift in Sources */,
 				08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */,
 				08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */,
 				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,

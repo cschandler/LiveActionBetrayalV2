@@ -28,11 +28,11 @@ struct Theme {
 
     let backgroundImage: UIImage?
     
-    let dark: UIColor // dark
-    let mid: UIColor // mid
-    let light: UIColor // light
-    let bright: UIColor // bright
-    let dim: UIColor // dim
+    let dark: UIColor       // dark
+    let mid: UIColor        // mid
+    let light: UIColor      // light
+    let bright: UIColor     // bright
+    let dim: UIColor        // dim
     
     init(background: UIImage?, dark: String, mid: String, light: String, bright: String, dim: String) {
         self.backgroundImage = background

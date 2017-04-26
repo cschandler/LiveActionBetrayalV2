@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="594" y="482"/>
         </scene>
-        <!--View Controller-->
+        <!--Lights View Controller-->
         <scene sceneID="dgZ-DR-9uA">
             <objects>
-                <viewController id="2XU-ZF-pq1" sceneMemberID="viewController">
+                <viewController id="2XU-ZF-pq1" customClass="LightsViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hcs-Wv-rWd"/>
                         <viewControllerLayoutGuide type="bottom" id="q2c-L5-pEH"/>
@@ -51,7 +51,7 @@
         <scene sceneID="uqJ-vD-Mxl">
             <objects>
                 <tabBarController id="dgJ-vc-Ecy" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="UGG-X5-fS7">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="UGG-X5-fS7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

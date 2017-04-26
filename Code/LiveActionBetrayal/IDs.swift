@@ -12,6 +12,7 @@ enum IDs {
     enum Storyboards: String {
         case Status
         case Explorer
+        case Watcher
     }
     
     enum Cells: String {

@@ -37,15 +37,21 @@ final class TransitionViewController: BaseViewController {
         }
     }
     
-    func transition() {
-        guard let vc = UIStoryboard(name: storyboardIdentifier, bundle: nil).instantiateInitialViewController()else { return }
+    func transitionToPlayer() {
+        guard let vc = UIStoryboard(name: storyboardIdentifier, bundle: nil).instantiateInitialViewController() else { return }
         vc.modalTransitionStyle = .crossDissolve
         
         if let explorer = vc as? ExplorerTabController {
             explorer.metadata = metadata
         }
         
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func transitionToWatcher() {
+        guard let vc = UIStoryboard(name: storyboardIdentifier, bundle: nil).instantiateInitialViewController() else { return }
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
     
 }
@@ -64,13 +70,13 @@ extension TransitionViewController {
         if let metadata = metadata {
             ConnectionManager.shared.addPlayer(withMetadata: metadata)
                 .onSuccess {
-                    DispatchQueue.main.async { self.transition() }
+                    DispatchQueue.main.async { self.transitionToPlayer() }
                 }
                 .onFailure { error in
                     if let serializationError = error as? SerializationError {
                         switch serializationError {
                         case .missing("Picture"):
-                            DispatchQueue.main.async { self.transition() }
+                            DispatchQueue.main.async { self.transitionToPlayer() }
                         default:
                             print("ADD USER ERROR")
                             print(error)
@@ -78,6 +84,9 @@ extension TransitionViewController {
                     }
                 }
                 .call()
+        }
+        else {
+            transitionToWatcher()
         }
     }
     

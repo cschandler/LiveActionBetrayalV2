@@ -12,11 +12,7 @@ import Spruce
 final class MainMenuViewController: BaseViewController {
 
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var continueButton: BlurButton! {
-        didSet {
-            
-        }
-    }
+    @IBOutlet weak var continueButton: BlurButton! 
     
     var animations: [StockAnimation] = []
     var shouldAnimate = true
@@ -33,6 +29,15 @@ final class MainMenuViewController: BaseViewController {
 
         present(transition, animated: true, completion: nil)
     }
+    
+    @IBAction func watcherButtonTapped(_ sender: BlurButton) {
+        let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-watcher"),
+                                                  storyboardIdentifier: IDs.Storyboards.Watcher.rawValue,
+                                                  metadata: nil)
+        
+        present(transition, animated: true, completion: nil)
+    }
+    
 }
 
 extension MainMenuViewController: MainMenuType {

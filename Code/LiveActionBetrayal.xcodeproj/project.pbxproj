@@ -18,6 +18,7 @@
 		082056D11E78E58C00846370 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082056D01E78E58C00846370 /* Action.swift */; };
 		083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083B70531E88DE4100D6DC01 /* StatStepper.xib */; };
 		08455C1F1E919A2A007ED3C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08455C1E1E919A2A007ED3C5 /* GoogleService-Info.plist */; };
+		08455D2E1EB0C58700B4898F /* Watcher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08455D2D1EB0C58700B4898F /* Watcher.storyboard */; };
 		084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */; };
 		084B375D1E849FF100088472 /* PlayerMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375C1E849FF100088472 /* PlayerMetadata.swift */; };
 		084B375F1E84AC2B00088472 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375E1E84AC2B00088472 /* GradientView.swift */; };
@@ -64,6 +65,7 @@
 		082056D01E78E58C00846370 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		083B70531E88DE4100D6DC01 /* StatStepper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatStepper.xib; sourceTree = "<group>"; };
 		08455C1E1E919A2A007ED3C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08455D2D1EB0C58700B4898F /* Watcher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Watcher.storyboard; sourceTree = "<group>"; };
 		084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseAttributeViewController.swift; path = LiveActionBetrayal/ChooseAttributeViewController.swift; sourceTree = SOURCE_ROOT; };
 		084B375C1E849FF100088472 /* PlayerMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerMetadata.swift; path = LiveActionBetrayal/PlayerMetadata.swift; sourceTree = SOURCE_ROOT; };
 		084B375E1E84AC2B00088472 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		081ECF2F1E7738DF006F9FF0 /* LiveActionBetrayal */ = {
 			isa = PBXGroup;
 			children = (
+				08455D2C1EB0C54D00B4898F /* Watcher */,
 				08AC82A31E88486900BA9DDD /* Explorer */,
 				08FE3CA01E82AD4C005E3C3A /* Status */,
 				085F07111E80CF87001B99EE /* Main Menu */,
@@ -162,6 +165,14 @@
 				08455C1E1E919A2A007ED3C5 /* GoogleService-Info.plist */,
 			);
 			path = LiveActionBetrayal;
+			sourceTree = "<group>";
+		};
+		08455D2C1EB0C54D00B4898F /* Watcher */ = {
+			isa = PBXGroup;
+			children = (
+				08455D2D1EB0C58700B4898F /* Watcher.storyboard */,
+			);
+			name = Watcher;
 			sourceTree = "<group>";
 		};
 		085F07111E80CF87001B99EE /* Main Menu */ = {
@@ -284,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */,
+				08455D2E1EB0C58700B4898F /* Watcher.storyboard in Resources */,
 				08455C1F1E919A2A007ED3C5 /* GoogleService-Info.plist in Resources */,
 				08FE3CAC1E82DD6B005E3C3A /* Main.storyboard in Resources */,
 				083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */,

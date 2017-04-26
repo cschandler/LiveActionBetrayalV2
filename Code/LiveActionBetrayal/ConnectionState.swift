@@ -49,15 +49,12 @@ struct ConnectionReducer {
             }
         }
         
-        newState.connectedPlayers.forEach { print($0.picture) }
-        
         return newState
     }
     
     private func getPicture(forExplorer explorer: Explorer) {
         ConnectionManager.shared.downloadPicture(withId: explorer.identifier)
             .onSuccess { image in
-                print(image)
                 var new = explorer
                 new.picture = image
                 DispatchQueue.main.async {

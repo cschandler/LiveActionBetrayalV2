@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07E2A0E4522877ADE5E4F606 /* Pods_LiveActionBetrayal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */; };
+		080A61B61EB8B4EF00619A99 /* LightControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080A61B51EB8B4EF00619A99 /* LightControlView.xib */; };
 		081120591E7C8234003B52D3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081120581E7C8234003B52D3 /* Player.swift */; };
 		0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811205A1E7C84E9003B52D3 /* StatusViewController.swift */; };
 		0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811205E1E7C8AFE003B52D3 /* IDs.swift */; };
@@ -43,6 +44,7 @@
 		08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */; };
 		08DCEAEF1E8A032500F0E094 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */; };
 		08DFFABE1E7CA0780042E206 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DFFABD1E7CA0780042E206 /* ConnectionState.swift */; };
+		08FE1FA11EB8B73B0082BE0E /* LightControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE1FA01EB8B73B0082BE0E /* LightControlView.swift */; };
 		08FE3C9D1E82A5DD005E3C3A /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */; };
 		08FE3C9F1E82A660005E3C3A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */; };
 		08FE3CA41E82DCC8005E3C3A /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3CA31E82DCC8005E3C3A /* MainMenuViewController.swift */; };
@@ -55,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		080A61B51EB8B4EF00619A99 /* LightControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightControlView.xib; sourceTree = "<group>"; };
 		081120581E7C8234003B52D3 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0811205A1E7C84E9003B52D3 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		0811205E1E7C8AFE003B52D3 /* IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDs.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrantLabel.swift; sourceTree = "<group>"; };
 		08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 		08DFFABD1E7CA0780042E206 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
+		08FE1FA01EB8B73B0082BE0E /* LightControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightControlView.swift; sourceTree = "<group>"; };
 		08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		08FE3CA31E82DCC8005E3C3A /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = LiveActionBetrayal/MainMenuViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -177,6 +181,8 @@
 				08455D2D1EB0C58700B4898F /* Watcher.storyboard */,
 				08455D2F1EB0CB8600B4898F /* WatcherType.swift */,
 				08455D311EB0CBDA00B4898F /* LightsViewControllers.swift */,
+				080A61B51EB8B4EF00619A99 /* LightControlView.xib */,
+				08FE1FA01EB8B73B0082BE0E /* LightControlView.swift */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080A61B61EB8B4EF00619A99 /* LightControlView.xib in Resources */,
 				085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */,
 				08455D2E1EB0C58700B4898F /* Watcher.storyboard in Resources */,
 				08455C1F1E919A2A007ED3C5 /* GoogleService-Info.plist in Resources */,
@@ -385,6 +392,7 @@
 				088E60E81E8CDD9C004AF072 /* UserDefaults.swift in Sources */,
 				084F26621E7A75AC0058F3DF /* AppState.swift in Sources */,
 				08FE3CB01E82E057005E3C3A /* MainMenuType.swift in Sources */,
+				08FE1FA11EB8B73B0082BE0E /* LightControlView.swift in Sources */,
 				084B375F1E84AC2B00088472 /* GradientView.swift in Sources */,
 				084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */,
 				08FE3CAE1E82DDC1005E3C3A /* ChooseNameViewController.swift in Sources */,

@@ -10,7 +10,11 @@ import UIKit
 
 final class LightsViewController: BaseViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0)
+        }
+    }
     
     
 }
@@ -21,6 +25,10 @@ extension LightsViewController: WatcherType {
         super.viewDidLoad()
         
         setupView()
+        
+        if let lightsControlView = LightControlView.build() {
+            tableView.tableHeaderView = lightsControlView
+        }
     }
     
 }

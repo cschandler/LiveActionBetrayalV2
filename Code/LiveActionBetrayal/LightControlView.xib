@@ -12,90 +12,248 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LightControlView" customModule="LiveActionBetrayal" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzY-RN-Ki3">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7uy-La-xcU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fD-hj-VfU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SCU-gA-Ldi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f99-ul-vBA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="186"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f99-ul-vBA">
+                    <rect key="frame" x="8" y="0.0" width="359" height="118"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvT-vm-3f1">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kDl-q2-nFu">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-uF-1Ci">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t2T-sB-PlC">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-b8-J9w">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VAN-qe-70N">
-                                                    <rect key="frame" x="0.0" y="63.5" width="375" height="59"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REH-I9-VuH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="121.5" height="59"/>
-                                                            <state key="normal" title="Set"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-Nz-gdu">
-                                                            <rect key="frame" x="126.5" y="0.0" width="122" height="59"/>
-                                                            <state key="normal" title="Play"/>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-qE-XFx">
-                                                            <rect key="frame" x="253.5" y="0.0" width="121.5" height="59"/>
-                                                            <state key="normal" title="Reset"/>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qY4-3E-TXp">
-                                                    <rect key="frame" x="0.0" y="127.5" width="375" height="58.5"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxw-nl-Sh2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
-                                                            <state key="normal" title="ALL ON"/>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
                                             </subviews>
-                                        </stackView>
-                                    </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="C2k-b8-J9w" secondAttribute="bottom" id="IdB-l5-g6W"/>
+                                                <constraint firstItem="C2k-b8-J9w" firstAttribute="leading" secondItem="t2T-sB-PlC" secondAttribute="leading" id="Oeo-7O-xvY"/>
+                                                <constraint firstItem="C2k-b8-J9w" firstAttribute="top" secondItem="t2T-sB-PlC" secondAttribute="top" id="byV-ai-lv4"/>
+                                                <constraint firstAttribute="trailing" secondItem="C2k-b8-J9w" secondAttribute="trailing" id="yd4-sX-DIa"/>
+                                            </constraints>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <vibrancyEffect>
+                                            <blurEffect style="dark"/>
+                                        </vibrancyEffect>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5fd-uF-1Ci" secondAttribute="trailing" id="0fF-TX-IWL"/>
+                                    <constraint firstItem="5fd-uF-1Ci" firstAttribute="leading" secondItem="kDl-q2-nFu" secondAttribute="leading" id="JLk-Q3-XN7"/>
+                                    <constraint firstAttribute="bottom" secondItem="5fd-uF-1Ci" secondAttribute="bottom" id="YfC-Hr-vbc"/>
+                                    <constraint firstItem="5fd-uF-1Ci" firstAttribute="top" secondItem="kDl-q2-nFu" secondAttribute="top" id="mMx-YO-3Bc"/>
+                                </constraints>
+                            </view>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="pCF-i4-Rrb"/>
+                            </constraints>
+                            <blurEffect style="dark"/>
+                        </visualEffectView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VAN-qe-70N">
+                            <rect key="frame" x="0.0" y="41" width="359" height="36"/>
+                            <subviews>
+                                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nn9-cq-1r5">
+                                    <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2SM-Bi-7Uq">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBn-u3-o1S">
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dwu-E8-zql">
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REH-I9-VuH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <state key="normal" title="Set"/>
+                                                            <connections>
+                                                                <action selector="resetButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="gBK-fR-N8c"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="REH-I9-VuH" secondAttribute="trailing" id="1Tv-Jy-NTr"/>
+                                                        <constraint firstItem="REH-I9-VuH" firstAttribute="top" secondItem="dwu-E8-zql" secondAttribute="top" id="3bE-l0-MMd"/>
+                                                        <constraint firstItem="REH-I9-VuH" firstAttribute="leading" secondItem="dwu-E8-zql" secondAttribute="leading" id="TYI-7Q-GA1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="REH-I9-VuH" secondAttribute="bottom" id="afk-cl-cGx"/>
+                                                    </constraints>
+                                                </view>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <vibrancyEffect>
+                                                    <blurEffect style="dark"/>
+                                                </vibrancyEffect>
+                                            </visualEffectView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="DBn-u3-o1S" secondAttribute="trailing" id="3JW-yd-Gei"/>
+                                            <constraint firstAttribute="bottom" secondItem="DBn-u3-o1S" secondAttribute="bottom" id="VaB-XO-Bsf"/>
+                                            <constraint firstItem="DBn-u3-o1S" firstAttribute="top" secondItem="2SM-Bi-7Uq" secondAttribute="top" id="ifo-Nd-YOs"/>
+                                            <constraint firstItem="DBn-u3-o1S" firstAttribute="leading" secondItem="2SM-Bi-7Uq" secondAttribute="leading" id="owP-kU-lan"/>
+                                        </constraints>
+                                    </view>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="f99-ul-vBA" secondAttribute="trailing" id="5MT-A7-Bvt"/>
-                                        <constraint firstItem="f99-ul-vBA" firstAttribute="top" secondItem="SCU-gA-Ldi" secondAttribute="top" id="A1z-VV-GN9"/>
-                                        <constraint firstAttribute="bottom" secondItem="f99-ul-vBA" secondAttribute="bottom" id="eJy-xt-AAw"/>
-                                        <constraint firstItem="f99-ul-vBA" firstAttribute="leading" secondItem="SCU-gA-Ldi" secondAttribute="leading" id="ebI-I9-eHN"/>
+                                        <constraint firstAttribute="height" constant="36" id="foJ-yS-i3Q"/>
                                     </constraints>
-                                </view>
-                                <vibrancyEffect>
                                     <blurEffect style="dark"/>
-                                </vibrancyEffect>
-                            </visualEffectView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="5fD-hj-VfU" firstAttribute="top" secondItem="7uy-La-xcU" secondAttribute="top" id="288-1N-ySE"/>
-                            <constraint firstAttribute="trailing" secondItem="5fD-hj-VfU" secondAttribute="trailing" id="CKE-ch-heq"/>
-                            <constraint firstItem="5fD-hj-VfU" firstAttribute="leading" secondItem="7uy-La-xcU" secondAttribute="leading" id="VgL-wH-hyj"/>
-                            <constraint firstAttribute="bottom" secondItem="5fD-hj-VfU" secondAttribute="bottom" id="mIk-Ve-Brr"/>
-                        </constraints>
-                    </view>
-                    <blurEffect style="dark"/>
-                </visualEffectView>
+                                </visualEffectView>
+                                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQi-sr-Mvo">
+                                    <rect key="frame" x="182" y="0.0" width="177" height="36"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nMZ-XG-cBD">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJ2-9q-rQl">
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="R9u-um-pEi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-Nz-gdu">
+                                                            <rect key="frame" x="-0.5" y="0.0" width="177.5" height="36"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <state key="normal" title="Play"/>
+                                                            <connections>
+                                                                <action selector="startStopButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="qOX-sa-2vG"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="2fB-Nz-gdu" secondAttribute="trailing" id="8z1-eR-8YI"/>
+                                                        <constraint firstItem="2fB-Nz-gdu" firstAttribute="leading" secondItem="R9u-um-pEi" secondAttribute="leading" id="LUT-ql-HEs"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2fB-Nz-gdu" secondAttribute="bottom" id="aQM-RV-xCP"/>
+                                                        <constraint firstItem="2fB-Nz-gdu" firstAttribute="top" secondItem="R9u-um-pEi" secondAttribute="top" id="sLg-IO-oph"/>
+                                                    </constraints>
+                                                </view>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <vibrancyEffect>
+                                                    <blurEffect style="dark"/>
+                                                </vibrancyEffect>
+                                            </visualEffectView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="OJ2-9q-rQl" firstAttribute="top" secondItem="nMZ-XG-cBD" secondAttribute="top" id="CzE-pQ-aJ8"/>
+                                            <constraint firstAttribute="trailing" secondItem="OJ2-9q-rQl" secondAttribute="trailing" id="FKN-Xh-0fr"/>
+                                            <constraint firstItem="OJ2-9q-rQl" firstAttribute="leading" secondItem="nMZ-XG-cBD" secondAttribute="leading" id="hcY-Cq-GyQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="OJ2-9q-rQl" secondAttribute="bottom" id="vv4-kv-zZb"/>
+                                        </constraints>
+                                    </view>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="3f8-bg-OHo"/>
+                                    </constraints>
+                                    <blurEffect style="dark"/>
+                                </visualEffectView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="NPt-6h-gVw"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qY4-3E-TXp">
+                            <rect key="frame" x="0.0" y="82" width="359" height="36"/>
+                            <subviews>
+                                <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhL-sb-EGP">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="byE-4T-Lis">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78a-2a-Wwa">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dP1-Lp-k6D">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxw-nl-Sh2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <state key="normal" title="ALL ON"/>
+                                                            <connections>
+                                                                <action selector="allLightsButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="cSC-SP-tUy"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Xxw-nl-Sh2" firstAttribute="top" secondItem="dP1-Lp-k6D" secondAttribute="top" id="Kix-De-ofU"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Xxw-nl-Sh2" secondAttribute="bottom" id="OQs-vh-t0E"/>
+                                                        <constraint firstItem="Xxw-nl-Sh2" firstAttribute="leading" secondItem="dP1-Lp-k6D" secondAttribute="leading" id="bBA-co-mGO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Xxw-nl-Sh2" secondAttribute="trailing" id="xNc-sw-3Ow"/>
+                                                    </constraints>
+                                                </view>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <vibrancyEffect>
+                                                    <blurEffect style="dark"/>
+                                                </vibrancyEffect>
+                                            </visualEffectView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="78a-2a-Wwa" firstAttribute="top" secondItem="byE-4T-Lis" secondAttribute="top" id="BXF-10-2YI"/>
+                                            <constraint firstAttribute="trailing" secondItem="78a-2a-Wwa" secondAttribute="trailing" id="SRy-Mo-bic"/>
+                                            <constraint firstAttribute="bottom" secondItem="78a-2a-Wwa" secondAttribute="bottom" id="V6b-5K-bJV"/>
+                                            <constraint firstItem="78a-2a-Wwa" firstAttribute="leading" secondItem="byE-4T-Lis" secondAttribute="leading" id="ZbO-RQ-lSa"/>
+                                        </constraints>
+                                    </view>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="pps-C2-03Y"/>
+                                    </constraints>
+                                    <blurEffect style="dark"/>
+                                </visualEffectView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="2fd-eR-4o3"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="yzY-RN-Ki3" secondAttribute="bottom" id="ZrX-t3-k5E"/>
-                <constraint firstItem="yzY-RN-Ki3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hY8-BM-EIf"/>
-                <constraint firstAttribute="trailing" secondItem="yzY-RN-Ki3" secondAttribute="trailing" id="hYv-dx-HHR"/>
-                <constraint firstItem="yzY-RN-Ki3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="i99-88-AsG"/>
+                <constraint firstItem="f99-ul-vBA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="7Fc-aJ-hCm"/>
+                <constraint firstItem="f99-ul-vBA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="T30-m9-FOZ"/>
+                <constraint firstAttribute="bottom" secondItem="f99-ul-vBA" secondAttribute="bottom" id="ixV-V1-q3y"/>
+                <constraint firstAttribute="trailing" secondItem="f99-ul-vBA" secondAttribute="trailing" constant="8" id="na6-qx-Mba"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="allLightsButton" destination="Xxw-nl-Sh2" id="elC-0x-fUV"/>
+                <outlet property="allLightsVisualEffectView" destination="nhL-sb-EGP" id="Ua2-sE-hob"/>
+                <outlet property="resetButton" destination="REH-I9-VuH" id="X8h-tx-m3H"/>
+                <outlet property="resetVisualEffectView" destination="Nn9-cq-1r5" id="NcA-Z1-15B"/>
+                <outlet property="startStopButton" destination="2fB-Nz-gdu" id="5tO-BI-8WF"/>
+                <outlet property="startStopVisualEffectView" destination="BQi-sr-Mvo" id="cK0-DR-TgH"/>
+                <outlet property="timerLabel" destination="C2k-b8-J9w" id="0jV-Nz-ep7"/>
+                <outlet property="timerVisualEffectView" destination="qvT-vm-3f1" id="BtM-eW-Y6v"/>
+            </connections>
             <point key="canvasLocation" x="11.5" y="94"/>
         </view>
     </objects>

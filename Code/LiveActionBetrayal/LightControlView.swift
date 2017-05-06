@@ -35,6 +35,7 @@ final class LightControlView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        translatesAutoresizingMaskIntoConstraints = false
         timerVisualEffectView.addBorder()
         resetVisualEffectView.addBorder()
         startStopVisualEffectView.addBorder()

@@ -12,7 +12,7 @@ final class LightsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsetsMake(72, 0, 0, 0)
         }
     }
     
@@ -28,6 +28,7 @@ extension LightsViewController: WatcherType {
         
         if let lightsControlView = LightControlView.build() {
             tableView.tableHeaderView = lightsControlView
+            lightsControlView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
         }
     }
     

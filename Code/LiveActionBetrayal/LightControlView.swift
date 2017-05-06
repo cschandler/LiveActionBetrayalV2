@@ -18,7 +18,10 @@ final class LightControlView: UIView {
         return view
     }
     
+    @IBOutlet weak var manualAutoSwitch: UISwitch!
+    @IBOutlet weak var switchLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var switchVisualEffectView: UIVisualEffectView!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var allLightsButton: UIButton!
@@ -33,6 +36,7 @@ final class LightControlView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         timerVisualEffectView.addBorder()
+        switchVisualEffectView.addBorder()
         resetVisualEffectView.addBorder()
         startStopVisualEffectView.addBorder()
         allLightsVisualEffectView.addBorder()
@@ -48,6 +52,10 @@ final class LightControlView: UIView {
         
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(timerLabelTapped(sender:)))
         timerLabel.addGestureRecognizer(tapGR)
+    }
+    
+    var autoReset: Bool {
+        return manualAutoSwitch.isOn
     }
     
     var defaultTime: Int = 0
@@ -124,9 +132,17 @@ final class LightControlView: UIView {
         timeLeft -= 1
         
         if timeLeft == 0 {
-            timeLeft = defaultTime
+            if autoReset {
+                timeLeft = defaultTime
+            } else {
+                playPauseState = .pause
+            }
+            
             lightsOn = !lightsOn
         }
     }
     
+    @IBAction func switchFlipped(_ sender: UISwitch) {
+        switchLabel.text = sender.isOn ? "AUTO" : "MANUAL"
+    }
 }

@@ -232,6 +232,10 @@ final class ConnectionManager {
                 print(error)
             }
         }
+        
+        for player in AppStore.shared.state.connectedPlayers {
+            self.database.child("players/\(player.identifier)/torch").setValue(on)
+        }
     }
     
 }

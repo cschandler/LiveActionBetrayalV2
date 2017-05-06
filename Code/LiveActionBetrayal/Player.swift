@@ -13,6 +13,7 @@ protocol PlayerType {
 }
 
 struct Explorer: PlayerType {
+
     let identifier: String
     let name: String
     var attribute: Attribute

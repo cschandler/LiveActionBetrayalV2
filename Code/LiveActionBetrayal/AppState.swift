@@ -52,7 +52,12 @@ struct AppReducer {
         case .torchesOn(let torchesOn):
             TorchManager.turn(on: torchesOn)
             newState.torchOn = torchesOn
-            
+            let players = newState.connectedPlayers.map { player -> Explorer in
+                var newPlayer = player
+                newPlayer.torchOn = torchesOn
+                return newPlayer
+            }
+            newState.connectedPlayers = players
         }
         
         return newState

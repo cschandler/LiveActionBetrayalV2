@@ -34,13 +34,13 @@ extension StatusViewController: StatusType {
         super.viewDidLoad()
         
         setBackground(image: theme.backgroundImage, withBlurRadius: 0.0)
-        ConnectionStore.shared.subscribe(self)
+        AppStore.shared.subscribe(self)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        ConnectionStore.shared.unsubscribe(self)
+        AppStore.shared.unsubscribe(self)
     }
 }
 
@@ -66,7 +66,7 @@ extension StatusViewController: UITableViewDataSource {
 
 extension StatusViewController: StoreSubscriber {
     
-    func newState(state: ConnectionState) {
+    func newState(state: AppState) {
         players = state.connectedPlayers
         state.connectedPlayers.forEach { print($0.picture) }
         tableView.reloadData()

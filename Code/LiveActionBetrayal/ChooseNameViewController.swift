@@ -19,7 +19,7 @@ final class ChooseNameViewController: BaseViewController {
         
         guard name.lowercased() != "watcher" else { return false }
         
-        for player in ConnectionStore.shared.state.connectedPlayers {
+        for player in AppStore.shared.state.connectedPlayers {
             if player.name == name {
                 return false
             }

@@ -48,7 +48,7 @@ final class ConnectionManager {
                     return
             }
             
-            ConnectionStore.shared.dispatch(ConnectionAction.added(explorer))
+            AppStore.shared.dispatch(AppAction.added(explorer))
         })
         
         torchListener = torchRef.child("torchesOn").observe(.value, with: { snapshot in
@@ -76,7 +76,7 @@ final class ConnectionManager {
                     return
                 }
                 
-                ConnectionStore.shared.dispatch(ConnectionAction.added(explorer))
+                AppStore.shared.dispatch(AppAction.added(explorer))
             }
         })
     }

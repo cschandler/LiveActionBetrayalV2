@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReSwift
 
 final class LightsViewController: BaseViewController {
     
@@ -16,7 +17,11 @@ final class LightsViewController: BaseViewController {
         }
     }
     
-    
+    var players: [Explorer] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 }
 
 extension LightsViewController: WatcherType {
@@ -30,6 +35,8 @@ extension LightsViewController: WatcherType {
             tableView.tableHeaderView = lightsControlView
             lightsControlView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
         }
+        
+        AppStore.shared.subscribe(self)
     }
     
 }
@@ -37,11 +44,21 @@ extension LightsViewController: WatcherType {
 extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return players.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.PeerCell.rawValue, for: indexPath)
+        cell.textLabel?.text = players[indexPath.row].name
+        return cell
+    }
+    
+}
+
+extension LightsViewController: StoreSubscriber {
+    
+    func newState(state: AppState) {
+        players = state.connectedPlayers
     }
     
 }

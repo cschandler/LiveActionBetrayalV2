@@ -15,23 +15,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f99-ul-vBA">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f99-ul-vBA">
                     <rect key="frame" x="8" y="0.0" width="359" height="118"/>
                     <subviews>
                         <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvT-vm-3f1">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kDl-q2-nFu">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fd-uF-1Ci">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t2T-sB-PlC">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-b8-J9w">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-b8-J9w">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -61,30 +61,27 @@
                                 </constraints>
                             </view>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="36" id="pCF-i4-Rrb"/>
-                            </constraints>
                             <blurEffect style="dark"/>
                         </visualEffectView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VAN-qe-70N">
-                            <rect key="frame" x="0.0" y="41" width="359" height="36"/>
+                            <rect key="frame" x="0.0" y="42.5" width="359" height="33"/>
                             <subviews>
                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nn9-cq-1r5">
-                                    <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2SM-Bi-7Uq">
-                                        <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBn-u3-o1S">
-                                                <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dwu-E8-zql">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REH-I9-VuH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REH-I9-VuH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="Set"/>
+                                                            <state key="normal" image="ic-replay"/>
                                                             <connections>
                                                                 <action selector="resetButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="gBK-fR-N8c"/>
                                                             </connections>
@@ -113,27 +110,24 @@
                                         </constraints>
                                     </view>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="foJ-yS-i3Q"/>
-                                    </constraints>
                                     <blurEffect style="dark"/>
                                 </visualEffectView>
                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQi-sr-Mvo">
-                                    <rect key="frame" x="182" y="0.0" width="177" height="36"/>
+                                    <rect key="frame" x="182" y="0.0" width="177" height="33"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nMZ-XG-cBD">
-                                        <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJ2-9q-rQl">
-                                                <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="R9u-um-pEi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="36"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-Nz-gdu">
-                                                            <rect key="frame" x="-0.5" y="0.0" width="177.5" height="36"/>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-Nz-gdu">
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="33"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="Play"/>
+                                                            <state key="normal" image="ic-play"/>
                                                             <connections>
                                                                 <action selector="startStopButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="qOX-sa-2vG"/>
                                                             </connections>
@@ -162,34 +156,28 @@
                                         </constraints>
                                     </view>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="3f8-bg-OHo"/>
-                                    </constraints>
                                     <blurEffect style="dark"/>
                                 </visualEffectView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="36" id="NPt-6h-gVw"/>
-                            </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qY4-3E-TXp">
-                            <rect key="frame" x="0.0" y="82" width="359" height="36"/>
+                            <rect key="frame" x="0.0" y="85.5" width="359" height="32.5"/>
                             <subviews>
                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhL-sb-EGP">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="byE-4T-Lis">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78a-2a-Wwa">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dP1-Lp-k6D">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxw-nl-Sh2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="32.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <state key="normal" title="OFF"/>
                                                             <connections>
@@ -220,22 +208,13 @@
                                         </constraints>
                                     </view>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="pps-C2-03Y"/>
-                                    </constraints>
                                     <blurEffect style="dark"/>
                                 </visualEffectView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="36" id="2fd-eR-4o3"/>
-                            </constraints>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="118" id="p22-Mn-Jik"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -257,7 +236,11 @@
                 <outlet property="timerLabel" destination="C2k-b8-J9w" id="0jV-Nz-ep7"/>
                 <outlet property="timerVisualEffectView" destination="qvT-vm-3f1" id="BtM-eW-Y6v"/>
             </connections>
-            <point key="canvasLocation" x="-128" y="101"/>
+            <point key="canvasLocation" x="-128.5" y="111"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic-play" width="24" height="24"/>
+        <image name="ic-replay" width="24" height="24"/>
+    </resources>
 </document>

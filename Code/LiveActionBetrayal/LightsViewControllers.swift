@@ -34,6 +34,7 @@ extension LightsViewController: WatcherType {
         if let lightsControlView = LightControlView.build() {
             tableView.tableHeaderView = lightsControlView
             lightsControlView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
+            lightsControlView.heightAnchor.constraint(equalToConstant: 128).isActive = true
         }
         
         AppStore.shared.subscribe(self)

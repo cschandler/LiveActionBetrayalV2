@@ -18,12 +18,7 @@ final class LightControlView: UIView {
         return view
     }
     
-    @IBOutlet weak var timerLabel: UILabel! {
-        didSet {
-            let tapGR = UITapGestureRecognizer(target: self, action: #selector(timerLabelTapped(sender:)))
-            timerLabel.addGestureRecognizer(tapGR)
-        }
-    }
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var allLightsButton: UIButton!
@@ -36,16 +31,71 @@ final class LightControlView: UIView {
         super.awakeFromNib()
         
         translatesAutoresizingMaskIntoConstraints = false
+        
         timerVisualEffectView.addBorder()
         resetVisualEffectView.addBorder()
         startStopVisualEffectView.addBorder()
         allLightsVisualEffectView.addBorder()
+        
+        let title = TorchManager.isOn ? "TURN OFF" : "TURN ON"
+        allLightsButton.setTitle(title, for: .normal)
+        
+        timer = CADisplayLink(target: self, selector: #selector(tick(displayLink:)))
+        timer.preferredFramesPerSecond = 1
+        
+        defaultTime = 30
+        timeLeft = defaultTime
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(timerLabelTapped(sender:)))
+        timerLabel.addGestureRecognizer(tapGR)
+    }
+    
+    var defaultTime: Int = 0
+    var timer: CADisplayLink!
+    var timeLeft: Int = 0 {
+        didSet {
+            timerLabel.text = "\(timeLeft)"
+        }
     }
     
     var lightsOn: Bool = false {
         didSet {
-            let title = lightsOn ? "ON" : "OFF"
+            let title = lightsOn ? "TURN OFF" : "TURN ON"
             allLightsButton.setTitle(title, for: .normal)
+            ConnectionManager.shared.toggleLights(on: lightsOn)
+        }
+    }
+    
+    var playPauseState: PlayStates = .none {
+        didSet {
+            startStopButton.setImage(playPauseState.icon, for: .normal)
+            
+            switch playPauseState {
+            case .play:
+                timer.isPaused = false
+                timer.add(to: .current, forMode: .defaultRunLoopMode)
+            case .pause:
+                timer.isPaused = true
+            default:
+                break
+            }
+        }
+    }
+    
+    enum PlayStates {
+        case none
+        case play
+        case pause
+        
+        var icon: UIImage? {
+            switch self {
+            case .play:
+                return #imageLiteral(resourceName: "ic-pause")
+            case .pause:
+                return #imageLiteral(resourceName: "ic-play")
+            case .none:
+                return nil
+            }
         }
     }
     
@@ -54,16 +104,29 @@ final class LightControlView: UIView {
     }
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
-        print("RESET BUTTON TAPPED")
+        timeLeft = defaultTime
     }
     
     @IBAction func startStopButtonTapped(_ sender: UIButton) {
-        print("START STOP BUTTON TAPPED")
+        switch playPauseState {
+        case .play:
+            playPauseState = .pause
+        case .pause, .none:
+            playPauseState = .play
+        }
     }
     
     @IBAction func allLightsButtonTapped(_ sender: UIButton) {
         lightsOn = !lightsOn
-        ConnectionManager.shared.toggleLights(on: lightsOn)
+    }
+    
+    func tick(displayLink: CADisplayLink) {
+        timeLeft -= 1
+        
+        if timeLeft == 0 {
+            timeLeft = defaultTime
+            lightsOn = !lightsOn
+        }
     }
     
 }

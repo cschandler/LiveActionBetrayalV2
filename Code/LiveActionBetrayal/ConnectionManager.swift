@@ -42,6 +42,13 @@ final class ConnectionManager {
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
             print("------")
+            
+            guard let json = snapshot.value as? JSON,
+                let explorer = Explorer(json: json) else {
+                    return
+            }
+            
+            AppStore.shared.dispatch(AppAction.updated(explorer))
         })
         
         playerAddedListener = playerRef.observe(.childAdded, with: { snapshot in

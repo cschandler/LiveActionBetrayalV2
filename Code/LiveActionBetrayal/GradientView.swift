@@ -25,8 +25,6 @@ import UIKit
         
         gradient.colors = [startColor.cgColor, endColor.cgColor]
         
-        print("adding gradient layer")
-        
         layer.addSublayer(gradient)
     }
     

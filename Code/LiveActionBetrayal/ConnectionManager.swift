@@ -139,7 +139,6 @@ final class ConnectionManager {
                     fulfill(.failure(error))
                     return
                 }
-                print("user: \(String(describing: user))")
                 print("------")
                 fulfill(.success(user))
             }
@@ -195,7 +194,6 @@ final class ConnectionManager {
                     fulfill(.failure(error))
                     return
                 }
-                print("metadata: \(String(describing: metadata))")
                 print("------")
                 fulfill(.success())
             }
@@ -234,11 +232,7 @@ final class ConnectionManager {
     }
     
     func toggleLights(on: Bool) {
-        database.child(DatabaseTopLevel.torchesOn.rawValue).setValue(on) { (error, ref) in
-            if let error = error {
-                print(error)
-            }
-        }
+        database.child(DatabaseTopLevel.torchesOn.rawValue).setValue(on)
         
         for player in AppStore.shared.state.connectedPlayers {
             self.database.child("players/\(player.identifier)/torch").setValue(on)

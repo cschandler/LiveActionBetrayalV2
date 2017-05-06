@@ -38,7 +38,6 @@ struct AppReducer {
             getPicture(forExplorer: explorer)
             
         case .updated(let explorer):
-            print(explorer.picture)
             for (index, player) in newState.connectedPlayers.enumerated() {
                 if player.identifier == explorer.identifier {
                     let start = newState.connectedPlayers.startIndex.advanced(by: index)

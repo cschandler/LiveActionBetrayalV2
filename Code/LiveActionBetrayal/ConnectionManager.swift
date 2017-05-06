@@ -60,8 +60,7 @@ final class ConnectionManager {
             print("TORCH LISTENER")
             print("------")
             
-            guard let json = snapshot.value as? JSON,
-                let torchesOn = json["torchesOn"] as? Bool else {
+            guard let torchesOn = snapshot.value as? Bool else {
                 return
             }
             

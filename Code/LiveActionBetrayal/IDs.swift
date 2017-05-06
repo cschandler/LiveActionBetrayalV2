@@ -25,4 +25,8 @@ enum IDs {
         case AttributeToPicture
         case TransitionToExplorer
     }
+    
+    enum StoryboardViewControllers: String {
+        case LightsSettingsViewController
+    }
 }

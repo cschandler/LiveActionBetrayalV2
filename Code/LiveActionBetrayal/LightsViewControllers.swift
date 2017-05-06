@@ -22,6 +22,7 @@ final class LightsViewController: BaseViewController {
             tableView.reloadData()
         }
     }
+
 }
 
 extension LightsViewController: WatcherType {

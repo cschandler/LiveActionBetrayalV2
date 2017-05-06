@@ -28,6 +28,69 @@
             </objects>
             <point key="canvasLocation" x="594" y="482"/>
         </scene>
+        <!--Lights Settings View Controller-->
+        <scene sceneID="kiN-Qd-baY">
+            <objects>
+                <tableViewController storyboardIdentifier="LightsSettingsViewController" id="ze0-eW-8Oq" customClass="LightsSettingsViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gZh-3V-qTe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="kAc-7M-kIM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qST-yO-3wg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qST-yO-3wg" id="LqK-GM-ueD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3x-c8-PkN">
+                                                    <rect key="frame" x="15" y="11" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="30" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uUf-wS-BJR">
+                                                    <rect key="frame" x="72" y="7" width="288" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="ze0-eW-8Oq" id="qDd-eK-7LC"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uUf-wS-BJR" firstAttribute="leading" secondItem="K3x-c8-PkN" secondAttribute="trailing" constant="8" id="BJJ-qd-Wvy"/>
+                                                <constraint firstItem="K3x-c8-PkN" firstAttribute="leading" secondItem="LqK-GM-ueD" secondAttribute="leading" constant="15" id="JgC-sS-gyy"/>
+                                                <constraint firstItem="uUf-wS-BJR" firstAttribute="centerY" secondItem="LqK-GM-ueD" secondAttribute="centerY" id="NP2-Ji-FYS"/>
+                                                <constraint firstAttribute="trailing" secondItem="uUf-wS-BJR" secondAttribute="trailing" constant="15" id="YOU-5o-yjX"/>
+                                                <constraint firstItem="K3x-c8-PkN" firstAttribute="centerY" secondItem="LqK-GM-ueD" secondAttribute="centerY" id="qfa-Qm-1ns"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="ze0-eW-8Oq" id="qzV-6n-vCo"/>
+                            <outlet property="delegate" destination="ze0-eW-8Oq" id="kzi-w6-Z37"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="nJ0-0E-kqV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jmq-zV-lEj">
+                            <connections>
+                                <action selector="doneTapped:" destination="ze0-eW-8Oq" id="RFZ-eh-ymX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDy-he-Igo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3215" y="-173"/>
+        </scene>
         <!--Lights View Controller-->
         <scene sceneID="dgZ-DR-9uA">
             <objects>
@@ -83,7 +146,13 @@
                             <constraint firstAttribute="trailing" secondItem="itT-aW-io7" secondAttribute="trailing" id="kMh-Ka-eFO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="keW-2a-24V"/>
+                    <navigationItem key="navigationItem" id="keW-2a-24V">
+                        <barButtonItem key="leftBarButtonItem" image="ic-settings" id="eHx-Ep-2kN">
+                            <connections>
+                                <segue destination="gEB-Iz-Ira" kind="presentation" id="bMq-sZ-Iu3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="itT-aW-io7" id="LEz-PP-7Ti"/>
                     </connections>
@@ -129,8 +198,27 @@
             </objects>
             <point key="canvasLocation" x="592.79999999999995" y="-173.16341829085459"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Tgb-qD-dqO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gEB-Iz-Ira" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qbo-fL-OsI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ze0-eW-8Oq" kind="relationship" relationship="rootViewController" id="ipV-VW-8r7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPU-Fh-wG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2364" y="-173.16341829085459"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic-lightbulb" width="24" height="24"/>
+        <image name="ic-settings" width="24" height="24"/>
     </resources>
 </document>

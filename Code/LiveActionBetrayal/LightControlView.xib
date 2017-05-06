@@ -291,8 +291,8 @@
         </view>
     </objects>
     <resources>
-        <image name="ic-play" width="24" height="24"/>
+        <image name="ic-play" width="48" height="48"/>
         <image name="ic-repeat" width="24" height="24"/>
-        <image name="ic-replay" width="24" height="24"/>
+        <image name="ic-replay" width="48" height="48"/>
     </resources>
 </document>

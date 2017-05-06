@@ -41,6 +41,13 @@ final class LightControlView: UIView {
         allLightsVisualEffectView.addBorder()
     }
     
+    var lightsOn: Bool = false {
+        didSet {
+            let title = lightsOn ? "ON" : "OFF"
+            allLightsButton.setTitle(title, for: .normal)
+        }
+    }
+    
     func timerLabelTapped(sender: Any?) {
         print("TIMER LABEL TAPPED")
     }
@@ -54,7 +61,8 @@ final class LightControlView: UIView {
     }
     
     @IBAction func allLightsButtonTapped(_ sender: UIButton) {
-        print("ALL LIGHTS BUTTON TAPPED")
+        lightsOn = !lightsOn
+        ConnectionManager.shared.toggleLights(on: lightsOn)
     }
     
 }

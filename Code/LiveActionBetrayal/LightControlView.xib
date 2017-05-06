@@ -191,7 +191,7 @@
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxw-nl-Sh2">
                                                             <rect key="frame" x="0.0" y="0.0" width="359" height="36"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="ALL ON"/>
+                                                            <state key="normal" title="OFF"/>
                                                             <connections>
                                                                 <action selector="allLightsButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="cSC-SP-tUy"/>
                                                             </connections>
@@ -254,7 +254,7 @@
                 <outlet property="timerLabel" destination="C2k-b8-J9w" id="0jV-Nz-ep7"/>
                 <outlet property="timerVisualEffectView" destination="qvT-vm-3f1" id="BtM-eW-Y6v"/>
             </connections>
-            <point key="canvasLocation" x="11.5" y="94"/>
+            <point key="canvasLocation" x="-128" y="101"/>
         </view>
     </objects>
 </document>

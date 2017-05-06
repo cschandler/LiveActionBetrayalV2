@@ -86,7 +86,15 @@ extension TransitionViewController {
                 .call()
         }
         else {
-            transitionToWatcher()
+            ConnectionManager.shared.logWatcherIn()
+                .onSuccess {
+                    DispatchQueue.main.async { self.transitionToWatcher() }
+                }
+                .onFailure { error in
+                    print("LOG IN WATCHER ERROR")
+                    print(error)
+                }
+                .call()
         }
     }
     

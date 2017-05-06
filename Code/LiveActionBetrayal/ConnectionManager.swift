@@ -20,6 +20,7 @@ final class ConnectionManager {
     private let firepass = "P7mYDDnT&M[UcZU2Q7"
     private let playerUpdatedListener: FIRDatabaseHandle
     private let playerAddedListener: FIRDatabaseHandle
+    private let torchListener: FIRDatabaseHandle
     
     lazy var database: FIRDatabaseReference = {
         return FIRDatabase.database().reference()
@@ -31,6 +32,7 @@ final class ConnectionManager {
     
     init() {
         let playerRef = FIRDatabase.database().reference().child("players")
+        let torchRef = FIRDatabase.database().reference().child("torchOn")
         
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
@@ -48,10 +50,21 @@ final class ConnectionManager {
             
             ConnectionStore.shared.dispatch(ConnectionAction.added(explorer))
         })
+        
+        torchListener = torchRef.child("torchesOn").observe(.value, with: { snapshot in
+            print("TORCH LISTENER")
+            print("------")
+            
+            guard let json = snapshot.value as? JSON,
+                let torchesOn = json["torchesOn"] as? Bool else {
+                return
+            }
+            
+            AppStore.shared.dispatch(AppAction.torchesOn(torchesOn))
+        })
     }
     
     func getConnectedPlayers() {
-        
         database.child("players").observeSingleEvent(of: .value, with: { (snapshot) in
             guard let json = snapshot.value as? JSON else {
                 return
@@ -66,7 +79,6 @@ final class ConnectionManager {
                 ConnectionStore.shared.dispatch(ConnectionAction.added(explorer))
             }
         })
-        
     }
     
     func addPlayer(withMetadata player: PlayerMetadata?) -> Promise<Void> {
@@ -87,6 +99,20 @@ final class ConnectionManager {
                 }
                 .onFailure { error in fulfill(.failure(error)) }
                 .call()
+        }
+    }
+    
+    func logWatcherIn() -> Promise<Void> {
+        return Promise { fulfill in
+            FIRAuth.auth()?.signIn(withEmail: "watcher@test.com", password: self.firepass, completion: { (user, error) in
+                guard let _ = user else {
+                    guard let error = error else { return }
+                    fulfill(.failure(error))
+                    return
+                }
+                
+                fulfill(.success())
+            })
         }
     }
     
@@ -193,6 +219,14 @@ final class ConnectionManager {
 
                 }.resume()
             })
+        }
+    }
+    
+    func toggleLights(on: Bool) {
+        database.child("torchesOn").setValue(on) { (error, ref) in
+            if let error = error {
+                print(error)
+            }
         }
     }
     

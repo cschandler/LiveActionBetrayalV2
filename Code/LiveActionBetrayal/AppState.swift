@@ -14,6 +14,10 @@ struct AppStore {
     static let shared = Store(reducer: AppReducer().handleAction, state: AppState())
 }
 
+enum AppAction: Action {
+    case torchesOn(Bool)
+}
+
 struct AppState: StateType {
     var torchOn: Bool = TorchManager.isOn
 }
@@ -23,15 +27,11 @@ struct AppReducer {
     func handleAction(action: Action, state: AppState?) -> AppState {
         var newState = state ?? AppState()
         
-        switch action as! PeerAction {
-        case .lightsOn:
-            TorchManager.turn(on: true)
-            newState.torchOn = true
-        case .lightsOff:
-            TorchManager.turn(on: false)
-            newState.torchOn = false
-        default:
-            break
+        switch action as! AppAction {
+        case .torchesOn(let torchesOn):
+            TorchManager.turn(on: torchesOn)
+            newState.torchOn = torchesOn
+            
         }
         
         return newState

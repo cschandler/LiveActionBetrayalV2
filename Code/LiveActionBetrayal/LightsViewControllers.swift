@@ -59,6 +59,11 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let player = players[indexPath.row]
+        ConnectionManager.shared.toggleLight(forPlayer: player, on: !player.torchOn)
+    }
+    
 }
 
 extension LightsViewController: StoreSubscriber {

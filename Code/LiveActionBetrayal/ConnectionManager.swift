@@ -235,8 +235,12 @@ final class ConnectionManager {
         database.child(DatabaseTopLevel.torchesOn.rawValue).setValue(on)
         
         for player in AppStore.shared.state.connectedPlayers {
-            self.database.child("players/\(player.identifier)/torch").setValue(on)
+            database.child("players/\(player.identifier)/torch").setValue(on)
         }
+    }
+    
+    func toggleLight(forPlayer player: Explorer, on: Bool) {
+        database.child("players/\(player.identifier)/torch").setValue(on)
     }
     
 }

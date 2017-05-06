@@ -35,10 +35,10 @@ final class LightControlView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        timerVisualEffectView.layer.cornerRadius = 6
-        resetVisualEffectView.layer.cornerRadius = 6
-        startStopVisualEffectView.layer.cornerRadius = 6
-        allLightsVisualEffectView.layer.cornerRadius = 6
+        timerVisualEffectView.addBorder()
+        resetVisualEffectView.addBorder()
+        startStopVisualEffectView.addBorder()
+        allLightsVisualEffectView.addBorder()
     }
     
     func timerLabelTapped(sender: Any?) {

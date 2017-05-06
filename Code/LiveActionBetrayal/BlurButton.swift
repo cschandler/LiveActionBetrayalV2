@@ -54,43 +54,13 @@ class BlurButton: UIButton {
     }
 }
 
-extension UIButton {
-    
-    dynamic var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
-    dynamic var borderColor: UIColor? {
-        get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
-        }
-        set {
-            layer.borderColor = newValue?.cgColor
-        }
-    }
-    
-    dynamic var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
+extension UIView {
     
     func addBorder() {
-        tintColor = .white
-        cornerRadius = 4.0
-        borderWidth = 1.0
-        borderColor = UIColor.gray.withAlphaComponent(0.4)
+        self.tintColor = .white
+        self.layer.cornerRadius = 4.0
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
     }
     
 }

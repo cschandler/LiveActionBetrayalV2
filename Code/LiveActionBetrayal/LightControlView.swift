@@ -52,6 +52,8 @@ final class LightControlView: UIView {
         
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(timerLabelTapped(sender:)))
         timerLabel.addGestureRecognizer(tapGR)
+        
+        resetVisualEffectView.isHidden = manualAutoSwitch.isOn
     }
     
     var autoReset: Bool {
@@ -143,6 +145,7 @@ final class LightControlView: UIView {
     }
     
     @IBAction func switchFlipped(_ sender: UISwitch) {
-        switchLabel.text = sender.isOn ? "AUTO" : "MANUAL"
+        switchLabel.text = sender.isOn ? "AUTO RESET" : "MANUAL RESET"
+        resetVisualEffectView.isHidden = sender.isOn
     }
 }

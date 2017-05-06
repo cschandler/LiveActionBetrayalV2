@@ -30,9 +30,14 @@ final class ConnectionManager {
         return FIRStorage.storage().reference()
     }()
     
+    enum DatabaseTopLevel: String {
+        case players
+        case torchesOn
+    }
+    
     init() {
-        let playerRef = FIRDatabase.database().reference().child("players")
-        let torchRef = FIRDatabase.database().reference().child("torchOn")
+        let playerRef = FIRDatabase.database().reference().child(DatabaseTopLevel.players.rawValue)
+        let torchRef = FIRDatabase.database().reference().child(DatabaseTopLevel.torchesOn.rawValue)
         
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
@@ -51,7 +56,7 @@ final class ConnectionManager {
             AppStore.shared.dispatch(AppAction.added(explorer))
         })
         
-        torchListener = torchRef.child("torchesOn").observe(.value, with: { snapshot in
+        torchListener = torchRef.observe(.value, with: { snapshot in
             print("TORCH LISTENER")
             print("------")
             
@@ -223,7 +228,7 @@ final class ConnectionManager {
     }
     
     func toggleLights(on: Bool) {
-        database.child("torchesOn").setValue(on) { (error, ref) in
+        database.child(DatabaseTopLevel.torchesOn.rawValue).setValue(on) { (error, ref) in
             if let error = error {
                 print(error)
             }

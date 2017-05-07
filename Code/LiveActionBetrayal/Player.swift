@@ -41,5 +41,12 @@ struct Explorer: PlayerType {
         self.torchOn = torch
         self.isTraitor = traitor
     }
+    
+    var metadata: PlayerMetadata {
+        var metadata = PlayerMetadata(name: name)
+        metadata.attribute = attribute
+        metadata.picture = picture
+        return metadata
+    }
 
 }

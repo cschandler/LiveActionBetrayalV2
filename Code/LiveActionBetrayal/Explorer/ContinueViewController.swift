@@ -19,6 +19,20 @@ final class ContinueViewController: BaseViewController {
         }
     }
     
+    func transition(withExplorer explorer: Explorer) {
+        let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-explorer"),
+                                                  storyboardIdentifier: IDs.Storyboards.Explorer.rawValue,
+                                                  transitionType: .continueGame(explorer.metadata))
+        
+        present(transition, animated: true) { [weak self] in
+            guard let mainMenu = self?.navigationController?.childViewControllers.first as? MainMenuViewController else {
+                return
+            }
+            
+            AppStore.shared.unsubscribe(mainMenu)
+        }
+    }
+    
 }
 
 // MARK: - Life Cycle
@@ -52,7 +66,11 @@ extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let player = players[indexPath.row]
+        ConnectionManager.shared.logIn(player: player)
+            .onSuccess { self.transition(withExplorer: player) }
+            .onFailure { error in print(error) }
+            .call()
     }
     
 }

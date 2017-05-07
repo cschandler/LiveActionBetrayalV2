@@ -243,6 +243,25 @@ final class ConnectionManager {
         database.child("players/\(player.identifier)/torch").setValue(on)
     }
     
+    func logIn(player: Explorer) -> Promise<Void> {
+        return Promise { fulfill in
+            
+            let email = "\(player.name)@test.com"
+            
+            FIRAuth.auth()?.signIn(withEmail: email, password: self.firepass, completion: { (user, error) in
+                print("PLAYER SIGN IN")
+                print("------")
+                guard let _ = user else {
+                    guard let error = error else { return }
+                    fulfill(.failure(error))
+                    return
+                }
+                
+                fulfill(.success())
+            })
+        }
+    }
+    
 }
 
 enum SerializationError: Error {

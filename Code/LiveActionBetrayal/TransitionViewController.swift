@@ -10,10 +10,10 @@ import UIKit
 
 final class TransitionViewController: BaseViewController {
     
-    required init(image: UIImage?, storyboardIdentifier: String, metadata: PlayerMetadata?) {
+    required init(image: UIImage?, storyboardIdentifier: String, transitionType type: TransitionType) {
         self.backgroundImage = image
         self.storyboardIdentifier = storyboardIdentifier
-        self.metadata = metadata
+        self.type = type
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,7 +23,7 @@ final class TransitionViewController: BaseViewController {
     
     let storyboardIdentifier: String
     let backgroundImage: UIImage?
-    let metadata: PlayerMetadata?
+    let type: TransitionType
     
     var imageView: UIImageView! {
         didSet {
@@ -37,7 +37,7 @@ final class TransitionViewController: BaseViewController {
         }
     }
     
-    func transitionToPlayer() {
+    func transitionToPlayer(withMetadata metadata: PlayerMetadata) {
         guard let vc = UIStoryboard(name: storyboardIdentifier, bundle: nil).instantiateInitialViewController() else { return }
         vc.modalTransitionStyle = .crossDissolve
         
@@ -67,16 +67,17 @@ extension TransitionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let metadata = metadata {
+        switch type {
+        case .newGame(let metadata):
             ConnectionManager.shared.addPlayer(withMetadata: metadata)
                 .onSuccess {
-                    DispatchQueue.main.async { self.transitionToPlayer() }
+                    DispatchQueue.main.async { self.transitionToPlayer(withMetadata: metadata) }
                 }
                 .onFailure { error in
                     if let serializationError = error as? SerializationError {
                         switch serializationError {
                         case .missing("Picture"):
-                            DispatchQueue.main.async { self.transitionToPlayer() }
+                            DispatchQueue.main.async { self.transitionToPlayer(withMetadata: metadata) }
                         default:
                             print("ADD USER ERROR")
                             print(error)
@@ -84,8 +85,11 @@ extension TransitionViewController {
                     }
                 }
                 .call()
-        }
-        else {
+            
+        case .continueGame(let metadata):
+            transitionToPlayer(withMetadata: metadata)
+            
+        case .watcher:
             ConnectionManager.shared.logWatcherIn()
                 .onSuccess {
                     DispatchQueue.main.async { self.transitionToWatcher() }
@@ -98,4 +102,10 @@ extension TransitionViewController {
         }
     }
     
+}
+
+enum TransitionType {
+    case newGame(PlayerMetadata)
+    case continueGame(PlayerMetadata)
+    case watcher
 }

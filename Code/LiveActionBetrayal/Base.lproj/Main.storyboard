@@ -90,6 +90,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="continueButton" destination="2wy-iF-b77" id="jSu-fd-vKi"/>
+                        <outlet property="newGameButton" destination="Vha-Ec-7Vq" id="gm2-fd-XEI"/>
                         <outlet property="stackView" destination="Aa2-kC-yHM" id="21j-g7-c9d"/>
                     </connections>
                 </viewController>

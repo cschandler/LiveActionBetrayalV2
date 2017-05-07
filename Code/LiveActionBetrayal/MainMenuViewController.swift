@@ -9,10 +9,12 @@
 import UIKit
 import Spruce
 import ReSwift
+import FirebaseAuth
 
 final class MainMenuViewController: BaseViewController {
 
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var newGameButton: BlurButton!
     @IBOutlet weak var continueButton: BlurButton! 
     
     var animations: [StockAnimation] = []
@@ -28,7 +30,7 @@ final class MainMenuViewController: BaseViewController {
     @IBAction func watcherButtonTapped(_ sender: BlurButton) {
         let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-watcher"),
                                                   storyboardIdentifier: IDs.Storyboards.Watcher.rawValue,
-                                                  metadata: nil)
+                                                  transitionType: .watcher)
         
         present(transition, animated: true) {
             AppStore.shared.unsubscribe(self)
@@ -46,7 +48,9 @@ extension MainMenuViewController: MainMenuType {
         
         setupView()
         
+        newGameButton.isEnabled = FIRAuth.auth()?.currentUser == nil
         continueButton.isEnabled = false
+        
         animations = [.fadeIn, .expand(.slightly), .slide(.up, .slightly)]
         stackView.spruce.prepare(with: animations)
         AppStore.shared.subscribe(self)

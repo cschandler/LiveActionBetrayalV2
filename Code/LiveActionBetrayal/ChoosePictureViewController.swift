@@ -30,7 +30,7 @@ final class ChoosePictureViewController: BaseViewController {
         
         let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-explorer"),
                                                   storyboardIdentifier: IDs.Storyboards.Explorer.rawValue,
-                                                  metadata: metadata)
+                                                  transitionType: .newGame(metadata))
 
         present(transition, animated: true) { [weak self] in
             guard let mainMenu = self?.navigationController?.childViewControllers.first as? MainMenuViewController else {

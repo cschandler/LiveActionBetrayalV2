@@ -54,7 +54,6 @@ extension StatusViewController: UITableViewDataSource {
         let cell = UITableViewCell(style: .default, reuseIdentifier: IDs.Cells.PeerCell.rawValue)
         
         let player = players[indexPath.row]
-        print(player.picture)
         cell.textLabel?.text = player.name
         cell.textLabel?.textColor = .white
         cell.imageView?.image = player.picture
@@ -68,7 +67,6 @@ extension StatusViewController: StoreSubscriber {
     
     func newState(state: AppState) {
         players = state.connectedPlayers
-        state.connectedPlayers.forEach { print($0.picture) }
         tableView.reloadData()
     }
 }

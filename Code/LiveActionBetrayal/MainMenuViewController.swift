@@ -48,9 +48,6 @@ extension MainMenuViewController: MainMenuType {
         
         setupView()
         
-        newGameButton.isEnabled = FIRAuth.auth()?.currentUser == nil
-        continueButton.isEnabled = false
-        
         animations = [.fadeIn, .expand(.slightly), .slide(.up, .slightly)]
         stackView.spruce.prepare(with: animations)
         AppStore.shared.subscribe(self)

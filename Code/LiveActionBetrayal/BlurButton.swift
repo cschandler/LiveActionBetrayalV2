@@ -52,6 +52,7 @@ class BlurButton: UIButton {
         
         addBorder()
     }
+
 }
 
 extension UIView {

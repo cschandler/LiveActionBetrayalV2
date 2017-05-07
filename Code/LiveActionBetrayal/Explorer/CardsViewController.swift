@@ -10,7 +10,11 @@ import UIKit
 
 final class CardsViewController: BaseViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.contentInset = UIEdgeInsetsMake(72.0, 0, 0, 0)
+        }
+    }
     
     var cards: [Card] = [] {
         didSet {

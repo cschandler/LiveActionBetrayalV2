@@ -18,10 +18,7 @@ final class LightControlView: UIView {
         return view
     }
     
-    @IBOutlet weak var manualAutoSwitch: UISwitch!
-    @IBOutlet weak var switchLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var switchVisualEffectView: UIVisualEffectView!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var startStopButton: UIButton!
     @IBOutlet weak var allLightsButton: UIButton!
@@ -36,7 +33,6 @@ final class LightControlView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         timerVisualEffectView.addBorder()
-        switchVisualEffectView.addBorder()
         resetVisualEffectView.addBorder()
         startStopVisualEffectView.addBorder()
         allLightsVisualEffectView.addBorder()
@@ -47,28 +43,22 @@ final class LightControlView: UIView {
         timer = CADisplayLink(target: self, selector: #selector(tick(displayLink:)))
         timer.preferredFramesPerSecond = 1
         
-        defaultTime = 30
         timeLeft = defaultTime
-        
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(timerLabelTapped(sender:)))
-        timerLabel.addGestureRecognizer(tapGR)
-        
-        resetVisualEffectView.isHidden = manualAutoSwitch.isOn
     }
     
-    var autoReset: Bool {
-        return manualAutoSwitch.isOn
+    private var timer: CADisplayLink!
+    
+    private var defaultTime: TimeInterval {
+        return lightsOn ? Defaults.shared.lightsOff : Defaults.shared.lightsOn
     }
     
-    var defaultTime: Int = 0
-    var timer: CADisplayLink!
-    var timeLeft: Int = 0 {
+    private var timeLeft: TimeInterval = 0 {
         didSet {
-            timerLabel.text = "\(timeLeft)"
+            timerLabel.text = "\(Int(timeLeft))"
         }
     }
     
-    var lightsOn: Bool = false {
+    private var lightsOn: Bool = false {
         didSet {
             let title = lightsOn ? "TURN OFF" : "TURN ON"
             allLightsButton.setTitle(title, for: .normal)
@@ -76,7 +66,7 @@ final class LightControlView: UIView {
         }
     }
     
-    var playPauseState: PlayStates = .none {
+    private var playPauseState: PlayStates = .none {
         didSet {
             startStopButton.setImage(playPauseState.icon, for: .normal)
             
@@ -92,7 +82,7 @@ final class LightControlView: UIView {
         }
     }
     
-    enum PlayStates {
+    private enum PlayStates {
         case none
         case play
         case pause
@@ -107,10 +97,6 @@ final class LightControlView: UIView {
                 return nil
             }
         }
-    }
-    
-    func timerLabelTapped(sender: Any?) {
-        print("TIMER LABEL TAPPED")
     }
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
@@ -130,11 +116,11 @@ final class LightControlView: UIView {
         lightsOn = !lightsOn
     }
     
-    func tick(displayLink: CADisplayLink) {
+    dynamic private func tick(displayLink: CADisplayLink) {
         timeLeft -= 1
         
         if timeLeft == 0 {
-            if autoReset {
+            if Defaults.shared.automaticLightReset {
                 timeLeft = defaultTime
             } else {
                 playPauseState = .pause
@@ -143,9 +129,5 @@ final class LightControlView: UIView {
             lightsOn = !lightsOn
         }
     }
-    
-    @IBAction func switchFlipped(_ sender: UISwitch) {
-        switchLabel.text = sender.isOn ? "AUTO RESET" : "MANUAL RESET"
-        resetVisualEffectView.isHidden = sender.isOn
-    }
+
 }

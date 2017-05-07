@@ -66,66 +66,20 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VAN-qe-70N">
                             <rect key="frame" x="0.0" y="63.5" width="359" height="53"/>
                             <subviews>
-                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DF7-bo-T4A">
-                                    <rect key="frame" x="0.0" y="0.0" width="116.5" height="53"/>
-                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HNv-H7-elS">
-                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JI6-DC-pO3">
-                                                <rect key="frame" x="0.0" y="0.0" width="117" height="53"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CHQ-3C-qzR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="53"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <subviews>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="ic-repeat" translatesAutoresizingMaskIntoConstraints="NO" id="Khz-lt-Vwm">
-                                                            <rect key="frame" x="33.5" y="14" width="51" height="31"/>
-                                                            <connections>
-                                                                <action selector="switchFlipped:" destination="iN0-l3-epB" eventType="valueChanged" id="AMq-yc-Ttf"/>
-                                                            </connections>
-                                                        </switch>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AUTO RESET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stD-6D-IUI">
-                                                            <rect key="frame" x="24" y="0.0" width="69" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="Khz-lt-Vwm" secondAttribute="bottom" constant="8" id="ClX-yf-8Ls"/>
-                                                        <constraint firstItem="Khz-lt-Vwm" firstAttribute="centerX" secondItem="CHQ-3C-qzR" secondAttribute="centerX" id="GGb-ZJ-sUc"/>
-                                                        <constraint firstItem="stD-6D-IUI" firstAttribute="top" secondItem="CHQ-3C-qzR" secondAttribute="top" id="SoV-QP-afs"/>
-                                                        <constraint firstItem="stD-6D-IUI" firstAttribute="centerX" secondItem="CHQ-3C-qzR" secondAttribute="centerX" id="dIV-bA-NZ4"/>
-                                                    </constraints>
-                                                </view>
-                                                <vibrancyEffect>
-                                                    <blurEffect style="dark"/>
-                                                </vibrancyEffect>
-                                            </visualEffectView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="JI6-DC-pO3" secondAttribute="bottom" id="1SR-ta-NMx"/>
-                                            <constraint firstItem="JI6-DC-pO3" firstAttribute="leading" secondItem="HNv-H7-elS" secondAttribute="leading" id="5bo-pb-bn5"/>
-                                            <constraint firstAttribute="trailing" secondItem="JI6-DC-pO3" secondAttribute="trailing" id="VWj-WN-HKA"/>
-                                            <constraint firstItem="JI6-DC-pO3" firstAttribute="top" secondItem="HNv-H7-elS" secondAttribute="top" id="vxt-R3-6gw"/>
-                                        </constraints>
-                                    </view>
-                                    <blurEffect style="dark"/>
-                                </visualEffectView>
                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nn9-cq-1r5">
-                                    <rect key="frame" x="121.5" y="0.0" width="116" height="53"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2SM-Bi-7Uq">
-                                        <rect key="frame" x="0.0" y="0.0" width="116" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBn-u3-o1S">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="53"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dwu-E8-zql">
-                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="53"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REH-I9-VuH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="53"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <state key="normal" image="ic-replay"/>
@@ -160,19 +114,19 @@
                                     <blurEffect style="dark"/>
                                 </visualEffectView>
                                 <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQi-sr-Mvo">
-                                    <rect key="frame" x="242.5" y="0.0" width="116.5" height="53"/>
+                                    <rect key="frame" x="182" y="0.0" width="177" height="53"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nMZ-XG-cBD">
-                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJ2-9q-rQl">
-                                                <rect key="frame" x="0.0" y="0.0" width="116.5" height="53"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="R9u-um-pEi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="116.5" height="53"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fB-Nz-gdu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="116.5" height="53"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="53"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <state key="normal" image="ic-play"/>
                                                             <connections>
@@ -277,13 +231,10 @@
             <connections>
                 <outlet property="allLightsButton" destination="Xxw-nl-Sh2" id="elC-0x-fUV"/>
                 <outlet property="allLightsVisualEffectView" destination="nhL-sb-EGP" id="Ua2-sE-hob"/>
-                <outlet property="manualAutoSwitch" destination="Khz-lt-Vwm" id="M6j-XN-9Rg"/>
                 <outlet property="resetButton" destination="REH-I9-VuH" id="X8h-tx-m3H"/>
                 <outlet property="resetVisualEffectView" destination="Nn9-cq-1r5" id="NcA-Z1-15B"/>
                 <outlet property="startStopButton" destination="2fB-Nz-gdu" id="5tO-BI-8WF"/>
                 <outlet property="startStopVisualEffectView" destination="BQi-sr-Mvo" id="cK0-DR-TgH"/>
-                <outlet property="switchLabel" destination="stD-6D-IUI" id="w8y-c4-D4U"/>
-                <outlet property="switchVisualEffectView" destination="DF7-bo-T4A" id="h6p-0Q-Ncz"/>
                 <outlet property="timerLabel" destination="C2k-b8-J9w" id="0jV-Nz-ep7"/>
                 <outlet property="timerVisualEffectView" destination="qvT-vm-3f1" id="BtM-eW-Y6v"/>
             </connections>
@@ -292,7 +243,6 @@
     </objects>
     <resources>
         <image name="ic-play" width="48" height="48"/>
-        <image name="ic-repeat" width="24" height="24"/>
         <image name="ic-replay" width="48" height="48"/>
     </resources>
 </document>

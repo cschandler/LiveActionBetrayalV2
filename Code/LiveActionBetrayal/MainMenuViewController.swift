@@ -8,6 +8,7 @@
 
 import UIKit
 import Spruce
+import ReSwift
 
 final class MainMenuViewController: BaseViewController {
 
@@ -19,15 +20,9 @@ final class MainMenuViewController: BaseViewController {
     
     @IBAction func connectionButtonTapped(_ sender: UIBarButtonItem) {
         let vc = StatusViewController.build()
-        present(vc, animated: true, completion: nil)
-    }
-    
-    @IBAction func continueButtonTapped(_ sender: BlurButton) {
-        let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-explorer"),
-                                                  storyboardIdentifier: IDs.Storyboards.Explorer.rawValue,
-                                                  metadata: nil)
-
-        present(transition, animated: true, completion: nil)
+        present(vc, animated: true) {
+            AppStore.shared.unsubscribe(self)
+        }
     }
     
     @IBAction func watcherButtonTapped(_ sender: BlurButton) {
@@ -35,10 +30,14 @@ final class MainMenuViewController: BaseViewController {
                                                   storyboardIdentifier: IDs.Storyboards.Watcher.rawValue,
                                                   metadata: nil)
         
-        present(transition, animated: true, completion: nil)
+        present(transition, animated: true) {
+            AppStore.shared.unsubscribe(self)
+        }
     }
     
 }
+
+// MARK: - Life Cycle
 
 extension MainMenuViewController: MainMenuType {
     
@@ -47,8 +46,10 @@ extension MainMenuViewController: MainMenuType {
         
         setupView()
         
+        continueButton.isEnabled = false
         animations = [.fadeIn, .expand(.slightly), .slide(.up, .slightly)]
         stackView.spruce.prepare(with: animations)
+        AppStore.shared.subscribe(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +59,18 @@ extension MainMenuViewController: MainMenuType {
             stackView.spruce.animate(animations, duration: 0.3) { _ in
                 self.shouldAnimate = false
             }
+        }
+    }
+    
+}
+
+// MARK: - ReSwift
+
+extension MainMenuViewController: StoreSubscriber {
+    
+    func newState(state: AppState) {
+        if state.connectedPlayers.count > 0 {
+            continueButton.isEnabled = true
         }
     }
     

@@ -189,7 +189,7 @@ final class ConnectionManager {
             
             imageRef.put(data, metadata: metadata) { (metadata, error) in
                 print("FIREBASE PUT DATA")
-                guard let metadata = metadata else {
+                guard metadata != nil else {
                     guard let error = error else { return }
                     fulfill(.failure(error))
                     return

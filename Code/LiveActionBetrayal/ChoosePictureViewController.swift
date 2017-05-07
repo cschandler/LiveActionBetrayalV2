@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseAuth
-import PinkyPromise
 
 final class ChoosePictureViewController: BaseViewController {
     
@@ -33,7 +32,13 @@ final class ChoosePictureViewController: BaseViewController {
                                                   storyboardIdentifier: IDs.Storyboards.Explorer.rawValue,
                                                   metadata: metadata)
 
-        present(transition, animated: true, completion: nil)
+        present(transition, animated: true) { [weak self] in
+            guard let mainMenu = self?.navigationController?.childViewControllers.first as? MainMenuViewController else {
+                return
+            }
+            
+            AppStore.shared.unsubscribe(mainMenu)
+        }
     }
     
 }

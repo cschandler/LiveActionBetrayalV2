@@ -18,6 +18,7 @@ enum IDs {
     enum Cells: String {
         case PeerCell
         case AttributeCell
+        case CardCell
     }
     
     enum Segues: String {

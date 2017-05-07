@@ -16,10 +16,10 @@ struct Explorer: PlayerType {
 
     let identifier: String
     let name: String
+    
     var attribute: Attribute
     var picture: UIImage = #imageLiteral(resourceName: "ic-avatar-default")
-
-    //    var items: [Item]  TODO
+    var cards: [Card] = []
     var isTraitor: Bool = false
     var isDead: Bool = false
     var torchOn: Bool = false

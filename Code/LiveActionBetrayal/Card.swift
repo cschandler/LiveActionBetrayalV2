@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum CardType {
+enum CardType: String {
     case event
     case omen
     case item
@@ -20,7 +20,23 @@ struct Card {
     let name: String
     let text: String
     let type: CardType
+    let room: String
     
     var owner: String?
+    
+    init?(qr: String) {
+        let components = qr.components(separatedBy: ";")
+        
+        guard components.count == 5, let type = CardType(rawValue: components[3]) else {
+            print("QR did con contain the correct amount of components")
+            return nil
+        }
+        
+        self.identifier = components[0]
+        self.name = components[1]
+        self.text = components[2]
+        self.type = type
+        self.room = components[4]
+    }
     
 }

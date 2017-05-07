@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07E2A0E4522877ADE5E4F606 /* Pods_LiveActionBetrayal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */; };
+		080463031EBFACF000601DF3 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080463021EBFACF000601DF3 /* AddCardViewController.swift */; };
 		080A61B61EB8B4EF00619A99 /* LightControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080A61B51EB8B4EF00619A99 /* LightControlView.xib */; };
 		081120591E7C8234003B52D3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081120581E7C8234003B52D3 /* Player.swift */; };
 		0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811205A1E7C84E9003B52D3 /* StatusViewController.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		080463021EBFACF000601DF3 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		080A61B51EB8B4EF00619A99 /* LightControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightControlView.xib; sourceTree = "<group>"; };
 		081120581E7C8234003B52D3 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0811205A1E7C84E9003B52D3 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				083B70531E88DE4100D6DC01 /* StatStepper.xib */,
 				08AC82AC1E88C68900BA9DDD /* StatStepper.swift */,
 				083E0C2A1EBF8756006C4783 /* CardsViewController.swift */,
+				080463021EBFACF000601DF3 /* AddCardViewController.swift */,
 			);
 			path = Explorer;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				084B375F1E84AC2B00088472 /* GradientView.swift in Sources */,
 				084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */,
 				08FE3CAE1E82DDC1005E3C3A /* ChooseNameViewController.swift in Sources */,
+				080463031EBFACF000601DF3 /* AddCardViewController.swift in Sources */,
 				08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */,
 				08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */,
 				083E0C2D1EBF8F22006C4783 /* ContinueViewController.swift in Sources */,

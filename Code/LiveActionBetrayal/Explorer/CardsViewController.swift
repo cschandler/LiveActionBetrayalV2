@@ -18,6 +18,14 @@ final class CardsViewController: BaseViewController {
         }
     }
     
+    @IBAction func addCardTapped(_ sender: UIBarButtonItem) {
+        let viewController = AddCardViewController.build()
+        viewController.addCard = { [weak self] card in
+            self?.cards.append(card)
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 // MARK: - Life Cycle

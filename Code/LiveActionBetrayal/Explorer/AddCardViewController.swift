@@ -19,7 +19,16 @@ final class AddCardViewController: BaseViewController {
     var addCard: ((Card) -> Void)?
     
     var captureSession: AVCaptureSession?
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer? {
+        didSet {
+            guard let videoPreviewLayer = videoPreviewLayer else { return }
+            videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+            videoPreviewLayer.frame = view.layer.bounds
+            view.layer.addSublayer(videoPreviewLayer)
+        }
+    }
+    
     var qrCodeFrameView: UIView? {
         didSet {
             guard let qrCodeFrameView = qrCodeFrameView else { return }
@@ -50,52 +59,31 @@ final class AddCardViewController: BaseViewController {
     
 }
 
-extension AddCardViewController: ExplorerType {
+extension AddCardViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupView()
         title = "Add Card"
         
-        
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         do {
-            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
             let input = try AVCaptureDeviceInput(device: captureDevice)
-            
-            // Initialize the captureSession object.
             captureSession = AVCaptureSession()
-            
-            // Set the input device on the capture session.
             captureSession?.addInput(input)
             
-            // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession?.addOutput(captureMetadataOutput)
             
-            // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
             
-            // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            view.layer.addSublayer(videoPreviewLayer!)
-            
-            // Start video capture.
             captureSession?.startRunning()
-            
-            // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()
-            
         } catch {
-            // If any error occurs, simply print it out and don't continue any more.
             print(error)
-            return
         }
     }
     
@@ -112,31 +100,21 @@ extension AddCardViewController: ExplorerType {
 extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        
-        // Check if the metadataObjects array is not nil and it contains at least one object.
-        if metadataObjects == nil || metadataObjects.count == 0 {
+        guard metadataObjects != nil && metadataObjects.count > 0,
+            let qrCodeObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject,
+            supportedCodeTypes.contains(qrCodeObject.type),
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: qrCodeObject),
+            let qrString = qrCodeObject.stringValue,
+            let card = Card(qr: qrString)
+            else
+        {
             qrCodeFrameView?.frame = CGRect.zero
             return
         }
         
-        // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
-        if supportedCodeTypes.contains(metadataObj.type) {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
-            
-            if let string = metadataObj.stringValue {
-                captureSession?.stopRunning()
-                
-                if let card = Card(qr: string) {
-                    addCard?(card)
-                }
-                
-                return
-            }
-        }
+        qrCodeFrameView?.frame = barCodeObject.bounds
+        captureSession?.stopRunning()
+        addCard?(card)
     }
     
 }

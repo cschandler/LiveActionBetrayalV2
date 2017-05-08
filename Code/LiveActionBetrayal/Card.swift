@@ -24,7 +24,7 @@ struct Card {
     
     var owner: String?
     
-    init?(qr: String) {
+    init?(qr: String, currentOwner: String) {
         let components = qr.components(separatedBy: ";")
         
         guard components.count == 5, let type = CardType(rawValue: components[3]) else {
@@ -37,6 +37,7 @@ struct Card {
         self.text = components[2]
         self.type = type
         self.room = components[4]
+        self.owner = currentOwner
     }
     
 }

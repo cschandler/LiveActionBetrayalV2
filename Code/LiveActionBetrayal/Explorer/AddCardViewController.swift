@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import FirebaseAuth
 
 final class AddCardViewController: BaseViewController {
     
@@ -57,6 +58,13 @@ final class AddCardViewController: BaseViewController {
         AVMetadataObjectTypeQRCode
     ]
     
+    func addCardToDatabase(card: Card) {
+        ConnectionManager.shared.addCard(card: card)
+            .onSuccess { self.addCard?(card) }
+            .onFailure { error in print(error) }
+            .call()
+    }
+    
 }
 
 extension AddCardViewController {
@@ -105,7 +113,8 @@ extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
             supportedCodeTypes.contains(qrCodeObject.type),
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: qrCodeObject),
             let qrString = qrCodeObject.stringValue,
-            let card = Card(qr: qrString)
+            let uid = FIRAuth.auth()?.currentUser?.uid,
+            let card = Card(qr: qrString, currentOwner: uid)
             else
         {
             qrCodeFrameView?.frame = CGRect.zero
@@ -114,7 +123,7 @@ extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
         
         qrCodeFrameView?.frame = barCodeObject.bounds
         captureSession?.stopRunning()
-        addCard?(card)
+        addCardToDatabase(card: card)
     }
     
 }

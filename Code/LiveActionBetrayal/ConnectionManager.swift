@@ -148,7 +148,7 @@ final class ConnectionManager {
     private func addPlayerToDatabase(withId uid: String, name: String, andAttribute attribute: Attribute) -> Promise<Void> {
         return Promise { fulfill in
             
-            let values: [String: AnyObject] = [
+            let values: JSON = [
                 "uid": uid as NSString,
                 "name": name as NSString,
                 "attribute": attribute.name as NSString,
@@ -253,6 +253,32 @@ final class ConnectionManager {
                 print("------")
                 guard let _ = user else {
                     guard let error = error else { return }
+                    fulfill(.failure(error))
+                    return
+                }
+                
+                fulfill(.success())
+            })
+        }
+    }
+    
+    func addCard(card: Card) -> Promise<Void> {
+        return Promise { fulfill in
+            
+            let values: JSON = [
+                "name": card.name as NSString,
+                "text": card.text as NSString,
+                "type": card.type.rawValue as NSString,
+                "room": card.room as NSString,
+                "owner": (card.owner ?? "") as NSString
+            ]
+            
+            let itemRef = self.database.child("items/\(card.identifier)")
+            
+            itemRef.setValue(values, withCompletionBlock: { (error, ref) in
+                print("ADD ITEM")
+                print("------")
+                if let error = error {
                     fulfill(.failure(error))
                     return
                 }

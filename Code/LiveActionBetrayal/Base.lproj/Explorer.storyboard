@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,6 +73,77 @@
             </objects>
             <point key="canvasLocation" x="4005.5999999999999" y="-196.55172413793105"/>
         </scene>
+        <!--Card Detail View Controller-->
+        <scene sceneID="isd-jh-i26">
+            <objects>
+                <viewController storyboardIdentifier="CardDetailViewController" id="edH-bn-3aV" customClass="CardDetailViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qGW-T5-Ggf"/>
+                        <viewControllerLayoutGuide type="bottom" id="2b2-bt-CFc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7lz-Od-jf4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yei-UF-TFB">
+                                <rect key="frame" x="31" y="35" width="313" height="21"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Mh-KJ-t2J">
+                                    <rect key="frame" x="0.0" y="0.0" width="313" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUf-4b-i7t">
+                                            <rect key="frame" x="0.0" y="0.0" width="313" height="21"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fei-az-OGn">
+                                                <rect key="frame" x="0.0" y="0.0" width="313" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKv-lE-eCb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="313" height="21"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="sKv-lE-eCb" secondAttribute="bottom" id="5aW-90-CzO"/>
+                                                    <constraint firstItem="sKv-lE-eCb" firstAttribute="leading" secondItem="Fei-az-OGn" secondAttribute="leading" id="AiN-mj-gLp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sKv-lE-eCb" secondAttribute="trailing" id="h4C-jk-g3Z"/>
+                                                    <constraint firstItem="sKv-lE-eCb" firstAttribute="top" secondItem="Fei-az-OGn" secondAttribute="top" id="u0V-iq-ebm"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="dark"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dUf-4b-i7t" firstAttribute="leading" secondItem="1Mh-KJ-t2J" secondAttribute="leading" id="5pd-e4-bCf"/>
+                                        <constraint firstAttribute="bottom" secondItem="dUf-4b-i7t" secondAttribute="bottom" id="HZg-Kc-22q"/>
+                                        <constraint firstItem="dUf-4b-i7t" firstAttribute="top" secondItem="1Mh-KJ-t2J" secondAttribute="top" id="qHf-Kc-Di4"/>
+                                        <constraint firstAttribute="trailing" secondItem="dUf-4b-i7t" secondAttribute="trailing" id="xyM-Cj-gGa"/>
+                                    </constraints>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yei-UF-TFB" secondAttribute="trailing" constant="15" id="TXA-kJ-5fA"/>
+                            <constraint firstItem="Yei-UF-TFB" firstAttribute="top" secondItem="qGW-T5-Ggf" secondAttribute="bottom" constant="15" id="aji-eo-5jh"/>
+                            <constraint firstItem="Yei-UF-TFB" firstAttribute="leading" secondItem="7lz-Od-jf4" secondAttribute="leadingMargin" constant="15" id="g5d-8H-kBo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cardTextLabel" destination="sKv-lE-eCb" id="LXT-03-7eP"/>
+                        <outlet property="textVisualEffectView" destination="Yei-UF-TFB" id="f7m-ZP-bIV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gdh-Pc-sqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4860" y="-195"/>
+        </scene>
         <!--Add Card View Controller-->
         <scene sceneID="bKS-aP-r6M">
             <objects>
@@ -89,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUT-uX-UP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4882" y="-195"/>
+            <point key="canvasLocation" x="5678" y="-197"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Y1d-vp-gDF">

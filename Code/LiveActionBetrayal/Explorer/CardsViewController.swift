@@ -61,4 +61,10 @@ extension CardsViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let card = cards[indexPath.row]
+        let viewController = CardDetailViewController.build(card: card)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }

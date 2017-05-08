@@ -30,5 +30,6 @@ enum IDs {
     enum StoryboardViewControllers: String {
         case LightsSettingsViewController
         case AddCardViewController
+        case CardDetailViewController
     }
 }

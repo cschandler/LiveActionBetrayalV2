@@ -37,6 +37,10 @@ final class ProfileViewController: BaseViewController {
         
         if let vc = nav.topViewController as? DiceViewController {
             vc.delegate = self
+            
+            vc.completed = { [weak self] _ in
+                self?.dismiss(animated: true)
+            }
         }
         
         present(nav, animated: false, completion: nil)

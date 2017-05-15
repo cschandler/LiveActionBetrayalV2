@@ -22,6 +22,7 @@ final class ChoosePictureViewController: BaseViewController {
         imagePicker.cameraDevice = .front
         imagePicker.allowsEditing = true
         imagePicker.cameraFlashMode = .off
+        
         self.present(imagePicker, animated: true, completion: nil)
     }
     

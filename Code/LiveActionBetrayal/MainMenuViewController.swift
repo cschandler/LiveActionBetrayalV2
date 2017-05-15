@@ -21,8 +21,17 @@ final class MainMenuViewController: BaseViewController {
     var shouldAnimate = true
     
     @IBAction func connectionButtonTapped(_ sender: UIBarButtonItem) {
-        let vc = StatusViewController.build()
-        present(vc, animated: true) {
+        let nav = StatusViewController.build()
+        
+        if let viewController = nav.topViewController as? StatusViewController {
+            viewController.completed = { [unowned self] _ in
+                self.dismiss(animated: true) {
+                    AppStore.shared.subscribe(self)
+                }
+            }
+        }
+        
+        present(nav, animated: true) {
             AppStore.shared.unsubscribe(self)
         }
     }

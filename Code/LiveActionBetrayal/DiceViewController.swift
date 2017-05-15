@@ -16,7 +16,7 @@ protocol DiceDelegate: class {
     func didRoll(withResult result: Int)
 }
 
-class DiceViewController: BaseViewController {
+class DiceViewController: BaseViewController, Finishable {
     
     static func build() -> UINavigationController {
         let vc = DiceViewController()
@@ -88,7 +88,7 @@ class DiceViewController: BaseViewController {
     }
     
     func dismissSelf() {
-        dismiss(animated: true, completion: nil)
+        finish()
     }
 }
 

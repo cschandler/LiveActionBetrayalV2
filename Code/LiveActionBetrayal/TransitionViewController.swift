@@ -51,6 +51,7 @@ final class TransitionViewController: BaseViewController {
     func transitionToWatcher() {
         guard let vc = UIStoryboard(name: storyboardIdentifier, bundle: nil).instantiateInitialViewController() else { return }
         vc.modalTransitionStyle = .crossDissolve
+        
         present(vc, animated: true, completion: nil)
     }
     

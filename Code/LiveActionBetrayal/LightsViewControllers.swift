@@ -22,6 +22,19 @@ final class LightsViewController: BaseViewController {
             tableView.reloadData()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier,
+            identifier == IDs.Segues.LightsSettings.rawValue,
+            let nav = segue.destination as? UINavigationController,
+            let viewController = nav.topViewController as? LightsSettingsViewController else {
+                return
+        }
+        
+        viewController.completed = { [weak self] _ in
+            self?.dismiss(animated: true)
+        }
+    }
 
 }
 

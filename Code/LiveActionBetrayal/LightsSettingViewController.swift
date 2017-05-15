@@ -8,13 +8,17 @@
 
 import UIKit
 
-final class LightsSettingsViewController: UITableViewController {
+final class LightsSettingsViewController: UITableViewController, Finishable {
+    
+//    static func build() -> LightsSettingsViewController {
+//        return UIStoryboard(name: IDs.Storyboards.Watcher.rawValue, bundle: nil).instantiateViewController(withIdentifier: IDs.StoryboardViewControllers.LightsSettingsViewController.rawValue) as! LightsSettingsViewController
+//    }
     
     @IBOutlet weak var lightsOffTimer: UITextField!
     @IBOutlet weak var lightsOnTimer: UITextField!
     
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        finish()
     }
     
     @IBAction func automaticResetToggled(_ sender: UISwitch) {

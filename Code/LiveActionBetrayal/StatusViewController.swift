@@ -9,7 +9,7 @@
 import UIKit
 import ReSwift
 
-class StatusViewController: BaseViewController {
+class StatusViewController: BaseViewController, Finishable {
     
     static func build() -> UINavigationController {
         return UIStoryboard(name: IDs.Storyboards.Status.rawValue, bundle: nil).instantiateInitialViewController() as! UINavigationController
@@ -22,7 +22,7 @@ class StatusViewController: BaseViewController {
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        finish()
     }
     
     var players: [Explorer] = []

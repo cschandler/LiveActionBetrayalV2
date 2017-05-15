@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AttributeCell: UITableViewCell {
+final class AttributeCell: UITableViewCell, ClassNameNibLoadable {
     
     @IBOutlet weak var attribute: UILabel!
     @IBOutlet weak var stackViewHieghtConstraint: NSLayoutConstraint!

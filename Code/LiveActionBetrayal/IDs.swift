@@ -19,6 +19,7 @@ enum IDs {
         case PeerCell
         case AttributeCell
         case CardCell
+        case ExplorerCell
     }
     
     enum Segues: String {

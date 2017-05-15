@@ -37,8 +37,7 @@ extension ChooseAttributeViewController: MainMenuType {
         
         setupView()
         
-        let nib = UINib(nibName: IDs.Cells.AttributeCell.rawValue, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: IDs.Cells.AttributeCell.rawValue)
+        tableView.register(AttributeCell.nib, forCellReuseIdentifier: IDs.Cells.AttributeCell.rawValue)
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 150, 0)
         
         blurView.layer.cornerRadius = 12.0

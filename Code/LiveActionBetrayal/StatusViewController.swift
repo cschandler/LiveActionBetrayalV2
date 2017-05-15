@@ -34,7 +34,10 @@ extension StatusViewController: StatusType {
         super.viewDidLoad()
         
         setBackground(image: theme.backgroundImage, withBlurRadius: 0.0)
+        
         AppStore.shared.subscribe(self)
+        
+        tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -51,13 +54,12 @@ extension StatusViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: IDs.Cells.PeerCell.rawValue)
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.ExplorerCell.rawValue, for: indexPath) as! ExplorerCell
         
         let player = players[indexPath.row]
-        cell.textLabel?.text = player.name
-        cell.textLabel?.textColor = .white
-        cell.imageView?.image = player.picture
-        cell.backgroundColor = .clear
+        
+        cell.name.text = player.name
+        cell.profilePicture.image = player.picture
         
         return cell
     }

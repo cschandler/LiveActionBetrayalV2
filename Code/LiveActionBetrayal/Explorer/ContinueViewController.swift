@@ -43,7 +43,10 @@ extension ContinueViewController: MainMenuType {
         super.viewDidLoad()
         
         setupView()
+        
         AppStore.shared.subscribe(self)
+        
+        tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
     }
     
 }
@@ -57,10 +60,12 @@ extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.PeerCell.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.ExplorerCell.rawValue, for: indexPath) as! ExplorerCell
         
         let player = players[indexPath.row]
-        cell.textLabel?.text = player.name
+        
+        cell.name.text = player.name
+        cell.profilePicture.image = player.picture
         
         return cell
     }

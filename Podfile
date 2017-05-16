@@ -8,8 +8,8 @@ use_frameworks!
 
 target :LiveActionBetrayal do 
 	pod 'TableDiff', :git => 'https://github.com/willowtreeapps/tablediff', :tag => 'v0.5'
-	pod 'PinkyPromise', :git => 'https://github.com/willowtreeapps/PinkyPromise.git', :branch => 'swift-3'
-	pod 'CircleMenu', '~> 2.0.0'
+	pod 'PinkyPromise'
+	pod 'CircleMenu'
 	pod 'Spruce'
 	pod 'ReSwift', '~> 4.0.0'
 	pod 'SDWebImage'
@@ -17,4 +17,5 @@ target :LiveActionBetrayal do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Database'
 	pod 'Firebase/Storage'
+	pod 'JSQMessagesViewController'
 end

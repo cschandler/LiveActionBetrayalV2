@@ -40,7 +40,10 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
-  - PinkyPromise (0.4.0)
+  - JSQMessagesViewController (7.3.4):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
+  - PinkyPromise (0.5.2)
   - ReSwift (4.0.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
@@ -49,29 +52,24 @@ PODS:
   - TableDiff (0.1.0)
 
 DEPENDENCIES:
-  - CircleMenu (~> 2.0.0)
+  - CircleMenu
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - PinkyPromise (from `https://github.com/willowtreeapps/PinkyPromise.git`, branch `swift-3`)
+  - JSQMessagesViewController
+  - PinkyPromise
   - ReSwift (~> 4.0.0)
   - SDWebImage
   - Spruce
   - TableDiff (from `https://github.com/willowtreeapps/tablediff`, tag `v0.5`)
 
 EXTERNAL SOURCES:
-  PinkyPromise:
-    :branch: swift-3
-    :git: https://github.com/willowtreeapps/PinkyPromise.git
   TableDiff:
     :git: https://github.com/willowtreeapps/tablediff
     :tag: v0.5
 
 CHECKOUT OPTIONS:
-  PinkyPromise:
-    :commit: d9dc993d51bc7816617f31ede62be419290c0899
-    :git: https://github.com/willowtreeapps/PinkyPromise.git
   TableDiff:
     :git: https://github.com/willowtreeapps/tablediff
     :tag: v0.5
@@ -87,12 +85,14 @@ SPEC CHECKSUMS:
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
-  PinkyPromise: 17079cbfddf344d9d33fd9938c56b50937f154e1
+  JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  PinkyPromise: 1a16bce4cbbe978e6d18e7ad1e1f7634ec48f3ba
   ReSwift: f058ef13b46ae5f463f10605ccbbb7fb04424d8d
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Spruce: 07ffdb990923f500111fcbf13d102e16075b230e
   TableDiff: 01788e2c60189b4c16dbabebcc14f73aeed8e700
 
-PODFILE CHECKSUM: c951ff83b9fef5ded9eef02c38709b9b359341cd
+PODFILE CHECKSUM: f411b6aef1c8d8f57b82ca00df123be830eae96b
 
 COCOAPODS: 1.1.1

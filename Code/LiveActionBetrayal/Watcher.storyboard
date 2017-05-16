@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Watcher Messages View Controller-->
         <scene sceneID="lXe-xV-Wrs">
             <objects>
-                <viewController id="Jbw-qr-Zib" sceneMemberID="viewController">
+                <viewController id="Jbw-qr-Zib" customClass="WatcherMessagesViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="el9-ch-bBD"/>
                         <viewControllerLayoutGuide type="bottom" id="OwU-mI-gbV"/>
@@ -22,11 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="1Aw-3u-y4o"/>
+                    <navigationItem key="navigationItem" id="fG0-z5-RJk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWk-Ns-sGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="482"/>
+            <point key="canvasLocation" x="1532" y="481.70914542728639"/>
         </scene>
         <!--Lights Settings View Controller-->
         <scene sceneID="kiN-Qd-baY">
@@ -244,12 +244,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="eUi-A5-rzd" kind="relationship" relationship="viewControllers" id="Bep-to-FXo"/>
-                        <segue destination="Jbw-qr-Zib" kind="relationship" relationship="viewControllers" id="9hi-RY-deo"/>
+                        <segue destination="MBq-wv-2Ik" kind="relationship" relationship="viewControllers" id="9hi-RY-deo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zle-A0-GPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-358" y="154"/>
+            <point key="canvasLocation" x="-490" y="482"/>
         </scene>
         <!--Lights-->
         <scene sceneID="rR5-n7-M8f">
@@ -287,6 +287,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPU-Fh-wG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2364" y="-173.16341829085459"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="HUv-1Z-w1V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MBq-wv-2Ik" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="1Aw-3u-y4o"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8BE-wo-k7m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jbw-qr-Zib" kind="relationship" relationship="rootViewController" id="xkh-wI-59g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6X-KY-YwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="592.79999999999995" y="481.70914542728639"/>
         </scene>
     </scenes>
     <resources>

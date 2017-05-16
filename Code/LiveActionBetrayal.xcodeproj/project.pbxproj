@@ -49,6 +49,7 @@
 		08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */; };
 		08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A81E88546000BA9DDD /* ProfileViewController.swift */; };
 		08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82AC1E88C68900BA9DDD /* StatStepper.swift */; };
+		08CB61ED1ECB258C00177BB5 /* WatcherMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB61EC1ECB258C00177BB5 /* WatcherMessagesViewController.swift */; };
 		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
 		08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */; };
 		08DCEAEF1E8A032500F0E094 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */; };
@@ -108,6 +109,7 @@
 		08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerType.swift; sourceTree = "<group>"; };
 		08AC82A81E88546000BA9DDD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		08AC82AC1E88C68900BA9DDD /* StatStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatStepper.swift; sourceTree = "<group>"; };
+		08CB61EC1ECB258C00177BB5 /* WatcherMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatcherMessagesViewController.swift; sourceTree = "<group>"; };
 		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrantLabel.swift; sourceTree = "<group>"; };
 		08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				080A61B51EB8B4EF00619A99 /* LightControlView.xib */,
 				08FE1FA01EB8B73B0082BE0E /* LightControlView.swift */,
 				083E0C261EBE777D006C4783 /* LightsSettingViewController.swift */,
+				08CB61EC1ECB258C00177BB5 /* WatcherMessagesViewController.swift */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */,
 				08DCEAEF1E8A032500F0E094 /* DiceViewController.swift in Sources */,
 				08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */,
+				08CB61ED1ECB258C00177BB5 /* WatcherMessagesViewController.swift in Sources */,
 				08455D321EB0CBDA00B4898F /* LightsViewControllers.swift in Sources */,
 				08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */,
 				08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */,

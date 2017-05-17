@@ -8,8 +8,9 @@
 
 import UIKit
 import JSQMessagesViewController
+import FirebaseAuth
 
-final class WatcherMessagesViewController: JSQMessagesViewController {
+final class MessagesViewController: JSQMessagesViewController {
     
     var messages: [JSQMessage] = [] {
         didSet {
@@ -17,17 +18,20 @@ final class WatcherMessagesViewController: JSQMessagesViewController {
         }
     }
     
+    var sender: Messanger!
+    var reciever: Messanger!
+    
 }
 
 // MARK: - Life Cycle
 
-extension WatcherMessagesViewController {
+extension MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        senderId = "watcher"
-        senderDisplayName = "Watcher"
+        senderId = sender.id
+        senderDisplayName = sender.displayName
         
         let message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text: "This is a test message")
         messages.append(message!)
@@ -37,7 +41,7 @@ extension WatcherMessagesViewController {
 
 // MARK: - JSQMessagesCollectionView
 
-extension WatcherMessagesViewController {
+extension MessagesViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
@@ -48,11 +52,29 @@ extension WatcherMessagesViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return JSQMessagesAvatarImageFactory.avatarImage(with: #imageLiteral(resourceName: "img-avatar-default"), diameter: UInt(22.0))
+        return sender.jsqAvatar
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
     
+}
+
+struct Messanger {
+
+    let id: String
+    let displayName: String
+    
+    private let avatar: UIImage
+    
+    var jsqAvatar: JSQMessagesAvatarImage {
+        return JSQMessagesAvatarImageFactory.avatarImage(with: avatar, diameter: UInt(22))
+    }
+
+    init(id: String, displayName: String, avatar: UIImage) {
+        self.id = id
+        self.displayName = displayName
+        self.avatar = avatar
+    }
 }

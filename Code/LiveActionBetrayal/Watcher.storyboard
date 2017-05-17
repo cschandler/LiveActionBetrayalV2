@@ -6,13 +6,53 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Watcher Messages View Controller-->
+        <!--Messages-->
+        <scene sceneID="nGW-Uw-qWZ">
+            <objects>
+                <viewController id="Ast-sJ-xi1" customClass="AllMessagesViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zLN-zH-eQX"/>
+                        <viewControllerLayoutGuide type="bottom" id="x4f-3g-aUB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3mU-0M-2pB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Wx-vt-BRe">
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ast-sJ-xi1" id="3C5-kQ-25r"/>
+                                    <outlet property="delegate" destination="Ast-sJ-xi1" id="oSO-zY-2Cb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Wx-vt-BRe" secondAttribute="trailing" id="GLn-8m-bAo"/>
+                            <constraint firstItem="x4f-3g-aUB" firstAttribute="top" secondItem="2Wx-vt-BRe" secondAttribute="bottom" id="Jln-Pp-qsn"/>
+                            <constraint firstItem="2Wx-vt-BRe" firstAttribute="leading" secondItem="3mU-0M-2pB" secondAttribute="leadingMargin" id="L5N-v8-JVm"/>
+                            <constraint firstItem="2Wx-vt-BRe" firstAttribute="top" secondItem="zLN-zH-eQX" secondAttribute="bottom" id="WYG-tx-oix"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Messages" id="agl-gM-Whv"/>
+                    <connections>
+                        <outlet property="tableView" destination="2Wx-vt-BRe" id="DiX-kA-8os"/>
+                        <segue destination="Jbw-qr-Zib" kind="show" identifier="MessagesMasterToDetail" id="b7w-hO-0Oz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2tk-76-Org" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1532" y="482"/>
+        </scene>
+        <!--Messages View Controller-->
         <scene sceneID="lXe-xV-Wrs">
             <objects>
-                <viewController id="Jbw-qr-Zib" customClass="WatcherMessagesViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jbw-qr-Zib" customClass="MessagesViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="el9-ch-bBD"/>
                         <viewControllerLayoutGuide type="bottom" id="OwU-mI-gbV"/>
@@ -26,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWk-Ns-sGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="481.70914542728639"/>
+            <point key="canvasLocation" x="2364" y="482"/>
         </scene>
         <!--Lights Settings View Controller-->
         <scene sceneID="kiN-Qd-baY">
@@ -291,16 +331,16 @@
         <!--Item 2-->
         <scene sceneID="HUv-1Z-w1V">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MBq-wv-2Ik" sceneMemberID="viewController">
+                <navigationController id="MBq-wv-2Ik" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item 2" id="1Aw-3u-y4o"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8BE-wo-k7m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="8BE-wo-k7m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Jbw-qr-Zib" kind="relationship" relationship="rootViewController" id="xkh-wI-59g"/>
+                        <segue destination="Ast-sJ-xi1" kind="relationship" relationship="rootViewController" id="WVk-mJ-a7p"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6X-KY-YwR" userLabel="First Responder" sceneMemberID="firstResponder"/>

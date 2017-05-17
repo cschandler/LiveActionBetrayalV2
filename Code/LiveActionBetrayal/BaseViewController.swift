@@ -22,7 +22,6 @@ class BaseViewController: UIViewController {
     }
     
     internal func setBackground(image: UIImage?, withBlurRadius radius: CGFloat = 2.5) {
-        
         let blurredImage = image?.applyBlurWithRadius(radius, tintColor: nil, saturationDeltaFactor: 1.0)
         
         background.image = blurredImage
@@ -36,7 +35,6 @@ extension BaseViewController {
         super.viewDidLoad()
         
         background = UIImageView(frame: view.bounds)
-
     }
 
 }

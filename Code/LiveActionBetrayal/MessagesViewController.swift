@@ -8,7 +8,6 @@
 
 import UIKit
 import JSQMessagesViewController
-import FirebaseAuth
 
 final class MessagesViewController: JSQMessagesViewController {
     
@@ -32,9 +31,7 @@ extension MessagesViewController {
         
         senderId = sender.id
         senderDisplayName = sender.displayName
-        
-        let message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text: "This is a test message")
-        messages.append(message!)
+        inputToolbar.contentView.leftBarButtonItem = nil
     }
     
 }
@@ -59,6 +56,10 @@ extension MessagesViewController {
         return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
     
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        print(text)
+    }
+    
 }
 
 struct Messanger {
@@ -77,4 +78,30 @@ struct Messanger {
         self.displayName = displayName
         self.avatar = avatar
     }
+}
+
+struct Message {
+    
+    let text: String
+    let senderId: String
+    
+    init?(json: JSON) {
+        guard let text = json["text"] as? String,
+            let senderId = json["senderId"] as? String else {
+                return nil
+        }
+        
+        self.text = text
+        self.senderId = senderId
+    }
+    
+    func toJSON() -> JSON {
+        let values: JSON = [
+            "text": text as NSString,
+            "senderId": senderId as NSString
+        ]
+        
+        return values
+    }
+    
 }

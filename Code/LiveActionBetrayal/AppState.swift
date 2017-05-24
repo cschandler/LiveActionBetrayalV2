@@ -22,6 +22,7 @@ enum AppAction: Action {
 struct AppState: StateType {
     var connectedPlayers: [Explorer] = []
     var torchOn: Bool = TorchManager.isOn
+    var messages: [Message] = []
 }
 
 struct AppReducer {
@@ -65,9 +66,6 @@ struct AppReducer {
                 DispatchQueue.main.async {
                     AppStore.shared.dispatch(AppAction.updated(new))
                 }
-            }
-            .onFailure { error in
-                print(error)
             }
             .call()
     }

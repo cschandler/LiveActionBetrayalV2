@@ -18,9 +18,12 @@ final class ConnectionManager {
     static let shared = ConnectionManager()
     
     private let firepass = "P7mYDDnT&M[UcZU2Q7"
+    private let watcherEmail = "watcher@test.com"
+    
     private let playerUpdatedListener: FIRDatabaseHandle
     private let playerAddedListener: FIRDatabaseHandle
     private let torchListener: FIRDatabaseHandle
+    private var messageListener: FIRDatabaseHandle?
     
     lazy var database: FIRDatabaseReference = {
         return FIRDatabase.database().reference()
@@ -33,6 +36,11 @@ final class ConnectionManager {
     enum DatabaseTopLevel: String {
         case players
         case torchesOn
+        case messages
+    }
+    
+    var currentUser: FIRUser? {
+        return FIRAuth.auth()?.currentUser
     }
     
     init() {
@@ -73,6 +81,7 @@ final class ConnectionManager {
             
             AppStore.shared.dispatch(AppAction.torchesOn(torchesOn))
         })
+        
     }
     
     func getConnectedPlayers() {
@@ -115,7 +124,7 @@ final class ConnectionManager {
     
     func logWatcherIn() -> Promise<Void> {
         return Promise { fulfill in
-            FIRAuth.auth()?.signIn(withEmail: "watcher@test.com", password: self.firepass, completion: { (user, error) in
+            FIRAuth.auth()?.signIn(withEmail: self.watcherEmail, password: self.firepass, completion: { (user, error) in
                 guard let _ = user else {
                     guard let error = error else { return }
                     fulfill(.failure(error))
@@ -265,19 +274,48 @@ final class ConnectionManager {
     func addCard(card: Card) -> Promise<Void> {
         return Promise { fulfill in
             
-            let values: JSON = [
-                "name": card.name as NSString,
-                "text": card.text as NSString,
-                "type": card.type.rawValue as NSString,
-                "room": card.room as NSString,
-                "owner": (card.owner ?? "") as NSString
-            ]
+            let values = card.toJSON()
             
             let itemRef = self.database.child("items/\(card.identifier)")
             
             itemRef.setValue(values, withCompletionBlock: { (error, ref) in
                 print("ADD ITEM")
                 print("------")
+                if let error = error {
+                    fulfill(.failure(error))
+                    return
+                }
+                
+                fulfill(.success())
+            })
+        }
+    }
+    
+    func setupMessageListener() {
+        guard let currentUser = currentUser else {
+            return
+        }
+        
+        if currentUser.email == watcherEmail {
+            messageListener = database.child(DatabaseTopLevel.messages.rawValue).observe(.childAdded, with: { snapshot in
+                print(snapshot.value)
+            })
+            
+        } else {
+            messageListener = database.child("\(DatabaseTopLevel.messages.rawValue)/\(currentUser.uid)").observe(.childAdded, with: { snapshot in
+                print(snapshot.value)
+            })
+        }
+    }
+    
+    func send(message: Message, toPlayer uid: String) -> Promise<Void> {
+        return Promise { fulfill in
+            
+            let messageRef = self.database.child("messages/\(uid)").childByAutoId()
+            
+            let values = message.toJSON()
+            
+            messageRef.setValue(values, withCompletionBlock: { (error, ref) in
                 if let error = error {
                     fulfill(.failure(error))
                     return

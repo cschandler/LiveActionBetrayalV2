@@ -40,4 +40,16 @@ struct Card {
         self.owner = currentOwner
     }
     
+    func toJSON() -> JSON {
+        let values: JSON = [
+            "name": name as NSString,
+            "text": text as NSString,
+            "type": type.rawValue as NSString,
+            "room": room as NSString,
+            "owner": (owner ?? "") as NSString
+        ]
+        
+        return values
+    }
+    
 }

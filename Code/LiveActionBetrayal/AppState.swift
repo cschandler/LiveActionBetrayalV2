@@ -17,6 +17,7 @@ enum AppAction: Action {
     case torchesOn(Bool)
     case updated(Explorer)
     case added(Explorer)
+    case messages([Message])
 }
 
 struct AppState: StateType {
@@ -35,6 +36,7 @@ struct AppReducer {
             guard !newState.connectedPlayers.contains(where: { $0.identifier == explorer.identifier }) else {
                 return newState
             }
+            
             newState.connectedPlayers.append(explorer)
             getPicture(forExplorer: explorer)
             
@@ -52,6 +54,9 @@ struct AppReducer {
         case .torchesOn(let torchesOn):
             TorchManager.turn(on: torchesOn)
             newState.torchOn = torchesOn
+            
+        case .messages(let messages):
+            newState.messages = messages
 
         }
         

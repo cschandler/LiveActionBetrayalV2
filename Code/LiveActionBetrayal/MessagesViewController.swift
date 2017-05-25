@@ -8,10 +8,11 @@
 
 import UIKit
 import JSQMessagesViewController
+import ReSwift
 
 final class MessagesViewController: JSQMessagesViewController {
     
-    var messages: [JSQMessage] = [] {
+    var messages: [Message] = [] {
         didSet {
             collectionView.reloadData()
         }
@@ -32,6 +33,14 @@ extension MessagesViewController {
         senderId = sender.id
         senderDisplayName = sender.displayName
         inputToolbar.contentView.leftBarButtonItem = nil
+        
+        AppStore.shared.subscribe(self)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        AppStore.shared.unsubscribe(self)
     }
     
 }
@@ -45,7 +54,7 @@ extension MessagesViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        return messages[indexPath.item]
+        return messages[indexPath.item].jsqMessage
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
@@ -57,7 +66,23 @@ extension MessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        print(text)
+        guard let text = text, let displayName = senderDisplayName, let senderId = senderId else {
+            return
+        }
+        
+        let message = Message(senderId: senderId, displayName: displayName, text: text)
+        
+        ConnectionManager.shared.send(message: message, toPlayer: reciever.id).call()
+    }
+    
+}
+
+// MARK: - Store Subscriber
+
+extension MessagesViewController: StoreSubscriber {
+    
+    func newState(state: AppState) {
+        messages = state.messages
     }
     
 }
@@ -82,26 +107,40 @@ struct Messanger {
 
 struct Message {
     
-    let text: String
     let senderId: String
+    let displayName: String
+    let text: String
+    
+    init(senderId: String, displayName: String, text: String) {
+        self.senderId = senderId
+        self.displayName = displayName
+        self.text = text
+    }
     
     init?(json: JSON) {
         guard let text = json["text"] as? String,
+            let displayName = json["displayName"] as? String,
             let senderId = json["senderId"] as? String else {
                 return nil
         }
         
-        self.text = text
         self.senderId = senderId
+        self.displayName = displayName
+        self.text = text
     }
     
     func toJSON() -> JSON {
         let values: JSON = [
-            "text": text as NSString,
-            "senderId": senderId as NSString
+            "senderId": senderId as NSString,
+            "displayName": displayName as NSString,
+            "text": text as NSString
         ]
         
         return values
+    }
+    
+    var jsqMessage: JSQMessage {
+        return JSQMessage(senderId: senderId, displayName: displayName, text: text)
     }
     
 }

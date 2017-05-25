@@ -84,8 +84,10 @@ final class ConnectionManager {
         
     }
     
+    // MARK: - Players
+    
     func getConnectedPlayers() {
-        database.child("players").observeSingleEvent(of: .value, with: { (snapshot) in
+        database.child("players").observeSingleEvent(of: .value, with: { snapshot in
             guard let json = snapshot.value as? JSON else {
                 return
             }
@@ -177,6 +179,8 @@ final class ConnectionManager {
         }
     }
     
+    // MARK: - Profile Picture
+    
     private func uploadPicture(image: UIImage?, withId uid: String) -> Promise<Void> {
         return Promise { fulfill in
             
@@ -240,6 +244,8 @@ final class ConnectionManager {
         }
     }
     
+    // MARK: - Lights
+    
     func toggleLights(on: Bool) {
         database.child(DatabaseTopLevel.torchesOn.rawValue).setValue(on)
         
@@ -271,6 +277,8 @@ final class ConnectionManager {
         }
     }
     
+    // MARK: - Cards
+    
     func addCard(card: Card) -> Promise<Void> {
         return Promise { fulfill in
             
@@ -287,6 +295,23 @@ final class ConnectionManager {
                 }
                 
                 fulfill(.success())
+            })
+        }
+    }
+    
+    // MARK: - Messages
+    
+    func getMessages(forPlayer uid: String) -> Promise<[Message]> {
+        return Promise { fulfill in
+            
+            let messageRef = self.database.child("messages/\(uid)")
+            
+            messageRef.observeSingleEvent(of: .value, with: { snapshot in
+                guard let value = snapshot.value as? JSON else {
+                    return
+                }
+                
+                // TODO create array of messages from data.
             })
         }
     }

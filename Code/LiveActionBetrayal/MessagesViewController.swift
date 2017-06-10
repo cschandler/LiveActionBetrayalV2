@@ -35,6 +35,15 @@ extension MessagesViewController {
         inputToolbar.contentView.leftBarButtonItem = nil
         
         AppStore.shared.subscribe(self)
+        
+        ConnectionManager.shared.getMessages(forPlayer: reciever.id)
+            .onSuccess { messages in
+                self.messages = messages
+            }
+            .onFailure { error in
+                print(error)
+            }
+            .call()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -73,6 +82,8 @@ extension MessagesViewController {
         let message = Message(senderId: senderId, displayName: displayName, text: text)
         
         ConnectionManager.shared.send(message: message, toPlayer: reciever.id).call()
+        
+        inputToolbar.contentView.textView.text = ""
     }
     
 }

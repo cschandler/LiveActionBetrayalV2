@@ -36,8 +36,6 @@ final class AllMessagesViewController: BaseViewController {
         
         destination.sender = sender
         destination.reciever = reciever
-        
-        // Fetch messages from FireBase
     }
 }
 

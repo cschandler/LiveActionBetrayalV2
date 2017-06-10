@@ -307,11 +307,16 @@ final class ConnectionManager {
             let messageRef = self.database.child("messages/\(uid)")
             
             messageRef.observeSingleEvent(of: .value, with: { snapshot in
-                guard let value = snapshot.value as? JSON else {
+                guard let json = snapshot.value as? JSON else {
+                    fulfill(.failure(SerializationError.failed))
                     return
                 }
                 
-                // TODO create array of messages from data.
+                let messages = json
+                    .mapValues { Message.init(json: $0 as! JSON) }
+                    .flatMap { $0.value }
+                
+                fulfill(.success(messages))
             })
         }
     }

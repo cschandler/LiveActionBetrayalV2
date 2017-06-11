@@ -32,7 +32,13 @@ extension MessagesViewController {
         
         senderId = sender.id
         senderDisplayName = sender.displayName
+        
         inputToolbar.contentView.leftBarButtonItem = nil
+        inputToolbar.contentView.textView.keyboardAppearance = .dark
+        inputToolbar.contentView.textView.autocorrectionType = .no
+        inputToolbar.contentView.backgroundColor = UIColor(colorLiteralRed: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
+        
+        collectionView.backgroundColor = .darkGray
         
         AppStore.shared.subscribe(self)
         
@@ -65,7 +71,23 @@ extension MessagesViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        let message = messages[indexPath.item]
+        
+        if message.senderId == sender.id {
+            return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
+        } else {
+            return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        
+        let message = messages[indexPath.item]
+        
+        cell.textView?.textColor = message.senderId == sender.id ? .white : .black
+        
+        return cell
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {

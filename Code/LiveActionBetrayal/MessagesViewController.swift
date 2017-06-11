@@ -27,6 +27,7 @@ final class MessagesViewController: JSQMessagesViewController {
             ConnectionManager.shared.getMessages(forPlayer: id)
             
             if !senderIsWatcher {
+                // Display the textField above the tab bar.
                 edgesForExtendedLayout = []
             }
         }

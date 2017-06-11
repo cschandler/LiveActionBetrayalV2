@@ -301,59 +301,26 @@ final class ConnectionManager {
     
     // MARK: - Messages
     
-    func getMessages(forPlayer uid: String) -> Promise<[Message]> {
-        return Promise { fulfill in
-            
-            let messageRef = self.database.child("messages/\(uid)")
-            
-            messageRef.observeSingleEvent(of: .value, with: { snapshot in
-                guard let json = snapshot.value as? JSON else {
-                    fulfill(.failure(SerializationError.failed))
-                    return
-                }
-                
-                let messages = json
-                    .mapValues { Message.init(json: $0 as! JSON) }
-                    .flatMap { $0.value }
-                
-                fulfill(.success(messages))
-            })
-        }
-    }
-    
-    func setupMessageListener() {
-        guard let currentUser = currentUser else {
-            return
-        }
+    func getMessages(forPlayer uid: String) {
+        let messageRef = self.database.child("messages/\(uid)")
         
-        if currentUser.email == watcherEmail {
-            messageListener = database.child(DatabaseTopLevel.messages.rawValue).observe(.childAdded, with: { snapshot in
-                print(snapshot.value)
-            })
+        messageListener = messageRef.observe(.value, with: { snapshot in
+            guard let json = snapshot.value as? JSON else {
+                return
+            }
             
-        } else {
-            messageListener = database.child("\(DatabaseTopLevel.messages.rawValue)/\(currentUser.uid)").observe(.childAdded, with: { snapshot in
-                print(snapshot.value)
-            })
-        }
+            let messages = json
+                .mapValues { Message.init(json: $0 as! JSON) }
+                .flatMap { $0.value }
+            
+            AppStore.shared.dispatch(AppAction.messages(messages))
+        })
     }
     
-    func send(message: Message, toPlayer uid: String) -> Promise<Void> {
-        return Promise { fulfill in
-            
-            let messageRef = self.database.child("messages/\(uid)").childByAutoId()
-            
-            let values = message.toJSON()
-            
-            messageRef.setValue(values, withCompletionBlock: { (error, ref) in
-                if let error = error {
-                    fulfill(.failure(error))
-                    return
-                }
-                
-                fulfill(.success())
-            })
-        }
+    func send(message: Message, toPlayer uid: String) {
+        let messageRef = self.database.child("messages/\(uid)").childByAutoId()
+        let values = message.toJSON()
+        messageRef.setValue(values)
     }
     
 }

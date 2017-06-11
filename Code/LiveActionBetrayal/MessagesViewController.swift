@@ -37,13 +37,6 @@ extension MessagesViewController {
         AppStore.shared.subscribe(self)
         
         ConnectionManager.shared.getMessages(forPlayer: reciever.id)
-            .onSuccess { messages in
-                self.messages = messages
-            }
-            .onFailure { error in
-                print(error)
-            }
-            .call()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

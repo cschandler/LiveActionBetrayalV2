@@ -64,6 +64,8 @@
 		08FE3CAE1E82DDC1005E3C3A /* ChooseNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3CAD1E82DDC1005E3C3A /* ChooseNameViewController.swift */; };
 		08FE3CB01E82E057005E3C3A /* MainMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3CAF1E82E057005E3C3A /* MainMenuType.swift */; };
 		08FE3CB21E82E6B1005E3C3A /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3CB11E82E6B1005E3C3A /* StatusType.swift */; };
+		08FF255D1EEDA0F30012949B /* Messanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF255C1EEDA0F30012949B /* Messanger.swift */; };
+		08FF255F1EEDA1160012949B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF255E1EEDA1160012949B /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +127,8 @@
 		08FE3CAD1E82DDC1005E3C3A /* ChooseNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseNameViewController.swift; path = LiveActionBetrayal/ChooseNameViewController.swift; sourceTree = SOURCE_ROOT; };
 		08FE3CAF1E82E057005E3C3A /* MainMenuType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuType.swift; path = LiveActionBetrayal/MainMenuType.swift; sourceTree = SOURCE_ROOT; };
 		08FE3CB11E82E6B1005E3C3A /* StatusType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusType.swift; sourceTree = "<group>"; };
+		08FF255C1EEDA0F30012949B /* Messanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messanger.swift; sourceTree = "<group>"; };
+		08FF255E1EEDA1160012949B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.debug.xcconfig"; sourceTree = "<group>"; };
 		8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.release.xcconfig"; sourceTree = "<group>"; };
 		98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveActionBetrayal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +184,8 @@
 				081120601E7C8E99003B52D3 /* Finishable.swift */,
 				084B375E1E84AC2B00088472 /* GradientView.swift */,
 				0811205E1E7C8AFE003B52D3 /* IDs.swift */,
+				08FF255E1EEDA1160012949B /* Message.swift */,
+				08FF255C1EEDA0F30012949B /* Messanger.swift */,
 				081120581E7C8234003B52D3 /* Player.swift */,
 				088E60E51E8CC605004AF072 /* ResultView.swift */,
 				085F07121E815D2A001B99EE /* Theme.swift */,
@@ -406,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08AC82A01E86211100BA9DDD /* ChoosePictureViewController.swift in Sources */,
+				08FF255D1EEDA0F30012949B /* Messanger.swift in Sources */,
 				08FE3CA41E82DCC8005E3C3A /* MainMenuViewController.swift in Sources */,
 				084B375D1E849FF100088472 /* PlayerMetadata.swift in Sources */,
 				08AC82A21E88485300BA9DDD /* TransitionViewController.swift in Sources */,
@@ -448,6 +455,7 @@
 				08CB61ED1ECB258C00177BB5 /* MessagesViewController.swift in Sources */,
 				08455D321EB0CBDA00B4898F /* LightsViewControllers.swift in Sources */,
 				08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */,
+				08FF255F1EEDA1160012949B /* Message.swift in Sources */,
 				08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */,
 				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,
 			);

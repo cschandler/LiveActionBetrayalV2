@@ -43,6 +43,7 @@ extension MessagesViewController {
         super.viewDidDisappear(animated)
         
         AppStore.shared.unsubscribe(self)
+        ConnectionManager.shared.resetMessages()
     }
     
 }

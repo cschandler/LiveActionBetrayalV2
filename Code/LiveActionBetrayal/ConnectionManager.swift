@@ -323,6 +323,11 @@ final class ConnectionManager {
         messageRef.setValue(values)
     }
     
+    func resetMessages() {
+        messageListener = nil
+        AppStore.shared.dispatch(AppAction.messages([]))
+    }
+    
 }
 
 enum SerializationError: Error {

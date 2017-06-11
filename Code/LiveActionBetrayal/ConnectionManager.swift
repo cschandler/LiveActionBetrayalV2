@@ -23,6 +23,7 @@ final class ConnectionManager {
     private let playerUpdatedListener: FIRDatabaseHandle
     private let playerAddedListener: FIRDatabaseHandle
     private let torchListener: FIRDatabaseHandle
+    private let watcherListener: FIRDatabaseHandle
     private var messageListener: FIRDatabaseHandle?
     
     lazy var database: FIRDatabaseReference = {
@@ -37,15 +38,21 @@ final class ConnectionManager {
         case players
         case torchesOn
         case messages
+        case watcher
     }
     
     var currentUser: FIRUser? {
         return FIRAuth.auth()?.currentUser
     }
     
+    var currentUserID: String? {
+        return currentUser?.uid
+    }
+    
     init() {
         let playerRef = FIRDatabase.database().reference().child(DatabaseTopLevel.players.rawValue)
         let torchRef = FIRDatabase.database().reference().child(DatabaseTopLevel.torchesOn.rawValue)
+        let watcherRef = FIRDatabase.database().reference().child(DatabaseTopLevel.watcher.rawValue)
         
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
@@ -82,6 +89,18 @@ final class ConnectionManager {
             AppStore.shared.dispatch(AppAction.torchesOn(torchesOn))
         })
         
+        watcherListener = watcherRef.observe(.value, with: { snapshot in
+            print("WATCHER LISTENER")
+            print("------")
+            
+            guard let watcherID = snapshot.value as? String else {
+                return
+            }
+            
+            let watcher = Watcher(identifier: watcherID)
+            
+            AppStore.shared.dispatch(AppAction.watcher(watcher))
+        })
     }
     
     // MARK: - Players
@@ -127,11 +146,13 @@ final class ConnectionManager {
     func logWatcherIn() -> Promise<Void> {
         return Promise { fulfill in
             FIRAuth.auth()?.signIn(withEmail: self.watcherEmail, password: self.firepass, completion: { (user, error) in
-                guard let _ = user else {
+                guard let user = user else {
                     guard let error = error else { return }
                     fulfill(.failure(error))
                     return
                 }
+                
+                self.database.child(DatabaseTopLevel.watcher.rawValue).setValue("\(user.uid)")
                 
                 fulfill(.success())
             })

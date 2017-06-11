@@ -50,3 +50,9 @@ struct Explorer: PlayerType {
     }
 
 }
+
+struct Watcher: PlayerType {
+    
+    let identifier: String
+    
+}

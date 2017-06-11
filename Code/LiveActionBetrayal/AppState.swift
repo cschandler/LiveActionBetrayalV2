@@ -18,9 +18,11 @@ enum AppAction: Action {
     case updated(Explorer)
     case added(Explorer)
     case messages([Message])
+    case watcher(Watcher)
 }
 
 struct AppState: StateType {
+    var watcher: Watcher?
     var connectedPlayers: [Explorer] = []
     var torchOn: Bool = TorchManager.isOn
     var messages: [Message] = []
@@ -57,7 +59,10 @@ struct AppReducer {
             
         case .messages(let messages):
             newState.messages = messages
-
+            
+        case .watcher(let watcher):
+            newState.watcher = watcher
+            
         }
         
         return newState

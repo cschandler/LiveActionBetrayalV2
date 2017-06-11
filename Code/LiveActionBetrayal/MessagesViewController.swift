@@ -18,6 +18,7 @@ final class MessagesViewController: JSQMessagesViewController {
         }
     }
     
+    var watcher: Watcher? 
     var sender: Messanger!
     var reciever: Messanger!
     
@@ -30,6 +31,8 @@ extension MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AppStore.shared.subscribe(self)
+        
         senderId = sender.id
         senderDisplayName = sender.displayName
         
@@ -39,8 +42,6 @@ extension MessagesViewController {
         inputToolbar.contentView.backgroundColor = UIColor(colorLiteralRed: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
         
         collectionView.backgroundColor = .darkGray
-        
-        AppStore.shared.subscribe(self)
         
         ConnectionManager.shared.getMessages(forPlayer: reciever.id)
     }
@@ -110,6 +111,7 @@ extension MessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
         messages = state.messages
+        watcher = state.watcher
     }
     
 }

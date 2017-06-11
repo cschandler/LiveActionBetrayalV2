@@ -185,6 +185,7 @@
 				084B375E1E84AC2B00088472 /* GradientView.swift */,
 				0811205E1E7C8AFE003B52D3 /* IDs.swift */,
 				08FF255E1EEDA1160012949B /* Message.swift */,
+				08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */,
 				08FF255C1EEDA0F30012949B /* Messanger.swift */,
 				081120581E7C8234003B52D3 /* Player.swift */,
 				088E60E51E8CC605004AF072 /* ResultView.swift */,
@@ -212,7 +213,6 @@
 				08FE1FA01EB8B73B0082BE0E /* LightControlView.swift */,
 				083E0C261EBE777D006C4783 /* LightsSettingViewController.swift */,
 				0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */,
-				08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";

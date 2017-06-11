@@ -9,7 +9,6 @@
 import UIKit
 import ReSwift
 import JSQMessagesViewController
-import FirebaseAuth
 
 final class AllMessagesViewController: BaseViewController {
     
@@ -22,12 +21,14 @@ final class AllMessagesViewController: BaseViewController {
         }
     }
     
+    var watcher: Watcher?
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier,
             identifier == IDs.Segues.MessagesMasterToDetail.rawValue,
             let destination = segue.destination as? MessagesViewController,
             let player = selectedPlayer,
-            let watcherId = FIRAuth.auth()?.currentUser?.uid else {
+            let watcherId = watcher?.identifier else {
                 return
         }
         
@@ -89,6 +90,7 @@ extension AllMessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
         players = state.connectedPlayers
+        watcher = state.watcher
     }
     
 }

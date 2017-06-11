@@ -74,7 +74,7 @@ extension MessagesViewController {
         
         let message = Message(senderId: senderId, displayName: displayName, text: text)
         
-        ConnectionManager.shared.send(message: message, toPlayer: reciever.id).call()
+        ConnectionManager.shared.send(message: message, toPlayer: reciever.id)
         
         inputToolbar.contentView.textView.text = ""
     }

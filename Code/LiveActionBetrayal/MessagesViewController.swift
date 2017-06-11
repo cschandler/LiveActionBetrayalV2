@@ -12,16 +12,25 @@ import ReSwift
 
 final class MessagesViewController: JSQMessagesViewController {
     
-    var messages: [Message] = [] {
+    var sender: Messanger!
+    var reciever: Messanger!
+    
+    fileprivate var messages: [Message] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
     
-    var watcher: Watcher? 
-    var sender: Messanger!
-    var reciever: Messanger!
+    fileprivate var watcher: Watcher? {
+        didSet {
+            let id = senderIsWatcher ? reciever.id : sender.id
+            ConnectionManager.shared.getMessages(forPlayer: id)
+        }
+    }
     
+    private var senderIsWatcher: Bool {
+        return watcher?.identifier == sender.id
+    }
 }
 
 // MARK: - Life Cycle
@@ -42,8 +51,6 @@ extension MessagesViewController {
         inputToolbar.contentView.backgroundColor = UIColor(colorLiteralRed: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
         
         collectionView.backgroundColor = .darkGray
-        
-        ConnectionManager.shared.getMessages(forPlayer: reciever.id)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -68,16 +75,18 @@ extension MessagesViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return sender.jsqAvatar
+        let message = messages[indexPath.item]
+        
+        return message.senderId == sender.id ? sender.jsqAvatar : reciever.jsqAvatar
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.item]
         
         if message.senderId == sender.id {
-            return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
-        } else {
             return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        } else {
+            return JSQMessagesBubbleImageFactory().incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
         }
     }
     
@@ -86,7 +95,7 @@ extension MessagesViewController {
         
         let message = messages[indexPath.item]
         
-        cell.textView?.textColor = message.senderId == sender.id ? .white : .black
+        cell.textView?.textColor = message.senderId == sender.id ? .black : .white
         
         return cell
     }

@@ -25,6 +25,10 @@ final class MessagesViewController: JSQMessagesViewController {
         didSet {
             let id = senderIsWatcher ? reciever.id : sender.id
             ConnectionManager.shared.getMessages(forPlayer: id)
+            
+            if !senderIsWatcher {
+                edgesForExtendedLayout = []
+            }
         }
     }
     

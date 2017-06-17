@@ -323,6 +323,8 @@ final class ConnectionManager {
     // MARK: - Messages
     
     func getMessages(forPlayer uid: String) {
+        print("GETTING MESSAGES")
+        
         let messageRef = self.database.child("messages/\(uid)")
         
         messageListener = messageRef.observe(.value, with: { snapshot in
@@ -333,14 +335,17 @@ final class ConnectionManager {
             let messages = json
                 .mapValues { Message.init(json: $0 as! JSON) }
                 .flatMap { $0.value }
+                .sorted { $0.timestamp < $1.timestamp }
             
             AppStore.shared.dispatch(AppAction.messages(messages))
         })
     }
     
     func send(message: Message, toPlayer uid: String) {
+        print("SENDING MESSAGE")
+        
         let messageRef = self.database.child("messages/\(uid)").childByAutoId()
-        let values = message.toJSON()
+        var values = message.toJSON()
         messageRef.setValue(values)
     }
     

@@ -15,27 +15,37 @@ final class MessagesViewController: JSQMessagesViewController {
     var sender: Messanger!
     var reciever: Messanger!
     
-    fileprivate var messages: [Message] = [] {
+    fileprivate var messages: Loadable<[Message]> = .notAsked {
         didSet {
+            print("reloading messages collection view")
             collectionView.reloadData()
+            scrollToBottom(animated: true)
         }
     }
     
     fileprivate var watcher: Watcher? {
         didSet {
-            let id = senderIsWatcher ? reciever.id : sender.id
-            ConnectionManager.shared.getMessages(forPlayer: id)
-            
-            if !senderIsWatcher {
-                // Display the textField above the tab bar.
-                edgesForExtendedLayout = []
+            switch messages {
+            case .notAsked:
+                let id = senderIsWatcher ? reciever.id : sender.id
+                ConnectionManager.shared.getMessages(forPlayer: id)
+                messages = .loading
+                
+                if !senderIsWatcher {
+                    // Display the textField above the tab bar.
+                    edgesForExtendedLayout = []
+                }
+                
+            default:
+                break
             }
         }
     }
     
-    private var senderIsWatcher: Bool {
+    fileprivate var senderIsWatcher: Bool {
         return watcher?.identifier == sender.id
     }
+    
 }
 
 // MARK: - Life Cycle
@@ -56,6 +66,10 @@ extension MessagesViewController {
         inputToolbar.contentView.backgroundColor = UIColor(colorLiteralRed: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
         
         collectionView.backgroundColor = .darkGray
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        tapGR.delegate = self
+        collectionView.addGestureRecognizer(tapGR)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -72,21 +86,25 @@ extension MessagesViewController {
 extension MessagesViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
+        return messages.value?.count ?? 0
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        return messages[indexPath.item].jsqMessage
+        return messages.value?[indexPath.item].jsqMessage
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        let message = messages[indexPath.item]
+        guard let message = messages.value?[indexPath.item] else {
+            return nil
+        }
         
         return message.senderId == sender.id ? sender.jsqAvatar : reciever.jsqAvatar
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        let message = messages[indexPath.item]
+        guard let message = messages.value?[indexPath.item] else {
+            return nil
+        }
         
         if message.senderId == sender.id {
             return JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
@@ -98,7 +116,9 @@ extension MessagesViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         
-        let message = messages[indexPath.item]
+        guard let message = messages.value?[indexPath.item] else {
+            return UICollectionViewCell()
+        }
         
         cell.textView?.textColor = message.senderId == sender.id ? .black : .white
         
@@ -112,7 +132,7 @@ extension MessagesViewController {
         
         let message = Message(senderId: senderId, displayName: displayName, text: text)
         
-        ConnectionManager.shared.send(message: message, toPlayer: reciever.id)
+        ConnectionManager.shared.send(message: message, toPlayer: senderIsWatcher ? reciever.id : sender.id)
         
         inputToolbar.contentView.textView.text = ""
     }
@@ -124,8 +144,23 @@ extension MessagesViewController {
 extension MessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        messages = state.messages
         watcher = state.watcher
+        messages = .loaded(state.messages)
+    }
+    
+}
+
+// MARK: - UIGestureRecognizerDelegate
+
+extension MessagesViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    @objc
+    fileprivate func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        inputToolbar.contentView.textView.resignFirstResponder()
     }
     
 }

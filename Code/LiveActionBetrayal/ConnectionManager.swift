@@ -345,7 +345,7 @@ final class ConnectionManager {
         print("SENDING MESSAGE")
         
         let messageRef = self.database.child("messages/\(uid)").childByAutoId()
-        var values = message.toJSON()
+        let values = message.toJSON()
         messageRef.setValue(values)
     }
     

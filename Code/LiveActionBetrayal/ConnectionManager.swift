@@ -333,8 +333,7 @@ final class ConnectionManager {
             }
             
             let messages = json
-                .mapValues { Message.init(json: $0 as! JSON) }
-                .flatMap { $0.value }
+                .values.flatMap { Message.init(json: $0 as! JSON) }
                 .sorted { $0.timestamp < $1.timestamp }
             
             AppStore.shared.dispatch(AppAction.messages(messages))

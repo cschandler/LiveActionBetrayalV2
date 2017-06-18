@@ -11,11 +11,7 @@ import ReSwift
 
 final class CardsViewController: BaseViewController {
     
-    @IBOutlet weak var tableView: UITableView! {
-        didSet {
-            tableView.contentInset = UIEdgeInsetsMake(72.0, 0, 0, 0)
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
     
     var cards: [Card] = [] {
         didSet {

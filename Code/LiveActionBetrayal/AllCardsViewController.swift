@@ -11,11 +11,7 @@ import ReSwift
 
 final class AllCardsViewController: BaseViewController {
     
-    @IBOutlet weak var tableView: UITableView! {
-        didSet {
-            tableView.contentInset = UIEdgeInsetsMake(72.0, 0, 0, 0)
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
     
     var cards: [Card] = [] {
         didSet {
@@ -27,14 +23,42 @@ final class AllCardsViewController: BaseViewController {
 
 // MARK: - Life Cycle
 
-extension AllCardsViewController {
+extension AllCardsViewController: WatcherType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        
         AppStore.shared.subscribe(self)
         
         ConnectionManager.shared.getCards()
+    }
+    
+}
+
+// MARK: - UITableView
+
+extension AllCardsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cards.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.CardCell.rawValue, for: indexPath)
+        
+        let card = cards[indexPath.row]
+        cell.textLabel?.text = card.name
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let card = cards[indexPath.row]
+        let viewController = CardDetailViewController.build(card: card)
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

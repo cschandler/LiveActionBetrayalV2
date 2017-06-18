@@ -190,7 +190,7 @@ final class ConnectionManager {
                 "traitor": false as AnyObject
             ]
             
-            self.database.child("players/\(uid)").setValue(values) { (error, ref) in
+            self.database.child("\(DatabaseTopLevel.players.rawValue)/\(uid)").setValue(values) { (error, ref) in
                 print("FIREBASE ADD USER")
                 if let error = error {
                     fulfill(.failure(error))
@@ -273,12 +273,12 @@ final class ConnectionManager {
         database.child(DatabaseTopLevel.torchesOn.rawValue).setValue(on)
         
         for player in AppStore.shared.state.connectedPlayers {
-            database.child("players/\(player.identifier)/torch").setValue(on)
+            database.child("\(DatabaseTopLevel.players.rawValue)/\(player.identifier)/torch").setValue(on)
         }
     }
     
     func toggleLight(forPlayer player: Explorer, on: Bool) {
-        database.child("players/\(player.identifier)/torch").setValue(on)
+        database.child("\(DatabaseTopLevel.players.rawValue)/\(player.identifier)/torch").setValue(on)
     }
     
     func logIn(player: Explorer) -> Promise<Void> {
@@ -303,12 +303,26 @@ final class ConnectionManager {
     // MARK: - Cards
     
     func getCards() {
-        print("GETTING CARDS")
         
-        let cardRef = self.database.child("items")
+        let cardRef = self.database.child(DatabaseTopLevel.items.rawValue)
         
-        cardListener = cardRef.observe(.childAdded, with: { snapshot in
+        cardListener = cardRef.observe(.value, with: { snapshot in
+            print("GETTING CARDS")
+            print("------")
             
+            guard let currentUserId = self.currentUser?.uid,
+                let json = snapshot.value as? JSON else {
+                    return
+            }
+            
+            let cards: [Card] = json.flatMap { Card(json: $0.value as! JSON) }
+            
+            if currentUserId == AppStore.shared.state.watcher?.identifier ?? "" {
+                AppStore.shared.dispatch(AppAction.cards(cards))
+            } else {
+                let filteredCards = cards.filter { $0.owner == currentUserId }
+                AppStore.shared.dispatch(AppAction.cards(filteredCards))
+            }
         })
     }
     
@@ -317,7 +331,7 @@ final class ConnectionManager {
             
             let values = card.toJSON()
             
-            let itemRef = self.database.child("items/\(card.identifier)")
+            let itemRef = self.database.child(DatabaseTopLevel.items.rawValue).childByAutoId()
             
             itemRef.setValue(values, withCompletionBlock: { (error, ref) in
                 print("ADD ITEM")
@@ -335,11 +349,13 @@ final class ConnectionManager {
     // MARK: - Messages
     
     func getMessages(forPlayer uid: String) {
-        print("GETTING MESSAGES")
         
         let messageRef = self.database.child("messages/\(uid)")
         
         messageListener = messageRef.observe(.value, with: { snapshot in
+            print("GETTING MESSAGES")
+            print("------")
+            
             guard let json = snapshot.value as? JSON else {
                 return
             }

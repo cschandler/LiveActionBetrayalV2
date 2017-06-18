@@ -33,6 +33,8 @@ extension AllCardsViewController {
         super.viewDidLoad()
         
         AppStore.shared.subscribe(self)
+        
+        ConnectionManager.shared.getCards()
     }
     
 }
@@ -42,7 +44,7 @@ extension AllCardsViewController {
 extension AllCardsViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        
+        cards = state.cards
     }
     
 }

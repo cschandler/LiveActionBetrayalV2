@@ -19,6 +19,7 @@ enum AppAction: Action {
     case added(Explorer)
     case messages([Message])
     case watcher(Watcher)
+    case cards([Card])
 }
 
 struct AppState: StateType {
@@ -64,6 +65,8 @@ struct AppReducer {
         case .watcher(let watcher):
             newState.watcher = watcher
             
+        case .cards(let cards):
+            newState.cards = cards
         }
         
         return newState

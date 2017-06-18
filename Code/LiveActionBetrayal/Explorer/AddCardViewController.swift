@@ -114,11 +114,9 @@ extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: qrCodeObject),
             let qrString = qrCodeObject.stringValue,
             let uid = FIRAuth.auth()?.currentUser?.uid,
-            let card = Card(qr: qrString, currentOwner: uid)
-            else
-        {
-            qrCodeFrameView?.frame = CGRect.zero
-            return
+            let card = Card(qr: qrString, currentOwner: uid) else {
+                qrCodeFrameView?.frame = CGRect.zero
+                return
         }
         
         qrCodeFrameView?.frame = barCodeObject.bounds

@@ -25,6 +25,7 @@ final class ConnectionManager {
     private let torchListener: FIRDatabaseHandle
     private let watcherListener: FIRDatabaseHandle
     private var messageListener: FIRDatabaseHandle?
+    private var cardListener: FIRDatabaseHandle?
     
     lazy var database: FIRDatabaseReference = {
         return FIRDatabase.database().reference()
@@ -39,6 +40,7 @@ final class ConnectionManager {
         case torchesOn
         case messages
         case watcher
+        case items
     }
     
     var currentUser: FIRUser? {
@@ -299,6 +301,16 @@ final class ConnectionManager {
     }
     
     // MARK: - Cards
+    
+    func getCards() {
+        print("GETTING CARDS")
+        
+        let cardRef = self.database.child("items")
+        
+        cardListener = cardRef.observe(.childAdded, with: { snapshot in
+            
+        })
+    }
     
     func addCard(card: Card) -> Promise<Void> {
         return Promise { fulfill in

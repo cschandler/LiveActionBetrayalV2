@@ -26,6 +26,7 @@ struct AppState: StateType {
     var connectedPlayers: [Explorer] = []
     var torchOn: Bool = TorchManager.isOn
     var messages: [Message] = []
+    var cards: [Card] = []
 }
 
 struct AppReducer {

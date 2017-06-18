@@ -29,6 +29,7 @@
 		08455D2E1EB0C58700B4898F /* Watcher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08455D2D1EB0C58700B4898F /* Watcher.storyboard */; };
 		08455D301EB0CB8600B4898F /* WatcherType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08455D2F1EB0CB8600B4898F /* WatcherType.swift */; };
 		08455D321EB0CBDA00B4898F /* LightsViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08455D311EB0CBDA00B4898F /* LightsViewControllers.swift */; };
+		084731FA1EF5E69100776E54 /* AllCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084731F91EF5E69100776E54 /* AllCardsViewController.swift */; };
 		084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */; };
 		084B375D1E849FF100088472 /* PlayerMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375C1E849FF100088472 /* PlayerMetadata.swift */; };
 		084B375F1E84AC2B00088472 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084B375E1E84AC2B00088472 /* GradientView.swift */; };
@@ -93,6 +94,7 @@
 		08455D2D1EB0C58700B4898F /* Watcher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Watcher.storyboard; sourceTree = "<group>"; };
 		08455D2F1EB0CB8600B4898F /* WatcherType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatcherType.swift; sourceTree = "<group>"; };
 		08455D311EB0CBDA00B4898F /* LightsViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsViewControllers.swift; sourceTree = "<group>"; };
+		084731F91EF5E69100776E54 /* AllCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCardsViewController.swift; sourceTree = "<group>"; };
 		084B375A1E849F9900088472 /* ChooseAttributeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseAttributeViewController.swift; path = LiveActionBetrayal/ChooseAttributeViewController.swift; sourceTree = SOURCE_ROOT; };
 		084B375C1E849FF100088472 /* PlayerMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerMetadata.swift; path = LiveActionBetrayal/PlayerMetadata.swift; sourceTree = SOURCE_ROOT; };
 		084B375E1E84AC2B00088472 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				08FE1FA01EB8B73B0082BE0E /* LightControlView.swift */,
 				083E0C261EBE777D006C4783 /* LightsSettingViewController.swift */,
 				0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */,
+				084731F91EF5E69100776E54 /* AllCardsViewController.swift */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				081120591E7C8234003B52D3 /* Player.swift in Sources */,
 				083E0C291EBF8571006C4783 /* Card.swift in Sources */,
 				083E0C271EBE777D006C4783 /* LightsSettingViewController.swift in Sources */,
+				084731FA1EF5E69100776E54 /* AllCardsViewController.swift in Sources */,
 				08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */,
 				085F07131E815D2A001B99EE /* Theme.swift in Sources */,
 				0867B5F01ECC715D009581EC /* AllMessagesViewController.swift in Sources */,

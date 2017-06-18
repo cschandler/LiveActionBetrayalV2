@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReSwift
 
 final class CardsViewController: BaseViewController {
     
@@ -24,10 +25,12 @@ final class CardsViewController: BaseViewController {
     
     @IBAction func addCardTapped(_ sender: UIBarButtonItem) {
         let viewController = AddCardViewController.build()
+        
         viewController.addCard = { [weak self] card in
             self?.cards.append(card)
             self?.navigationController?.popToRootViewController(animated: true)
         }
+        
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -40,6 +43,8 @@ extension CardsViewController: ExplorerType {
         super.viewDidLoad()
         
         setupView()
+        
+        AppStore.shared.subscribe(self)
     }
     
 }
@@ -64,7 +69,18 @@ extension CardsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let card = cards[indexPath.row]
         let viewController = CardDetailViewController.build(card: card)
+        
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+}
+
+// MARK: - Store Subscriber
+
+extension CardsViewController: StoreSubscriber {
+    
+    func newState(state: AppState) {
+        
     }
     
 }

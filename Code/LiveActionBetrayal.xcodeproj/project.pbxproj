@@ -41,6 +41,7 @@
 		085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 085F070E1E80A1F1001B99EE /* Explorer.storyboard */; };
 		085F07131E815D2A001B99EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F07121E815D2A001B99EE /* Theme.swift */; };
 		0867B5F01ECC715D009581EC /* AllMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */; };
+		086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086AA8B51EF73FB1007DF072 /* HauntController.swift */; };
 		088E60E61E8CC605004AF072 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E51E8CC605004AF072 /* ResultView.swift */; };
 		088E60E81E8CDD9C004AF072 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E71E8CDD9C004AF072 /* UserDefaults.swift */; };
 		089EEBFD1EC9D3D700FE9E87 /* ExplorerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089EEBFC1EC9D3D700FE9E87 /* ExplorerCell.xib */; };
@@ -106,6 +107,7 @@
 		085F070F1E80A1F1001B99EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Explorer.storyboard; sourceTree = "<group>"; };
 		085F07121E815D2A001B99EE /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMessagesViewController.swift; sourceTree = "<group>"; };
+		086AA8B51EF73FB1007DF072 /* HauntController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HauntController.swift; sourceTree = "<group>"; };
 		088E60E51E8CC605004AF072 /* ResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		088E60E71E8CDD9C004AF072 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		089EEBFC1EC9D3D700FE9E87 /* ExplorerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExplorerCell.xib; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */,
 				081120601E7C8E99003B52D3 /* Finishable.swift */,
 				084B375E1E84AC2B00088472 /* GradientView.swift */,
+				086AA8B51EF73FB1007DF072 /* HauntController.swift */,
 				0811205E1E7C8AFE003B52D3 /* IDs.swift */,
 				08361D031EF5946D00E44B69 /* Loadable.swift */,
 				08FF255E1EEDA1160012949B /* Message.swift */,
@@ -470,6 +473,7 @@
 				08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */,
 				08FF255F1EEDA1160012949B /* Message.swift in Sources */,
 				08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */,
+				086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */,
 				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

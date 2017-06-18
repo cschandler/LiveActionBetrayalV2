@@ -8,7 +8,6 @@
 
 import Foundation
 import ReSwift
-import GameKit
 
 struct AppStore {
     static let shared = Store(reducer: AppReducer().handleAction, state: AppState())
@@ -21,6 +20,7 @@ enum AppAction: Action {
     case messages([Message])
     case watcher(Watcher)
     case cards([Card])
+    case triggerHaunt
 }
 
 struct AppState: StateType {
@@ -68,20 +68,10 @@ struct AppReducer {
             newState.watcher = watcher
             
         case .cards(let cards):
-            if let state = state {
-                let existingOmens = state.cards.filter { $0.type == .omen }
-                let newOmens = cards.filter { $0.type == .omen }
-                
-                if newOmens.count > existingOmens.count {
-                    let roll = GKRandomDistribution.d6().nextInt()
-                    
-                    if newOmens.count > roll {
-                        newState.hauntTriggered = true
-                    }
-                }
-            }
-            
             newState.cards = cards
+            
+        case .triggerHaunt:
+            newState.hauntTriggered = true
         }
         
         return newState

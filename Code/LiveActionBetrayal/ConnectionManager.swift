@@ -26,6 +26,7 @@ final class ConnectionManager {
     private let watcherListener: FIRDatabaseHandle
     private var messageListener: FIRDatabaseHandle?
     private var cardListener: FIRDatabaseHandle?
+    private var hauntListener: FIRDatabaseHandle
     
     lazy var database: FIRDatabaseReference = {
         return FIRDatabase.database().reference()
@@ -41,6 +42,7 @@ final class ConnectionManager {
         case messages
         case watcher
         case items
+        case hauntTriggered
     }
     
     var currentUser: FIRUser? {
@@ -55,6 +57,7 @@ final class ConnectionManager {
         let playerRef = FIRDatabase.database().reference().child(DatabaseTopLevel.players.rawValue)
         let torchRef = FIRDatabase.database().reference().child(DatabaseTopLevel.torchesOn.rawValue)
         let watcherRef = FIRDatabase.database().reference().child(DatabaseTopLevel.watcher.rawValue)
+        let hauntRef = FIRDatabase.database().reference().child(DatabaseTopLevel.hauntTriggered.rawValue)
         
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
@@ -102,6 +105,17 @@ final class ConnectionManager {
             let watcher = Watcher(identifier: watcherID)
             
             AppStore.shared.dispatch(AppAction.watcher(watcher))
+        })
+        
+        hauntListener = hauntRef.observe(.value, with: { snapshot in
+            print("HAUNT LISTENER")
+            print("------")
+            
+            guard let hauntTriggered = snapshot.value as? Bool, hauntTriggered == true else {
+                return
+            }
+            
+            AppStore.shared.dispatch(AppAction.triggerHaunt)
         })
     }
     
@@ -318,7 +332,12 @@ final class ConnectionManager {
             let cards: [Card] = json.flatMap { Card(json: $0.value as! JSON) }
             
             if currentUserId == AppStore.shared.state.watcher?.identifier ?? "" {
+                // We only want to haunt to be tested for once per omen added
+                // If we ever add support for mutiple watchers we'll need a better solution
+                HauntController.triggerHauntIfNeeded(with: AppStore.shared.state.cards, newCards: cards)
+                
                 AppStore.shared.dispatch(AppAction.cards(cards))
+                
             } else {
                 let filteredCards = cards.filter { $0.owner == currentUserId }
                 AppStore.shared.dispatch(AppAction.cards(filteredCards))
@@ -379,6 +398,12 @@ final class ConnectionManager {
     func resetMessages() {
         messageListener = nil
         AppStore.shared.dispatch(AppAction.messages([]))
+    }
+    
+    // MARK: - Haunt
+    
+    func triggerHaunt() {
+        database.child("\(DatabaseTopLevel.hauntTriggered.rawValue)").setValue(true)
     }
     
 }

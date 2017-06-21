@@ -49,10 +49,15 @@ struct AppReducer {
         case .updated(let explorer):
             for (index, player) in newState.connectedPlayers.enumerated() {
                 if player.identifier == explorer.identifier {
+                    var newExplorer = explorer
+                    newExplorer.picture = player.picture
+                    
                     let start = newState.connectedPlayers.startIndex.advanced(by: index)
                     let end = newState.connectedPlayers.startIndex.advanced(by: index + 1)
                     let range = start ..< end
-                    newState.connectedPlayers.replaceSubrange(range, with: [explorer])
+                    
+                    newState.connectedPlayers.replaceSubrange(range, with: [newExplorer])
+                    
                     break
                 }
             }

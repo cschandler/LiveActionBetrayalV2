@@ -52,6 +52,8 @@ extension LightsViewController: WatcherType {
         }
         
         AppStore.shared.subscribe(self)
+        
+        tableView.register(LightsCell.nib, forCellReuseIdentifier: IDs.Cells.LightsCell.rawValue)
     }
     
 }
@@ -63,12 +65,13 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.PeerCell.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.LightsCell.rawValue, for: indexPath) as! LightsCell
         
         let player = players[indexPath.row]
-        cell.textLabel?.text = player.name
-        cell.imageView?.image = player.picture
-        cell.detailTextLabel?.text = player.torchOn ? "ON" : "OFF"
+        
+        cell.nameLabel.text = player.name
+        cell.profileImageView.image = player.picture
+        cell.toggleLights(on: player.torchOn)
         
         return cell
     }

@@ -53,6 +53,8 @@
 		08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */; };
 		08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A81E88546000BA9DDD /* ProfileViewController.swift */; };
 		08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82AC1E88C68900BA9DDD /* StatStepper.swift */; };
+		08C5B1261EFA04370064195E /* LightsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5B1251EFA04370064195E /* LightsCell.swift */; };
+		08C5B1281EFA045F0064195E /* LightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08C5B1271EFA045F0064195E /* LightsCell.xib */; };
 		08CB61ED1ECB258C00177BB5 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */; };
 		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
 		08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */; };
@@ -119,6 +121,8 @@
 		08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerType.swift; sourceTree = "<group>"; };
 		08AC82A81E88546000BA9DDD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		08AC82AC1E88C68900BA9DDD /* StatStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatStepper.swift; sourceTree = "<group>"; };
+		08C5B1251EFA04370064195E /* LightsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsCell.swift; sourceTree = "<group>"; };
+		08C5B1271EFA045F0064195E /* LightsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightsCell.xib; sourceTree = "<group>"; };
 		08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrantLabel.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				083E0C261EBE777D006C4783 /* LightsSettingViewController.swift */,
 				0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */,
 				084731F91EF5E69100776E54 /* AllCardsViewController.swift */,
+				08C5B1271EFA045F0064195E /* LightsCell.xib */,
+				08C5B1251EFA04370064195E /* LightsCell.swift */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 				08455C1F1E919A2A007ED3C5 /* GoogleService-Info.plist in Resources */,
 				08FE3CAC1E82DD6B005E3C3A /* Main.storyboard in Resources */,
 				083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */,
+				08C5B1281EFA045F0064195E /* LightsCell.xib in Resources */,
 				084B37611E84AC7200088472 /* AttributeCell.xib in Resources */,
 				08FE3CA91E82DD09005E3C3A /* Status.storyboard in Resources */,
 				089EEBFD1EC9D3D700FE9E87 /* ExplorerCell.xib in Resources */,
@@ -438,6 +445,7 @@
 				081120591E7C8234003B52D3 /* Player.swift in Sources */,
 				083E0C291EBF8571006C4783 /* Card.swift in Sources */,
 				083E0C271EBE777D006C4783 /* LightsSettingViewController.swift in Sources */,
+				08C5B1261EFA04370064195E /* LightsCell.swift in Sources */,
 				084731FA1EF5E69100776E54 /* AllCardsViewController.swift in Sources */,
 				08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */,
 				085F07131E815D2A001B99EE /* Theme.swift in Sources */,

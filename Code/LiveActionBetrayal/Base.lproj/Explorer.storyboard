@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -335,10 +335,10 @@
             </objects>
             <point key="canvasLocation" x="3054" y="582"/>
         </scene>
-        <!--View Controller-->
+        <!--Explorer Haunt View Controller-->
         <scene sceneID="TUW-Dw-0Bt">
             <objects>
-                <viewController id="hta-Zq-MWP" sceneMemberID="viewController">
+                <viewController id="hta-Zq-MWP" customClass="ExplorerHauntViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kTW-uI-U0N"/>
                         <viewControllerLayoutGuide type="bottom" id="CHK-ma-Hda"/>
@@ -346,9 +346,62 @@
                     <view key="view" contentMode="scaleToFill" id="cJq-uG-fIZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPD-SS-8Bf">
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="n8f-9P-h5J">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMO-DA-eLy">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uHO-jf-m1T">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qtk-iQ-uB1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Qtk-iQ-uB1" firstAttribute="top" secondItem="uHO-jf-m1T" secondAttribute="top" id="EL1-Xz-zTs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Qtk-iQ-uB1" secondAttribute="trailing" id="LHQ-11-Mu2"/>
+                                                    <constraint firstItem="Qtk-iQ-uB1" firstAttribute="leading" secondItem="uHO-jf-m1T" secondAttribute="leading" id="aeh-Xy-cla"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Qtk-iQ-uB1" secondAttribute="bottom" id="cmV-80-09t"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="dark"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="aMO-DA-eLy" secondAttribute="trailing" id="DDI-AI-37V"/>
+                                        <constraint firstAttribute="bottom" secondItem="aMO-DA-eLy" secondAttribute="bottom" id="Jy1-dM-Bw6"/>
+                                        <constraint firstItem="aMO-DA-eLy" firstAttribute="top" secondItem="n8f-9P-h5J" secondAttribute="top" id="VD9-rA-cuC"/>
+                                        <constraint firstItem="aMO-DA-eLy" firstAttribute="leading" secondItem="n8f-9P-h5J" secondAttribute="leading" id="ffQ-gm-SMh"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bPD-SS-8Bf" secondAttribute="trailing" id="1Dp-Zx-gao"/>
+                            <constraint firstItem="bPD-SS-8Bf" firstAttribute="top" secondItem="kTW-uI-U0N" secondAttribute="bottom" id="Oje-6x-X5Z"/>
+                            <constraint firstItem="CHK-ma-Hda" firstAttribute="top" secondItem="bPD-SS-8Bf" secondAttribute="bottom" id="UDj-bv-RAO"/>
+                            <constraint firstItem="bPD-SS-8Bf" firstAttribute="leading" secondItem="cJq-uG-fIZ" secondAttribute="leadingMargin" id="hIO-y1-fmX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jO6-iE-naM"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="Qtk-iQ-uB1" id="qvL-0t-bPR"/>
+                        <outlet property="descriptionVisualEffectView" destination="bPD-SS-8Bf" id="m9a-Sg-riN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHB-8R-Sci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

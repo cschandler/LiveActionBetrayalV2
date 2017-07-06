@@ -406,6 +406,45 @@ final class ConnectionManager {
         database.child("\(DatabaseTopLevel.hauntTriggered.rawValue)").setValue(true)
     }
     
+    func getHaunt(withName name: String) -> Promise<String> {
+        return Promise { fulfill in
+            guard let currentUserID = self.currentUserID,
+                let currentExplorer = AppStore.shared.state.connectedPlayers.filter({ $0.identifier == currentUserID }).first else {
+                    fulfill(.failure(StateError.noValidPlayer))
+                    return
+            }
+            
+            let type = currentExplorer.isTraitor ? "traitor" : "explorer"
+            
+            let hauntRef = self.storage.child("haunts/\(type)/\(name).txt")
+            
+            hauntRef.downloadURL(completion: { (url, error) in
+                guard let url = url else {
+                    guard let error = error else { return }
+                    fulfill(.failure(error))
+                    return
+                }
+                
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    guard let data = data else {
+                        guard let error = error else { return }
+                        fulfill(.failure(error))
+                        return
+                    }
+                    
+                    guard let text = String(data: data, encoding: .utf8) else {
+                        fulfill(.failure(SerializationError.corrupted("Haunt text")))
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        fulfill(.success(text))
+                    }
+                }.resume()
+            })
+        }
+    }
+    
 }
 
 enum SerializationError: Error {
@@ -413,4 +452,8 @@ enum SerializationError: Error {
     case missing(String)
     case corrupted(String)
     case invalid(String, Any)
+}
+
+enum StateError: Error {
+    case noValidPlayer
 }

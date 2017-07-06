@@ -129,6 +129,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R5d-R3-BoI"/>
+                    <connections>
+                        <outlet property="startHauntButton" destination="rVy-Pp-H8b" id="6IH-BJ-xkB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ER9-th-ECF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -432,7 +435,7 @@
         <scene sceneID="FrA-jc-9hH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rgg-0N-wIr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Haunt" id="b0F-Jq-vVe"/>
+                    <tabBarItem key="tabBarItem" title="Haunt" image="ic-haunt" id="b0F-Jq-vVe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="aSR-oT-mDI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -449,6 +452,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic-haunt" width="24" height="24"/>
         <image name="ic-items" width="24" height="24"/>
         <image name="ic-lightbulb" width="24" height="24"/>
         <image name="ic-messages" width="24" height="24"/>

@@ -32,13 +32,13 @@ final class ExplorerHauntViewController: BaseViewController {
     }
     
     func getHaunt() {
-        guard case .notAsked = hauntText else {
+        guard case .notAsked = hauntText, !AppStore.shared.state.hauntName.isEmpty else {
             return
         }
         
         hauntText = .loading
         
-        ConnectionManager.shared.getHaunt(withName: "test")
+        ConnectionManager.shared.getHaunt(withName: AppStore.shared.state.hauntName)
             .onSuccess { text in
                 self.hauntText = .loaded(text)
             }

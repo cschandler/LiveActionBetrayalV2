@@ -22,6 +22,7 @@
 		082243301F0E840E00CB61BB /* WatcherHauntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822432F1F0E840E00CB61BB /* WatcherHauntViewController.swift */; };
 		082243321F0EB3D200CB61BB /* ExplorerHauntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082243311F0EB3D200CB61BB /* ExplorerHauntViewController.swift */; };
 		08361D041EF5946D00E44B69 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08361D031EF5946D00E44B69 /* Loadable.swift */; };
+		083B320E1F0ED3EC00B91F4B /* WatcherTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083B320D1F0ED3EC00B91F4B /* WatcherTabController.swift */; };
 		083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083B70531E88DE4100D6DC01 /* StatStepper.xib */; };
 		083E0C271EBE777D006C4783 /* LightsSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E0C261EBE777D006C4783 /* LightsSettingViewController.swift */; };
 		083E0C291EBF8571006C4783 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E0C281EBF8571006C4783 /* Card.swift */; };
@@ -92,6 +93,7 @@
 		0822432F1F0E840E00CB61BB /* WatcherHauntViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherHauntViewController.swift; sourceTree = "<group>"; };
 		082243311F0EB3D200CB61BB /* ExplorerHauntViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerHauntViewController.swift; sourceTree = "<group>"; };
 		08361D031EF5946D00E44B69 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		083B320D1F0ED3EC00B91F4B /* WatcherTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherTabController.swift; sourceTree = "<group>"; };
 		083B70531E88DE4100D6DC01 /* StatStepper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatStepper.xib; sourceTree = "<group>"; };
 		083E0C261EBE777D006C4783 /* LightsSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsSettingViewController.swift; sourceTree = "<group>"; };
 		083E0C281EBF8571006C4783 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				08455D2D1EB0C58700B4898F /* Watcher.storyboard */,
 				08455D2F1EB0CB8600B4898F /* WatcherType.swift */,
+				083B320D1F0ED3EC00B91F4B /* WatcherTabController.swift */,
 				08455D311EB0CBDA00B4898F /* LightsViewControllers.swift */,
 				080A61B51EB8B4EF00619A99 /* LightControlView.xib */,
 				08FE1FA01EB8B73B0082BE0E /* LightControlView.swift */,
@@ -472,6 +475,7 @@
 				080463031EBFACF000601DF3 /* AddCardViewController.swift in Sources */,
 				08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */,
 				08361D041EF5946D00E44B69 /* Loadable.swift in Sources */,
+				083B320E1F0ED3EC00B91F4B /* WatcherTabController.swift in Sources */,
 				08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */,
 				083E0C2D1EBF8F22006C4783 /* ContinueViewController.swift in Sources */,
 				084F26601E78FC110058F3DF /* TorchManager.swift in Sources */,

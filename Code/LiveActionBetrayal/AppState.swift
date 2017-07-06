@@ -21,6 +21,7 @@ enum AppAction: Action {
     case watcher(Watcher)
     case cards([Card])
     case triggerHaunt
+    case hauntName(String)
 }
 
 struct AppState: StateType {
@@ -30,6 +31,7 @@ struct AppState: StateType {
     var messages: [Message] = []
     var cards: [Card] = []
     var hauntTriggered: Bool = false
+    var hauntName = ""
 }
 
 struct AppReducer {
@@ -77,6 +79,9 @@ struct AppReducer {
             
         case .triggerHaunt:
             newState.hauntTriggered = true
+            
+        case .hauntName(let name):
+            newState.hauntName = name
         }
         
         return newState

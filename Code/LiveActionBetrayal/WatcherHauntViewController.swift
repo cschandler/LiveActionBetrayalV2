@@ -21,12 +21,22 @@ final class WatcherHauntViewController: BaseViewController {
         HauntController.triggerHaunt()
     }
     
+    @IBOutlet weak var hauntInputVisualEffectView: UIVisualEffectView! {
+        didSet {
+            hauntInputVisualEffectView.addBorder()
+        }
+    }
+    
+    @IBOutlet weak var hauntInputTextField: UITextField!
+    
 }
 
 extension WatcherHauntViewController: WatcherType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "No Haunt Selected"
         
         setupView()
         
@@ -41,6 +51,25 @@ extension WatcherHauntViewController: StoreSubscriber {
         if state.hauntTriggered && startHauntButton.isEnabled {
             startHauntButton.isEnabled = false
         }
+        
+        if !state.hauntName.isEmpty {
+            title = state.hauntName
+        }
+    }
+    
+}
+
+extension WatcherHauntViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else {
+            return true
+        }
+        
+        ConnectionManager.shared.setHaunt(withName: text)
+        hauntInputTextField.resignFirstResponder()
+        
+        return true
     }
     
 }

@@ -119,17 +119,69 @@
                                     <action selector="startHauntButtonTapped:" destination="5YA-iQ-mZw" eventType="touchUpInside" id="Hf4-IM-DNI"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWD-6Z-GRQ">
+                                <rect key="frame" x="16" y="160" width="343" height="36"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="k0u-KB-VtX">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRZ-ck-o9j">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ROh-Hf-Xcp">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SET HAUNT!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyl-qd-n6o">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="5YA-iQ-mZw" id="ois-3N-hXE"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="yyl-qd-n6o" firstAttribute="top" secondItem="ROh-Hf-Xcp" secondAttribute="top" id="ECO-13-0U2"/>
+                                                    <constraint firstAttribute="bottom" secondItem="yyl-qd-n6o" secondAttribute="bottom" id="Ern-1G-nRV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="yyl-qd-n6o" secondAttribute="trailing" id="Now-vz-gU0"/>
+                                                    <constraint firstItem="yyl-qd-n6o" firstAttribute="leading" secondItem="ROh-Hf-Xcp" secondAttribute="leading" id="gyD-y9-6R0"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="dark"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KRZ-ck-o9j" firstAttribute="top" secondItem="k0u-KB-VtX" secondAttribute="top" id="3Yn-4k-Uca"/>
+                                        <constraint firstAttribute="bottom" secondItem="KRZ-ck-o9j" secondAttribute="bottom" id="WsV-gW-geJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="KRZ-ck-o9j" secondAttribute="trailing" id="YPt-Hb-036"/>
+                                        <constraint firstItem="KRZ-ck-o9j" firstAttribute="leading" secondItem="k0u-KB-VtX" secondAttribute="leading" id="rQC-Xt-TNP"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="FhO-O6-hRG"/>
+                                </constraints>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="rVy-Pp-H8b" secondAttribute="trailing" id="3TE-Gz-fjg"/>
                             <constraint firstItem="rVy-Pp-H8b" firstAttribute="top" secondItem="Wrj-aW-HM5" secondAttribute="bottom" constant="30" id="6Kw-ud-3iS"/>
+                            <constraint firstItem="QWD-6Z-GRQ" firstAttribute="leading" secondItem="Dl8-4R-w7m" secondAttribute="leadingMargin" id="9nO-Uo-yvx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QWD-6Z-GRQ" secondAttribute="trailing" id="LZZ-Bh-Be1"/>
+                            <constraint firstItem="QWD-6Z-GRQ" firstAttribute="top" secondItem="rVy-Pp-H8b" secondAttribute="bottom" constant="30" id="T0C-xk-lrr"/>
                             <constraint firstItem="rVy-Pp-H8b" firstAttribute="leading" secondItem="Dl8-4R-w7m" secondAttribute="leadingMargin" id="TSO-Ap-Gsi"/>
                             <constraint firstItem="rVy-Pp-H8b" firstAttribute="centerX" secondItem="Dl8-4R-w7m" secondAttribute="centerX" id="yNb-Db-8Eo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R5d-R3-BoI"/>
                     <connections>
+                        <outlet property="hauntInputTextField" destination="yyl-qd-n6o" id="Q2J-aS-CQc"/>
+                        <outlet property="hauntInputVisualEffectView" destination="QWD-6Z-GRQ" id="8Kj-ZA-sdW"/>
                         <outlet property="startHauntButton" destination="rVy-Pp-H8b" id="6IH-BJ-xkB"/>
                     </connections>
                 </viewController>

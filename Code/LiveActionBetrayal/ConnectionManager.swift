@@ -27,6 +27,7 @@ final class ConnectionManager {
     private var messageListener: FIRDatabaseHandle?
     private var cardListener: FIRDatabaseHandle?
     private var hauntListener: FIRDatabaseHandle
+    private var hauntNameListener: FIRDatabaseHandle
     
     lazy var database: FIRDatabaseReference = {
         return FIRDatabase.database().reference()
@@ -43,6 +44,7 @@ final class ConnectionManager {
         case watcher
         case items
         case hauntTriggered
+        case hauntName
     }
     
     var currentUser: FIRUser? {
@@ -58,6 +60,7 @@ final class ConnectionManager {
         let torchRef = FIRDatabase.database().reference().child(DatabaseTopLevel.torchesOn.rawValue)
         let watcherRef = FIRDatabase.database().reference().child(DatabaseTopLevel.watcher.rawValue)
         let hauntRef = FIRDatabase.database().reference().child(DatabaseTopLevel.hauntTriggered.rawValue)
+        let hauntNameRef = FIRDatabase.database().reference().child(DatabaseTopLevel.hauntName.rawValue)
         
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
@@ -117,6 +120,17 @@ final class ConnectionManager {
             
             AppStore.shared.dispatch(AppAction.triggerHaunt)
         })
+        
+        hauntNameListener = hauntNameRef.observe(.value, with: { snapshot in
+            print("HAUNT NAME LISTENER")
+            print("------")
+            
+            guard let name = snapshot.value as? String else {
+                return
+            }
+            
+            AppStore.shared.dispatch(AppAction.hauntName(name))
+        })
     }
     
     // MARK: - Players
@@ -163,7 +177,9 @@ final class ConnectionManager {
         return Promise { fulfill in
             FIRAuth.auth()?.signIn(withEmail: self.watcherEmail, password: self.firepass, completion: { (user, error) in
                 guard let user = user else {
-                    guard let error = error else { return }
+                    guard let error = error else {
+                        return
+                    }
                     fulfill(.failure(error))
                     return
                 }
@@ -401,6 +417,10 @@ final class ConnectionManager {
     }
     
     // MARK: - Haunt
+    
+    func setHaunt(withName name: String) {
+        database.child("\(DatabaseTopLevel.hauntName.rawValue)").setValue(name)
+    }
     
     func triggerHaunt() {
         database.child("\(DatabaseTopLevel.hauntTriggered.rawValue)").setValue(true)

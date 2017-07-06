@@ -348,30 +348,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPD-SS-8Bf">
-                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <rect key="frame" x="16" y="74" width="343" height="534"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="n8f-9P-h5J">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="534"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMO-DA-eLy">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="534"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uHO-jf-m1T">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="534"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qtk-iQ-uB1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="554"/>
+                                                        <rect key="frame" x="8" y="8" width="327" height="518"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Qtk-iQ-uB1" firstAttribute="top" secondItem="uHO-jf-m1T" secondAttribute="top" id="EL1-Xz-zTs"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Qtk-iQ-uB1" secondAttribute="trailing" id="LHQ-11-Mu2"/>
-                                                    <constraint firstItem="Qtk-iQ-uB1" firstAttribute="leading" secondItem="uHO-jf-m1T" secondAttribute="leading" id="aeh-Xy-cla"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Qtk-iQ-uB1" secondAttribute="bottom" id="cmV-80-09t"/>
+                                                    <constraint firstItem="Qtk-iQ-uB1" firstAttribute="top" secondItem="uHO-jf-m1T" secondAttribute="top" constant="8" id="EL1-Xz-zTs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Qtk-iQ-uB1" secondAttribute="trailing" constant="8" id="LHQ-11-Mu2"/>
+                                                    <constraint firstItem="Qtk-iQ-uB1" firstAttribute="leading" secondItem="uHO-jf-m1T" secondAttribute="leading" constant="8" id="aeh-Xy-cla"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Qtk-iQ-uB1" secondAttribute="bottom" constant="8" id="cmV-80-09t"/>
                                                 </constraints>
                                             </view>
                                             <vibrancyEffect>
@@ -392,8 +393,8 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bPD-SS-8Bf" secondAttribute="trailing" id="1Dp-Zx-gao"/>
-                            <constraint firstItem="bPD-SS-8Bf" firstAttribute="top" secondItem="kTW-uI-U0N" secondAttribute="bottom" id="Oje-6x-X5Z"/>
-                            <constraint firstItem="CHK-ma-Hda" firstAttribute="top" secondItem="bPD-SS-8Bf" secondAttribute="bottom" id="UDj-bv-RAO"/>
+                            <constraint firstItem="bPD-SS-8Bf" firstAttribute="top" secondItem="kTW-uI-U0N" secondAttribute="bottom" constant="10" id="Oje-6x-X5Z"/>
+                            <constraint firstItem="CHK-ma-Hda" firstAttribute="top" secondItem="bPD-SS-8Bf" secondAttribute="bottom" constant="10" id="UDj-bv-RAO"/>
                             <constraint firstItem="bPD-SS-8Bf" firstAttribute="leading" secondItem="cJq-uG-fIZ" secondAttribute="leadingMargin" id="hIO-y1-fmX"/>
                         </constraints>
                     </view>

@@ -55,6 +55,8 @@ extension ExplorerHauntViewController: ExplorerType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Survivor's Guide"
+        
         setupView()
         
         AppStore.shared.subscribe(self)

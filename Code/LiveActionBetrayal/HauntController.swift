@@ -25,7 +25,7 @@ struct HauntController {
         }
     }
     
-    private static func triggerHaunt() {
+    static func triggerHaunt() {
         AppStore.shared.dispatch(AppAction.triggerHaunt)
         ConnectionManager.shared.triggerHaunt()
     }

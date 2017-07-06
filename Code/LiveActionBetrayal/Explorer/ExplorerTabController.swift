@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReSwift
 
 final class ExplorerTabController: UITabBarController {
     
@@ -30,6 +31,15 @@ final class ExplorerTabController: UITabBarController {
         }
     }
     
+    func activateHauntTab() {
+        guard let lastTab = tabBar.items?.last,
+            lastTab.isEnabled == false else {
+                return
+        }
+        
+        lastTab.isEnabled = true
+    }
+    
 }
 
 extension ExplorerTabController: ExplorerType {
@@ -40,6 +50,18 @@ extension ExplorerTabController: ExplorerType {
         tabBar.tintColor = theme.mid
         
         injectIntoMessagesViewController()
+        
+        AppStore.shared.subscribe(self)
     }
+}
+
+extension ExplorerTabController: StoreSubscriber {
+    
+    func newState(state: AppState) {
+        if state.hauntTriggered {
+            activateHauntTab()
+        }
+    }
+    
 }
 

@@ -28,6 +28,8 @@ extension AllCardsViewController: WatcherType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Items"
+        
         setupView()
         
         AppStore.shared.subscribe(self)

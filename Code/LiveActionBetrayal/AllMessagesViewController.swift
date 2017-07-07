@@ -47,6 +47,8 @@ extension AllMessagesViewController: WatcherType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Messages"
+        
         setupView()
         
         AppStore.shared.subscribe(self)

@@ -43,6 +43,8 @@ extension LightsViewController: WatcherType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Lights"
+        
         setupView()
         
         if let lightsControlView = LightControlView.build() {

@@ -71,8 +71,9 @@ extension ProfileViewController: ExplorerType {
         guard let speedStepper = StatStepper.build(stat: metadata?.attribute?.speed, withTitle: "SPEED"),
             let mightStepper = StatStepper.build(stat: metadata?.attribute?.might, withTitle: "MIGHT"),
             let sanityStepper = StatStepper.build(stat: metadata?.attribute?.sanity, withTitle: "SANITY"),
-            let knowledgeStepper = StatStepper.build(stat: metadata?.attribute?.knowledge, withTitle: "KNOWLEDGE")
-            else { return }
+            let knowledgeStepper = StatStepper.build(stat: metadata?.attribute?.knowledge, withTitle: "KNOWLEDGE") else {
+                return
+        }
         
         stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         

@@ -234,7 +234,7 @@ final class ConnectionManager {
     
     // MARK: - Profile Picture
     
-    private func uploadPicture(image: UIImage?, withId uid: String) -> Promise<Void> {
+    func uploadPicture(image: UIImage?, withId uid: String) -> Promise<Void> {
         return Promise { fulfill in
             
             guard let image = image else {

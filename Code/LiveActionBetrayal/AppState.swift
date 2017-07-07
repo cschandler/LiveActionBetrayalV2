@@ -32,6 +32,14 @@ struct AppState: StateType {
     var cards: [Card] = []
     var hauntTriggered: Bool = false
     var hauntName = ""
+    
+    func getPlayer(withId id: String) -> PlayerType? {
+        guard let player = connectedPlayers.filter({ $0.identifier == id }).first else {
+            return nil
+        }
+        
+        return player
+    }
 }
 
 struct AppReducer {
@@ -49,20 +57,10 @@ struct AppReducer {
             getPicture(forExplorer: explorer)
             
         case .updated(let explorer):
-            for (index, player) in newState.connectedPlayers.enumerated() {
-                if player.identifier == explorer.identifier {
-                    var newExplorer = explorer
-                    newExplorer.picture = player.picture
-                    
-                    let start = newState.connectedPlayers.startIndex.advanced(by: index)
-                    let end = newState.connectedPlayers.startIndex.advanced(by: index + 1)
-                    let range = start ..< end
-                    
-                    newState.connectedPlayers.replaceSubrange(range, with: [newExplorer])
-                    
-                    break
-                }
-            }
+            var changedPlayers = newState.connectedPlayers.filter { $0.identifier != explorer.identifier }
+            changedPlayers.append(explorer)
+            
+            newState.connectedPlayers = changedPlayers
             
         case .torchesOn(let torchesOn):
             TorchManager.turn(on: torchesOn)

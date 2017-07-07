@@ -18,9 +18,6 @@ final class ProfileViewController: BaseViewController {
     @IBOutlet weak var picture: UIImageView! {
         didSet {
             picture.setBorder()
-            if let image = metadata?.picture {
-                picture.image = image
-            }
         }
     }
     
@@ -29,6 +26,7 @@ final class ProfileViewController: BaseViewController {
             let metadata = tabBar.metadata else {
                 return nil
         }
+        
         return metadata
     }
     
@@ -46,6 +44,16 @@ final class ProfileViewController: BaseViewController {
         present(nav, animated: false, completion: nil)
     }
     
+    @IBAction func profilePictureTapped(_ sender: UITapGestureRecognizer) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate =  self
+        imagePicker.sourceType = .camera
+        imagePicker.cameraDevice = .front
+        imagePicker.allowsEditing = true
+        imagePicker.cameraFlashMode = .off
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
 }
 
 extension ProfileViewController: ExplorerType {
@@ -69,6 +77,10 @@ extension ProfileViewController: ExplorerType {
         stackView.addArrangedSubview(mightStepper)
         stackView.addArrangedSubview(sanityStepper)
         stackView.addArrangedSubview(knowledgeStepper)
+        
+        if let image = metadata?.picture {
+            picture.image = image
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +97,32 @@ extension ProfileViewController: DiceDelegate {
     
     func didRoll(withResult result: Int) {
         diceBarButtonItem.title = "Roll: \(result)"
+    }
+    
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        picture.image = image
+        
+        if let image = image,
+            let id = ConnectionManager.shared.currentUserID,
+            var currentExplorer = AppStore.shared.state.getPlayer(withId: id) as? Explorer {
+                currentExplorer.picture = image
+            
+                ConnectionManager.shared.uploadPicture(image: image, withId: id).call(completion: { _ in
+                    AppStore.shared.dispatch(AppAction.updated(currentExplorer))
+                })
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

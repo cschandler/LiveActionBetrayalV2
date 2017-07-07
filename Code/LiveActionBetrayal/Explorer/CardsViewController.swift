@@ -23,7 +23,6 @@ final class CardsViewController: BaseViewController {
         let viewController = AddCardViewController.build()
         
         viewController.addCard = { [weak self] card in
-            self?.cards.append(card)
             self?.navigationController?.popToRootViewController(animated: true)
         }
         
@@ -43,6 +42,8 @@ extension CardsViewController: ExplorerType {
         AppStore.shared.subscribe(self)
         
         ConnectionManager.shared.getCards()
+        
+        tableView.register(CardCell.nib, forCellReuseIdentifier: IDs.Cells.CardCell.rawValue)
     }
     
 }
@@ -56,10 +57,13 @@ extension CardsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.CardCell.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.CardCell.rawValue, for: indexPath) as! CardCell
         
         let card = cards[indexPath.row]
-        cell.textLabel?.text = card.name
+        
+        cell.nameLabel.text = card.name
+        cell.typeLabel.text = "(\(card.type.rawValue))"
+        cell.ownerLabel.text = nil
         
         return cell
     }

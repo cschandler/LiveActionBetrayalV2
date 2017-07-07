@@ -35,6 +35,8 @@ extension AllCardsViewController: WatcherType {
         AppStore.shared.subscribe(self)
         
         ConnectionManager.shared.getCards()
+        
+        tableView.register(CardCell.nib, forCellReuseIdentifier: IDs.Cells.CardCell.rawValue)
     }
     
 }
@@ -48,10 +50,19 @@ extension AllCardsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.CardCell.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.CardCell.rawValue, for: indexPath) as! CardCell
         
         let card = cards[indexPath.row]
-        cell.textLabel?.text = card.name
+        
+        cell.nameLabel.text = card.name
+        cell.typeLabel.text = "(\(card.type.rawValue))"
+        
+        if let owner = card.owner,
+            let explorer = AppStore.shared.state.getPlayer(withId: owner) as? Explorer {
+                cell.ownerLabel.text = explorer.name
+        } else {
+            cell.ownerLabel.text = nil
+        }
         
         return cell
     }

@@ -23,6 +23,8 @@
 		082243321F0EB3D200CB61BB /* ExplorerHauntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082243311F0EB3D200CB61BB /* ExplorerHauntViewController.swift */; };
 		08361D041EF5946D00E44B69 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08361D031EF5946D00E44B69 /* Loadable.swift */; };
 		083B320E1F0ED3EC00B91F4B /* WatcherTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083B320D1F0ED3EC00B91F4B /* WatcherTabController.swift */; };
+		083B32101F10271E00B91F4B /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083B320F1F10271E00B91F4B /* CardCell.xib */; };
+		083B32121F1027C100B91F4B /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083B32111F1027C100B91F4B /* CardCell.swift */; };
 		083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083B70531E88DE4100D6DC01 /* StatStepper.xib */; };
 		083E0C271EBE777D006C4783 /* LightsSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E0C261EBE777D006C4783 /* LightsSettingViewController.swift */; };
 		083E0C291EBF8571006C4783 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083E0C281EBF8571006C4783 /* Card.swift */; };
@@ -94,6 +96,8 @@
 		082243311F0EB3D200CB61BB /* ExplorerHauntViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerHauntViewController.swift; sourceTree = "<group>"; };
 		08361D031EF5946D00E44B69 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		083B320D1F0ED3EC00B91F4B /* WatcherTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatcherTabController.swift; sourceTree = "<group>"; };
+		083B320F1F10271E00B91F4B /* CardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
+		083B32111F1027C100B91F4B /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		083B70531E88DE4100D6DC01 /* StatStepper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatStepper.xib; sourceTree = "<group>"; };
 		083E0C261EBE777D006C4783 /* LightsSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsSettingViewController.swift; sourceTree = "<group>"; };
 		083E0C281EBF8571006C4783 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				08C5B1271EFA045F0064195E /* LightsCell.xib */,
 				08C5B1251EFA04370064195E /* LightsCell.swift */,
 				0822432F1F0E840E00CB61BB /* WatcherHauntViewController.swift */,
+				083B320F1F10271E00B91F4B /* CardCell.xib */,
+				083B32111F1027C100B91F4B /* CardCell.swift */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				08FE3CAC1E82DD6B005E3C3A /* Main.storyboard in Resources */,
 				083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */,
 				08C5B1281EFA045F0064195E /* LightsCell.xib in Resources */,
+				083B32101F10271E00B91F4B /* CardCell.xib in Resources */,
 				084B37611E84AC7200088472 /* AttributeCell.xib in Resources */,
 				08FE3CA91E82DD09005E3C3A /* Status.storyboard in Resources */,
 				089EEBFD1EC9D3D700FE9E87 /* ExplorerCell.xib in Resources */,
@@ -481,6 +488,7 @@
 				084F26601E78FC110058F3DF /* TorchManager.swift in Sources */,
 				080463051EBFDA6800601DF3 /* CardDetailViewController.swift in Sources */,
 				089EEC011EC9D60500FE9E87 /* ClassNameNibLoadable.swift in Sources */,
+				083B32121F1027C100B91F4B /* CardCell.swift in Sources */,
 				084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */,
 				0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */,
 				08FE3CA61E82DCD3005E3C3A /* ConnectionManager.swift in Sources */,

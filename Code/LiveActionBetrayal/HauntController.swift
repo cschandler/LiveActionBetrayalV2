@@ -13,6 +13,11 @@ import GameKit
 struct HauntController {
     
     static func triggerHauntIfNeeded(with currentCards: [Card], newCards cards: [Card]) {
+        // Don't test on the first startup when AppStore has no cards.
+        guard !currentCards.isEmpty else {
+            return
+        }
+        
         let existingOmens = currentCards.filter { $0.type == .omen }
         let newOmens = cards.filter { $0.type == .omen }
         

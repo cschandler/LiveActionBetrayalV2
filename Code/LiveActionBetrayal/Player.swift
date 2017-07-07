@@ -24,13 +24,25 @@ struct Explorer: PlayerType {
     var isDead: Bool = false
     var torchOn: Bool = false
     
+    var metadata: PlayerMetadata {
+        var metadata = PlayerMetadata(name: name)
+        metadata.attribute = attribute
+        metadata.picture = picture
+        return metadata
+    }
+    
     init?(json: JSON) {
         guard let uid = json["uid"] as? String,
             let name = json["name"] as? String,
             let attributeName = json["attribute"] as? String,
             let torch = json["torch"] as? Bool,
             let traitor = json["traitor"] as? Bool,
-            let attribute = Attributes.withName(name: attributeName) else {
+            let attribute = Attributes.withName(name: attributeName),
+            let dead = json["dead"] as? Bool,
+            let might = json["might"] as? Int,
+            let speed = json["speed"] as? Int,
+            let knowledge = json["knowledge"] as? Int,
+            let sanity = json["sanity"] as? Int else {
                 print("Player deserialization failed")
                 return nil
         }
@@ -40,13 +52,28 @@ struct Explorer: PlayerType {
         self.attribute = attribute
         self.torchOn = torch
         self.isTraitor = traitor
+        self.isDead = dead
+        self.attribute.might.current = might
+        self.attribute.speed.current = speed
+        self.attribute.knowledge.current = knowledge
+        self.attribute.sanity.current = sanity
     }
     
-    var metadata: PlayerMetadata {
-        var metadata = PlayerMetadata(name: name)
-        metadata.attribute = attribute
-        metadata.picture = picture
-        return metadata
+    func toJSON() -> JSON {
+        let values: JSON = [
+            "uid": identifier as NSString,
+            "name": name as NSString,
+            "attribute": attribute.name as NSString,
+            "torch": torchOn as AnyObject,
+            "traitor": isTraitor as AnyObject,
+            "dead": isDead as AnyObject,
+            "might": attribute.might.current as NSNumber,
+            "speed": attribute.speed.current as NSNumber,
+            "knowledge": attribute.knowledge.current as NSNumber,
+            "sanity": attribute.sanity.current as NSNumber
+        ]
+        
+        return values
     }
 
 }

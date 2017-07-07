@@ -225,7 +225,12 @@ final class ConnectionManager {
                 "name": name as NSString,
                 "attribute": attribute.name as NSString,
                 "torch": false as AnyObject,
-                "traitor": false as AnyObject
+                "traitor": false as AnyObject,
+                "dead": false as AnyObject,
+                "might": attribute.might.starting as NSNumber,
+                "speed": attribute.speed.starting as NSNumber,
+                "knowledge": attribute.knowledge.starting as NSNumber,
+                "sanity": attribute.sanity.starting as NSNumber
             ]
             
             self.database.child("\(DatabaseTopLevel.players.rawValue)/\(uid)").setValue(values) { (error, ref) in
@@ -471,6 +476,18 @@ final class ConnectionManager {
                 }.resume()
             })
         }
+    }
+    
+    // MARK: - Attributes
+    
+    func update(position: Position, forStatType type: StatType) {
+        guard var currentPlayer = currentPlayer as? Explorer else {
+            return
+        }
+        
+        currentPlayer.attribute.update(value: position, forStatType: type)
+        
+        database.child("\(DatabaseTopLevel.players.rawValue)/\(currentPlayer.identifier)").setValue(currentPlayer.toJSON())
     }
     
 }

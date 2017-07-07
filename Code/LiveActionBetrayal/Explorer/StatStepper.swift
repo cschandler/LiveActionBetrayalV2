@@ -28,16 +28,22 @@ class StatStepper: UIView {
         return view
     }
     
-    var stat: Stat? {
+    var stat: Stat! {
         didSet {
-            guard let stat = stat else { return }
+            guard let stat = stat else {
+                return
+            }
+            
             setup(withStat: stat)
         }
     }
     
-    var titleText: String? {
+    var titleText: String! {
         didSet {
-            guard let title = titleText else { return }
+            guard let title = titleText else {
+                return
+            }
+            
             self.title.text = title
         }
     }
@@ -56,11 +62,14 @@ class StatStepper: UIView {
             stackView.addArrangedSubview(label)
         }
         
-        selectPosition(position: stat.starting)
+        selectPosition(position: stat.current, shouldUpdate: false)
     }
     
-    func selectPosition(position: Position) {
-        guard position >= -1, position < 8 else { return }
+    func selectPosition(position: Position, shouldUpdate: Bool = true) {
+        // -1 == dead
+        guard position >= -1, position < 8 else {
+            return
+        }
         
         for (index, view) in stackView.arrangedSubviews.enumerated() {
             if let label = view as? UILabel {
@@ -70,6 +79,10 @@ class StatStepper: UIView {
         }
         
         selectedPosition = position
+        
+        if shouldUpdate {
+            ConnectionManager.shared.update(position: position, forStatType: stat.type)
+        }
     }
     
     @IBAction func minusTapped(_ sender: UIButton) {

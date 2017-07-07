@@ -41,6 +41,8 @@ extension CardsViewController: ExplorerType {
         setupView()
         
         AppStore.shared.subscribe(self)
+        
+        ConnectionManager.shared.getCards()
     }
     
 }
@@ -76,7 +78,16 @@ extension CardsViewController: UITableViewDataSource, UITableViewDelegate {
 extension CardsViewController: StoreSubscriber {
     
     func newState(state: AppState) {
+        let cards = state.cards.filter { card in
+            guard let ownerId = card.owner,
+                let userId = ConnectionManager.shared.currentUserID else {
+                    return false
+            }
+            
+            return ownerId == userId
+        }
         
+        self.cards = cards
     }
     
 }

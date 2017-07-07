@@ -19,6 +19,8 @@ struct HauntController {
         if newOmens.count > existingOmens.count {
             let roll = GKRandomDistribution.d6().nextInt()
             
+            print("Haunt roll: \(roll) for \(newOmens.count) omens.")
+            
             if newOmens.count > roll {
                 triggerHaunt()
             }

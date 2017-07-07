@@ -60,8 +60,6 @@ struct AppReducer {
             var changedPlayers = newState.connectedPlayers.filter { $0.identifier != explorer.identifier }
             changedPlayers.append(explorer)
             
-            TorchManager.turn(on: explorer.torchOn)
-            
             newState.connectedPlayers = changedPlayers
             
         case .torchesOn(let torchesOn):

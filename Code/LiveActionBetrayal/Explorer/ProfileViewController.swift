@@ -8,6 +8,7 @@
 
 import UIKit
 import CircleMenu
+import ReSwift
 
 final class ProfileViewController: BaseViewController {
     
@@ -65,6 +66,8 @@ extension ProfileViewController: ExplorerType {
         
         setupView()
         
+        AppStore.shared.subscribe(self)
+        
         guard let speedStepper = StatStepper.build(stat: metadata?.attribute?.speed, withTitle: "SPEED"),
             let mightStepper = StatStepper.build(stat: metadata?.attribute?.might, withTitle: "MIGHT"),
             let sanityStepper = StatStepper.build(stat: metadata?.attribute?.sanity, withTitle: "SANITY"),
@@ -91,6 +94,18 @@ extension ProfileViewController: ExplorerType {
         }
     }
 
+}
+
+extension ProfileViewController: StoreSubscriber {
+    
+    func newState(state: AppState) {
+        guard let player = ConnectionManager.shared.currentPlayer as? Explorer else {
+            return
+        }
+        
+        TorchManager.turn(on: player.torchOn)
+    }
+    
 }
 
 extension ProfileViewController: DiceDelegate {

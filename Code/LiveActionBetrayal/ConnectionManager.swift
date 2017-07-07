@@ -55,6 +55,14 @@ final class ConnectionManager {
         return currentUser?.uid
     }
     
+    var currentPlayer: PlayerType? {
+        guard let currentId = currentUserID else {
+            return nil
+        }
+        
+        return AppStore.shared.state.getPlayer(withId: currentId)
+    }
+    
     init() {
         let playerRef = FIRDatabase.database().reference().child(DatabaseTopLevel.players.rawValue)
         let torchRef = FIRDatabase.database().reference().child(DatabaseTopLevel.torchesOn.rawValue)

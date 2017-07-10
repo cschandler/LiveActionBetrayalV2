@@ -17,10 +17,6 @@ final class WatcherHauntViewController: BaseViewController {
         }
     }
     
-    @IBAction func startHauntButtonTapped(_ sender: BlurButton) {
-        HauntController.triggerHaunt()
-    }
-    
     @IBOutlet weak var hauntInputVisualEffectView: UIVisualEffectView! {
         didSet {
             hauntInputVisualEffectView.addBorder()
@@ -28,6 +24,23 @@ final class WatcherHauntViewController: BaseViewController {
     }
     
     @IBOutlet weak var hauntInputTextField: UITextField!
+    
+    var omens: [Card] = []
+    
+    @IBAction func startHauntButtonTapped(_ sender: BlurButton) {
+        guard !omens.isEmpty else {
+            presentNoOmenError()
+            return
+        }
+        
+        HauntController.triggerHaunt()
+    }
+    
+    func presentNoOmenError() {
+        let alert = UIAlertController(title: "Error", message: "Cannot trigger the haunt with no Omens.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
 }
 
@@ -40,7 +53,12 @@ extension WatcherHauntViewController: WatcherType {
         
         setupView()
         
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGR)
+        
         AppStore.shared.subscribe(self)
+        
+        ConnectionManager.shared.getCards()
     }
     
 }
@@ -55,6 +73,8 @@ extension WatcherHauntViewController: StoreSubscriber {
         if !state.hauntName.isEmpty {
             title = state.hauntName
         }
+        
+        omens = state.cards.filter { $0.type == .omen }
     }
     
 }
@@ -67,9 +87,13 @@ extension WatcherHauntViewController: UITextFieldDelegate {
         }
         
         ConnectionManager.shared.setHaunt(withName: text)
-        hauntInputTextField.resignFirstResponder()
+        dismissKeyboard()
         
         return true
+    }
+    
+    func dismissKeyboard() {
+        hauntInputTextField.resignFirstResponder()
     }
     
 }

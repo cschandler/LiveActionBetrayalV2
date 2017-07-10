@@ -126,7 +126,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         if let image = image,
             let id = ConnectionManager.shared.currentUserID,
-            var currentExplorer = AppStore.shared.state.getPlayer(withId: id) as? Explorer {
+            var currentExplorer = AppStore.shared.state.getPlayer(withId: id) {
                 currentExplorer.picture = image
             
                 ConnectionManager.shared.uploadPicture(image: image, withId: id).call(completion: { _ in

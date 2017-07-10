@@ -58,7 +58,7 @@ extension AllCardsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.typeLabel.text = "(\(card.type.rawValue))"
         
         if let owner = card.owner,
-            let explorer = AppStore.shared.state.getPlayer(withId: owner) as? Explorer {
+            let explorer = AppStore.shared.state.getPlayer(withId: owner) {
                 cell.ownerLabel.text = explorer.name
         } else {
             cell.ownerLabel.text = nil

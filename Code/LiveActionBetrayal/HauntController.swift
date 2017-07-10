@@ -27,14 +27,36 @@ struct HauntController {
             print("Haunt roll: \(roll) for \(newOmens.count) omens.")
             
             if newOmens.count > roll {
-                triggerHaunt()
+                triggerHaunt(withCard: getLatest(current: existingOmens, new: newOmens))
             }
         }
     }
     
+    
+    /// Will choose the last omen added to the state.
     static func triggerHaunt() {
-        AppStore.shared.dispatch(AppAction.triggerHaunt)
+        let omens = AppStore.shared.state.cards.filter({ $0.type == .omen })
+        
+        guard let omen = omens.last else {
+            return
+        }
+        
+        triggerHaunt(withCard: omen)
+    }
+    
+    private static func triggerHaunt(withCard card: Card) {
+        AppStore.shared.dispatch(AppAction.triggerHauntWithCard(card))
         ConnectionManager.shared.triggerHaunt()
+    }
+    
+    private static func getLatest(current: [Card], new: [Card]) -> Card {
+        for card in new {
+            if !current.contains(where: { $0.name == card.name }) {
+                return card
+            }
+        }
+        
+        return new.last!
     }
     
 }

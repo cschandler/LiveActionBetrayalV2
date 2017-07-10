@@ -29,6 +29,12 @@ final class TraitorPickerViewController: BaseViewController {
         }
     }
     
+    func setupTableView() {
+        let header = TraitorPickerHeaderView.build(withCard: card)
+        tableView.tableHeaderView = header
+        tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
+    }
+    
 }
 
 extension TraitorPickerViewController: StatusType {
@@ -40,7 +46,7 @@ extension TraitorPickerViewController: StatusType {
         
         AppStore.shared.subscribe(self)
         
-        tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
+        setupTableView()
     }
     
 }

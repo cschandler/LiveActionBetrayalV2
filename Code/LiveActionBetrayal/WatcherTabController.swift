@@ -11,6 +11,20 @@ import ReSwift
 
 final class WatcherTabController: UITabBarController {
     
+    var traitorPickerPresented = false
+    
+    func presentTraitorPicker(withCard card: Card) {
+        traitorPickerPresented = true
+        
+        let viewController = TraitorPickerViewController.build(withCard: card)
+        
+        viewController.completed = { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        present(viewController, animated: true, completion: nil)
+    }
+    
 }
 
 extension WatcherTabController: WatcherType {
@@ -19,6 +33,20 @@ extension WatcherTabController: WatcherType {
         super.viewDidLoad()
         
         tabBar.tintColor = theme.mid
+        
+        AppStore.shared.subscribe(self)
+    }
+    
+}
+
+extension WatcherTabController: StoreSubscriber {
+    
+    func newState(state: AppState) {
+        if let card = state.cardTriggeringHaunt,
+            state.hauntTriggered,
+            !traitorPickerPresented {
+                presentTraitorPicker(withCard: card)
+        }
     }
     
 }

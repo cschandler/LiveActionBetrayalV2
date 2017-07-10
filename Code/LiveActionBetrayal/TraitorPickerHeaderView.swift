@@ -21,14 +21,16 @@ final class TraitorPickerHeaderView: UIView, ClassNameNibLoadable {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var card: Card!
+    var card: Card! {
+        didSet {
+            setup(withCard: card)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         backgroundColor = .clear
-        
-        setup(withCard: card)
     }
     
     func setup(withCard card: Card) {

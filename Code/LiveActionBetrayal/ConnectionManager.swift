@@ -245,6 +245,10 @@ final class ConnectionManager {
         }
     }
     
+    func updatePlayer(explorer: Explorer) {
+        database.child("\(DatabaseTopLevel.players.rawValue)/\(explorer.identifier)").setValue(explorer.toJSON())
+    }
+    
     // MARK: - Profile Picture
     
     func uploadPicture(image: UIImage?, withId uid: String) -> Promise<Void> {

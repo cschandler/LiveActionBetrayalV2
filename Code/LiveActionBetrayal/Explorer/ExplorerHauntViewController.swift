@@ -67,7 +67,7 @@ extension ExplorerHauntViewController: ExplorerType {
 extension ExplorerHauntViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        if state.hauntTriggered {
+        if let _ = state.getTraitor() {
             getHaunt()
         }
     }

@@ -9,7 +9,7 @@
 import UIKit
 import ReSwift
 
-final class TraitorPickerViewController: BaseViewController {
+final class TraitorPickerViewController: BaseViewController, Finishable {
     
     static func build(withCard card: Card) -> TraitorPickerViewController {
         let viewController = UIStoryboard(name: IDs.Storyboards.Watcher.rawValue, bundle: nil).instantiateViewController(withIdentifier: IDs.StoryboardViewControllers.TraitorPickerViewController.rawValue) as! TraitorPickerViewController
@@ -66,6 +66,16 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
         cell.profilePicture.image = explorer.picture
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedExplorer = explorers[indexPath.row]
+        var traitor = selectedExplorer
+        traitor.isTraitor = true
+        
+        ConnectionManager.shared.updatePlayer(explorer: traitor)
+        
+        finish()
     }
     
 }

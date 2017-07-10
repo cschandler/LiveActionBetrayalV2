@@ -33,12 +33,20 @@ struct AppState: StateType {
     var hauntTriggered: Bool = false
     var hauntName = ""
     
-    func getPlayer(withId id: String) -> PlayerType? {
-        guard let player = connectedPlayers.filter({ $0.identifier == id }).first else {
+    func getPlayer(withId id: String) -> Explorer? {
+        guard let player = connectedPlayers.lazy.filter({ $0.identifier == id }).first else {
             return nil
         }
         
         return player
+    }
+    
+    func getTraitor() -> Explorer? {
+        guard let traitor = connectedPlayers.lazy.filter({ $0.isTraitor }).first else {
+            return nil
+        }
+        
+        return traitor
     }
 }
 

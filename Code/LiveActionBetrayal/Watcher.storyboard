@@ -408,6 +408,43 @@
             </objects>
             <point key="canvasLocation" x="-490" y="482"/>
         </scene>
+        <!--Traitor Picker View Controller-->
+        <scene sceneID="rT2-BP-MvY">
+            <objects>
+                <viewController storyboardIdentifier="TraitorPickerViewController" id="OtH-Cb-K1T" customClass="TraitorPickerViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HTm-tA-CgH"/>
+                        <viewControllerLayoutGuide type="bottom" id="ner-Nu-aRe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g45-Tx-DD4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RLV-nd-FlK">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OtH-Cb-K1T" id="U5x-ge-65O"/>
+                                    <outlet property="delegate" destination="OtH-Cb-K1T" id="vbZ-VT-uEZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RLV-nd-FlK" firstAttribute="top" secondItem="HTm-tA-CgH" secondAttribute="bottom" id="2fi-4k-9oc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RLV-nd-FlK" secondAttribute="trailing" id="Jtz-WS-5Ob"/>
+                            <constraint firstItem="ner-Nu-aRe" firstAttribute="top" secondItem="RLV-nd-FlK" secondAttribute="bottom" id="Ll4-Zf-cSA"/>
+                            <constraint firstItem="RLV-nd-FlK" firstAttribute="leading" secondItem="g45-Tx-DD4" secondAttribute="leadingMargin" id="Qbp-0D-ZxN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="RLV-nd-FlK" id="fPi-uo-7t8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRA-oa-kW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="-869"/>
+        </scene>
         <!--Lights-->
         <scene sceneID="rR5-n7-M8f">
             <objects>

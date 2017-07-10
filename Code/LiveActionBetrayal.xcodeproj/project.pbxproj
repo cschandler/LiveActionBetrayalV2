@@ -47,6 +47,7 @@
 		085F07131E815D2A001B99EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F07121E815D2A001B99EE /* Theme.swift */; };
 		0867B5F01ECC715D009581EC /* AllMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */; };
 		086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086AA8B51EF73FB1007DF072 /* HauntController.swift */; };
+		088D27031F13C6C40028F680 /* TraitorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */; };
 		088E60E61E8CC605004AF072 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E51E8CC605004AF072 /* ResultView.swift */; };
 		088E60E81E8CDD9C004AF072 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E71E8CDD9C004AF072 /* UserDefaults.swift */; };
 		089EEBFD1EC9D3D700FE9E87 /* ExplorerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089EEBFC1EC9D3D700FE9E87 /* ExplorerCell.xib */; };
@@ -120,6 +121,7 @@
 		085F07121E815D2A001B99EE /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMessagesViewController.swift; sourceTree = "<group>"; };
 		086AA8B51EF73FB1007DF072 /* HauntController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HauntController.swift; sourceTree = "<group>"; };
+		088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitorPickerViewController.swift; sourceTree = "<group>"; };
 		088E60E51E8CC605004AF072 /* ResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		088E60E71E8CDD9C004AF072 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		089EEBFC1EC9D3D700FE9E87 /* ExplorerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExplorerCell.xib; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				0822432F1F0E840E00CB61BB /* WatcherHauntViewController.swift */,
 				083B320F1F10271E00B91F4B /* CardCell.xib */,
 				083B32111F1027C100B91F4B /* CardCell.swift */,
+				088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				088E60E81E8CDD9C004AF072 /* UserDefaults.swift in Sources */,
 				084F26621E7A75AC0058F3DF /* AppState.swift in Sources */,
 				08FE3CB01E82E057005E3C3A /* MainMenuType.swift in Sources */,
+				088D27031F13C6C40028F680 /* TraitorPickerViewController.swift in Sources */,
 				08FE1FA11EB8B73B0082BE0E /* LightControlView.swift in Sources */,
 				082243321F0EB3D200CB61BB /* ExplorerHauntViewController.swift in Sources */,
 				084B375F1E84AC2B00088472 /* GradientView.swift in Sources */,

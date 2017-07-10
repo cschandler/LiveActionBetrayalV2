@@ -35,5 +35,6 @@ enum IDs {
         case LightsSettingsViewController
         case AddCardViewController
         case CardDetailViewController
+        case TraitorPickerViewController
     }
 }

@@ -24,6 +24,7 @@ final class ConnectionManager {
     private let playerAddedListener: FIRDatabaseHandle
     private let torchListener: FIRDatabaseHandle
     private let watcherListener: FIRDatabaseHandle
+    private var allMessagesListener: FIRDatabaseHandle?
     private var messageListener: FIRDatabaseHandle?
     private var cardListener: FIRDatabaseHandle?
     private var hauntListener: FIRDatabaseHandle
@@ -151,8 +152,8 @@ final class ConnectionManager {
             
             for value in json.values {
                guard let json = value as? JSON,
-                let explorer = Explorer(json: json) else {
-                    return
+                    let explorer = Explorer(json: json) else {
+                        return
                 }
                 
                 AppStore.shared.dispatch(AppAction.added(explorer))
@@ -400,7 +401,25 @@ final class ConnectionManager {
     
     // MARK: - Messages
     
-    func getMessages(forPlayer uid: String) {
+    func observeAllMessages() {
+        
+        let messageRef = self.database.child("\(DatabaseTopLevel.messages.rawValue)")
+        
+        allMessagesListener = messageRef.observe(.childChanged, with: { snapshot in
+            print("GETTING ALL MESSAGES")
+            print("--------")
+            
+            guard let json = snapshot.value as? JSON else {
+                return
+            }
+            
+            let messages = json.flatMap { $0 }.flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
+            
+            AppStore.shared.dispatch(AppAction.allMessages(messages))
+        })
+    }
+    
+    func getConversation(forPlayer uid: String) {
         
         let messageRef = self.database.child("\(DatabaseTopLevel.messages.rawValue)/\(uid)")
         
@@ -416,7 +435,7 @@ final class ConnectionManager {
                 .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
                 .sorted { $0.timestamp < $1.timestamp }
             
-            AppStore.shared.dispatch(AppAction.messages(messages))
+            AppStore.shared.dispatch(AppAction.currentConversation(messages))
         })
     }
     
@@ -441,7 +460,7 @@ final class ConnectionManager {
     
     func resetMessages() {
         messageListener = nil
-        AppStore.shared.dispatch(AppAction.messages([]))
+        AppStore.shared.dispatch(AppAction.currentConversation([]))
     }
     
     // MARK: - Haunt

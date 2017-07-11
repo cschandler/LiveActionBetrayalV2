@@ -28,6 +28,8 @@ final class ExplorerTabController: UITabBarController {
             
             messagesViewController.sender = Messanger(id: currentUserID, displayName: metadata.name, avatar: metadata.picture ?? #imageLiteral(resourceName: "ic-avatar-default"))
             messagesViewController.reciever = Messanger(id: watcher.identifier, displayName: "Watcher", avatar: #imageLiteral(resourceName: "ic-avatar-default"))
+            
+            ConnectionManager.shared.getConversation(forPlayer: currentUserID)
         }
     }
     
@@ -55,11 +57,15 @@ extension ExplorerTabController: ExplorerType {
     }
 }
 
-extension ExplorerTabController: StoreSubscriber {
+extension ExplorerTabController: StoreSubscriber, TabBarUpdatable {
     
     func newState(state: AppState) {
         if state.hauntTriggered {
             activateHauntTab()
+        }
+        
+        if let currentUserId = ConnectionManager.shared.currentUserID {
+            updateTabBadge(withMessages: state.conversation, currentUserId: currentUserId)
         }
     }
     

@@ -28,7 +28,7 @@ final class MessagesViewController: JSQMessagesViewController {
             switch messages {
             case .notAsked:
                 let id = senderIsWatcher ? reciever.id : sender.id
-                ConnectionManager.shared.getMessages(forPlayer: id)
+                ConnectionManager.shared.getConversation(forPlayer: id)
                 messages = .loading
                 
                 if !senderIsWatcher {
@@ -166,7 +166,7 @@ extension MessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
         watcher = state.watcher
-        messages = .loaded(state.messages)
+        messages = .loaded(state.conversation)
     }
     
 }
@@ -186,4 +186,19 @@ extension MessagesViewController: UIGestureRecognizerDelegate {
     
 }
 
+protocol TabBarUpdatable: class {}
+
+extension TabBarUpdatable where Self: UITabBarController {
+    
+    func updateTabBadge(withMessages messages: [Message], currentUserId: String) {
+        guard let messagesTab = tabBar.items?[2] else {
+            return
+        }
+        
+        let unread = messages.filter { $0.read == false && $0.senderId != currentUserId }
+        
+        messagesTab.badgeValue = unread.count > 0 ? "\(unread.count)" : nil
+    }
+    
+}
 

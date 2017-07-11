@@ -17,7 +17,8 @@ enum AppAction: Action {
     case torchesOn(Bool)
     case updated(Explorer)
     case added(Explorer)
-    case messages([Message])
+    case currentConversation([Message])
+    case allMessages([Message])
     case watcher(Watcher)
     case cards([Card])
     case triggerHaunt
@@ -29,7 +30,8 @@ struct AppState: StateType {
     var watcher: Watcher?
     var connectedPlayers: [Explorer] = []
     var torchOn: Bool = TorchManager.isOn
-    var messages: [Message] = []
+    var allMessages: [Message] = []
+    var conversation: [Message] = []
     var cards: [Card] = []
     var hauntTriggered: Bool = false
     var hauntName = ""
@@ -76,8 +78,11 @@ struct AppReducer {
             TorchManager.turn(on: torchesOn)
             newState.torchOn = torchesOn
             
-        case .messages(let messages):
-            newState.messages = messages
+        case .allMessages(let messages):
+            newState.allMessages = messages
+            
+        case .currentConversation(let messages):
+            newState.conversation = messages
             
         case .watcher(let watcher):
             newState.watcher = watcher

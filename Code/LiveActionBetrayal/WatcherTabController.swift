@@ -35,17 +35,23 @@ extension WatcherTabController: WatcherType {
         tabBar.tintColor = theme.mid
         
         AppStore.shared.subscribe(self)
+        
+        ConnectionManager.shared.observeAllMessages()
     }
     
 }
 
-extension WatcherTabController: StoreSubscriber {
+extension WatcherTabController: StoreSubscriber, TabBarUpdatable {
     
     func newState(state: AppState) {
         if let card = state.cardTriggeringHaunt,
             state.hauntTriggered,
             !traitorPickerPresented {
                 presentTraitorPicker(withCard: card)
+        }
+        
+        if let currentUserId = ConnectionManager.shared.currentUserID {
+            updateTabBadge(withMessages: state.allMessages, currentUserId: currentUserId)
         }
     }
     

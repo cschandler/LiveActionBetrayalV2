@@ -75,8 +75,10 @@ extension MessagesViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        AppStore.shared.unsubscribe(self)
-        ConnectionManager.shared.resetMessages()
+        if senderIsWatcher {
+            AppStore.shared.unsubscribe(self)
+            ConnectionManager.shared.resetMessages()
+        }
     }
     
 }

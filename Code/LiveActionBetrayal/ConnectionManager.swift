@@ -402,7 +402,7 @@ final class ConnectionManager {
     
     func getMessages(forPlayer uid: String) {
         
-        let messageRef = self.database.child("messages/\(uid)")
+        let messageRef = self.database.child("\(DatabaseTopLevel.messages.rawValue)/\(uid)")
         
         messageListener = messageRef.observe(.value, with: { snapshot in
             print("GETTING MESSAGES")

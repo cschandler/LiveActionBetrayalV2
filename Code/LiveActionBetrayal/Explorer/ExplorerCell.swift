@@ -22,4 +22,18 @@ final class ExplorerCell: UITableViewCell, ClassNameNibLoadable {
         detailLabel.text = nil
     }
     
+    func setupDetail(withUnreadMessages messages: [Message]) {
+        guard messages.count > 0 else {
+            detailLabel.text = nil
+            detailLabel.backgroundColor = .clear
+            return
+        }
+        
+        detailLabel.text = " \(messages.count) unread "
+        detailLabel.textColor = .white
+        detailLabel.backgroundColor = UIColor(red:0.99, green:0.24, blue:0.22, alpha:1.00) // tab bar badge red
+        detailLabel.layer.cornerRadius = 6
+        detailLabel.clipsToBounds = true
+    }
+    
 }

@@ -82,16 +82,7 @@ extension AllMessagesViewController: UITableViewDelegate, UITableViewDataSource 
         
         let unreadMessages = messages.filter { $0.senderId == player.identifier && $0.read == false }
         
-        if unreadMessages.count > 0 {
-            cell.detailLabel.text = " \(unreadMessages.count) unread "
-            cell.detailLabel.textColor = .white
-            cell.detailLabel.backgroundColor = UIColor(red:0.99, green:0.24, blue:0.22, alpha:1.00) // tab bar badge red
-            cell.detailLabel.layer.cornerRadius = 6
-            cell.detailLabel.clipsToBounds = true
-        } else {
-            cell.detailLabel.text = nil
-            cell.detailLabel.backgroundColor = .clear
-        }
+        cell.setupDetail(withUnreadMessages: unreadMessages)
         
         return cell
     }

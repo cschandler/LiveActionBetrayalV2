@@ -46,6 +46,17 @@ final class MessagesViewController: JSQMessagesViewController {
         return watcher?.identifier == sender.id
     }
     
+    func markReadIfNeeded(messages: [Message]) {
+        for message in messages {
+            guard message.read == false,
+                message.senderId == reciever.id else {
+                    continue
+            }
+            
+            ConnectionManager.shared.markRead(message: message, forPlayer: senderIsWatcher ? reciever.id : sender.id)
+        }
+    }
+    
 }
 
 // MARK: - Life Cycle
@@ -70,6 +81,14 @@ extension MessagesViewController {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
         tapGR.delegate = self
         collectionView.addGestureRecognizer(tapGR)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let messages = messages.value {
+            markReadIfNeeded(messages: messages)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

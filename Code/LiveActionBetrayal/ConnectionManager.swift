@@ -413,7 +413,7 @@ final class ConnectionManager {
             }
             
             let messages = json
-                .values.flatMap { Message.init(json: $0 as! JSON) }
+                .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
                 .sorted { $0.timestamp < $1.timestamp }
             
             AppStore.shared.dispatch(AppAction.messages(messages))
@@ -426,6 +426,17 @@ final class ConnectionManager {
         let messageRef = self.database.child("messages/\(uid)").childByAutoId()
         let values = message.toJSON()
         messageRef.setValue(values)
+    }
+    
+    func markRead(message: Message, forPlayer uid: String) {
+        guard let autoId = message.autoId else {
+            return
+        }
+        
+        var readMessage = message
+        readMessage.read = true
+        
+        database.child("\(DatabaseTopLevel.messages.rawValue)/\(uid)/\(autoId)/").setValue(readMessage.toJSON())
     }
     
     func resetMessages() {

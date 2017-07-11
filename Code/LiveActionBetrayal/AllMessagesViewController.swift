@@ -88,6 +88,9 @@ extension AllMessagesViewController: UITableViewDelegate, UITableViewDataSource 
             cell.detailLabel.backgroundColor = UIColor(red:0.99, green:0.24, blue:0.22, alpha:1.00) // tab bar badge red
             cell.detailLabel.layer.cornerRadius = 6
             cell.detailLabel.clipsToBounds = true
+        } else {
+            cell.detailLabel.text = nil
+            cell.detailLabel.backgroundColor = .clear
         }
         
         return cell

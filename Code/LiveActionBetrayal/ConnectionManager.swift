@@ -402,8 +402,9 @@ final class ConnectionManager {
     // MARK: - Messages
     
     func observeAllMessages() {
+        getCurrentMessages()
         
-        let messageRef = self.database.child("\(DatabaseTopLevel.messages.rawValue)")
+        let messageRef = database.child("\(DatabaseTopLevel.messages.rawValue)")
         
         allMessagesListener = messageRef.observe(.childChanged, with: { snapshot in
             print("GETTING ALL MESSAGES")
@@ -413,7 +414,27 @@ final class ConnectionManager {
                 return
             }
             
-            let messages = json.flatMap { $0 }.flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
+            let messages = json
+                .flatMap { $0 }
+                .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
+            
+            AppStore.shared.dispatch(AppAction.allMessages(messages))
+        })
+    }
+    
+    private func getCurrentMessages() {
+        database.child("\(DatabaseTopLevel.messages.rawValue)").observeSingleEvent(of: .value, with: { snapshot in
+            print("GETTING ALL MESSAGES")
+            print("--------")
+            
+            guard let json = snapshot.value as? JSON else {
+                return
+            }
+            
+            let messages = json
+                .flatMap { $0 }
+                .flatMap { $0.value as! JSON }
+                .flatMap { Message(json: $0.value as! JSON, autoId: $0.key) }
             
             AppStore.shared.dispatch(AppAction.allMessages(messages))
         })

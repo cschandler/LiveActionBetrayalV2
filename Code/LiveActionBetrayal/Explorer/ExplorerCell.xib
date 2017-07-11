@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,17 +31,27 @@
                         <color key="textColor" white="1" alpha="0.79524958053691275" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMb-8Z-lv8">
+                        <rect key="frame" x="325" y="11" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="FMb-8Z-lv8" firstAttribute="centerY" secondItem="WSd-bS-CxV" secondAttribute="centerY" id="4Zd-4h-njR"/>
                     <constraint firstItem="NKc-by-cPa" firstAttribute="leading" secondItem="WSd-bS-CxV" secondAttribute="leading" constant="8" id="9ms-TY-MSt"/>
                     <constraint firstItem="NKc-by-cPa" firstAttribute="top" secondItem="WSd-bS-CxV" secondAttribute="top" id="GBh-hr-vBX"/>
+                    <constraint firstItem="FMb-8Z-lv8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fm3-M0-wec" secondAttribute="trailing" constant="8" id="JII-nX-O6S"/>
                     <constraint firstAttribute="bottom" secondItem="NKc-by-cPa" secondAttribute="bottom" id="XHI-rh-FEW"/>
+                    <constraint firstItem="FMb-8Z-lv8" firstAttribute="trailing" secondItem="WSd-bS-CxV" secondAttribute="trailingMargin" id="bkc-Pl-KEB"/>
                     <constraint firstItem="Fm3-M0-wec" firstAttribute="centerY" secondItem="WSd-bS-CxV" secondAttribute="centerY" id="pKj-VL-uTT"/>
                     <constraint firstItem="Fm3-M0-wec" firstAttribute="leading" secondItem="NKc-by-cPa" secondAttribute="trailing" constant="15" id="sKc-Tq-vMZ"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="detailLabel" destination="FMb-8Z-lv8" id="Ryc-qn-ynB"/>
                 <outlet property="name" destination="Fm3-M0-wec" id="qd9-jC-NjU"/>
                 <outlet property="profilePicture" destination="NKc-by-cPa" id="AQq-S7-Sft"/>
             </connections>

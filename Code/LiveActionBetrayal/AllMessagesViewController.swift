@@ -21,6 +21,12 @@ final class AllMessagesViewController: BaseViewController {
         }
     }
     
+    var messages: [Message] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     var watcher: Watcher?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,6 +80,16 @@ extension AllMessagesViewController: UITableViewDelegate, UITableViewDataSource 
         cell.name.text = player.name
         cell.profilePicture.image = player.picture
         
+        let unreadMessages = messages.filter { $0.senderId == player.identifier && $0.read == false }
+        
+        if unreadMessages.count > 0 {
+            cell.detailLabel.text = " \(unreadMessages.count) unread "
+            cell.detailLabel.textColor = .white
+            cell.detailLabel.backgroundColor = UIColor(red:0.99, green:0.24, blue:0.22, alpha:1.00) // tab bar badge red
+            cell.detailLabel.layer.cornerRadius = 6
+            cell.detailLabel.clipsToBounds = true
+        }
+        
         return cell
     }
     
@@ -92,6 +108,7 @@ extension AllMessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
         players = state.connectedPlayers
+        messages = state.allMessages
         watcher = state.watcher
     }
     

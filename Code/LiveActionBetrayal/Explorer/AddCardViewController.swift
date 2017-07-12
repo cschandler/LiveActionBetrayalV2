@@ -65,6 +65,16 @@ final class AddCardViewController: BaseViewController {
             .call()
     }
     
+    func presentQRCodeError() {
+        let alert = UIAlertController(title: "Error", message: "This is not a Live Action Betrayal item.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.captureSession?.startRunning()
+        }))
+        
+        present(alert, animated: true)
+    }
+    
 }
 
 extension AddCardViewController {
@@ -108,6 +118,8 @@ extension AddCardViewController {
 extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+        captureSession?.stopRunning()
+        
         guard metadataObjects != nil && metadataObjects.count > 0,
             let qrCodeObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject,
             supportedCodeTypes.contains(qrCodeObject.type),
@@ -115,12 +127,11 @@ extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
             let qrString = qrCodeObject.stringValue,
             let uid = FIRAuth.auth()?.currentUser?.uid,
             let card = Card(qr: qrString, currentOwner: uid) else {
-                qrCodeFrameView?.frame = CGRect.zero
+                presentQRCodeError()
                 return
         }
         
         qrCodeFrameView?.frame = barCodeObject.bounds
-        captureSession?.stopRunning()
         addCardToDatabase(card: card)
     }
     

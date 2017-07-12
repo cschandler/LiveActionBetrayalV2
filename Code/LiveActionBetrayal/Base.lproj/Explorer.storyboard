@@ -157,7 +157,7 @@
         <!--Profile View Controller-->
         <scene sceneID="Y1d-vp-gDF">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="RVg-rT-Wd4" customClass="ProfileViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RVg-rT-Wd4" customClass="ProfileViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="Sxq-NA-0Bc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +166,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-bg-iei">
-                                        <rect key="frame" x="88" y="84" width="200" height="200"/>
+                                        <rect key="frame" x="88" y="24" width="200" height="200"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Ky0-1K-Y6T"/>
@@ -177,7 +177,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i3R-70-wP0">
-                                        <rect key="frame" x="38" y="304" width="300" height="20.5"/>
+                                        <rect key="frame" x="38" y="244" width="300" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lt-Nr-WRT">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -189,7 +189,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="HG3-bg-iei" firstAttribute="top" secondItem="ur2-IN-34k" secondAttribute="top" constant="84" id="0fa-Le-GRC"/>
+                                    <constraint firstItem="HG3-bg-iei" firstAttribute="top" secondItem="ur2-IN-34k" secondAttribute="top" constant="24" id="0fa-Le-GRC"/>
                                     <constraint firstItem="i3R-70-wP0" firstAttribute="top" secondItem="HG3-bg-iei" secondAttribute="bottom" constant="20" id="Lp2-yd-5B5"/>
                                     <constraint firstAttribute="trailing" secondItem="i3R-70-wP0" secondAttribute="trailing" constant="37.5" id="lX2-kf-CYV"/>
                                     <constraint firstAttribute="bottom" secondItem="i3R-70-wP0" secondAttribute="bottom" constant="189" id="m2H-A3-wRe"/>
@@ -204,10 +204,10 @@
                         <constraints>
                             <constraint firstItem="ur2-IN-34k" firstAttribute="top" secondItem="Sxq-NA-0Bc" secondAttribute="top" id="60T-U7-Abs"/>
                             <constraint firstItem="HG3-bg-iei" firstAttribute="centerX" secondItem="y03-EM-0en" secondAttribute="centerX" id="UMU-Om-Ze9"/>
-                            <constraint firstItem="ur2-IN-34k" firstAttribute="leading" secondItem="y03-EM-0en" secondAttribute="leading" id="ZcP-2G-f7S"/>
+                            <constraint firstItem="ur2-IN-34k" firstAttribute="leading" secondItem="Sxq-NA-0Bc" secondAttribute="leading" id="ZcP-2G-f7S"/>
                             <constraint firstItem="i3R-70-wP0" firstAttribute="centerX" secondItem="y03-EM-0en" secondAttribute="centerX" id="b9b-H3-Ke6"/>
                             <constraint firstAttribute="bottom" secondItem="ur2-IN-34k" secondAttribute="bottom" id="sPL-oU-bVQ"/>
-                            <constraint firstItem="y03-EM-0en" firstAttribute="trailing" secondItem="ur2-IN-34k" secondAttribute="trailing" id="yLJ-7Z-wAG"/>
+                            <constraint firstAttribute="trailing" secondItem="ur2-IN-34k" secondAttribute="trailing" id="yLJ-7Z-wAG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y03-EM-0en"/>
                     </view>

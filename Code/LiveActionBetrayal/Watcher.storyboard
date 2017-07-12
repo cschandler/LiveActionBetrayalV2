@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dgJ-vc-Ecy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dgJ-vc-Ecy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,6 +15,10 @@
         <scene sceneID="nGW-Uw-qWZ">
             <objects>
                 <viewController id="Ast-sJ-xi1" customClass="AllMessagesViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1ZW-9U-ZwC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xq4-6R-W6o"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="3mU-0M-2pB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +39,6 @@
                             <constraint firstItem="2Wx-vt-BRe" firstAttribute="leading" secondItem="3mU-0M-2pB" secondAttribute="leadingMargin" id="L5N-v8-JVm"/>
                             <constraint firstItem="2Wx-vt-BRe" firstAttribute="top" secondItem="3mU-0M-2pB" secondAttribute="top" id="WYG-tx-oix"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="kPa-Fo-xTa"/>
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="agl-gM-Whv"/>
                     <connections>
@@ -51,6 +54,10 @@
         <scene sceneID="Ge7-9L-AIJ">
             <objects>
                 <viewController id="UCD-92-dZN" customClass="AllCardsViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mec-cO-aWS"/>
+                        <viewControllerLayoutGuide type="bottom" id="sE0-Do-0bk"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="1Nb-GD-c6L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,10 +85,9 @@
                         <constraints>
                             <constraint firstItem="Ok5-Xs-Lam" firstAttribute="leading" secondItem="1Nb-GD-c6L" secondAttribute="leadingMargin" id="FCr-Vj-N8p"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ok5-Xs-Lam" secondAttribute="trailing" id="gtr-zx-Hz8"/>
-                            <constraint firstItem="wFM-ji-GS0" firstAttribute="bottom" secondItem="Ok5-Xs-Lam" secondAttribute="bottom" id="qMK-mm-0qc"/>
-                            <constraint firstItem="Ok5-Xs-Lam" firstAttribute="top" secondItem="wFM-ji-GS0" secondAttribute="top" id="rJ6-Lw-Sfo"/>
+                            <constraint firstItem="sE0-Do-0bk" firstAttribute="top" secondItem="Ok5-Xs-Lam" secondAttribute="bottom" id="qMK-mm-0qc"/>
+                            <constraint firstItem="Ok5-Xs-Lam" firstAttribute="top" secondItem="Mec-cO-aWS" secondAttribute="bottom" id="rJ6-Lw-Sfo"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="wFM-ji-GS0"/>
                     </view>
                     <navigationItem key="navigationItem" id="amF-iZ-JmQ"/>
                     <connections>
@@ -96,6 +102,10 @@
         <scene sceneID="QVm-al-vcA">
             <objects>
                 <viewController id="5YA-iQ-mZw" customClass="WatcherHauntViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iiw-Y5-c4p"/>
+                        <viewControllerLayoutGuide type="bottom" id="G39-LM-OkR"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="Dl8-4R-w7m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,14 +171,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="rVy-Pp-H8b" secondAttribute="trailing" id="3TE-Gz-fjg"/>
-                            <constraint firstItem="rVy-Pp-H8b" firstAttribute="top" secondItem="d7J-6v-8hV" secondAttribute="top" constant="30" id="6Kw-ud-3iS"/>
+                            <constraint firstItem="rVy-Pp-H8b" firstAttribute="top" secondItem="Iiw-Y5-c4p" secondAttribute="bottom" constant="30" id="6Kw-ud-3iS"/>
                             <constraint firstItem="QWD-6Z-GRQ" firstAttribute="leading" secondItem="Dl8-4R-w7m" secondAttribute="leadingMargin" id="9nO-Uo-yvx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QWD-6Z-GRQ" secondAttribute="trailing" id="LZZ-Bh-Be1"/>
                             <constraint firstItem="QWD-6Z-GRQ" firstAttribute="top" secondItem="rVy-Pp-H8b" secondAttribute="bottom" constant="30" id="T0C-xk-lrr"/>
                             <constraint firstItem="rVy-Pp-H8b" firstAttribute="leading" secondItem="Dl8-4R-w7m" secondAttribute="leadingMargin" id="TSO-Ap-Gsi"/>
-                            <constraint firstItem="rVy-Pp-H8b" firstAttribute="centerX" secondItem="d7J-6v-8hV" secondAttribute="centerX" id="yNb-Db-8Eo"/>
+                            <constraint firstItem="rVy-Pp-H8b" firstAttribute="centerX" secondItem="Dl8-4R-w7m" secondAttribute="centerX" id="yNb-Db-8Eo"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="d7J-6v-8hV"/>
                     </view>
                     <navigationItem key="navigationItem" id="R5d-R3-BoI"/>
                     <connections>
@@ -185,11 +194,14 @@
         <scene sceneID="lXe-xV-Wrs">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="Jbw-qr-Zib" customClass="MessagesViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zRH-Ew-u8D"/>
+                        <viewControllerLayoutGuide type="bottom" id="pQt-CX-cgE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="MeB-BA-cuq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="42q-WB-2Kg"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="fG0-z5-RJk"/>
@@ -337,6 +349,10 @@
         <scene sceneID="dgZ-DR-9uA">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="2XU-ZF-pq1" customClass="LightsViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="629-HS-B14"/>
+                        <viewControllerLayoutGuide type="bottom" id="5YI-RG-bdz"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="NCV-Qk-wIK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -352,12 +368,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="itT-aW-io7" firstAttribute="top" secondItem="xZe-ir-fUb" secondAttribute="top" id="5t2-2c-Z7q"/>
-                            <constraint firstItem="itT-aW-io7" firstAttribute="leading" secondItem="xZe-ir-fUb" secondAttribute="leading" id="6Zo-Mg-yGg"/>
-                            <constraint firstItem="xZe-ir-fUb" firstAttribute="bottom" secondItem="itT-aW-io7" secondAttribute="bottom" id="NK3-F9-8be"/>
-                            <constraint firstItem="xZe-ir-fUb" firstAttribute="trailing" secondItem="itT-aW-io7" secondAttribute="trailing" id="kMh-Ka-eFO"/>
+                            <constraint firstItem="itT-aW-io7" firstAttribute="top" secondItem="629-HS-B14" secondAttribute="bottom" id="5t2-2c-Z7q"/>
+                            <constraint firstItem="itT-aW-io7" firstAttribute="leading" secondItem="NCV-Qk-wIK" secondAttribute="leading" id="6Zo-Mg-yGg"/>
+                            <constraint firstItem="5YI-RG-bdz" firstAttribute="top" secondItem="itT-aW-io7" secondAttribute="bottom" id="NK3-F9-8be"/>
+                            <constraint firstAttribute="trailing" secondItem="itT-aW-io7" secondAttribute="trailing" id="kMh-Ka-eFO"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="xZe-ir-fUb"/>
                     </view>
                     <navigationItem key="navigationItem" id="keW-2a-24V">
                         <barButtonItem key="leftBarButtonItem" image="ic-settings" id="eHx-Ep-2kN">
@@ -398,6 +413,10 @@
         <scene sceneID="rT2-BP-MvY">
             <objects>
                 <viewController storyboardIdentifier="TraitorPickerViewController" id="OtH-Cb-K1T" customClass="TraitorPickerViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6nb-xo-mAg"/>
+                        <viewControllerLayoutGuide type="bottom" id="VQK-Wr-8xs"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="g45-Tx-DD4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -413,12 +432,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RLV-nd-FlK" firstAttribute="top" secondItem="pj9-Np-kpU" secondAttribute="top" id="2fi-4k-9oc"/>
+                            <constraint firstItem="RLV-nd-FlK" firstAttribute="top" secondItem="6nb-xo-mAg" secondAttribute="bottom" id="2fi-4k-9oc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RLV-nd-FlK" secondAttribute="trailing" id="Jtz-WS-5Ob"/>
-                            <constraint firstItem="pj9-Np-kpU" firstAttribute="bottom" secondItem="RLV-nd-FlK" secondAttribute="bottom" id="Ll4-Zf-cSA"/>
+                            <constraint firstItem="VQK-Wr-8xs" firstAttribute="top" secondItem="RLV-nd-FlK" secondAttribute="bottom" id="Ll4-Zf-cSA"/>
                             <constraint firstItem="RLV-nd-FlK" firstAttribute="leading" secondItem="g45-Tx-DD4" secondAttribute="leadingMargin" id="Qbp-0D-ZxN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="pj9-Np-kpU"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="RLV-nd-FlK" id="fPi-uo-7t8"/>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,6 +15,10 @@
         <scene sceneID="ycl-PW-1Dd">
             <objects>
                 <viewController id="Cda-1z-f2l" customClass="CardsViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dev-D3-vjb"/>
+                        <viewControllerLayoutGuide type="bottom" id="FnF-sW-pAW"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="axI-9q-X9w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +58,6 @@
                             <constraint firstAttribute="bottom" secondItem="0mN-6x-Ac9" secondAttribute="bottom" id="dDF-Qn-IaL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0mN-6x-Ac9" secondAttribute="trailing" id="spl-tn-w3k"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="gbr-Fp-F6R"/>
                     </view>
                     <navigationItem key="navigationItem" title="Items" id="Nx1-cV-7QF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kDr-6k-nn4">
@@ -75,6 +78,10 @@
         <scene sceneID="isd-jh-i26">
             <objects>
                 <viewController storyboardIdentifier="CardDetailViewController" id="edH-bn-3aV" customClass="CardDetailViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pCH-ZK-Ga7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eyf-f3-Rvq"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="7lz-Od-jf4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,10 +132,9 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Yei-UF-TFB" secondAttribute="trailing" constant="15" id="TXA-kJ-5fA"/>
-                            <constraint firstItem="Yei-UF-TFB" firstAttribute="top" secondItem="Jok-Z5-9Cy" secondAttribute="top" constant="15" id="aji-eo-5jh"/>
+                            <constraint firstItem="Yei-UF-TFB" firstAttribute="top" secondItem="pCH-ZK-Ga7" secondAttribute="bottom" constant="15" id="aji-eo-5jh"/>
                             <constraint firstItem="Yei-UF-TFB" firstAttribute="leading" secondItem="7lz-Od-jf4" secondAttribute="leadingMargin" constant="15" id="g5d-8H-kBo"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Jok-Z5-9Cy"/>
                     </view>
                     <connections>
                         <outlet property="cardTextLabel" destination="sKv-lE-eCb" id="LXT-03-7eP"/>
@@ -143,11 +149,14 @@
         <scene sceneID="bKS-aP-r6M">
             <objects>
                 <viewController storyboardIdentifier="AddCardViewController" id="k29-V8-k62" customClass="AddCardViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sKx-Ll-GdR"/>
+                        <viewControllerLayoutGuide type="bottom" id="VNo-Y9-mJ3"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="Udm-7T-sFw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="CNS-bf-vyp"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUT-uX-UP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,6 +167,10 @@
         <scene sceneID="Y1d-vp-gDF">
             <objects>
                 <viewController id="RVg-rT-Wd4" customClass="ProfileViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LYY-3L-9O7"/>
+                        <viewControllerLayoutGuide type="bottom" id="WGR-wV-rsd"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="Sxq-NA-0Bc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,13 +216,12 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ur2-IN-34k" firstAttribute="top" secondItem="Sxq-NA-0Bc" secondAttribute="top" id="60T-U7-Abs"/>
-                            <constraint firstItem="HG3-bg-iei" firstAttribute="centerX" secondItem="y03-EM-0en" secondAttribute="centerX" id="UMU-Om-Ze9"/>
+                            <constraint firstItem="HG3-bg-iei" firstAttribute="centerX" secondItem="Sxq-NA-0Bc" secondAttribute="centerX" id="UMU-Om-Ze9"/>
                             <constraint firstItem="ur2-IN-34k" firstAttribute="leading" secondItem="Sxq-NA-0Bc" secondAttribute="leading" id="ZcP-2G-f7S"/>
-                            <constraint firstItem="i3R-70-wP0" firstAttribute="centerX" secondItem="y03-EM-0en" secondAttribute="centerX" id="b9b-H3-Ke6"/>
+                            <constraint firstItem="i3R-70-wP0" firstAttribute="centerX" secondItem="Sxq-NA-0Bc" secondAttribute="centerX" id="b9b-H3-Ke6"/>
                             <constraint firstAttribute="bottom" secondItem="ur2-IN-34k" secondAttribute="bottom" id="sPL-oU-bVQ"/>
                             <constraint firstAttribute="trailing" secondItem="ur2-IN-34k" secondAttribute="trailing" id="yLJ-7Z-wAG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="y03-EM-0en"/>
                     </view>
                     <navigationItem key="navigationItem" id="ysx-ts-S1j">
                         <barButtonItem key="rightBarButtonItem" title="Dice" id="cUS-r3-aiJ">
@@ -240,11 +252,14 @@
         <scene sceneID="qpO-iG-pLp">
             <objects>
                 <viewController id="yaP-tK-4fe" customClass="MessagesViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eOb-uD-RNT"/>
+                        <viewControllerLayoutGuide type="bottom" id="OmO-UC-UUT"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="c6m-gG-svk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="KSN-zY-oN2"/>
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="3mC-ez-8Ie"/>
                 </viewController>
@@ -334,6 +349,10 @@
         <scene sceneID="TUW-Dw-0Bt">
             <objects>
                 <viewController id="hta-Zq-MWP" customClass="ExplorerHauntViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Do0-Fh-Kiz"/>
+                        <viewControllerLayoutGuide type="bottom" id="90p-Da-ppn"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="cJq-uG-fIZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,11 +403,10 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bPD-SS-8Bf" secondAttribute="trailing" id="1Dp-Zx-gao"/>
-                            <constraint firstItem="bPD-SS-8Bf" firstAttribute="top" secondItem="3Q7-VV-MIp" secondAttribute="top" constant="10" id="Oje-6x-X5Z"/>
-                            <constraint firstItem="3Q7-VV-MIp" firstAttribute="bottom" secondItem="bPD-SS-8Bf" secondAttribute="bottom" constant="10" id="UDj-bv-RAO"/>
+                            <constraint firstItem="bPD-SS-8Bf" firstAttribute="top" secondItem="Do0-Fh-Kiz" secondAttribute="bottom" constant="10" id="Oje-6x-X5Z"/>
+                            <constraint firstItem="90p-Da-ppn" firstAttribute="top" secondItem="bPD-SS-8Bf" secondAttribute="bottom" constant="10" id="UDj-bv-RAO"/>
                             <constraint firstItem="bPD-SS-8Bf" firstAttribute="leading" secondItem="cJq-uG-fIZ" secondAttribute="leadingMargin" id="hIO-y1-fmX"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="3Q7-VV-MIp"/>
                     </view>
                     <navigationItem key="navigationItem" id="jO6-iE-naM"/>
                     <connections>

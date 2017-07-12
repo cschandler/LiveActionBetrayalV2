@@ -42,11 +42,14 @@ extension ContinueViewController: MainMenuType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Continue"
+        
         setupView()
         
         AppStore.shared.subscribe(self)
         
         tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
+        tableView.rowHeight = 54
     }
     
 }

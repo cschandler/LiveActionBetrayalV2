@@ -49,7 +49,7 @@ extension ChoosePictureViewController: MainMenuType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "PICTURE"
+        title = "Picture"
         
         setupView()
         picture.setBorder()

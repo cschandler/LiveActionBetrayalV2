@@ -46,7 +46,7 @@ extension ChooseNameViewController: MainMenuType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "NAME"
+        title = "Name"
         
         setupView()
         blurView.layer.cornerRadius = 4.0

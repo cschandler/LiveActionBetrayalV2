@@ -33,7 +33,7 @@ extension ChooseAttributeViewController: MainMenuType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "ATTRIBUTE"
+        title = "Attribute"
         
         setupView()
         

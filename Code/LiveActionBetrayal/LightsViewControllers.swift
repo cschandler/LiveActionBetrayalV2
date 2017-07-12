@@ -56,6 +56,7 @@ extension LightsViewController: WatcherType {
         AppStore.shared.subscribe(self)
         
         tableView.register(LightsCell.nib, forCellReuseIdentifier: IDs.Cells.LightsCell.rawValue)
+        tableView.rowHeight = 54
     }
     
 }

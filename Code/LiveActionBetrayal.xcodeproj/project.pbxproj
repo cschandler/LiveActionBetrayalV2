@@ -61,6 +61,7 @@
 		08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */; };
 		08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82A81E88546000BA9DDD /* ProfileViewController.swift */; };
 		08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AC82AC1E88C68900BA9DDD /* StatStepper.swift */; };
+		08B1FBD61F16CFBE000117BB /* BrightnessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1FBD51F16CFBE000117BB /* BrightnessManager.swift */; };
 		08C5B1261EFA04370064195E /* LightsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5B1251EFA04370064195E /* LightsCell.swift */; };
 		08C5B1281EFA045F0064195E /* LightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08C5B1271EFA045F0064195E /* LightsCell.xib */; };
 		08CB61ED1ECB258C00177BB5 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */; };
@@ -137,6 +138,7 @@
 		08AC82A61E8853EF00BA9DDD /* ExplorerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerType.swift; sourceTree = "<group>"; };
 		08AC82A81E88546000BA9DDD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		08AC82AC1E88C68900BA9DDD /* StatStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatStepper.swift; sourceTree = "<group>"; };
+		08B1FBD51F16CFBE000117BB /* BrightnessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessManager.swift; sourceTree = "<group>"; };
 		08C5B1251EFA04370064195E /* LightsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsCell.swift; sourceTree = "<group>"; };
 		08C5B1271EFA045F0064195E /* LightsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightsCell.xib; sourceTree = "<group>"; };
 		08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				084F26681E7B9CE80058F3DF /* Attributes.swift */,
 				08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */,
 				08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */,
+				08B1FBD51F16CFBE000117BB /* BrightnessManager.swift */,
 				083E0C281EBF8571006C4783 /* Card.swift */,
 				089EEC001EC9D60500FE9E87 /* ClassNameNibLoadable.swift */,
 				08FE3CA51E82DCD3005E3C3A /* ConnectionManager.swift */,
@@ -496,6 +499,7 @@
 				08361D041EF5946D00E44B69 /* Loadable.swift in Sources */,
 				083B320E1F0ED3EC00B91F4B /* WatcherTabController.swift in Sources */,
 				08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */,
+				08B1FBD61F16CFBE000117BB /* BrightnessManager.swift in Sources */,
 				083E0C2D1EBF8F22006C4783 /* ContinueViewController.swift in Sources */,
 				084F26601E78FC110058F3DF /* TorchManager.swift in Sources */,
 				080463051EBFDA6800601DF3 /* CardDetailViewController.swift in Sources */,

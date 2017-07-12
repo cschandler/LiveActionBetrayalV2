@@ -6,7 +6,7 @@
 //  Copyright © 2017 Charles Chander. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class Defaults {
     
@@ -17,6 +17,7 @@ final class Defaults {
         static let automaticLightReset = "AutomaticLightReset"
         static let lightsOff = "LightsOffTimerInterval"
         static let lightsOn = "LightsOnTimeInterval"
+        static let brightness = "Brightness"
     }
     
     open var lastRoll: Int {
@@ -52,6 +53,15 @@ final class Defaults {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: Keys.lightsOn)
+        }
+    }
+    
+    open var brightness: CGFloat {
+        get {
+            return CGFloat(UserDefaults.standard.double(forKey: Keys.brightness))
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.brightness)
         }
     }
 }

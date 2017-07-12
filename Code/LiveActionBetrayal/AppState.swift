@@ -24,6 +24,7 @@ enum AppAction: Action {
     case triggerHaunt
     case triggerHauntWithCard(Card)
     case hauntName(String)
+    case appForeground
 }
 
 struct AppState: StateType {
@@ -75,7 +76,6 @@ struct AppReducer {
             newState.connectedPlayers = changedPlayers
             
         case .torchesOn(let torchesOn):
-            TorchManager.turn(on: torchesOn)
             newState.torchOn = torchesOn
             
         case .allMessages(let messages):
@@ -99,6 +99,9 @@ struct AppReducer {
             
         case .hauntName(let name):
             newState.hauntName = name
+            
+        case .appForeground:
+            break
         }
         
         return newState

@@ -16,6 +16,8 @@ final class ProfileViewController: BaseViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var diceBarButtonItem: UIBarButtonItem!
     
+    let brightnessManager = BrightnessManager()
+    
     @IBOutlet weak var picture: UIImageView! {
         didSet {
             picture.setBorder()
@@ -105,6 +107,7 @@ extension ProfileViewController: StoreSubscriber {
         }
         
         TorchManager.turn(on: player.torchOn)
+        brightnessManager.adjustScreenBrightness(forTorchMode: player.torchOn)
     }
     
 }

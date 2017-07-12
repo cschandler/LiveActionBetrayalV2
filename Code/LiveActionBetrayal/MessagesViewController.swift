@@ -13,7 +13,9 @@ import ReSwift
 final class MessagesViewController: JSQMessagesViewController {
     
     var sender: Messanger!
-    var reciever: Messanger!
+    
+    // Reciever being nil indicates the messages are meant to all players
+    var reciever: Messanger?
     
     fileprivate var messages: Loadable<[Message]> = .notAsked {
         didSet {
@@ -27,6 +29,10 @@ final class MessagesViewController: JSQMessagesViewController {
         didSet {
             switch messages {
             case .notAsked:
+                guard let reciever = self.reciever else {
+                    return
+                }
+                
                 let id = senderIsWatcher ? reciever.id : sender.id
                 ConnectionManager.shared.getConversation(forPlayer: id)
                 messages = .loading
@@ -46,9 +52,12 @@ final class MessagesViewController: JSQMessagesViewController {
         return watcher?.identifier == sender.id
     }
     
-    func markReadIfNeeded(messages: [Message]) {
+    fileprivate var players: [Explorer] = []
+    
+    fileprivate func markReadIfNeeded(messages: [Message]) {
         for message in messages {
-            guard message.read == false,
+            guard let reciever = self.reciever,
+                message.read == false,
                 message.senderId == reciever.id else {
                     continue
             }
@@ -119,6 +128,10 @@ extension MessagesViewController {
             return nil
         }
         
+        guard let reciever = self.reciever else {
+            return JSQMessagesAvatarImageFactory.avatarImage(with: #imageLiteral(resourceName: "ic-profile"), diameter: UInt(22))
+        }
+        
         return message.senderId == sender.id ? sender.jsqAvatar : reciever.jsqAvatar
     }
     
@@ -153,7 +166,11 @@ extension MessagesViewController {
         
         let message = Message(senderId: senderId, displayName: displayName, text: text)
         
-        ConnectionManager.shared.send(message: message, toPlayer: senderIsWatcher ? reciever.id : sender.id)
+        if let reciever = self.reciever {
+            ConnectionManager.shared.send(message: message, toPlayer: senderIsWatcher ? reciever.id : sender.id)
+        } else {
+            players.forEach { ConnectionManager.shared.send(message: message, toPlayer: $0.identifier) }
+        }
         
         inputToolbar.contentView.textView.text = ""
     }
@@ -167,6 +184,7 @@ extension MessagesViewController: StoreSubscriber {
     func newState(state: AppState) {
         watcher = state.watcher
         messages = .loaded(state.conversation)
+        players = state.connectedPlayers
     }
     
 }
@@ -191,8 +209,9 @@ protocol TabBarUpdatable: class {}
 extension TabBarUpdatable where Self: UITabBarController {
     
     func updateTabBadge(withMessages messages: [Message], currentUserId: String) {
-        guard let messagesTab = tabBar.items?[2] else {
-            return
+        guard let messagesTab = tabBar.items?[2],
+            selectedIndex != 2 else {
+                return
         }
         
         let unread = messages.filter { $0.read == false && $0.senderId != currentUserId }

@@ -10,12 +10,9 @@ import UIKit
 
 final class LightsSettingsViewController: UITableViewController, Finishable {
     
-//    static func build() -> LightsSettingsViewController {
-//        return UIStoryboard(name: IDs.Storyboards.Watcher.rawValue, bundle: nil).instantiateViewController(withIdentifier: IDs.StoryboardViewControllers.LightsSettingsViewController.rawValue) as! LightsSettingsViewController
-//    }
-    
     @IBOutlet weak var lightsOffTimer: UITextField!
     @IBOutlet weak var lightsOnTimer: UITextField!
+    @IBOutlet weak var automaticResetSwitch: UISwitch!
     
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
         finish()
@@ -39,6 +36,10 @@ extension LightsSettingsViewController {
         super.viewDidLoad()
         
         title = "LIGHTS SETTINGS"
+        
+        lightsOffTimer.text = "\(Int(Defaults.shared.lightsOff))"
+        lightsOnTimer.text = "\(Int(Defaults.shared.lightsOn))"
+        automaticResetSwitch.isOn = Defaults.shared.automaticLightReset
     }
     
 }

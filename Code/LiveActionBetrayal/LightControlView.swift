@@ -43,7 +43,12 @@ final class LightControlView: UIView {
         timer = CADisplayLink(target: self, selector: #selector(tick(displayLink:)))
         timer.preferredFramesPerSecond = 1
         
-        timeLeft = defaultTime
+        Defaults.shared.automaticLightReset = true
+        Defaults.shared.lightsOn = 30
+        Defaults.shared.lightsOff = 30
+        
+        lightsOn = AppStore.shared.state.torchOn
+        timeLeft = 30
     }
     
     private var timer: CADisplayLink!
@@ -120,13 +125,13 @@ final class LightControlView: UIView {
         timeLeft -= 1
         
         if timeLeft == 0 {
+            lightsOn = !lightsOn
+            
             if Defaults.shared.automaticLightReset {
                 timeLeft = defaultTime
             } else {
                 playPauseState = .pause
             }
-            
-            lightsOn = !lightsOn
         }
     }
 

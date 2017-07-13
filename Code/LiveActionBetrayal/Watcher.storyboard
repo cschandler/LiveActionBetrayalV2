@@ -365,6 +365,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="automaticResetSwitch" destination="b30-7K-eBv" id="crn-ja-eaP"/>
                         <outlet property="lightsOffTimer" destination="pz7-bh-A0T" id="VEe-tz-EyU"/>
                         <outlet property="lightsOnTimer" destination="uUf-wS-BJR" id="QcW-VN-bcT"/>
                     </connections>

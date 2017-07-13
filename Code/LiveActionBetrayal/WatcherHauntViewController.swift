@@ -24,6 +24,7 @@ final class WatcherHauntViewController: BaseViewController {
     }
     
     @IBOutlet weak var hauntInputTextField: UITextField!
+    @IBOutlet weak var selectedTraitorLabel: VibrantLabel!
     
     var omens: [Card] = []
     
@@ -75,8 +76,32 @@ extension WatcherHauntViewController: StoreSubscriber {
         }
         
         omens = state.cards.filter { $0.type == .omen }
+        
+        updateHauntInputTextField(withState: state)
+        updateSelectedTraitorLabel(withState: state)
     }
     
+    func updateHauntInputTextField(withState state: AppState) {
+        if state.hauntTriggered && !hauntInputVisualEffectView.isHidden {
+            hauntInputVisualEffectView.isHidden = true
+        }
+        
+        if !state.hauntName.isEmpty && !hauntInputVisualEffectView.isHidden {
+            hauntInputTextField.text = "Selected Haunt: \(state.hauntName)"
+        }
+    }
+    
+    func updateSelectedTraitorLabel(withState state: AppState) {
+        if let traitor = state.getTraitor(), selectedTraitorLabel.isHidden {
+            selectedTraitorLabel.text = "Traitor: \(traitor.name)"
+            selectedTraitorLabel.setup()
+            selectedTraitorLabel.addBorder()
+            selectedTraitorLabel.isHidden = false
+        } else {
+            selectedTraitorLabel.isHidden = true
+        }
+    }
+        
 }
 
 extension WatcherHauntViewController: UITextFieldDelegate {

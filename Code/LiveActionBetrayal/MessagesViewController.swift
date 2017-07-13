@@ -208,7 +208,22 @@ protocol TabBarUpdatable: class {}
 
 extension TabBarUpdatable where Self: UITabBarController {
     
-    func updateTabBadge(withMessages messages: [Message], currentUserId: String) {
+    func updateItemsTabBadge(withState state: AppState) {
+        guard let itemsTab = tabBar.items?[1] else {
+            return
+        }
+        
+        guard !state.hauntTriggered else {
+            itemsTab.badgeValue = nil
+            return
+        }
+        
+        let omens = state.cards.filter({ $0.type == .omen })
+        
+        itemsTab.badgeValue = omens.count > 0 ? "\(omens.count)" : nil
+    }
+    
+    func updateMessagesTabBadge(withMessages messages: [Message], currentUserId: String) {
         guard let messagesTab = tabBar.items?[2],
             selectedIndex != 2 else {
                 return

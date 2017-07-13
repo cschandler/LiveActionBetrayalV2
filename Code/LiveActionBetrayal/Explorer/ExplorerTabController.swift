@@ -65,7 +65,7 @@ extension ExplorerTabController: StoreSubscriber, TabBarUpdatable {
         }
         
         if let currentUserId = ConnectionManager.shared.currentUserID {
-            updateTabBadge(withMessages: state.conversation, currentUserId: currentUserId)
+            updateMessagesTabBadge(withMessages: state.conversation, currentUserId: currentUserId)
         }
     }
     

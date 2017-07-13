@@ -58,8 +58,6 @@ extension WatcherHauntViewController: WatcherType {
         view.addGestureRecognizer(tapGR)
         
         AppStore.shared.subscribe(self)
-        
-        ConnectionManager.shared.getCards()
     }
     
 }

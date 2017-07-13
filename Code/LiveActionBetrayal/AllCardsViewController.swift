@@ -34,8 +34,6 @@ extension AllCardsViewController: WatcherType {
         
         AppStore.shared.subscribe(self)
         
-        ConnectionManager.shared.getCards()
-        
         tableView.register(CardCell.nib, forCellReuseIdentifier: IDs.Cells.CardCell.rawValue)
     }
     

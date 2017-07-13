@@ -12,49 +12,51 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="5D6-oi-1LX" customClass="LightsCell" customModule="LiveActionBetrayal" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="54" id="5D6-oi-1LX" customClass="LightsCell" customModule="LiveActionBetrayal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5D6-oi-1LX" id="mCt-Jo-ZgD">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C0h-ng-RvD">
-                        <rect key="frame" x="8" y="0.0" width="43.5" height="43.5"/>
+                        <rect key="frame" x="8" y="5.5" width="43.5" height="43.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="C0h-ng-RvD" secondAttribute="height" id="fCz-VY-qig"/>
+                            <constraint firstAttribute="width" constant="44" id="Cs9-OM-hUQ"/>
+                            <constraint firstAttribute="height" constant="44" id="y2I-c6-EbV"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQH-bc-6V6">
-                        <rect key="frame" x="59" y="11" width="42" height="21"/>
+                        <rect key="frame" x="59" y="17" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="0.80120071308724827" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-lightbulb" translatesAutoresizingMaskIntoConstraints="NO" id="IaZ-D7-XWN">
-                        <rect key="frame" x="323.5" y="0.0" width="43.5" height="43.5"/>
+                        <rect key="frame" x="313.5" y="0.0" width="53.5" height="53.5"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="C0h-ng-RvD" firstAttribute="leading" secondItem="mCt-Jo-ZgD" secondAttribute="leading" constant="8" id="3Dl-wf-Rhj"/>
-                    <constraint firstAttribute="bottom" secondItem="C0h-ng-RvD" secondAttribute="bottom" id="4Tf-er-Vd2"/>
                     <constraint firstItem="IaZ-D7-XWN" firstAttribute="width" secondItem="IaZ-D7-XWN" secondAttribute="height" id="E2a-pc-TVE"/>
                     <constraint firstAttribute="bottom" secondItem="IaZ-D7-XWN" secondAttribute="bottom" id="OXB-ir-XK1"/>
                     <constraint firstItem="IaZ-D7-XWN" firstAttribute="top" secondItem="mCt-Jo-ZgD" secondAttribute="top" id="Org-Ln-pDq"/>
-                    <constraint firstItem="C0h-ng-RvD" firstAttribute="top" secondItem="mCt-Jo-ZgD" secondAttribute="top" id="VDl-U9-9bK"/>
                     <constraint firstItem="tQH-bc-6V6" firstAttribute="centerY" secondItem="mCt-Jo-ZgD" secondAttribute="centerY" id="Vav-AX-BgO"/>
                     <constraint firstAttribute="trailing" secondItem="IaZ-D7-XWN" secondAttribute="trailing" constant="8" id="cbL-j6-PQ9"/>
                     <constraint firstItem="tQH-bc-6V6" firstAttribute="leading" secondItem="C0h-ng-RvD" secondAttribute="trailing" constant="7.5" id="wJF-Me-Mqj"/>
                     <constraint firstItem="IaZ-D7-XWN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tQH-bc-6V6" secondAttribute="trailing" constant="8" id="y2t-wW-B1x"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="C0h-ng-RvD" firstAttribute="centerY" secondItem="5D6-oi-1LX" secondAttribute="centerY" id="ufa-1f-qrc"/>
+            </constraints>
             <connections>
                 <outlet property="lightsImageView" destination="IaZ-D7-XWN" id="9S5-Wp-ecG"/>
                 <outlet property="nameLabel" destination="tQH-bc-6V6" id="pYl-ay-e99"/>
                 <outlet property="profileImageView" destination="C0h-ng-RvD" id="Gb3-s3-VTA"/>
             </connections>
-            <point key="canvasLocation" x="-115" y="-104"/>
+            <point key="canvasLocation" x="-115.5" y="-109.5"/>
         </tableViewCell>
     </objects>
     <resources>

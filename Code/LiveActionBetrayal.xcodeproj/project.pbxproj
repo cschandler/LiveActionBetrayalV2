@@ -15,6 +15,7 @@
 		0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811205A1E7C84E9003B52D3 /* StatusViewController.swift */; };
 		0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0811205E1E7C8AFE003B52D3 /* IDs.swift */; };
 		081120611E7C8E99003B52D3 /* Finishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081120601E7C8E99003B52D3 /* Finishable.swift */; };
+		08152B6D1F180DC800D35D99 /* TabBarUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08152B6C1F180DC800D35D99 /* TabBarUpdatable.swift */; };
 		081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081ECF301E7738DF006F9FF0 /* AppDelegate.swift */; };
 		081ECF381E7738DF006F9FF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 081ECF371E7738DF006F9FF0 /* Assets.xcassets */; };
 		081ECF3B1E7738DF006F9FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 081ECF391E7738DF006F9FF0 /* LaunchScreen.storyboard */; };
@@ -90,6 +91,7 @@
 		0811205A1E7C84E9003B52D3 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		0811205E1E7C8AFE003B52D3 /* IDs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDs.swift; sourceTree = "<group>"; };
 		081120601E7C8E99003B52D3 /* Finishable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Finishable.swift; sourceTree = "<group>"; };
+		08152B6C1F180DC800D35D99 /* TabBarUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUpdatable.swift; sourceTree = "<group>"; };
 		081ECF2D1E7738DF006F9FF0 /* LiveActionBetrayal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveActionBetrayal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		081ECF301E7738DF006F9FF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		081ECF371E7738DF006F9FF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				08FF255C1EEDA0F30012949B /* Messanger.swift */,
 				081120581E7C8234003B52D3 /* Player.swift */,
 				088E60E51E8CC605004AF072 /* ResultView.swift */,
+				08152B6C1F180DC800D35D99 /* TabBarUpdatable.swift */,
 				085F07121E815D2A001B99EE /* Theme.swift */,
 				084F265F1E78FC110058F3DF /* TorchManager.swift */,
 				08AC82A11E88485300BA9DDD /* TransitionViewController.swift */,
@@ -475,6 +478,7 @@
 				081120591E7C8234003B52D3 /* Player.swift in Sources */,
 				083E0C291EBF8571006C4783 /* Card.swift in Sources */,
 				083E0C271EBE777D006C4783 /* LightsSettingViewController.swift in Sources */,
+				08152B6D1F180DC800D35D99 /* TabBarUpdatable.swift in Sources */,
 				08C5B1261EFA04370064195E /* LightsCell.swift in Sources */,
 				084731FA1EF5E69100776E54 /* AllCardsViewController.swift in Sources */,
 				08AC82A71E8853EF00BA9DDD /* ExplorerType.swift in Sources */,

@@ -19,6 +19,17 @@ final class AllCardsViewController: BaseViewController {
         }
     }
     
+    @IBAction func diceButtonTapped(_ sender: UIBarButtonItem) {
+        let nav = DiceViewController.build()
+        
+        if let top = nav.topViewController as? DiceViewController {
+            top.completed = { _ in
+                self.dismiss(animated: true)
+            }
+        }
+        
+        present(nav, animated: false)
+    }
 }
 
 // MARK: - Life Cycle

@@ -112,14 +112,15 @@ extension DiceViewController: MainMenuType {
                                 buttonsCount: 8,
                                 duration: 0.5,
                                 distance: 130)
-        
-        let xButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic-clear"), style: .plain, target: self, action: #selector(dismissSelf))
-        xButton.tintColor = .white
-        navigationItem.rightBarButtonItem = xButton
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let xButton = UIBarButtonItem(image: #imageLiteral(resourceName: "ic-clear"), style: .plain, target: self, action: #selector(dismissSelf))
+        xButton.tintColor = .white
+        
+        navigationItem.setRightBarButton(xButton, animated: true)
 
         UIView.animate(withDuration: 0.3, animations: { 
             self.blurView.effect = UIBlurEffect(style: .dark)

@@ -88,7 +88,14 @@
                             <constraint firstItem="Ok5-Xs-Lam" firstAttribute="top" secondItem="Mec-cO-aWS" secondAttribute="bottom" id="rJ6-Lw-Sfo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="amF-iZ-JmQ"/>
+                    <navigationItem key="navigationItem" id="amF-iZ-JmQ">
+                        <barButtonItem key="rightBarButtonItem" image="ic-dice-small" id="OCZ-vk-oeE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="diceButtonTapped:" destination="UCD-92-dZN" id="Jvf-Ey-OHq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ok5-Xs-Lam" id="fON-oV-1Yc"/>
                     </connections>
@@ -568,6 +575,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic-dice-small" width="26" height="26"/>
         <image name="ic-haunt" width="24" height="24"/>
         <image name="ic-items" width="24" height="24"/>
         <image name="ic-lightbulb" width="24" height="24"/>

@@ -21,13 +21,15 @@ final class ExplorerTabController: UITabBarController {
             }
             
             guard let currentUserID = ConnectionManager.shared.currentUserID,
-                let metadata = metadata,
-                let watcher = AppStore.shared.state.watcher else {
+                let metadata = metadata else {
                     return
             }
             
             messagesViewController.sender = Messanger(id: currentUserID, displayName: metadata.name, avatar: metadata.picture ?? #imageLiteral(resourceName: "ic-avatar-default"))
-            messagesViewController.reciever = Messanger(id: watcher.identifier, displayName: "Watcher", avatar: #imageLiteral(resourceName: "ic-avatar-default"))
+            
+            if let watcher = AppStore.shared.state.watcher {
+                messagesViewController.reciever = Messanger(id: watcher.identifier, displayName: "Watcher", avatar: #imageLiteral(resourceName: "ic-avatar-default"))
+            }
             
             ConnectionManager.shared.getConversation(forPlayer: currentUserID)
         }

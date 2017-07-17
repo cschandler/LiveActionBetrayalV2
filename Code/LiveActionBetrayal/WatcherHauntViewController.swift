@@ -109,7 +109,8 @@ extension WatcherHauntViewController: UITextFieldDelegate {
             return true
         }
         
-        ConnectionManager.shared.setHaunt(withName: text)
+        let filteredText = text.replacingOccurrences(of: "Selected Haunt: ", with: "")
+        ConnectionManager.shared.setHaunt(withName: filteredText)
         dismissKeyboard()
         
         return true

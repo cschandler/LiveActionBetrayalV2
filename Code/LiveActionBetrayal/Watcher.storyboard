@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Wx-vt-BRe">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Ast-sJ-xi1" id="3C5-kQ-25r"/>
@@ -34,9 +34,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="2Wx-vt-BRe" secondAttribute="trailing" id="GLn-8m-bAo"/>
-                            <constraint firstAttribute="bottom" secondItem="2Wx-vt-BRe" secondAttribute="bottom" id="Jln-Pp-qsn"/>
+                            <constraint firstItem="Xq4-6R-W6o" firstAttribute="top" secondItem="2Wx-vt-BRe" secondAttribute="bottom" id="Jln-Pp-qsn"/>
                             <constraint firstItem="2Wx-vt-BRe" firstAttribute="leading" secondItem="3mU-0M-2pB" secondAttribute="leadingMargin" id="L5N-v8-JVm"/>
-                            <constraint firstItem="2Wx-vt-BRe" firstAttribute="top" secondItem="3mU-0M-2pB" secondAttribute="top" id="WYG-tx-oix"/>
+                            <constraint firstItem="2Wx-vt-BRe" firstAttribute="top" secondItem="1ZW-9U-ZwC" secondAttribute="bottom" id="WYG-tx-oix"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="agl-gM-Whv"/>
@@ -47,12 +47,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2tk-76-Org" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="482"/>
+            <point key="canvasLocation" x="1532" y="481.70914542728639"/>
         </scene>
         <!--All Cards View Controller-->
         <scene sceneID="Ge7-9L-AIJ">
             <objects>
-                <viewController id="UCD-92-dZN" customClass="AllCardsViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="UCD-92-dZN" customClass="AllCardsViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mec-cO-aWS"/>
                         <viewControllerLayoutGuide type="bottom" id="sE0-Do-0bk"/>
@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLP-EB-rDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="1179"/>
+            <point key="canvasLocation" x="1532" y="1178.8605697151424"/>
         </scene>
         <!--Watcher Haunt View Controller-->
         <scene sceneID="QVm-al-vcA">
@@ -520,7 +520,7 @@
         <!--Messages-->
         <scene sceneID="HUv-1Z-w1V">
             <objects>
-                <navigationController id="MBq-wv-2Ik" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MBq-wv-2Ik" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Messages" image="ic-messages" id="1Aw-3u-y4o"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="8BE-wo-k7m">
@@ -539,7 +539,7 @@
         <!--Items-->
         <scene sceneID="2In-Jz-NIh">
             <objects>
-                <navigationController id="aqa-ud-99n" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aqa-ud-99n" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Items" image="ic-items" id="c32-3b-g8s"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="9SY-sV-1L4">

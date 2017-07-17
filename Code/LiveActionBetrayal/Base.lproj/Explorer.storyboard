@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0mN-6x-Ac9">
-                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CardCell" textLabel="Q3O-Da-A7T" style="IBUITableViewCellStyleDefault" id="sUs-Pw-RfO">
@@ -52,9 +52,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0mN-6x-Ac9" firstAttribute="top" secondItem="axI-9q-X9w" secondAttribute="top" id="JSC-4o-inj"/>
+                            <constraint firstItem="0mN-6x-Ac9" firstAttribute="top" secondItem="dev-D3-vjb" secondAttribute="bottom" id="JSC-4o-inj"/>
                             <constraint firstItem="0mN-6x-Ac9" firstAttribute="leading" secondItem="axI-9q-X9w" secondAttribute="leadingMargin" id="b2A-G2-spn"/>
-                            <constraint firstAttribute="bottom" secondItem="0mN-6x-Ac9" secondAttribute="bottom" id="dDF-Qn-IaL"/>
+                            <constraint firstItem="FnF-sW-pAW" firstAttribute="top" secondItem="0mN-6x-Ac9" secondAttribute="bottom" id="dDF-Qn-IaL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0mN-6x-Ac9" secondAttribute="trailing" id="spl-tn-w3k"/>
                         </constraints>
                     </view>
@@ -291,6 +291,7 @@
         <scene sceneID="VFX-ka-Hzu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R4R-Ve-xdk" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Items" image="ic-items" id="5mI-Iq-xx8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="TjP-kn-taU">

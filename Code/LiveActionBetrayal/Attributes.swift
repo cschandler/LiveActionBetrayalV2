@@ -70,7 +70,7 @@ struct Stat {
         var string = ""
         
         for (index, value) in values.enumerated() {
-            if index == (starting - 1) {
+            if index == starting {
                 string.append(" (\(value))")
             } else {
                 string.append(" \(value)")

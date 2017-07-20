@@ -107,10 +107,19 @@ extension TransitionViewController {
                         switch serializationError {
                         case .missing("Picture"):
                             DispatchQueue.main.async { self.transitionToPlayer(withMetadata: metadata) }
+                            return
                         default:
-                            print("ADD USER ERROR")
-                            print(error)
+                            break
                         }
+                    }
+                    
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        self.dismiss(animated: true, completion: nil)
+                    }))
+                    
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
                 .call()

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="top" id="dev-D3-vjb"/>
                         <viewControllerLayoutGuide type="bottom" id="FnF-sW-pAW"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="axI-9q-X9w">
+                    <view key="view" contentMode="scaleToFill" id="axI-9q-X9w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -81,7 +81,7 @@
                         <viewControllerLayoutGuide type="top" id="pCH-ZK-Ga7"/>
                         <viewControllerLayoutGuide type="bottom" id="Eyf-f3-Rvq"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="7lz-Od-jf4">
+                    <view key="view" contentMode="scaleToFill" id="7lz-Od-jf4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -152,7 +152,7 @@
                         <viewControllerLayoutGuide type="top" id="sKx-Ll-GdR"/>
                         <viewControllerLayoutGuide type="bottom" id="VNo-Y9-mJ3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="Udm-7T-sFw">
+                    <view key="view" contentMode="scaleToFill" id="Udm-7T-sFw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,7 +170,7 @@
                         <viewControllerLayoutGuide type="top" id="LYY-3L-9O7"/>
                         <viewControllerLayoutGuide type="bottom" id="WGR-wV-rsd"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="Sxq-NA-0Bc">
+                    <view key="view" contentMode="scaleToFill" id="Sxq-NA-0Bc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -178,7 +178,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-avatar-default" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-bg-iei">
-                                        <rect key="frame" x="88" y="24" width="200" height="200"/>
+                                        <rect key="frame" x="88" y="74" width="200" height="200"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Ky0-1K-Y6T"/>
@@ -189,7 +189,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="i3R-70-wP0">
-                                        <rect key="frame" x="38" y="244" width="300" height="20.5"/>
+                                        <rect key="frame" x="38" y="294" width="300" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lt-Nr-WRT">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -200,17 +200,17 @@
                                         </subviews>
                                     </stackView>
                                     <progressView opaque="NO" alpha="0.0" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FCD-FC-yXh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="5"/>
+                                        <rect key="frame" x="0.0" y="64" width="375" height="5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="z0d-8D-RRg"/>
                                         </constraints>
                                     </progressView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="HG3-bg-iei" firstAttribute="top" secondItem="ur2-IN-34k" secondAttribute="top" constant="24" id="0fa-Le-GRC"/>
+                                    <constraint firstItem="HG3-bg-iei" firstAttribute="top" secondItem="ur2-IN-34k" secondAttribute="top" constant="74" id="0fa-Le-GRC"/>
                                     <constraint firstAttribute="trailing" secondItem="FCD-FC-yXh" secondAttribute="trailing" id="5X5-uO-pdT"/>
                                     <constraint firstItem="i3R-70-wP0" firstAttribute="top" secondItem="HG3-bg-iei" secondAttribute="bottom" constant="20" id="Lp2-yd-5B5"/>
-                                    <constraint firstItem="FCD-FC-yXh" firstAttribute="top" secondItem="ur2-IN-34k" secondAttribute="top" id="c5A-A4-Hbe"/>
+                                    <constraint firstItem="FCD-FC-yXh" firstAttribute="top" secondItem="ur2-IN-34k" secondAttribute="top" constant="64" id="c5A-A4-Hbe"/>
                                     <constraint firstAttribute="trailing" secondItem="i3R-70-wP0" secondAttribute="trailing" constant="37.5" id="lX2-kf-CYV"/>
                                     <constraint firstAttribute="bottom" secondItem="i3R-70-wP0" secondAttribute="bottom" constant="189" id="m2H-A3-wRe"/>
                                     <constraint firstItem="i3R-70-wP0" firstAttribute="leading" secondItem="ur2-IN-34k" secondAttribute="leading" constant="37.5" id="wue-Hd-1Nd"/>
@@ -265,7 +265,7 @@
                         <viewControllerLayoutGuide type="top" id="eOb-uD-RNT"/>
                         <viewControllerLayoutGuide type="bottom" id="OmO-UC-UUT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="c6m-gG-svk">
+                    <view key="view" contentMode="scaleToFill" id="c6m-gG-svk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -363,7 +363,7 @@
                         <viewControllerLayoutGuide type="top" id="Do0-Fh-Kiz"/>
                         <viewControllerLayoutGuide type="bottom" id="90p-Da-ppn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="cJq-uG-fIZ">
+                    <view key="view" contentMode="scaleToFill" id="cJq-uG-fIZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

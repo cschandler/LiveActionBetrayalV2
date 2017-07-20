@@ -9,12 +9,13 @@
 import UIKit
 import FirebaseStorage
 
-final class TransitionViewController: BaseViewController {
+final class TransitionViewController: BaseViewController, ProgressUpdatable {
     
     required init(image: UIImage?, storyboardIdentifier: String, transitionType type: TransitionType) {
         self.backgroundImage = image
         self.storyboardIdentifier = storyboardIdentifier
         self.type = type
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,7 +27,28 @@ final class TransitionViewController: BaseViewController {
     let backgroundImage: UIImage?
     let type: TransitionType
     
-    var uploadTask: FIRStorageUploadTask?
+    var uploadTask: FIRStorageUploadTask? {
+        didSet {
+            guard let task = uploadTask else {
+                return
+            }
+            
+            updateProgress(forTask: task)
+        }
+    }
+    
+    var progressView: UIProgressView! {
+        didSet {
+            view.addSubview(progressView)
+            progressView.translatesAutoresizingMaskIntoConstraints = false
+            progressView.alpha = 0.0
+            progressView.tintColor = UIColor(hex: "76C38D")
+            progressView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20.0).isActive = true
+            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            progressView.heightAnchor.constraint(equalToConstant: 5.0).isActive = true
+        }
+    }
     
     var imageView: UIImageView! {
         didSet {
@@ -66,6 +88,7 @@ extension TransitionViewController {
         super.viewDidLoad()
         
         imageView = UIImageView(image: backgroundImage)
+        progressView = UIProgressView(frame: .zero)
     }
     
     override func viewDidAppear(_ animated: Bool) {

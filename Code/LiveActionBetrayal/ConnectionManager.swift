@@ -9,6 +9,7 @@
 import Foundation
 import ReSwift
 import PinkyPromise
+import Nuke
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
@@ -319,21 +320,14 @@ final class ConnectionManager {
                     return
                 }
                 
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    guard let data = data else {
-                        guard let error = error else { return }
-                        fulfill(.failure(error))
-                        return
-                    }
-                    
-                    guard let image = UIImage(data: data) else {
-                        fulfill(.failure(SerializationError.corrupted("Could not convert data into UIImage.")))
+                Nuke.Manager.shared.loadImage(with: url, completion: { result in
+                    guard let image = result.value else {
+                        fulfill(.failure(SerializationError.failed))
                         return
                     }
                     
                     fulfill(.success(image))
-
-                }.resume()
+                })
             })
         }
     }

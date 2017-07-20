@@ -59,7 +59,7 @@ extension ExplorerTabController: ExplorerType {
     }
 }
 
-extension ExplorerTabController: StoreSubscriber, TabBarUpdatable {
+extension ExplorerTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdatable {
     
     func newState(state: AppState) {
         if state.hauntTriggered {
@@ -69,6 +69,8 @@ extension ExplorerTabController: StoreSubscriber, TabBarUpdatable {
         if let currentUserId = ConnectionManager.shared.currentUserID {
             updateMessagesTabBadge(withMessages: state.conversation, currentUserId: currentUserId)
         }
+        
+        updateStatusBar(withState: state)
     }
     
 }

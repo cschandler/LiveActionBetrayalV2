@@ -65,6 +65,7 @@
 		08AD4F901F212CA400057FFC /* ProgressUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AD4F8F1F212CA400057FFC /* ProgressUpdatable.swift */; };
 		08B1FBD61F16CFBE000117BB /* BrightnessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B1FBD51F16CFBE000117BB /* BrightnessManager.swift */; };
 		08BDF1E11F213D2F00373A1B /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDF1E01F213D2F00373A1B /* Lens.swift */; };
+		08BDF1E31F2144CE00373A1B /* StatusBarUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDF1E21F2144CE00373A1B /* StatusBarUpdatable.swift */; };
 		08C5B1261EFA04370064195E /* LightsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5B1251EFA04370064195E /* LightsCell.swift */; };
 		08C5B1281EFA045F0064195E /* LightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08C5B1271EFA045F0064195E /* LightsCell.xib */; };
 		08CB61ED1ECB258C00177BB5 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */; };
@@ -145,6 +146,7 @@
 		08AD4F8F1F212CA400057FFC /* ProgressUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressUpdatable.swift; sourceTree = "<group>"; };
 		08B1FBD51F16CFBE000117BB /* BrightnessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessManager.swift; sourceTree = "<group>"; };
 		08BDF1E01F213D2F00373A1B /* Lens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
+		08BDF1E21F2144CE00373A1B /* StatusBarUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarUpdatable.swift; sourceTree = "<group>"; };
 		08C5B1251EFA04370064195E /* LightsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsCell.swift; sourceTree = "<group>"; };
 		08C5B1271EFA045F0064195E /* LightsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightsCell.xib; sourceTree = "<group>"; };
 		08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				081120581E7C8234003B52D3 /* Player.swift */,
 				08AD4F8F1F212CA400057FFC /* ProgressUpdatable.swift */,
 				088E60E51E8CC605004AF072 /* ResultView.swift */,
+				08BDF1E21F2144CE00373A1B /* StatusBarUpdatable.swift */,
 				08152B6C1F180DC800D35D99 /* TabBarUpdatable.swift */,
 				085F07121E815D2A001B99EE /* Theme.swift */,
 				084F265F1E78FC110058F3DF /* TorchManager.swift */,
@@ -516,6 +519,7 @@
 				080463051EBFDA6800601DF3 /* CardDetailViewController.swift in Sources */,
 				089EEC011EC9D60500FE9E87 /* ClassNameNibLoadable.swift in Sources */,
 				083B32121F1027C100B91F4B /* CardCell.swift in Sources */,
+				08BDF1E31F2144CE00373A1B /* StatusBarUpdatable.swift in Sources */,
 				084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */,
 				0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */,
 				08FE3CA61E82DCD3005E3C3A /* ConnectionManager.swift in Sources */,

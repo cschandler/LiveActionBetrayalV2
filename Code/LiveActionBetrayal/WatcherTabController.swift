@@ -41,7 +41,7 @@ extension WatcherTabController: WatcherType {
     
 }
 
-extension WatcherTabController: StoreSubscriber, TabBarUpdatable {
+extension WatcherTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdatable {
     
     func newState(state: AppState) {
         if let card = state.cardTriggeringHaunt,
@@ -54,11 +54,12 @@ extension WatcherTabController: StoreSubscriber, TabBarUpdatable {
             updateMessagesTabBadge(withMessages: state.allMessages, currentUserId: currentUserId)
         }
         
-        updateItemsTabBadge(withState: state)
-        
         if let _ = ConnectionManager.shared.currentUserID, state.cards.isEmpty {
             ConnectionManager.shared.getCards()
         }
+        
+        updateItemsTabBadge(withState: state)
+        updateStatusBar(withState: state)
     }
     
 }

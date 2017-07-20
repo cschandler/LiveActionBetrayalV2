@@ -75,6 +75,7 @@ extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let player = players[indexPath.row]
+        
         ConnectionManager.shared.logIn(player: player)
             .onSuccess { self.transition(withExplorer: player) }
             .onFailure { error in print(error) }
@@ -85,10 +86,12 @@ extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - ReSwift
 
-extension ContinueViewController: StoreSubscriber {
+extension ContinueViewController: StoreSubscriber, StatusBarUpdatable {
     
     func newState(state: AppState) {
         players = state.connectedPlayers
+        
+        updateStatusBar(withState: state)
     }
     
 }

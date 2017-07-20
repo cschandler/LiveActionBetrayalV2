@@ -379,7 +379,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="534"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qtk-iQ-uB1">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtk-iQ-uB1">
                                                         <rect key="frame" x="8" y="8" width="327" height="518"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>

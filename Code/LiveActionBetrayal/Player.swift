@@ -31,6 +31,14 @@ struct Explorer: PlayerType {
         return metadata
     }
     
+    public static let pictureLens = Lens<Explorer, UIImage>(from: { $0.picture }) { (image, explorer)  in
+        var explorer = explorer
+        
+        explorer.picture = image
+        
+        return explorer
+    }
+    
     init?(json: JSON) {
         guard let uid = json["uid"] as? String,
             let name = json["name"] as? String,

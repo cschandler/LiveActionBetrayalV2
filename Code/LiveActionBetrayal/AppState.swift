@@ -115,10 +115,10 @@ struct AppReducer {
     private func getPicture(forExplorer explorer: Explorer) {
         ConnectionManager.shared.downloadPicture(withId: explorer.identifier)
             .onSuccess { image in
-                var new = explorer
-                new.picture = image
+                let updatedExplorer = Explorer.pictureLens.to(image, explorer)
+                
                 DispatchQueue.main.async {
-                    AppStore.shared.dispatch(AppAction.updated(new))
+                    AppStore.shared.dispatch(AppAction.updated(updatedExplorer))
                 }
             }
             .call()

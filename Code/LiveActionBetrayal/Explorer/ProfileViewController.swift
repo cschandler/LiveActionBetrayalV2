@@ -141,14 +141,15 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         if let image = image,
             let id = ConnectionManager.shared.currentUserID,
-            var currentExplorer = AppStore.shared.state.getPlayer(withId: id) {
-                currentExplorer.picture = image
+            let currentExplorer = AppStore.shared.state.getPlayer(withId: id) {
             
-            ConnectionManager.shared.uploadPicture(image: image, withId: id, percentageReporter: { [weak self] uploadTask in
-                self?.uploadTask = uploadTask
-            })
+                let explorer = Explorer.pictureLens.to(image, currentExplorer)
+            
+                ConnectionManager.shared.uploadPicture(image: image, withId: id, percentageReporter: { [weak self] uploadTask in
+                    self?.uploadTask = uploadTask
+                })
                 .call(completion: { _ in
-                    AppStore.shared.dispatch(AppAction.updated(currentExplorer))
+                    AppStore.shared.dispatch(AppAction.updated(explorer))
                 })
         }
         

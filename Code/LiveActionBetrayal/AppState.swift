@@ -71,9 +71,14 @@ struct AppReducer {
             newState.connectedPlayers.append(explorer)
             getPicture(forExplorer: explorer)
             
-        case .updated(let explorer):
-            var changedPlayers = newState.connectedPlayers.filter { $0.identifier != explorer.identifier }
-            changedPlayers.append(explorer)
+        case .updated(let updatedExplorer):
+            let changedPlayers: [Explorer] = newState.connectedPlayers.map({ explorer in
+                if explorer.identifier == updatedExplorer.identifier {
+                    return updatedExplorer
+                } else {
+                    return explorer
+                }
+            })
             
             newState.connectedPlayers = changedPlayers
             

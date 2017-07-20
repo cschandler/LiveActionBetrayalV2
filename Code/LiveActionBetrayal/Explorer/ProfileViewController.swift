@@ -9,14 +9,26 @@
 import UIKit
 import CircleMenu
 import ReSwift
+import FirebaseStorage
 
-final class ProfileViewController: BaseViewController {
-    
+final class ProfileViewController: BaseViewController, ProgressUpdatable {
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var diceBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var progressView: UIProgressView!
     
     let brightnessManager = BrightnessManager()
+    
+    var uploadTask: FIRStorageUploadTask? {
+        didSet {
+            guard let task = uploadTask else {
+                return
+            }
+            
+            updateProgress(forTask: task)
+        }
+    }
     
     @IBOutlet weak var picture: UIImageView! {
         didSet {
@@ -132,7 +144,10 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             var currentExplorer = AppStore.shared.state.getPlayer(withId: id) {
                 currentExplorer.picture = image
             
-                ConnectionManager.shared.uploadPicture(image: image, withId: id).call(completion: { _ in
+            ConnectionManager.shared.uploadPicture(image: image, withId: id, percentageReporter: { [weak self] uploadTask in
+                self?.uploadTask = uploadTask
+            })
+                .call(completion: { _ in
                     AppStore.shared.dispatch(AppAction.updated(currentExplorer))
                 })
         }

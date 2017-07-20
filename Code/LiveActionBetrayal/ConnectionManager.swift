@@ -177,7 +177,7 @@ final class ConnectionManager {
         })
     }
     
-    func addPlayer(withMetadata player: PlayerMetadata?) -> Promise<Void> {
+    func addPlayer(withMetadata player: PlayerMetadata?, percentageReporter: @escaping (FIRStorageUploadTask) -> Void) -> Promise<Void> {
         return Promise { fulfill in
             guard let player = player, let attribute = player.attribute else {
                 fulfill(.failure(SerializationError.missing("Player metadata or attribute nil")))
@@ -187,7 +187,10 @@ final class ConnectionManager {
             self.createUser(withName: player.name)
                 .onSuccess { user in
                     let add = self.addPlayerToDatabase(withId: user.uid, name: player.name, andAttribute: attribute)
-                    let upload = self.uploadPicture(image: player.picture, withId: user.uid)
+                    let upload = self.uploadPicture(image: player.picture, withId: user.uid, percentageReporter: { uploadTask in
+                        percentageReporter(uploadTask)
+                    })
+                    
                     zip(add, upload)
                         .onSuccess { _,_ in fulfill(.success()) }
                         .onFailure { error in fulfill(.failure(error)) }
@@ -269,7 +272,7 @@ final class ConnectionManager {
     
     // MARK: - Profile Picture
     
-    func uploadPicture(image: UIImage?, withId uid: String) -> Promise<Void> {
+    func uploadPicture(image: UIImage?, withId uid: String, percentageReporter: @escaping (FIRStorageUploadTask) -> Void) -> Promise<Void> {
         return Promise { fulfill in
             
             guard let image = image else {
@@ -277,7 +280,7 @@ final class ConnectionManager {
                 return
             }
             
-            guard let data = UIImageJPEGRepresentation(image, 0.8) else {
+            guard let data = UIImageJPEGRepresentation(image, 0.3) else {
                 fulfill(.failure(SerializationError.corrupted("Failed to convert UIImage to Data")))
                 return
             }
@@ -288,16 +291,19 @@ final class ConnectionManager {
             let metadata = FIRStorageMetadata()
             metadata.contentType = "image/jpeg"
             
-            imageRef.put(data, metadata: metadata) { (metadata, error) in
+            let uploadTask = imageRef.put(data, metadata: metadata) { (metadata, error) in
                 print("FIREBASE PUT DATA")
                 guard metadata != nil else {
                     guard let error = error else { return }
                     fulfill(.failure(error))
                     return
                 }
+                
                 print("------")
                 fulfill(.success())
             }
+            
+            percentageReporter(uploadTask)
         }
     }
     

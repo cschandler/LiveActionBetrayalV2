@@ -34,7 +34,9 @@ final class BrightnessManager {
         if on {
             setBrightness(level: .previous)
         } else {
+            #if RELEASE
             setBrightness(level: .none)
+            #endif
         }
     }
     

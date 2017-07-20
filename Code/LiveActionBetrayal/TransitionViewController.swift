@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 final class TransitionViewController: BaseViewController {
     
@@ -24,6 +25,8 @@ final class TransitionViewController: BaseViewController {
     let storyboardIdentifier: String
     let backgroundImage: UIImage?
     let type: TransitionType
+    
+    var uploadTask: FIRStorageUploadTask?
     
     var imageView: UIImageView! {
         didSet {
@@ -70,7 +73,9 @@ extension TransitionViewController {
         
         switch type {
         case .newGame(let metadata):
-            ConnectionManager.shared.addPlayer(withMetadata: metadata)
+            ConnectionManager.shared.addPlayer(withMetadata: metadata, percentageReporter: { [weak self] uploadTask in
+                self?.uploadTask = uploadTask
+            })
                 .onSuccess {
                     DispatchQueue.main.async { self.transitionToPlayer(withMetadata: metadata) }
                 }

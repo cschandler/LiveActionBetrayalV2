@@ -199,13 +199,22 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <progressView opaque="NO" alpha="0.0" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FCD-FC-yXh">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="z0d-8D-RRg"/>
+                                        </constraints>
+                                    </progressView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="HG3-bg-iei" firstAttribute="top" secondItem="ur2-IN-34k" secondAttribute="top" constant="24" id="0fa-Le-GRC"/>
+                                    <constraint firstAttribute="trailing" secondItem="FCD-FC-yXh" secondAttribute="trailing" id="5X5-uO-pdT"/>
                                     <constraint firstItem="i3R-70-wP0" firstAttribute="top" secondItem="HG3-bg-iei" secondAttribute="bottom" constant="20" id="Lp2-yd-5B5"/>
+                                    <constraint firstItem="FCD-FC-yXh" firstAttribute="top" secondItem="ur2-IN-34k" secondAttribute="top" id="c5A-A4-Hbe"/>
                                     <constraint firstAttribute="trailing" secondItem="i3R-70-wP0" secondAttribute="trailing" constant="37.5" id="lX2-kf-CYV"/>
                                     <constraint firstAttribute="bottom" secondItem="i3R-70-wP0" secondAttribute="bottom" constant="189" id="m2H-A3-wRe"/>
                                     <constraint firstItem="i3R-70-wP0" firstAttribute="leading" secondItem="ur2-IN-34k" secondAttribute="leading" constant="37.5" id="wue-Hd-1Nd"/>
+                                    <constraint firstItem="FCD-FC-yXh" firstAttribute="leading" secondItem="ur2-IN-34k" secondAttribute="leading" id="zOp-qn-cVW"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="Sxq-NA-0Bc" id="oTP-NJ-Cpo"/>
@@ -234,6 +243,7 @@
                     <connections>
                         <outlet property="diceBarButtonItem" destination="cUS-r3-aiJ" id="uXD-bm-Ecl"/>
                         <outlet property="picture" destination="HG3-bg-iei" id="CwP-DX-n6q"/>
+                        <outlet property="progressView" destination="FCD-FC-yXh" id="sXx-x9-fJE"/>
                         <outlet property="scrollView" destination="ur2-IN-34k" id="yWm-K2-lA5"/>
                         <outlet property="stackView" destination="i3R-70-wP0" id="H2i-KA-3uc"/>
                     </connections>

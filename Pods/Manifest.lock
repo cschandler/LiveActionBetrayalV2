@@ -43,6 +43,7 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - Nuke (5.1)
   - PinkyPromise (0.5.2)
   - ReSwift (4.0.0)
   - SDWebImage (4.0.0):
@@ -58,6 +59,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - JSQMessagesViewController
+  - Nuke
   - PinkyPromise
   - ReSwift (~> 4.0.0)
   - SDWebImage
@@ -87,12 +89,13 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Nuke: 8ab71e77f6a54ff5fb697f93537c35f419bb01f7
   PinkyPromise: 1a16bce4cbbe978e6d18e7ad1e1f7634ec48f3ba
   ReSwift: f058ef13b46ae5f463f10605ccbbb7fb04424d8d
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   Spruce: 07ffdb990923f500111fcbf13d102e16075b230e
   TableDiff: 01788e2c60189b4c16dbabebcc14f73aeed8e700
 
-PODFILE CHECKSUM: f411b6aef1c8d8f57b82ca00df123be830eae96b
+PODFILE CHECKSUM: 7e194e6c712255d4e9fad7d8f8fd0f9c8f852dfb
 
 COCOAPODS: 1.1.1

@@ -18,4 +18,5 @@ target :LiveActionBetrayal do
 	pod 'Firebase/Database'
 	pod 'Firebase/Storage'
 	pod 'JSQMessagesViewController'
+	pod 'Nuke'
 end

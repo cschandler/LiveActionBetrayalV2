@@ -21,6 +21,7 @@ extension AppDelegate: UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
  
+        UIApplication.shared.isIdleTimerDisabled = true
         Defaults.shared.brightness = UIScreen.main.brightness
         FIRApp.configure()
         ConnectionManager.shared.getConnectedPlayers()

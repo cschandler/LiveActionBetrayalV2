@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RTG-6k-Cdh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RTG-6k-Cdh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -162,17 +162,28 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Names cannot contain spaces or special characters." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d13-iS-6FS">
+                                <rect key="frame" x="16" y="165" width="343" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rNk-1Y-od7" firstAttribute="leading" secondItem="1RI-DX-BpG" secondAttribute="leadingMargin" id="ALc-oR-1Up"/>
+                            <constraint firstItem="d13-iS-6FS" firstAttribute="top" secondItem="rNk-1Y-od7" secondAttribute="bottom" constant="15" id="PIx-zP-dyr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rNk-1Y-od7" secondAttribute="trailing" id="WYG-N7-Sq7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d13-iS-6FS" secondAttribute="trailing" id="fWl-5R-gHw"/>
+                            <constraint firstItem="d13-iS-6FS" firstAttribute="leading" secondItem="1RI-DX-BpG" secondAttribute="leadingMargin" id="sjq-91-Qu5"/>
                             <constraint firstItem="rNk-1Y-od7" firstAttribute="top" secondItem="9Ix-AN-lS9" secondAttribute="bottom" constant="50" id="t3w-2E-nYl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="blurView" destination="rNk-1Y-od7" id="Jtn-um-1rQ"/>
                         <outlet property="nameEntry" destination="Kae-Dj-p6D" id="hr8-CY-fBX"/>
+                        <outlet property="warningLabel" destination="d13-iS-6FS" id="37j-K6-bIC"/>
                         <segue destination="il9-zz-tmE" kind="show" identifier="NameToAttributes" id="wCk-Xv-IXB"/>
                     </connections>
                 </viewController>

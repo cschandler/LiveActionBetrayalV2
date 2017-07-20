@@ -25,6 +25,7 @@ enum AppAction: Action {
     case triggerHauntWithCard(Card)
     case hauntName(String)
     case appForeground
+    case isConnected(Bool)
 }
 
 struct AppState: StateType {
@@ -37,6 +38,7 @@ struct AppState: StateType {
     var hauntTriggered: Bool = false
     var hauntName = ""
     var cardTriggeringHaunt: Card?
+    var isConnected: Bool = false
     
     func getPlayer(withId id: String) -> Explorer? {
         guard let player = connectedPlayers.lazy.filter({ $0.identifier == id }).first else {
@@ -102,6 +104,9 @@ struct AppReducer {
             
         case .appForeground:
             break
+            
+        case .isConnected(let connected):
+            newState.isConnected = connected
         }
         
         return newState

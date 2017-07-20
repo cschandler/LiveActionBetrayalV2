@@ -29,6 +29,7 @@ final class ConnectionManager {
     private var cardListener: FIRDatabaseHandle?
     private var hauntListener: FIRDatabaseHandle
     private var hauntNameListener: FIRDatabaseHandle
+    private var connectionListener: FIRDatabaseHandle
     
     lazy var database: FIRDatabaseReference = {
         return FIRDatabase.database().reference()
@@ -70,6 +71,7 @@ final class ConnectionManager {
         let watcherRef = FIRDatabase.database().reference().child(DatabaseTopLevel.watcher.rawValue)
         let hauntRef = FIRDatabase.database().reference().child(DatabaseTopLevel.hauntTriggered.rawValue)
         let hauntNameRef = FIRDatabase.database().reference().child(DatabaseTopLevel.hauntName.rawValue)
+        let connectionRef = FIRDatabase.database().reference(withPath: ".info/connected")
         
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
@@ -139,6 +141,20 @@ final class ConnectionManager {
             }
             
             AppStore.shared.dispatch(AppAction.hauntName(name))
+        })
+        
+        connectionListener = connectionRef.observe(.value, with: { snapshot in
+            print("CONNECTION LISTENER")
+            
+            guard let connected = snapshot.value as? Bool else {
+                print("------")
+                return
+            }
+            
+            print("Connected: \(connected)")
+            print("------")
+            
+            AppStore.shared.dispatch(AppAction.isConnected(connected))
         })
     }
     
@@ -212,6 +228,7 @@ final class ConnectionManager {
                     fulfill(.failure(error))
                     return
                 }
+                
                 print("------")
                 fulfill(.success(user))
             }

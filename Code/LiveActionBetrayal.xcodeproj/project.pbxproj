@@ -53,6 +53,7 @@
 		088D27071F13D09E0028F680 /* TraitorPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D27061F13D09E0028F680 /* TraitorPickerHeaderView.swift */; };
 		088E60E61E8CC605004AF072 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E51E8CC605004AF072 /* ResultView.swift */; };
 		088E60E81E8CDD9C004AF072 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E71E8CDD9C004AF072 /* UserDefaults.swift */; };
+		089D7EE81F225304006D2822 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089D7EE71F225304006D2822 /* UIView+Constraints.swift */; };
 		089EEBFD1EC9D3D700FE9E87 /* ExplorerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 089EEBFC1EC9D3D700FE9E87 /* ExplorerCell.xib */; };
 		089EEBFF1EC9D4A400FE9E87 /* ExplorerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EEBFE1EC9D4A400FE9E87 /* ExplorerCell.swift */; };
 		089EEC011EC9D60500FE9E87 /* ClassNameNibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089EEC001EC9D60500FE9E87 /* ClassNameNibLoadable.swift */; };
@@ -134,6 +135,7 @@
 		088D27061F13D09E0028F680 /* TraitorPickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitorPickerHeaderView.swift; sourceTree = "<group>"; };
 		088E60E51E8CC605004AF072 /* ResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		088E60E71E8CDD9C004AF072 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		089D7EE71F225304006D2822 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		089EEBFC1EC9D3D700FE9E87 /* ExplorerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExplorerCell.xib; sourceTree = "<group>"; };
 		089EEBFE1EC9D4A400FE9E87 /* ExplorerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerCell.swift; sourceTree = "<group>"; };
 		089EEC001EC9D60500FE9E87 /* ClassNameNibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassNameNibLoadable.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				084F265F1E78FC110058F3DF /* TorchManager.swift */,
 				08AC82A11E88485300BA9DDD /* TransitionViewController.swift */,
 				08FE3C9C1E82A5DD005E3C3A /* UIImageEffects.swift */,
+				089D7EE71F225304006D2822 /* UIView+Constraints.swift */,
 				088E60E71E8CDD9C004AF072 /* UserDefaults.swift */,
 				08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */,
 				081ECF371E7738DF006F9FF0 /* Assets.xcassets */,
@@ -476,6 +479,7 @@
 				082243301F0E840E00CB61BB /* WatcherHauntViewController.swift in Sources */,
 				08AC82A01E86211100BA9DDD /* ChoosePictureViewController.swift in Sources */,
 				08FF255D1EEDA0F30012949B /* Messanger.swift in Sources */,
+				089D7EE81F225304006D2822 /* UIView+Constraints.swift in Sources */,
 				08FE3CA41E82DCC8005E3C3A /* MainMenuViewController.swift in Sources */,
 				084B375D1E849FF100088472 /* PlayerMetadata.swift in Sources */,
 				08AC82A21E88485300BA9DDD /* TransitionViewController.swift in Sources */,

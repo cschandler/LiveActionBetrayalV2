@@ -45,11 +45,6 @@ final class MessagesViewController: JSQMessagesViewController {
                     ConnectionManager.shared.getConversation(forPlayer: id)
                 }
                 
-                if !senderIsWatcher {
-                    // Display the textField above the tab bar.
-                    edgesForExtendedLayout = []
-                }
-                
             default:
                 break
             }
@@ -138,6 +133,8 @@ extension MessagesViewController {
         if senderIsWatcher {
             AppStore.shared.unsubscribe(self)
             ConnectionManager.shared.resetMessages()
+        } else if let messages = messages.value {
+            markReadIfNeeded(messages: messages)
         }
     }
     

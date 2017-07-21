@@ -266,10 +266,11 @@
                         <viewControllerLayoutGuide type="bottom" id="OmO-UC-UUT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c6m-gG-svk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Messages" id="3mC-ez-8Ie"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GoS-EF-rZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -339,7 +340,8 @@
         <!--Messages-->
         <scene sceneID="cQ5-cR-DMH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02r-6Z-7HN" sceneMemberID="viewController">
+                <navigationController id="02r-6Z-7HN" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="Messages" image="ic-messages" id="bJM-AZ-JQz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="hO8-d4-8Yk">

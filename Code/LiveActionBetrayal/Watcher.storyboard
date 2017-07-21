@@ -236,7 +236,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="fG0-z5-RJk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWk-Ns-sGS" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -28,9 +28,8 @@ extension TabBarUpdatable where Self: UITabBarController {
     }
     
     func updateMessagesTabBadge(withMessages messages: [Message], currentUserId: String) {
-        guard let messagesTab = tabBar.items?[2],
-            selectedIndex != 2 else {
-                return
+        guard let messagesTab = tabBar.items?[2] else {
+            return
         }
         
         let unread = messages.filter { $0.read == false && $0.senderId != currentUserId }

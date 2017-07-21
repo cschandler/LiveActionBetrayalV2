@@ -41,6 +41,7 @@ extension CardsViewController: ExplorerType {
         
         AppStore.shared.subscribe(self)
         
+        AppStore.shared.dispatch(AppAction.loadingCards)
         ConnectionManager.shared.getCards()
         
         tableView.register(CardCell.nib, forCellReuseIdentifier: IDs.Cells.CardCell.rawValue)

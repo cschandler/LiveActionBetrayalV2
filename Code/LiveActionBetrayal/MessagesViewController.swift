@@ -39,7 +39,11 @@ final class MessagesViewController: JSQMessagesViewController {
                 }
                 
                 let id = senderIsWatcher ? reciever.id : sender.id
-                ConnectionManager.shared.getConversation(forPlayer: id)
+                
+                DispatchQueue.main.async {
+                    AppStore.shared.dispatch(AppAction.loadingConversation)
+                    ConnectionManager.shared.getConversation(forPlayer: id)
+                }
                 
                 if !senderIsWatcher {
                     // Display the textField above the tab bar.
@@ -107,7 +111,12 @@ extension MessagesViewController {
         
         switch messages {
         case .notAsked, .loading:
+            guard let _ = reciever else {
+                return
+            }
+            
             loadingIndicator.startAnimating()
+            
         default:
             break
         }
@@ -205,8 +214,8 @@ extension MessagesViewController {
 extension MessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        watcher = state.watcher
         messages = state.conversation
+        watcher = state.watcher
         players = state.connectedPlayers
     }
     

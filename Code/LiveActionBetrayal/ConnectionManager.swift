@@ -367,12 +367,7 @@ final class ConnectionManager {
     
     // MARK: - Cards
     
-    func getCards() {
-        
-        DispatchQueue.main.async {
-            AppStore.shared.dispatch(AppAction.loadingCards)
-        }
-        
+    func getCards() {        
         let cardRef = self.database.child(DatabaseTopLevel.items.rawValue)
         
         cardListener = cardRef.observe(.value, with: { snapshot in
@@ -464,11 +459,6 @@ final class ConnectionManager {
     }
     
     func getConversation(forPlayer uid: String) {
-        
-        DispatchQueue.main.async {
-            AppStore.shared.dispatch(AppAction.loadingConversation)
-        }
-        
         let messageRef = self.database.child("\(DatabaseTopLevel.messages.rawValue)/\(uid)")
         
         messageListener = messageRef.observe(.value, with: { snapshot in

@@ -31,6 +31,7 @@ final class ExplorerTabController: UITabBarController {
                 messagesViewController.reciever = Messanger(id: watcher.identifier, displayName: "Watcher", avatar: #imageLiteral(resourceName: "ic-avatar-default"))
             }
             
+            AppStore.shared.dispatch(AppAction.loadingConversation)
             ConnectionManager.shared.getConversation(forPlayer: currentUserID)
         }
     }

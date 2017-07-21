@@ -55,6 +55,7 @@ extension WatcherTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdat
         }
         
         if let _ = ConnectionManager.shared.currentUserID, case .notAsked = state.cards {
+            AppStore.shared.dispatch(AppAction.loadingCards)
             ConnectionManager.shared.getCards()
         }
         

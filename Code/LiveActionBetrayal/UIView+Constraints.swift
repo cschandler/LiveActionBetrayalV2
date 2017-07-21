@@ -19,7 +19,7 @@ extension UIView {
         leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     }
     
-    func constrainEdgeAnchorsToSuperviewEdgeAnchors() {
+    func addEdgeConstraintsToSuperview() {
         guard let view = self.superview else {
             preconditionFailure("Must have a superview to use this method")
         }

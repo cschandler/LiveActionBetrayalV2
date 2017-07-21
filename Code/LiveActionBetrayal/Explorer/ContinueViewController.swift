@@ -13,11 +13,23 @@ final class ContinueViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var players: [Explorer] = [] {
+    var players: Loadable<[Explorer]> = .loading {
         didSet {
-            tableView.reloadData()
+            switch players {
+            case .loaded(_):
+                tableView.reloadData()
+                
+                if !transitionInProgress {
+                    loadingIndicator.stopAnimating()
+                }
+                
+            default:
+                break
+            }
         }
     }
+    
+    var transitionInProgress = false
     
     func transition(withExplorer explorer: Explorer) {
         let transition = TransitionViewController(image: #imageLiteral(resourceName: "img-explorer"),
@@ -50,6 +62,8 @@ extension ContinueViewController: MainMenuType {
         
         tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
         tableView.rowHeight = 54
+        
+        loadingIndicator.startAnimating()
     }
     
 }
@@ -59,10 +73,14 @@ extension ContinueViewController: MainMenuType {
 extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        return players.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let players = players.value else {
+            preconditionFailure("Must have a players value for tableView layout")
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.ExplorerCell.rawValue, for: indexPath) as! ExplorerCell
         
         let player = players[indexPath.row]
@@ -74,12 +92,26 @@ extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let players = players.value else {
+            preconditionFailure("Must have a players value for tableView layout")
+        }
+        
         let player = players[indexPath.row]
         
         ConnectionManager.shared.logIn(player: player)
             .onSuccess { self.transition(withExplorer: player) }
             .onFailure { error in print(error) }
             .call()
+        
+        transitionInProgress = true
+        
+        UIView.animate(withDuration: 0.3, animations: { 
+            self.tableView.alpha = 0.0
+        }) { finished in
+            if finished {
+                self.loadingIndicator.startAnimating()
+            }
+        }
     }
     
 }
@@ -89,7 +121,7 @@ extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
 extension ContinueViewController: StoreSubscriber, StatusBarUpdatable {
     
     func newState(state: AppState) {
-        players = state.connectedPlayers
+        players = .loaded(state.connectedPlayers)
         
         updateStatusBar(withState: state)
     }

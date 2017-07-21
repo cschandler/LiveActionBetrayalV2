@@ -13,11 +13,17 @@ class BaseViewController: UIViewController {
     var background: UIImageView! {
         didSet {
             view.insertSubview(background, at: 0)
-            background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            background.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            background.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            background.addEdgeConstraints(inViewController: self)
             background.contentMode = .scaleAspectFill
+        }
+    }
+    
+    var loadingIndicator: UIActivityIndicatorView! {
+        didSet {
+            view.insertSubview(loadingIndicator, at: 1)
+            loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
     }
     
@@ -35,6 +41,7 @@ extension BaseViewController {
         super.viewDidLoad()
         
         background = UIImageView(frame: view.bounds)
+        loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     }
 
 }

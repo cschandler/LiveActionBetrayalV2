@@ -35,7 +35,11 @@ struct HauntController {
     
     /// Will choose the last omen added to the state.
     static func triggerHaunt() {
-        let omens = AppStore.shared.state.cards.filter({ $0.type == .omen })
+        guard let cards = AppStore.shared.state.cards.value else {
+            return
+        }
+        
+        let omens = cards.filter({ $0.type == .omen })
         
         guard let omen = omens.last else {
             return

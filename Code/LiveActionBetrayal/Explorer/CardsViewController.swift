@@ -82,7 +82,11 @@ extension CardsViewController: UITableViewDataSource, UITableViewDelegate {
 extension CardsViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        let cards = state.cards.filter { card in
+        guard let cards = state.cards.value else {
+            return
+        }
+        
+        let playerCards = cards.filter { card in
             guard let ownerId = card.owner,
                 let userId = ConnectionManager.shared.currentUserID else {
                     return false
@@ -91,7 +95,7 @@ extension CardsViewController: StoreSubscriber {
             return ownerId == userId
         }
         
-        self.cards = cards
+        self.cards = playerCards
     }
     
 }

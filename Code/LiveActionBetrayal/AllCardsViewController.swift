@@ -13,7 +13,7 @@ final class AllCardsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var cards: [Card] = [] {
+    var cards: Loadable<[Card]> = .notAsked {
         didSet {
             tableView.reloadData()
         }
@@ -55,10 +55,14 @@ extension AllCardsViewController: WatcherType {
 extension AllCardsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cards.count
+        return cards.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cards = cards.value else {
+            preconditionFailure("TableView misconfigured")
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.CardCell.rawValue, for: indexPath) as! CardCell
         
         let card = cards[indexPath.row]
@@ -77,6 +81,10 @@ extension AllCardsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cards = cards.value else {
+            preconditionFailure("TableView misconfigured")
+        }
+        
         let card = cards[indexPath.row]
         let viewController = CardDetailViewController.build(card: card)
         

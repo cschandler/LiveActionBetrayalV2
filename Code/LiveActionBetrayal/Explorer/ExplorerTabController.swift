@@ -66,8 +66,8 @@ extension ExplorerTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpda
             activateHauntTab()
         }
         
-        if let currentUserId = ConnectionManager.shared.currentUserID {
-            updateMessagesTabBadge(withMessages: state.conversation, currentUserId: currentUserId)
+        if let currentUserId = ConnectionManager.shared.currentUserID, let conversation = state.conversation.value {
+            updateMessagesTabBadge(withMessages: conversation, currentUserId: currentUserId)
         }
         
         updateStatusBar(withState: state)

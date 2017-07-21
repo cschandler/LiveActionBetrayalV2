@@ -54,7 +54,7 @@ extension WatcherTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdat
             updateMessagesTabBadge(withMessages: state.allMessages, currentUserId: currentUserId)
         }
         
-        if let _ = ConnectionManager.shared.currentUserID, state.cards.isEmpty {
+        if let _ = ConnectionManager.shared.currentUserID, case .notAsked = state.cards {
             ConnectionManager.shared.getCards()
         }
         

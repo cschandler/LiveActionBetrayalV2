@@ -73,7 +73,9 @@ extension WatcherHauntViewController: StoreSubscriber {
             title = state.hauntName
         }
         
-        omens = state.cards.filter { $0.type == .omen }
+        if let cards = state.cards.value {
+            omens = cards.filter { $0.type == .omen }
+        }
         
         updateHauntInputTextField(withState: state)
         updateSelectedTraitorLabel(withState: state)

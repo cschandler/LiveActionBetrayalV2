@@ -19,9 +19,14 @@ final class MessagesViewController: JSQMessagesViewController {
     
     fileprivate var messages: Loadable<[Message]> = .notAsked {
         didSet {
-            print("reloading messages collection view")
-            collectionView.reloadData()
-            scrollToBottom(animated: true)
+            switch messages {
+            case .loaded(_):
+                loadingIndicator.stopAnimating()
+                collectionView.reloadData()
+                scrollToBottom(animated: true)
+            default:
+                break
+            }
         }
     }
     
@@ -35,7 +40,6 @@ final class MessagesViewController: JSQMessagesViewController {
                 
                 let id = senderIsWatcher ? reciever.id : sender.id
                 ConnectionManager.shared.getConversation(forPlayer: id)
-                messages = .loading
                 
                 if !senderIsWatcher {
                     // Display the textField above the tab bar.
@@ -53,6 +57,16 @@ final class MessagesViewController: JSQMessagesViewController {
     }
     
     fileprivate var players: [Explorer] = []
+    
+    fileprivate var loadingIndicator: UIActivityIndicatorView! {
+        didSet {
+            view.addSubview(loadingIndicator)
+            view.bringSubview(toFront: loadingIndicator)
+            loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        }
+    }
     
     fileprivate func markReadIfNeeded(messages: [Message]) {
         for message in messages {
@@ -75,8 +89,6 @@ extension MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppStore.shared.subscribe(self)
-        
         senderId = sender.id
         senderDisplayName = sender.displayName
         
@@ -90,6 +102,17 @@ extension MessagesViewController {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
         tapGR.delegate = self
         collectionView.addGestureRecognizer(tapGR)
+        
+        loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        
+        switch messages {
+        case .notAsked, .loading:
+            loadingIndicator.startAnimating()
+        default:
+            break
+        }
+        
+        AppStore.shared.subscribe(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -183,7 +206,7 @@ extension MessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
         watcher = state.watcher
-        messages = .loaded(state.conversation)
+        messages = state.conversation
         players = state.connectedPlayers
     }
     

@@ -369,6 +369,10 @@ final class ConnectionManager {
     
     func getCards() {
         
+        DispatchQueue.main.async {
+            AppStore.shared.dispatch(AppAction.loadingCards)
+        }
+        
         let cardRef = self.database.child(DatabaseTopLevel.items.rawValue)
         
         cardListener = cardRef.observe(.value, with: { snapshot in
@@ -382,10 +386,12 @@ final class ConnectionManager {
             
             let cards: [Card] = json.flatMap { Card(json: $0.value as! JSON) }
             
-            if currentUserId == AppStore.shared.state.watcher?.identifier ?? "" {
+            if currentUserId == AppStore.shared.state.watcher?.identifier ?? "",
+                let oldCards = AppStore.shared.state.cards.value {
+                
                 // We only want to haunt to be tested for once per omen added
                 // If we ever add support for mutiple watchers we'll need a better solution
-                HauntController.triggerHauntIfNeeded(with: AppStore.shared.state.cards, newCards: cards)
+                HauntController.triggerHauntIfNeeded(with: oldCards, newCards: cards)
                 
                 AppStore.shared.dispatch(AppAction.cards(cards))
                 
@@ -459,6 +465,10 @@ final class ConnectionManager {
     
     func getConversation(forPlayer uid: String) {
         
+        DispatchQueue.main.async {
+            AppStore.shared.dispatch(AppAction.loadingConversation)
+        }
+        
         let messageRef = self.database.child("\(DatabaseTopLevel.messages.rawValue)/\(uid)")
         
         messageListener = messageRef.observe(.value, with: { snapshot in
@@ -498,7 +508,7 @@ final class ConnectionManager {
     
     func resetMessages() {
         messageListener = nil
-        AppStore.shared.dispatch(AppAction.currentConversation([]))
+        AppStore.shared.dispatch(AppAction.resetConversation)
     }
     
     // MARK: - Haunt

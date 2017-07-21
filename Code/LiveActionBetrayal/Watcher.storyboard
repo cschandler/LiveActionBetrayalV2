@@ -31,7 +31,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="2Wx-vt-BRe" secondAttribute="trailing" id="GLn-8m-bAo"/>
                             <constraint firstItem="Xq4-6R-W6o" firstAttribute="top" secondItem="2Wx-vt-BRe" secondAttribute="bottom" id="Jln-Pp-qsn"/>
@@ -80,7 +80,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ok5-Xs-Lam" firstAttribute="leading" secondItem="1Nb-GD-c6L" secondAttribute="leadingMargin" id="FCr-Vj-N8p"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ok5-Xs-Lam" secondAttribute="trailing" id="gtr-zx-Hz8"/>
@@ -203,7 +203,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xI3-gJ-Zf5" firstAttribute="leading" secondItem="Dl8-4R-w7m" secondAttribute="leadingMargin" id="19G-7D-wtP"/>
                             <constraint firstItem="xI3-gJ-Zf5" firstAttribute="centerX" secondItem="Dl8-4R-w7m" secondAttribute="centerX" id="PbB-Fc-dYJ"/>

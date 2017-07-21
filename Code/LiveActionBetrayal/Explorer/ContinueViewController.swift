@@ -63,7 +63,9 @@ extension ContinueViewController: MainMenuType {
         tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
         tableView.rowHeight = 54
         
-        loadingIndicator.startAnimating()
+        if case .loading = players {
+            loadingIndicator.startAnimating()
+        }
     }
     
 }
@@ -121,7 +123,9 @@ extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
 extension ContinueViewController: StoreSubscriber, StatusBarUpdatable {
     
     func newState(state: AppState) {
-        players = .loaded(state.connectedPlayers)
+        if !state.connectedPlayers.isEmpty {
+            players = .loaded(state.connectedPlayers)
+        }
         
         updateStatusBar(withState: state)
     }

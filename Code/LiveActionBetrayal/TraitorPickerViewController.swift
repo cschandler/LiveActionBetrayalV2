@@ -83,7 +83,7 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
 extension TraitorPickerViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        explorers = state.connectedPlayers
+        explorers = state.gameState.connectedPlayers
     }
     
 }

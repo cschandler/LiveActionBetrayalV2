@@ -47,6 +47,10 @@
 		085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 085F070E1E80A1F1001B99EE /* Explorer.storyboard */; };
 		085F07131E815D2A001B99EE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085F07121E815D2A001B99EE /* Theme.swift */; };
 		0867B5F01ECC715D009581EC /* AllMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */; };
+		08692B121F2686FC0083A372 /* HauntState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B111F2686FC0083A372 /* HauntState.swift */; };
+		08692B151F2687490083A372 /* CardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B141F2687490083A372 /* CardState.swift */; };
+		08692B171F2687590083A372 /* MessagesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B161F2687590083A372 /* MessagesState.swift */; };
+		08692B191F2687740083A372 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B181F2687740083A372 /* GameState.swift */; };
 		086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086AA8B51EF73FB1007DF072 /* HauntController.swift */; };
 		088D27031F13C6C40028F680 /* TraitorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */; };
 		088D27051F13D0800028F680 /* TraitorPickerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088D27041F13D0800028F680 /* TraitorPickerHeaderView.xib */; };
@@ -129,6 +133,10 @@
 		085F070F1E80A1F1001B99EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Explorer.storyboard; sourceTree = "<group>"; };
 		085F07121E815D2A001B99EE /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMessagesViewController.swift; sourceTree = "<group>"; };
+		08692B111F2686FC0083A372 /* HauntState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HauntState.swift; sourceTree = "<group>"; };
+		08692B141F2687490083A372 /* CardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardState.swift; sourceTree = "<group>"; };
+		08692B161F2687590083A372 /* MessagesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesState.swift; sourceTree = "<group>"; };
+		08692B181F2687740083A372 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		086AA8B51EF73FB1007DF072 /* HauntController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HauntController.swift; sourceTree = "<group>"; };
 		088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitorPickerViewController.swift; sourceTree = "<group>"; };
 		088D27041F13D0800028F680 /* TraitorPickerHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TraitorPickerHeaderView.xib; sourceTree = "<group>"; };
@@ -209,8 +217,8 @@
 				08AC82A31E88486900BA9DDD /* Explorer */,
 				08FE3CA01E82AD4C005E3C3A /* Status */,
 				085F07111E80CF87001B99EE /* Main Menu */,
+				08692B131F26871E0083A372 /* States */,
 				082056D01E78E58C00846370 /* Action.swift */,
-				084F26611E7A75AC0058F3DF /* AppState.swift */,
 				081ECF301E7738DF006F9FF0 /* AppDelegate.swift */,
 				084F26681E7B9CE80058F3DF /* Attributes.swift */,
 				08FE3C9E1E82A660005E3C3A /* BaseViewController.swift */,
@@ -288,6 +296,18 @@
 				083E0C2C1EBF8F22006C4783 /* ContinueViewController.swift */,
 			);
 			path = "Main Menu";
+			sourceTree = "<group>";
+		};
+		08692B131F26871E0083A372 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				084F26611E7A75AC0058F3DF /* AppState.swift */,
+				08692B111F2686FC0083A372 /* HauntState.swift */,
+				08692B141F2687490083A372 /* CardState.swift */,
+				08692B161F2687590083A372 /* MessagesState.swift */,
+				08692B181F2687740083A372 /* GameState.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 		08AC82A31E88486900BA9DDD /* Explorer */ = {
@@ -490,6 +510,7 @@
 				082056D11E78E58C00846370 /* Action.swift in Sources */,
 				081120591E7C8234003B52D3 /* Player.swift in Sources */,
 				083E0C291EBF8571006C4783 /* Card.swift in Sources */,
+				08692B191F2687740083A372 /* GameState.swift in Sources */,
 				083E0C271EBE777D006C4783 /* LightsSettingViewController.swift in Sources */,
 				08152B6D1F180DC800D35D99 /* TabBarUpdatable.swift in Sources */,
 				08C5B1261EFA04370064195E /* LightsCell.swift in Sources */,
@@ -520,6 +541,7 @@
 				083E0C2D1EBF8F22006C4783 /* ContinueViewController.swift in Sources */,
 				08AD4F901F212CA400057FFC /* ProgressUpdatable.swift in Sources */,
 				084F26601E78FC110058F3DF /* TorchManager.swift in Sources */,
+				08692B121F2686FC0083A372 /* HauntState.swift in Sources */,
 				080463051EBFDA6800601DF3 /* CardDetailViewController.swift in Sources */,
 				089EEC011EC9D60500FE9E87 /* ClassNameNibLoadable.swift in Sources */,
 				083B32121F1027C100B91F4B /* CardCell.swift in Sources */,
@@ -536,7 +558,9 @@
 				08AC82A51E884CBB00BA9DDD /* ExplorerTabController.swift in Sources */,
 				08BDF1E11F213D2F00373A1B /* Lens.swift in Sources */,
 				08FF255F1EEDA1160012949B /* Message.swift in Sources */,
+				08692B151F2687490083A372 /* CardState.swift in Sources */,
 				08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */,
+				08692B171F2687590083A372 /* MessagesState.swift in Sources */,
 				086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */,
 				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,
 			);

@@ -17,7 +17,7 @@ extension TabBarUpdatable where Self: UITabBarController {
             return
         }
         
-        guard !state.hauntTriggered, let cards = state.cards.value else {
+        guard !state.hauntState.hauntTriggered, let cards = state.gameState.cards.value else {
             itemsTab.badgeValue = nil
             return
         }

@@ -68,7 +68,7 @@ extension StatusViewController: UITableViewDataSource {
 extension StatusViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        players = state.connectedPlayers
+        players = state.gameState.connectedPlayers
         tableView.reloadData()
     }
 }

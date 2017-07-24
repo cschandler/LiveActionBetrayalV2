@@ -44,23 +44,24 @@ extension WatcherTabController: WatcherType {
 extension WatcherTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdatable {
     
     func newState(state: AppState) {
-        if let card = state.cardTriggeringHaunt,
-            state.hauntTriggered,
+        if let card = state.hauntState.cardTriggeringHaunt,
+            state.hauntState.hauntTriggered,
             !traitorPickerPresented {
                 presentTraitorPicker(withCard: card)
         }
         
         if let currentUserId = ConnectionManager.shared.currentUserID {
-            updateMessagesTabBadge(withMessages: state.allMessages, currentUserId: currentUserId)
+            updateMessagesTabBadge(withMessages: state.gameState.allMessages, currentUserId: currentUserId)
         }
         
-        if let _ = ConnectionManager.shared.currentUserID, case .notAsked = state.cards {
-            AppStore.shared.dispatch(AppAction.loadingCards)
-            ConnectionManager.shared.getCards()
+        if let _ = ConnectionManager.shared.currentUserID,
+            case .notAsked = state.gameState.cards {
+                AppStore.shared.dispatch(GameAction.loadingCards)
+                ConnectionManager.shared.getCards()
         }
         
         updateItemsTabBadge(withState: state)
-        updateStatusBar(withState: state)
+        updateStatusBar(withState: state.gameState)
     }
     
 }

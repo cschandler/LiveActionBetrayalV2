@@ -1,19 +1,15 @@
 //
-//  AppState.swift
+//  GameState.swift
 //  LiveActionBetrayal
 //
-//  Created by Charles Chandler on 3/16/17.
+//  Created by Charles Chandler on 7/24/17.
 //  Copyright © 2017 Charles Chander. All rights reserved.
 //
 
 import Foundation
 import ReSwift
 
-struct AppStore {
-    static let shared = Store(reducer: AppReducer().handleAction, state: AppState())
-}
-
-enum AppAction: Action {
+enum GameAction: Action {
     case torchesOn(Bool)
     case updated(Explorer)
     case added(Explorer)
@@ -24,23 +20,18 @@ enum AppAction: Action {
     case watcher(Watcher)
     case loadingCards
     case cards([Card])
-    case triggerHaunt
-    case triggerHauntWithCard(Card)
-    case hauntName(String)
     case appForeground
     case isConnected(Bool)
 }
 
-struct AppState: StateType {
+struct GameState: StateType {
+
     var watcher: Watcher?
     var connectedPlayers: [Explorer] = []
     var torchOn: Bool = TorchManager.isOn
     var allMessages: [Message] = []
     var conversation: Loadable<[Message]> = .notAsked
     var cards: Loadable<[Card]> = .notAsked
-    var hauntTriggered: Bool = false
-    var hauntName = ""
-    var cardTriggeringHaunt: Card?
     var isConnected: Bool = false
     
     func getPlayer(withId id: String) -> Explorer? {
@@ -58,14 +49,19 @@ struct AppState: StateType {
         
         return traitor
     }
+
 }
 
-struct AppReducer {
+struct GameReducer {
     
-    func handleAction(action: Action, state: AppState?) -> AppState {
-        var newState = state ?? AppState()
+    func gameReducer(action: Action, state: GameState?) -> GameState {
+        var newState = state ?? GameState()
         
-        switch action as! AppAction {
+        guard let action = action as? GameAction else {
+            return newState
+        }
+        
+        switch action {
         case .added(let explorer):
             guard !newState.connectedPlayers.contains(where: { $0.identifier == explorer.identifier }) else {
                 return newState
@@ -109,16 +105,6 @@ struct AppReducer {
         case .cards(let cards):
             newState.cards = .loaded(cards)
             
-        case .triggerHaunt:
-            newState.hauntTriggered = true
-            
-        case .triggerHauntWithCard(let card):
-            newState.cardTriggeringHaunt = card
-            newState.hauntTriggered = true
-            
-        case .hauntName(let name):
-            newState.hauntName = name
-            
         case .appForeground:
             break
             
@@ -135,10 +121,10 @@ struct AppReducer {
                 let updatedExplorer = Explorer.pictureLens.to(image, explorer)
                 
                 DispatchQueue.main.async {
-                    AppStore.shared.dispatch(AppAction.updated(updatedExplorer))
+                    AppStore.shared.dispatch(GameAction.updated(updatedExplorer))
                 }
             }
             .call()
     }
-
+    
 }

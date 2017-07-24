@@ -42,7 +42,7 @@ extension AppDelegate: UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        AppStore.shared.dispatch(AppAction.appForeground)
+        AppStore.shared.dispatch(GameAction.appForeground)
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

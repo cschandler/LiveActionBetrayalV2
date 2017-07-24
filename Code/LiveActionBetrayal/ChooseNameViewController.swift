@@ -29,7 +29,7 @@ final class ChooseNameViewController: BaseViewController {
             return .failure(ValidationFailure.invalidCharacter)
         }
         
-        for player in AppStore.shared.state.connectedPlayers {
+        for player in AppStore.shared.state.gameState.connectedPlayers {
             if player.name == name {
                 return .failure(ValidationFailure.taken)
             }

@@ -27,11 +27,11 @@ final class ExplorerTabController: UITabBarController {
             
             messagesViewController.sender = Messanger(id: currentUserID, displayName: metadata.name, avatar: metadata.picture ?? #imageLiteral(resourceName: "ic-avatar-default"))
             
-            if let watcher = AppStore.shared.state.watcher {
+            if let watcher = AppStore.shared.state.gameState.watcher {
                 messagesViewController.reciever = Messanger(id: watcher.identifier, displayName: "Watcher", avatar: #imageLiteral(resourceName: "ic-avatar-default"))
             }
             
-            AppStore.shared.dispatch(AppAction.loadingConversation)
+            AppStore.shared.dispatch(GameAction.loadingConversation)
             ConnectionManager.shared.getConversation(forPlayer: currentUserID)
         }
     }
@@ -63,15 +63,16 @@ extension ExplorerTabController: ExplorerType {
 extension ExplorerTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdatable {
     
     func newState(state: AppState) {
-        if state.hauntTriggered {
+        if state.hauntState.hauntTriggered {
             activateHauntTab()
         }
         
-        if let currentUserId = ConnectionManager.shared.currentUserID, let conversation = state.conversation.value {
-            updateMessagesTabBadge(withMessages: conversation, currentUserId: currentUserId)
+        if let currentUserId = ConnectionManager.shared.currentUserID,
+            let conversation = state.gameState.conversation.value {
+                updateMessagesTabBadge(withMessages: conversation, currentUserId: currentUserId)
         }
         
-        updateStatusBar(withState: state)
+        updateStatusBar(withState: state.gameState)
     }
     
 }

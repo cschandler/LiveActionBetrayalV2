@@ -63,7 +63,7 @@ final class ConnectionManager {
             return nil
         }
         
-        return AppStore.shared.state.getPlayer(withId: currentId)
+        return AppStore.shared.state.gameState.getPlayer(withId: currentId)
     }
     
     init() {
@@ -83,7 +83,7 @@ final class ConnectionManager {
                     return
             }
             
-            AppStore.shared.dispatch(AppAction.updated(explorer))
+            AppStore.shared.dispatch(GameAction.updated(explorer))
         })
         
         playerAddedListener = playerRef.observe(.childAdded, with: { snapshot in
@@ -95,7 +95,7 @@ final class ConnectionManager {
                     return
             }
             
-            AppStore.shared.dispatch(AppAction.added(explorer))
+            AppStore.shared.dispatch(GameAction.added(explorer))
         })
         
         torchListener = torchRef.observe(.value, with: { snapshot in
@@ -106,7 +106,7 @@ final class ConnectionManager {
                 return
             }
             
-            AppStore.shared.dispatch(AppAction.torchesOn(torchesOn))
+            AppStore.shared.dispatch(GameAction.torchesOn(torchesOn))
         })
         
         watcherListener = watcherRef.observe(.value, with: { snapshot in
@@ -119,7 +119,7 @@ final class ConnectionManager {
             
             let watcher = Watcher(identifier: watcherID)
             
-            AppStore.shared.dispatch(AppAction.watcher(watcher))
+            AppStore.shared.dispatch(GameAction.watcher(watcher))
         })
         
         hauntListener = hauntRef.observe(.value, with: { snapshot in
@@ -130,7 +130,7 @@ final class ConnectionManager {
                 return
             }
             
-            AppStore.shared.dispatch(AppAction.triggerHaunt)
+            AppStore.shared.dispatch(HauntAction.triggerHaunt)
         })
         
         hauntNameListener = hauntNameRef.observe(.value, with: { snapshot in
@@ -141,7 +141,7 @@ final class ConnectionManager {
                 return
             }
             
-            AppStore.shared.dispatch(AppAction.hauntName(name))
+            AppStore.shared.dispatch(HauntAction.hauntName(name))
         })
         
         connectionListener = connectionRef.observe(.value, with: { snapshot in
@@ -155,7 +155,7 @@ final class ConnectionManager {
             print("Connected: \(connected)")
             print("------")
             
-            AppStore.shared.dispatch(AppAction.isConnected(connected))
+            AppStore.shared.dispatch(GameAction.isConnected(connected))
         })
     }
     
@@ -173,7 +173,7 @@ final class ConnectionManager {
                         return
                 }
                 
-                AppStore.shared.dispatch(AppAction.added(explorer))
+                AppStore.shared.dispatch(GameAction.added(explorer))
             }
         })
     }
@@ -337,7 +337,7 @@ final class ConnectionManager {
     func toggleLights(on: Bool) {
         database.child(DatabaseTopLevel.torchesOn.rawValue).setValue(on)
         
-        for player in AppStore.shared.state.connectedPlayers {
+        for player in AppStore.shared.state.gameState.connectedPlayers {
             database.child("\(DatabaseTopLevel.players.rawValue)/\(player.identifier)/torch").setValue(on)
         }
     }
@@ -381,18 +381,18 @@ final class ConnectionManager {
             
             let cards: [Card] = json.flatMap { Card(json: $0.value as! JSON) }
             
-            if currentUserId == AppStore.shared.state.watcher?.identifier ?? "",
-                let oldCards = AppStore.shared.state.cards.value {
+            if currentUserId == AppStore.shared.state.gameState.watcher?.identifier ?? "",
+                let oldCards = AppStore.shared.state.gameState.cards.value {
                 
                 // We only want to haunt to be tested for once per omen added
                 // If we ever add support for mutiple watchers we'll need a better solution
                 HauntController.triggerHauntIfNeeded(with: oldCards, newCards: cards)
                 
-                AppStore.shared.dispatch(AppAction.cards(cards))
+                AppStore.shared.dispatch(GameAction.cards(cards))
                 
             } else {
                 let filteredCards = cards.filter { $0.owner == currentUserId }
-                AppStore.shared.dispatch(AppAction.cards(filteredCards))
+                AppStore.shared.dispatch(GameAction.cards(filteredCards))
             }
         })
     }
@@ -436,7 +436,7 @@ final class ConnectionManager {
                 .flatMap { $0 }
                 .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
             
-            AppStore.shared.dispatch(AppAction.allMessages(messages))
+            AppStore.shared.dispatch(GameAction.allMessages(messages))
         })
     }
     
@@ -454,7 +454,7 @@ final class ConnectionManager {
                 .flatMap { $0.value as! JSON }
                 .flatMap { Message(json: $0.value as! JSON, autoId: $0.key) }
             
-            AppStore.shared.dispatch(AppAction.allMessages(messages))
+            AppStore.shared.dispatch(GameAction.allMessages(messages))
         })
     }
     
@@ -473,7 +473,7 @@ final class ConnectionManager {
                 .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
                 .sorted { $0.timestamp < $1.timestamp }
             
-            AppStore.shared.dispatch(AppAction.currentConversation(messages))
+            AppStore.shared.dispatch(GameAction.currentConversation(messages))
         })
     }
     
@@ -498,7 +498,7 @@ final class ConnectionManager {
     
     func resetMessages() {
         messageListener = nil
-        AppStore.shared.dispatch(AppAction.resetConversation)
+        AppStore.shared.dispatch(GameAction.resetConversation)
     }
     
     // MARK: - Haunt
@@ -514,7 +514,7 @@ final class ConnectionManager {
     func getHaunt(withName name: String) -> Promise<String> {
         return Promise { fulfill in
             guard let currentUserID = self.currentUserID,
-                let currentExplorer = AppStore.shared.state.connectedPlayers.filter({ $0.identifier == currentUserID }).first else {
+                let currentExplorer = AppStore.shared.state.gameState.connectedPlayers.filter({ $0.identifier == currentUserID }).first else {
                     fulfill(.failure(StateError.noValidPlayer))
                     return
             }

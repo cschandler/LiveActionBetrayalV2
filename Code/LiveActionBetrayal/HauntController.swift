@@ -35,7 +35,7 @@ struct HauntController {
     
     /// Will choose the last omen added to the state.
     static func triggerHaunt() {
-        guard let cards = AppStore.shared.state.cards.value else {
+        guard let cards = AppStore.shared.state.gameState.cards.value else {
             return
         }
         
@@ -49,7 +49,7 @@ struct HauntController {
     }
     
     private static func triggerHaunt(withCard card: Card) {
-        AppStore.shared.dispatch(AppAction.triggerHauntWithCard(card))
+        AppStore.shared.dispatch(HauntAction.triggerHauntWithCard(card))
         ConnectionManager.shared.triggerHaunt()
     }
     

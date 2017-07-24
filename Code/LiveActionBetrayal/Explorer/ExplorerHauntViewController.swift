@@ -32,13 +32,13 @@ final class ExplorerHauntViewController: BaseViewController {
     }
     
     func getHaunt() {
-        guard case .notAsked = hauntText, !AppStore.shared.state.hauntName.isEmpty else {
+        guard case .notAsked = hauntText, !AppStore.shared.state.hauntState.hauntName.isEmpty else {
             return
         }
         
         hauntText = .loading
         
-        ConnectionManager.shared.getHaunt(withName: AppStore.shared.state.hauntName)
+        ConnectionManager.shared.getHaunt(withName: AppStore.shared.state.hauntState.hauntName)
             .onSuccess { text in
                 self.hauntText = .loaded(text)
             }
@@ -67,7 +67,7 @@ extension ExplorerHauntViewController: ExplorerType {
 extension ExplorerHauntViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        if let _ = state.getTraitor() {
+        if let _ = state.gameState.getTraitor() {
             getHaunt()
         }
     }

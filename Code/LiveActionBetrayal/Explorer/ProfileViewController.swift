@@ -141,7 +141,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         if let image = image,
             let id = ConnectionManager.shared.currentUserID,
-            let currentExplorer = AppStore.shared.state.getPlayer(withId: id) {
+            let currentExplorer = AppStore.shared.state.gameState.getPlayer(withId: id) {
             
                 let explorer = Explorer.pictureLens.to(image, currentExplorer)
             
@@ -149,7 +149,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                     self?.uploadTask = uploadTask
                 })
                 .call(completion: { _ in
-                    AppStore.shared.dispatch(AppAction.updated(explorer))
+                    AppStore.shared.dispatch(GameAction.updated(explorer))
                 })
         }
         

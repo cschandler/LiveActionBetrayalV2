@@ -35,7 +35,7 @@ final class TraitorPickerHeaderView: UIView, ClassNameNibLoadable {
     
     func setup(withCard card: Card) {
         guard let ownerId = card.owner,
-            let owner = AppStore.shared.state.getPlayer(withId: ownerId) else {
+            let owner = AppStore.shared.state.gameState.getPlayer(withId: ownerId) else {
                 fatalError("Card or Owner does not exist at Haunt start.")
         }
         

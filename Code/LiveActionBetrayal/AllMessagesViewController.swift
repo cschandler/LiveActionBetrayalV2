@@ -146,9 +146,9 @@ extension AllMessagesViewController: UITableViewDelegate, UITableViewDataSource 
 extension AllMessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        players = state.connectedPlayers
-        messages = state.allMessages
-        watcher = state.watcher
+        players = state.gameState.connectedPlayers
+        messages = state.gameState.allMessages
+        watcher = state.gameState.watcher
     }
     
 }

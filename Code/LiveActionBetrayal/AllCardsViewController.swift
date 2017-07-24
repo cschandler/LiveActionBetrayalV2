@@ -71,7 +71,7 @@ extension AllCardsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.typeLabel.text = "(\(card.type.rawValue))"
         
         if let owner = card.owner,
-            let explorer = AppStore.shared.state.getPlayer(withId: owner) {
+            let explorer = AppStore.shared.state.gameState.getPlayer(withId: owner) {
                 cell.ownerLabel.text = explorer.name
         } else {
             cell.ownerLabel.text = nil
@@ -98,7 +98,7 @@ extension AllCardsViewController: UITableViewDataSource, UITableViewDelegate {
 extension AllCardsViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        cards = state.cards
+        cards = state.gameState.cards
     }
     
 }

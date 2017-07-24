@@ -79,11 +79,11 @@ extension MainMenuViewController: MainMenuType {
 extension MainMenuViewController: StoreSubscriber, StatusBarUpdatable {
     
     func newState(state: AppState) {
-        if state.connectedPlayers.count > 0 {
+        if state.gameState.connectedPlayers.count > 0 {
             continueButton.isEnabled = true
         }
         
-        updateStatusBar(withState: state)
+        updateStatusBar(withState: state.gameState)
     }
     
 }

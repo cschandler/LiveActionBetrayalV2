@@ -89,7 +89,7 @@ extension LightsViewController: UITableViewDelegate, UITableViewDataSource {
 extension LightsViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        players = state.connectedPlayers
+        players = state.gameState.connectedPlayers
     }
     
 }

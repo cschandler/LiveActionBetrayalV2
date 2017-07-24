@@ -47,7 +47,7 @@ final class LightControlView: UIView {
         Defaults.shared.lightsOn = 30
         Defaults.shared.lightsOff = 30
         
-        lightsOn = AppStore.shared.state.torchOn
+        lightsOn = AppStore.shared.state.gameState.torchOn
         timeLeft = 30
     }
     

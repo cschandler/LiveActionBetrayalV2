@@ -12,7 +12,7 @@ protocol StatusBarUpdatable: class {}
 
 extension StatusBarUpdatable {
     
-    func updateStatusBar(withState state: AppState) {
+    func updateStatusBar(withState state: GameState) {
         UIView.animate(withDuration: 0.3) {
             UIApplication.shared.statusBarView?.backgroundColor = state.isConnected ? .clear : .red
         }

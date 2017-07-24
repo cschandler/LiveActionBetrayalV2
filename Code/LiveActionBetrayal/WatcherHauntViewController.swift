@@ -65,15 +65,15 @@ extension WatcherHauntViewController: WatcherType {
 extension WatcherHauntViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        if state.hauntTriggered && startHauntButton.isEnabled {
+        if state.hauntState.hauntTriggered && startHauntButton.isEnabled {
             startHauntButton.isEnabled = false
         }
         
-        if !state.hauntName.isEmpty {
-            title = state.hauntName
+        if !state.hauntState.hauntName.isEmpty {
+            title = state.hauntState.hauntName
         }
         
-        if let cards = state.cards.value {
+        if let cards = state.gameState.cards.value {
             omens = cards.filter { $0.type == .omen }
         }
         
@@ -82,17 +82,17 @@ extension WatcherHauntViewController: StoreSubscriber {
     }
     
     func updateHauntInputTextField(withState state: AppState) {
-        if state.hauntTriggered && !hauntInputVisualEffectView.isHidden {
+        if state.hauntState.hauntTriggered && !hauntInputVisualEffectView.isHidden {
             hauntInputVisualEffectView.isHidden = true
         }
         
-        if !state.hauntName.isEmpty && !hauntInputVisualEffectView.isHidden {
-            hauntInputTextField.text = "Selected Haunt: \(state.hauntName)"
+        if !state.hauntState.hauntName.isEmpty && !hauntInputVisualEffectView.isHidden {
+            hauntInputTextField.text = "Selected Haunt: \(state.hauntState.hauntName)"
         }
     }
     
     func updateSelectedTraitorLabel(withState state: AppState) {
-        if let traitor = state.getTraitor(), selectedTraitorLabel.isHidden {
+        if let traitor = state.gameState.getTraitor(), selectedTraitorLabel.isHidden {
             selectedTraitorLabel.text = "Traitor: \(traitor.name)"
             selectedTraitorLabel.setup()
             selectedTraitorLabel.addBorder()

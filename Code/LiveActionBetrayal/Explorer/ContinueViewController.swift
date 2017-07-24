@@ -123,11 +123,11 @@ extension ContinueViewController: UITableViewDelegate, UITableViewDataSource {
 extension ContinueViewController: StoreSubscriber, StatusBarUpdatable {
     
     func newState(state: AppState) {
-        if !state.connectedPlayers.isEmpty {
-            players = .loaded(state.connectedPlayers)
+        if !state.gameState.connectedPlayers.isEmpty {
+            players = .loaded(state.gameState.connectedPlayers)
         }
         
-        updateStatusBar(withState: state)
+        updateStatusBar(withState: state.gameState)
     }
     
 }

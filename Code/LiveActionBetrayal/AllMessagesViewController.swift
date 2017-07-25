@@ -147,7 +147,7 @@ extension AllMessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
         players = state.gameState.connectedPlayers
-        messages = state.gameState.allMessages
+        messages = state.messageState.allMessages
         watcher = state.gameState.watcher
     }
     

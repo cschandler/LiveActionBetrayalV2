@@ -13,10 +13,6 @@ enum GameAction: Action {
     case torchesOn(Bool)
     case updated(Explorer)
     case added(Explorer)
-    case loadingConversation
-    case currentConversation([Message])
-    case resetConversation
-    case allMessages([Message])
     case watcher(Watcher)
     case loadingCards
     case cards([Card])
@@ -29,8 +25,6 @@ struct GameState: StateType {
     var watcher: Watcher?
     var connectedPlayers: [Explorer] = []
     var torchOn: Bool = TorchManager.isOn
-    var allMessages: [Message] = []
-    var conversation: Loadable<[Message]> = .notAsked
     var cards: Loadable<[Card]> = .notAsked
     var isConnected: Bool = false
     
@@ -83,18 +77,6 @@ struct GameReducer {
             
         case .torchesOn(let torchesOn):
             newState.torchOn = torchesOn
-            
-        case .allMessages(let messages):
-            newState.allMessages = messages
-            
-        case .loadingConversation:
-            newState.conversation = .loading
-            
-        case .currentConversation(let messages):
-            newState.conversation = .loaded(messages)
-            
-        case .resetConversation:
-            newState.conversation = .notAsked
             
         case .watcher(let watcher):
             newState.watcher = watcher

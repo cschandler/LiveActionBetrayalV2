@@ -31,7 +31,7 @@ final class ExplorerTabController: UITabBarController {
                 messagesViewController.reciever = Messanger(id: watcher.identifier, displayName: "Watcher", avatar: #imageLiteral(resourceName: "ic-avatar-default"))
             }
             
-            AppStore.shared.dispatch(GameAction.loadingConversation)
+            AppStore.shared.dispatch(MessageAction.loadingConversation)
             ConnectionManager.shared.getConversation(forPlayer: currentUserID)
         }
     }
@@ -68,7 +68,7 @@ extension ExplorerTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpda
         }
         
         if let currentUserId = ConnectionManager.shared.currentUserID,
-            let conversation = state.gameState.conversation.value {
+            let conversation = state.messageState.conversation.value {
                 updateMessagesTabBadge(withMessages: conversation, currentUserId: currentUserId)
         }
         

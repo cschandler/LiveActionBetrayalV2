@@ -436,7 +436,7 @@ final class ConnectionManager {
                 .flatMap { $0 }
                 .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
             
-            AppStore.shared.dispatch(GameAction.allMessages(messages))
+            AppStore.shared.dispatch(MessageAction.allMessages(messages))
         })
     }
     
@@ -454,7 +454,7 @@ final class ConnectionManager {
                 .flatMap { $0.value as! JSON }
                 .flatMap { Message(json: $0.value as! JSON, autoId: $0.key) }
             
-            AppStore.shared.dispatch(GameAction.allMessages(messages))
+            AppStore.shared.dispatch(MessageAction.allMessages(messages))
         })
     }
     
@@ -473,7 +473,7 @@ final class ConnectionManager {
                 .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
                 .sorted { $0.timestamp < $1.timestamp }
             
-            AppStore.shared.dispatch(GameAction.currentConversation(messages))
+            AppStore.shared.dispatch(MessageAction.currentConversation(messages))
         })
     }
     
@@ -498,7 +498,7 @@ final class ConnectionManager {
     
     func resetMessages() {
         messageListener = nil
-        AppStore.shared.dispatch(GameAction.resetConversation)
+        AppStore.shared.dispatch(MessageAction.resetConversation)
     }
     
     // MARK: - Haunt

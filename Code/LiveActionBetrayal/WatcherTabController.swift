@@ -51,7 +51,7 @@ extension WatcherTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdat
         }
         
         if let currentUserId = ConnectionManager.shared.currentUserID {
-            updateMessagesTabBadge(withMessages: state.gameState.allMessages, currentUserId: currentUserId)
+            updateMessagesTabBadge(withMessages: state.messageState.allMessages, currentUserId: currentUserId)
         }
         
         if let _ = ConnectionManager.shared.currentUserID,

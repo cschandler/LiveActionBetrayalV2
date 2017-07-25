@@ -41,7 +41,7 @@ final class MessagesViewController: JSQMessagesViewController {
                 let id = senderIsWatcher ? reciever.id : sender.id
                 
                 DispatchQueue.main.async {
-                    AppStore.shared.dispatch(GameAction.loadingConversation)
+                    AppStore.shared.dispatch(MessageAction.loadingConversation)
                     ConnectionManager.shared.getConversation(forPlayer: id)
                 }
                 
@@ -211,7 +211,7 @@ extension MessagesViewController {
 extension MessagesViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        messages = state.gameState.conversation
+        messages = state.messageState.conversation
         watcher = state.gameState.watcher
         players = state.gameState.connectedPlayers
     }

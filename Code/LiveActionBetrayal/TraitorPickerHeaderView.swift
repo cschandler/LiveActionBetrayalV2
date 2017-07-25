@@ -10,7 +10,7 @@ import UIKit
 
 final class TraitorPickerHeaderView: UIView, ClassNameNibLoadable {
     
-    static func build(withCard card: Card) -> TraitorPickerHeaderView {
+    static func build(withCard card: Card?) -> TraitorPickerHeaderView {
         let view = TraitorPickerHeaderView.loadInstanceFromNib()
         
         view.card = card
@@ -21,7 +21,7 @@ final class TraitorPickerHeaderView: UIView, ClassNameNibLoadable {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var card: Card! {
+    var card: Card? {
         didSet {
             setup(withCard: card)
         }
@@ -33,10 +33,12 @@ final class TraitorPickerHeaderView: UIView, ClassNameNibLoadable {
         backgroundColor = .clear
     }
     
-    func setup(withCard card: Card) {
-        guard let ownerId = card.owner,
+    func setup(withCard card: Card?) {
+        guard let card = card,
+            let ownerId = card.owner,
             let owner = AppStore.shared.state.gameState.getPlayer(withId: ownerId) else {
-                fatalError("Card or Owner does not exist at Haunt start.")
+                descriptionLabel.text = nil
+                return
         }
         
         let text = "The haunt began with \(owner.name) finding \(card.name) in the \(String(describing: card.room))."

@@ -52,6 +52,7 @@
 		08692B171F2687590083A372 /* MessageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B161F2687590083A372 /* MessageState.swift */; };
 		08692B191F2687740083A372 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B181F2687740083A372 /* GameState.swift */; };
 		086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086AA8B51EF73FB1007DF072 /* HauntController.swift */; };
+		08840B221F27E70200900699 /* TraitorPickerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08CB62741F27E380008832A6 /* TraitorPickerHeaderView.xib */; };
 		088D27031F13C6C40028F680 /* TraitorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */; };
 		088E60E61E8CC605004AF072 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E51E8CC605004AF072 /* ResultView.swift */; };
 		088E60E81E8CDD9C004AF072 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E60E71E8CDD9C004AF072 /* UserDefaults.swift */; };
@@ -72,6 +73,11 @@
 		08C5B1261EFA04370064195E /* LightsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5B1251EFA04370064195E /* LightsCell.swift */; };
 		08C5B1281EFA045F0064195E /* LightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08C5B1271EFA045F0064195E /* LightsCell.xib */; };
 		08CB61ED1ECB258C00177BB5 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */; };
+		08CB626C1F27DF07008832A6 /* SetHauntCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08CB626B1F27DF07008832A6 /* SetHauntCell.xib */; };
+		08CB626E1F27DF2F008832A6 /* SetHauntCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB626D1F27DF2F008832A6 /* SetHauntCell.swift */; };
+		08CB62701F27DF6B008832A6 /* HauntPickerButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08CB626F1F27DF6B008832A6 /* HauntPickerButtonCell.xib */; };
+		08CB62721F27DF80008832A6 /* HauntPickerButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB62711F27DF80008832A6 /* HauntPickerButtonCell.swift */; };
+		08CB62761F27E380008832A6 /* TraitorPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CB62751F27E380008832A6 /* TraitorPickerHeaderView.swift */; };
 		08D8F47B1E860F9000FFDDA3 /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */; };
 		08DCEAED1E89C0ED00F0E094 /* VibrantLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */; };
 		08DCEAEF1E8A032500F0E094 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */; };
@@ -156,6 +162,12 @@
 		08C5B1251EFA04370064195E /* LightsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsCell.swift; sourceTree = "<group>"; };
 		08C5B1271EFA045F0064195E /* LightsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightsCell.xib; sourceTree = "<group>"; };
 		08CB61EC1ECB258C00177BB5 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		08CB626B1F27DF07008832A6 /* SetHauntCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetHauntCell.xib; sourceTree = "<group>"; };
+		08CB626D1F27DF2F008832A6 /* SetHauntCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetHauntCell.swift; sourceTree = "<group>"; };
+		08CB626F1F27DF6B008832A6 /* HauntPickerButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HauntPickerButtonCell.xib; sourceTree = "<group>"; };
+		08CB62711F27DF80008832A6 /* HauntPickerButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HauntPickerButtonCell.swift; sourceTree = "<group>"; };
+		08CB62741F27E380008832A6 /* TraitorPickerHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TraitorPickerHeaderView.xib; sourceTree = "<group>"; };
+		08CB62751F27E380008832A6 /* TraitorPickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitorPickerHeaderView.swift; sourceTree = "<group>"; };
 		08D8F47A1E860F9000FFDDA3 /* BlurButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		08DCEAEC1E89C0ED00F0E094 /* VibrantLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrantLabel.swift; sourceTree = "<group>"; };
 		08DCEAEE1E8A032500F0E094 /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
@@ -270,7 +282,7 @@
 				0822432F1F0E840E00CB61BB /* WatcherHauntViewController.swift */,
 				083B320F1F10271E00B91F4B /* CardCell.xib */,
 				083B32111F1027C100B91F4B /* CardCell.swift */,
-				088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */,
+				08CB62731F27E0B2008832A6 /* Traitor Picker */,
 			);
 			name = Watcher;
 			sourceTree = "<group>";
@@ -321,6 +333,20 @@
 				082243311F0EB3D200CB61BB /* ExplorerHauntViewController.swift */,
 			);
 			path = Explorer;
+			sourceTree = "<group>";
+		};
+		08CB62731F27E0B2008832A6 /* Traitor Picker */ = {
+			isa = PBXGroup;
+			children = (
+				088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */,
+				08CB62751F27E380008832A6 /* TraitorPickerHeaderView.swift */,
+				08CB62741F27E380008832A6 /* TraitorPickerHeaderView.xib */,
+				08CB626B1F27DF07008832A6 /* SetHauntCell.xib */,
+				08CB626D1F27DF2F008832A6 /* SetHauntCell.swift */,
+				08CB626F1F27DF6B008832A6 /* HauntPickerButtonCell.xib */,
+				08CB62711F27DF80008832A6 /* HauntPickerButtonCell.swift */,
+			);
+			name = "Traitor Picker";
 			sourceTree = "<group>";
 		};
 		08FE3CA01E82AD4C005E3C3A /* Status */ = {
@@ -418,15 +444,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08840B221F27E70200900699 /* TraitorPickerHeaderView.xib in Resources */,
 				080A61B61EB8B4EF00619A99 /* LightControlView.xib in Resources */,
 				085F07101E80A1F1001B99EE /* Explorer.storyboard in Resources */,
 				08455D2E1EB0C58700B4898F /* Watcher.storyboard in Resources */,
 				08455C1F1E919A2A007ED3C5 /* GoogleService-Info.plist in Resources */,
 				08FE3CAC1E82DD6B005E3C3A /* Main.storyboard in Resources */,
+				08CB62701F27DF6B008832A6 /* HauntPickerButtonCell.xib in Resources */,
 				083B70541E88DE4100D6DC01 /* StatStepper.xib in Resources */,
 				08C5B1281EFA045F0064195E /* LightsCell.xib in Resources */,
 				083B32101F10271E00B91F4B /* CardCell.xib in Resources */,
 				084B37611E84AC7200088472 /* AttributeCell.xib in Resources */,
+				08CB626C1F27DF07008832A6 /* SetHauntCell.xib in Resources */,
 				08FE3CA91E82DD09005E3C3A /* Status.storyboard in Resources */,
 				089EEBFD1EC9D3D700FE9E87 /* ExplorerCell.xib in Resources */,
 				081ECF3B1E7738DF006F9FF0 /* LaunchScreen.storyboard in Resources */,
@@ -525,6 +554,7 @@
 				084F26691E7B9CE80058F3DF /* Attributes.swift in Sources */,
 				08FE3CAE1E82DDC1005E3C3A /* ChooseNameViewController.swift in Sources */,
 				080463031EBFACF000601DF3 /* AddCardViewController.swift in Sources */,
+				08CB626E1F27DF2F008832A6 /* SetHauntCell.swift in Sources */,
 				08AC82A91E88546000BA9DDD /* ProfileViewController.swift in Sources */,
 				08361D041EF5946D00E44B69 /* Loadable.swift in Sources */,
 				083B320E1F0ED3EC00B91F4B /* WatcherTabController.swift in Sources */,
@@ -540,6 +570,7 @@
 				08BDF1E31F2144CE00373A1B /* StatusBarUpdatable.swift in Sources */,
 				084B375B1E849F9900088472 /* ChooseAttributeViewController.swift in Sources */,
 				0811205B1E7C84E9003B52D3 /* StatusViewController.swift in Sources */,
+				08CB62721F27DF80008832A6 /* HauntPickerButtonCell.swift in Sources */,
 				08FE3CA61E82DCD3005E3C3A /* ConnectionManager.swift in Sources */,
 				08FE3CB21E82E6B1005E3C3A /* StatusType.swift in Sources */,
 				0811205F1E7C8AFE003B52D3 /* IDs.swift in Sources */,
@@ -555,6 +586,7 @@
 				08692B171F2687590083A372 /* MessageState.swift in Sources */,
 				086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */,
 				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,
+				08CB62761F27E380008832A6 /* TraitorPickerHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

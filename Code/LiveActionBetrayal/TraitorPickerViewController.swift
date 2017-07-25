@@ -21,17 +21,7 @@ final class TraitorPickerViewController: BaseViewController, Finishable {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var card: Card? {
-        didSet {
-//            guard let card = card,
-//                let ownerId = card.owner,
-//                let owner = AppStore.shared.state.gameState.getPlayer(withId: ownerId) else {
-//                    return
-//            }
-//
-//            detailLabel.text = "The haunt began with \(owner.name) finding \(card.name) in the \(String(describing: card.room))."
-        }
-    }
+    var card: Card?
     
     var explorers: [Explorer] = [] {
         didSet {
@@ -72,10 +62,13 @@ final class TraitorPickerViewController: BaseViewController, Finishable {
     }
     
     func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.rowHeight = 54.0
+        tableView.register(SetHauntCell.nib, forCellReuseIdentifier: IDs.Cells.SetHauntCell.rawValue)
         tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
+        tableView.register(HauntPickerButtonCell.nib, forCellReuseIdentifier: IDs.Cells.HauntPickerButtonCell.rawValue)
+        
+        let headerView = TraitorPickerHeaderView.build(withCard: card)
+        tableView.tableHeaderView = headerView
     }
     
 }
@@ -93,6 +86,23 @@ extension TraitorPickerViewController: StatusType {
         
 //        let tapGR = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
 //        view.addGestureRecognizer(tapGR)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // http://collindonnell.com/2015/09/29/dynamically-sized-table-view-header-or-footer-using-auto-layout/
+        if let headerView = tableView.tableHeaderView {
+            let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var headerFrame = headerView.frame
+            
+            //Comparison necessary to avoid infinite loop
+            if height != headerFrame.size.height {
+                headerFrame.size.height = height
+                headerView.frame = headerFrame
+                tableView.tableHeaderView = headerView
+            }
+        }
     }
     
 }
@@ -123,7 +133,9 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
         
         switch section {
         case .setHaunt:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.SetHauntCell.rawValue, for: indexPath) as! SetHauntCell
+            
+            return cell
             
         case .players:
             let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.ExplorerCell.rawValue, for: indexPath) as! ExplorerCell
@@ -136,7 +148,9 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
             return cell
             
         case .buttons:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.HauntPickerButtonCell.rawValue, for: indexPath) as! HauntPickerButtonCell
+            
+            return cell
         }
     }
     

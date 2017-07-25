@@ -21,6 +21,8 @@ enum IDs {
         case CardCell
         case ExplorerCell
         case LightsCell
+        case SetHauntCell
+        case HauntPickerButtonCell
     }
     
     enum Segues: String {

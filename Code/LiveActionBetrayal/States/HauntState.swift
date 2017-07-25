@@ -16,11 +16,9 @@ enum HauntAction: Action {
 }
 
 struct HauntState: StateType {
-    
     var hauntTriggered: Bool = false
     var hauntName = ""
     var cardTriggeringHaunt: Card?
-
 }
 
 struct HauntReducer {

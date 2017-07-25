@@ -141,7 +141,7 @@ final class ConnectionManager {
                 return
             }
             
-            AppStore.shared.dispatch(HauntAction.hauntName(name))
+            AppStore.shared.dispatch(HauntAction.hauntStarted(name))
         })
         
         connectionListener = connectionRef.observe(.value, with: { snapshot in

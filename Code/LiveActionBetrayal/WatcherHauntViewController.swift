@@ -17,30 +17,18 @@ final class WatcherHauntViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var hauntInputVisualEffectView: UIVisualEffectView! {
-        didSet {
-            hauntInputVisualEffectView.addBorder()
-        }
-    }
-    
-    @IBOutlet weak var hauntInputTextField: UITextField!
     @IBOutlet weak var selectedTraitorLabel: VibrantLabel!
     
     var omens: [Card] = []
     
     @IBAction func startHauntButtonTapped(_ sender: BlurButton) {
-        guard !omens.isEmpty else {
-            presentNoOmenError()
-            return
+        let viewController = TraitorPickerViewController.build(withCard: nil)
+        
+        viewController.completed = { _ in
+            self.dismiss(animated: true, completion: nil)
         }
         
-        HauntController.triggerHaunt()
-    }
-    
-    func presentNoOmenError() {
-        let alert = UIAlertController(title: "Error", message: "Cannot trigger the haunt with no Omens.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
     
 }
@@ -53,9 +41,6 @@ extension WatcherHauntViewController: WatcherType {
         title = "No Haunt Selected"
         
         setupView()
-        
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGR)
         
         AppStore.shared.subscribe(self)
     }
@@ -77,18 +62,7 @@ extension WatcherHauntViewController: StoreSubscriber {
             omens = cards.filter { $0.type == .omen }
         }
         
-        updateHauntInputTextField(withState: state)
         updateSelectedTraitorLabel(withState: state)
-    }
-    
-    func updateHauntInputTextField(withState state: AppState) {
-        if state.hauntState.hauntTriggered && !hauntInputVisualEffectView.isHidden {
-            hauntInputVisualEffectView.isHidden = true
-        }
-        
-        if !state.hauntState.hauntName.isEmpty && !hauntInputVisualEffectView.isHidden {
-            hauntInputTextField.text = "Selected Haunt: \(state.hauntState.hauntName)"
-        }
     }
     
     func updateSelectedTraitorLabel(withState state: AppState) {
@@ -105,21 +79,5 @@ extension WatcherHauntViewController: StoreSubscriber {
 }
 
 extension WatcherHauntViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let text = textField.text else {
-            return true
-        }
-        
-        let filteredText = text.replacingOccurrences(of: "Selected Haunt: ", with: "")
-        ConnectionManager.shared.setHaunt(withName: filteredText)
-        dismissKeyboard()
-        
-        return true
-    }
-    
-    func dismissKeyboard() {
-        hauntInputTextField.resignFirstResponder()
-    }
     
 }

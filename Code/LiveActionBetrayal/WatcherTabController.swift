@@ -13,7 +13,7 @@ final class WatcherTabController: UITabBarController {
     
     var traitorPickerPresented = false
     
-    func presentTraitorPicker(withCard card: Card) {
+    func presentTraitorPicker(withCard card: Card?) {
         traitorPickerPresented = true
         
         let viewController = TraitorPickerViewController.build(withCard: card)
@@ -44,10 +44,9 @@ extension WatcherTabController: WatcherType {
 extension WatcherTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdatable {
     
     func newState(state: AppState) {
-        if let card = state.hauntState.cardTriggeringHaunt,
-            state.hauntState.hauntTriggered,
+        if state.hauntState.hauntTriggered,
             !traitorPickerPresented {
-                presentTraitorPicker(withCard: card)
+                presentTraitorPicker(withCard: state.hauntState.cardTriggeringHaunt)
         }
         
         if let currentUserId = ConnectionManager.shared.currentUserID {

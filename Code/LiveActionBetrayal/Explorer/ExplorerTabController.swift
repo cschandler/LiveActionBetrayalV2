@@ -12,6 +12,7 @@ import ReSwift
 final class ExplorerTabController: UITabBarController {
     
     var metadata: PlayerMetadata?
+    var hauntNotificationDisplayed = false
     
     func injectIntoMessagesViewController() {
         for viewController in childViewControllers {
@@ -33,6 +34,23 @@ final class ExplorerTabController: UITabBarController {
             
             AppStore.shared.dispatch(MessageAction.loadingConversation)
             ConnectionManager.shared.getConversation(forPlayer: currentUserID)
+        }
+    }
+    
+    func displayHauntNotification() {
+        guard !hauntNotificationDisplayed else {
+            return
+        }
+        
+        hauntNotificationDisplayed = true
+        
+        let alert = UIAlertController(title: "The haunt has begun!", message: "See the now active haunt tab for details.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "GO", style: .default, handler: { _ in
+            self.selectedIndex = 3
+        }))
+        
+        present(alert, animated: true) {
+            self.activateHauntTab()
         }
     }
     
@@ -63,8 +81,8 @@ extension ExplorerTabController: ExplorerType {
 extension ExplorerTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpdatable {
     
     func newState(state: AppState) {
-        if state.hauntState.hauntTriggered {
-            activateHauntTab()
+        if state.hauntState.hauntStarted {
+            displayHauntNotification()
         }
         
         if let currentUserId = ConnectionManager.shared.currentUserID,

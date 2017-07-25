@@ -12,13 +12,14 @@ import ReSwift
 enum HauntAction: Action {
     case triggerHaunt
     case triggerHauntWithCard(Card)
-    case hauntName(String)
+    case hauntStarted(String)
 }
 
 struct HauntState: StateType {
-    var hauntTriggered: Bool = false
+    var hauntTriggered = false
     var hauntName = ""
     var cardTriggeringHaunt: Card?
+    var hauntStarted = false
 }
 
 struct HauntReducer {
@@ -38,8 +39,9 @@ struct HauntReducer {
             newState.cardTriggeringHaunt = card
             newState.hauntTriggered = true
             
-        case .hauntName(let name):
+        case .hauntStarted(let name):
             newState.hauntName = name
+            newState.hauntStarted = true
         }
         
         return newState

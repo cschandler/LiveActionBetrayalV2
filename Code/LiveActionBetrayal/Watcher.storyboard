@@ -393,113 +393,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HX-tI-Pv1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haunt roll succeeded!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxV-Rq-lrE">
-                                        <rect key="frame" x="8" y="25" width="359" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dq2-6D-9KR">
-                                        <rect key="frame" x="8" y="105.5" width="359" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup the haunt below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCV-ux-pas">
-                                        <rect key="frame" x="8" y="141" width="359" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Haunt name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kUl-Of-7CX">
-                                        <rect key="frame" x="8" y="176.5" width="359" height="36"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="RfS-d8-J0j"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="OtH-Cb-K1T" id="Z4w-ck-x1h"/>
-                                        </connections>
-                                    </textField>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VXF-Sm-Y3B">
-                                        <rect key="frame" x="0.0" y="227.5" width="375" height="128"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="qNb-aE-ulZ"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="dataSource" destination="OtH-Cb-K1T" id="zuK-Ap-5gF"/>
-                                            <outlet property="delegate" destination="OtH-Cb-K1T" id="Hyt-GI-sEW"/>
-                                        </connections>
-                                    </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="skg-um-e6L">
-                                        <rect key="frame" x="8" y="370.5" width="359" height="36"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWq-7l-MW6">
-                                                <rect key="frame" x="0.0" y="0.0" width="175.5" height="36"/>
-                                                <state key="normal" title="Reject"/>
-                                                <connections>
-                                                    <action selector="rejectButtonTapped:" destination="OtH-Cb-K1T" eventType="touchUpInside" id="ubc-FX-aRC"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmi-Uw-e2Y">
-                                                <rect key="frame" x="183.5" y="0.0" width="175.5" height="36"/>
-                                                <state key="normal" title="Start!"/>
-                                                <connections>
-                                                    <action selector="startButtonTapped:" destination="OtH-Cb-K1T" eventType="touchUpInside" id="FaM-ki-531"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="kBe-1j-09x"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="dq2-6D-9KR" secondAttribute="trailing" constant="8" id="1Wt-2v-CRW"/>
-                                    <constraint firstItem="VxV-Rq-lrE" firstAttribute="top" secondItem="8HX-tI-Pv1" secondAttribute="top" constant="25" id="AAB-ot-aLp"/>
-                                    <constraint firstItem="dq2-6D-9KR" firstAttribute="leading" secondItem="8HX-tI-Pv1" secondAttribute="leading" constant="8" id="AqL-ug-XSd"/>
-                                    <constraint firstAttribute="bottom" secondItem="skg-um-e6L" secondAttribute="bottom" constant="15" id="BLa-wo-dJr"/>
-                                    <constraint firstItem="VxV-Rq-lrE" firstAttribute="leading" secondItem="8HX-tI-Pv1" secondAttribute="leading" constant="8" id="CTE-ym-Xtd"/>
-                                    <constraint firstItem="VXF-Sm-Y3B" firstAttribute="leading" secondItem="8HX-tI-Pv1" secondAttribute="leading" id="IXj-fY-VEh"/>
-                                    <constraint firstAttribute="trailing" secondItem="VxV-Rq-lrE" secondAttribute="trailing" constant="8" id="JtJ-sM-4ef"/>
-                                    <constraint firstItem="dq2-6D-9KR" firstAttribute="top" secondItem="VxV-Rq-lrE" secondAttribute="bottom" constant="60" id="Kgx-Ba-jzr"/>
-                                    <constraint firstItem="GCV-ux-pas" firstAttribute="leading" secondItem="8HX-tI-Pv1" secondAttribute="leading" constant="8" id="LpD-QK-vco"/>
-                                    <constraint firstItem="VxV-Rq-lrE" firstAttribute="centerX" secondItem="8HX-tI-Pv1" secondAttribute="centerX" id="NQL-rX-Npu"/>
-                                    <constraint firstItem="GCV-ux-pas" firstAttribute="top" secondItem="dq2-6D-9KR" secondAttribute="bottom" constant="15" id="SB2-aF-dUk"/>
-                                    <constraint firstItem="skg-um-e6L" firstAttribute="leading" secondItem="8HX-tI-Pv1" secondAttribute="leading" constant="8" id="UMV-cN-S6W"/>
-                                    <constraint firstAttribute="trailing" secondItem="VXF-Sm-Y3B" secondAttribute="trailing" id="X1v-VV-iAa"/>
-                                    <constraint firstItem="skg-um-e6L" firstAttribute="top" secondItem="VXF-Sm-Y3B" secondAttribute="bottom" constant="15" id="XMi-L0-t7k"/>
-                                    <constraint firstItem="kUl-Of-7CX" firstAttribute="top" secondItem="GCV-ux-pas" secondAttribute="bottom" constant="15" id="alC-LC-z3B"/>
-                                    <constraint firstItem="VXF-Sm-Y3B" firstAttribute="top" secondItem="kUl-Of-7CX" secondAttribute="bottom" constant="15" id="j9j-bc-6aw"/>
-                                    <constraint firstAttribute="trailing" secondItem="skg-um-e6L" secondAttribute="trailing" constant="8" id="m8x-Lw-ifx"/>
-                                    <constraint firstItem="kUl-Of-7CX" firstAttribute="leading" secondItem="8HX-tI-Pv1" secondAttribute="leading" constant="8" id="sGx-te-0cO"/>
-                                    <constraint firstAttribute="trailing" secondItem="GCV-ux-pas" secondAttribute="trailing" constant="8" id="tKm-ar-uE9"/>
-                                    <constraint firstAttribute="trailing" secondItem="kUl-Of-7CX" secondAttribute="trailing" constant="8" id="wM7-FX-A23"/>
-                                </constraints>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-jJ-3vt">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OtH-Cb-K1T" id="y2K-Gc-Biq"/>
+                                    <outlet property="delegate" destination="OtH-Cb-K1T" id="D7r-PP-NrY"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8HX-tI-Pv1" firstAttribute="leading" secondItem="g45-Tx-DD4" secondAttribute="leading" id="81a-Wd-CCW"/>
-                            <constraint firstAttribute="bottom" secondItem="8HX-tI-Pv1" secondAttribute="bottom" id="AcU-Yy-HgV"/>
-                            <constraint firstAttribute="trailing" secondItem="8HX-tI-Pv1" secondAttribute="trailing" id="EuN-3i-nV1"/>
-                            <constraint firstItem="8HX-tI-Pv1" firstAttribute="top" secondItem="g45-Tx-DD4" secondAttribute="top" id="Og3-sK-Eze"/>
+                            <constraint firstItem="VQK-Wr-8xs" firstAttribute="top" secondItem="dIv-jJ-3vt" secondAttribute="bottom" id="7Ey-aa-phz"/>
+                            <constraint firstItem="dIv-jJ-3vt" firstAttribute="top" secondItem="6nb-xo-mAg" secondAttribute="bottom" id="G5b-mg-c0P"/>
+                            <constraint firstItem="dIv-jJ-3vt" firstAttribute="leading" secondItem="g45-Tx-DD4" secondAttribute="leading" id="QPK-kp-09U"/>
+                            <constraint firstAttribute="trailing" secondItem="dIv-jJ-3vt" secondAttribute="trailing" id="dTY-92-xTg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="detailLabel" destination="dq2-6D-9KR" id="1vK-Zg-LhG"/>
-                        <outlet property="rejectButton" destination="hWq-7l-MW6" id="RBg-ru-s5D"/>
-                        <outlet property="setHauntTextField" destination="kUl-Of-7CX" id="OLJ-u9-gzO"/>
-                        <outlet property="startButton" destination="xmi-Uw-e2Y" id="QXA-3P-mfV"/>
-                        <outlet property="tableView" destination="VXF-Sm-Y3B" id="SvA-AD-WuI"/>
-                        <outlet property="tableViewHeightConstraint" destination="qNb-aE-ulZ" id="R88-fu-q6T"/>
+                        <outlet property="tableView" destination="dIv-jJ-3vt" id="trk-y3-AUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRA-oa-kW1" userLabel="First Responder" sceneMemberID="firstResponder"/>

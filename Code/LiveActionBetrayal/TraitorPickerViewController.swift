@@ -19,57 +19,61 @@ final class TraitorPickerViewController: BaseViewController, Finishable {
         return viewController
     }
     
-    @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var setHauntTextField: UITextField!
-    @IBOutlet weak var rejectButton: UIButton!
-    @IBOutlet weak var startButton: UIButton!
     
     var card: Card? {
         didSet {
-            guard let card = card,
-                let ownerId = card.owner,
-                let owner = AppStore.shared.state.gameState.getPlayer(withId: ownerId) else {
-                    return
-            }
-            
-            detailLabel.text = "The haunt began with \(owner.name) finding \(card.name) in the \(String(describing: card.room))."
+//            guard let card = card,
+//                let ownerId = card.owner,
+//                let owner = AppStore.shared.state.gameState.getPlayer(withId: ownerId) else {
+//                    return
+//            }
+//
+//            detailLabel.text = "The haunt began with \(owner.name) finding \(card.name) in the \(String(describing: card.room))."
         }
     }
     
     var explorers: [Explorer] = [] {
         didSet {
-            tableViewHeightConstraint.constant = CGFloat(explorers.count) * 54.0
-            tableView.reloadData()
+            
         }
     }
     
     var selectedTraitor: Explorer?
     
-    @IBAction func rejectButtonTapped(_ sender: UIButton) {
-        cancel()
-    }
+//    @IBAction func rejectButtonTapped(_ sender: UIButton) {
+//        cancel()
+//    }
     
-    @IBAction func startButtonTapped(_ sender: UIButton) {
-        guard let text = setHauntTextField.text else {
-            setHauntTextField.backgroundColor = .red
-            return
-        }
+//    @IBAction func startButtonTapped(_ sender: UIButton) {
+//        guard let text = setHauntTextField.text else {
+//            setHauntTextField.backgroundColor = .red
+//            return
+//        }
+//
+//        setHauntTextField.backgroundColor = .white
+//
+//        guard let traitor = selectedTraitor else {
+//            tableView.backgroundColor = .red
+//            return
+//        }
+//
+//        ConnectionManager.shared.updatePlayer(explorer: traitor)
+//        ConnectionManager.shared.setHaunt(withName: text)
+//        finish()
+//    }
+    
+    fileprivate enum TableViewSections: Int {
+        case setHaunt = 0
+        case players
+        case buttons
         
-        setHauntTextField.backgroundColor = .white
-        
-        guard let traitor = selectedTraitor else {
-            tableView.backgroundColor = .red
-            return
-        }
-        
-        ConnectionManager.shared.updatePlayer(explorer: traitor)
-        ConnectionManager.shared.setHaunt(withName: text)
-        finish()
+        static var count = TableViewSections.buttons.rawValue + 1
     }
     
     func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.rowHeight = 54.0
         tableView.register(ExplorerCell.nib, forCellReuseIdentifier: IDs.Cells.ExplorerCell.rawValue)
     }
@@ -87,31 +91,67 @@ extension TraitorPickerViewController: StatusType {
         
         setupTableView()
         
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGR)
+//        let tapGR = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        view.addGestureRecognizer(tapGR)
     }
     
 }
 
 extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return TableViewSections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return explorers.count
+        guard let section = TableViewSections(rawValue: section) else {
+            preconditionFailure("tableView misconfiguration")
+        }
+        
+        switch section {
+        case .setHaunt, .buttons:
+            return 1
+        case .players:
+            return explorers.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.ExplorerCell.rawValue, for: indexPath) as! ExplorerCell
+        guard let section = TableViewSections(rawValue: indexPath.section) else {
+            preconditionFailure("tableView misconfiguration")
+        }
         
-        let explorer = explorers[indexPath.row]
-        
-        cell.name.text = explorer.name
-        cell.profilePicture.image = explorer.picture
-        
-        return cell
+        switch section {
+        case .setHaunt:
+            return UITableViewCell()
+            
+        case .players:
+            let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.ExplorerCell.rawValue, for: indexPath) as! ExplorerCell
+            
+            let explorer = explorers[indexPath.row]
+            
+            cell.name.text = explorer.name
+            cell.profilePicture.image = explorer.picture
+            
+            return cell
+            
+        case .buttons:
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedTraitor = explorers[indexPath.row]
+        guard let section = TableViewSections(rawValue: indexPath.section) else {
+            preconditionFailure("tableView misconfiguration")
+        }
+        
+        switch section {
+        case .players:
+            selectedTraitor = explorers[indexPath.row]
+            
+        default:
+            break
+        }
     }
     
 }
@@ -124,15 +164,16 @@ extension TraitorPickerViewController: StoreSubscriber {
     
 }
 
-extension TraitorPickerViewController: UITextFieldDelegate {
-    
-     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        dismissKeyboard()
-     
-        return true
-     }
-     
-     func dismissKeyboard() {
-        setHauntTextField.resignFirstResponder()
-     }
-}
+//extension TraitorPickerViewController: UITextFieldDelegate {
+//
+//     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        dismissKeyboard()
+//
+//        return true
+//     }
+//
+//     func dismissKeyboard() {
+//        setHauntTextField.resignFirstResponder()
+//     }
+//}
+

@@ -41,7 +41,7 @@ extension CardsViewController: ExplorerType {
         
         AppStore.shared.subscribe(self)
         
-        AppStore.shared.dispatch(GameAction.loadingCards)
+        AppStore.shared.dispatch(CardAction.loadingCards)
         ConnectionManager.shared.getCards()
         
         tableView.register(CardCell.nib, forCellReuseIdentifier: IDs.Cells.CardCell.rawValue)
@@ -83,7 +83,7 @@ extension CardsViewController: UITableViewDataSource, UITableViewDelegate {
 extension CardsViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        guard let cards = state.gameState.cards.value else {
+        guard let cards = state.cardState.cards.value else {
             return
         }
         

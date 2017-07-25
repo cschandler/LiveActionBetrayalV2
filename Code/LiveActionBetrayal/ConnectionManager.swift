@@ -382,17 +382,17 @@ final class ConnectionManager {
             let cards: [Card] = json.flatMap { Card(json: $0.value as! JSON) }
             
             if currentUserId == AppStore.shared.state.gameState.watcher?.identifier ?? "",
-                let oldCards = AppStore.shared.state.gameState.cards.value {
+                let oldCards = AppStore.shared.state.cardState.cards.value {
                 
                 // We only want to haunt to be tested for once per omen added
                 // If we ever add support for mutiple watchers we'll need a better solution
                 HauntController.triggerHauntIfNeeded(with: oldCards, newCards: cards)
                 
-                AppStore.shared.dispatch(GameAction.cards(cards))
+                AppStore.shared.dispatch(CardAction.cards(cards))
                 
             } else {
                 let filteredCards = cards.filter { $0.owner == currentUserId }
-                AppStore.shared.dispatch(GameAction.cards(filteredCards))
+                AppStore.shared.dispatch(CardAction.cards(filteredCards))
             }
         })
     }

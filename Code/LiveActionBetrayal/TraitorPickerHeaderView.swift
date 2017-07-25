@@ -39,7 +39,7 @@ final class TraitorPickerHeaderView: UIView, ClassNameNibLoadable {
                 fatalError("Card or Owner does not exist at Haunt start.")
         }
         
-        let text = "The haunt began with \(owner.name) finding \(card.name) in the \(card.room)."
+        let text = "The haunt began with \(owner.name) finding \(card.name) in the \(String(describing: card.room))."
         
         descriptionLabel.text = text
     }

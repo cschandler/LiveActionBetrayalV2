@@ -17,9 +17,10 @@ extension TabBarUpdatable where Self: UITabBarController {
             return
         }
         
-        guard !state.hauntState.hauntTriggered, let cards = state.gameState.cards.value else {
-            itemsTab.badgeValue = nil
-            return
+        guard !state.hauntState.hauntTriggered,
+            let cards = state.cardState.cards.value else {
+                itemsTab.badgeValue = nil
+                return
         }
         
         let omens = cards.filter({ $0.type == .omen })

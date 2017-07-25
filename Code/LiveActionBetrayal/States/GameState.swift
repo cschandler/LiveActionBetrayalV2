@@ -14,18 +14,14 @@ enum GameAction: Action {
     case updated(Explorer)
     case added(Explorer)
     case watcher(Watcher)
-    case loadingCards
-    case cards([Card])
     case appForeground
     case isConnected(Bool)
 }
 
 struct GameState: StateType {
-
     var watcher: Watcher?
     var connectedPlayers: [Explorer] = []
     var torchOn: Bool = TorchManager.isOn
-    var cards: Loadable<[Card]> = .notAsked
     var isConnected: Bool = false
     
     func getPlayer(withId id: String) -> Explorer? {
@@ -80,12 +76,6 @@ struct GameReducer {
             
         case .watcher(let watcher):
             newState.watcher = watcher
-            
-        case .loadingCards:
-            newState.cards = .loading
-            
-        case .cards(let cards):
-            newState.cards = .loaded(cards)
             
         case .appForeground:
             break

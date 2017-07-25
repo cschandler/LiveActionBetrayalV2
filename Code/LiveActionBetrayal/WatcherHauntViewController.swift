@@ -73,7 +73,7 @@ extension WatcherHauntViewController: StoreSubscriber {
             title = state.hauntState.hauntName
         }
         
-        if let cards = state.gameState.cards.value {
+        if let cards = state.cardState.cards.value {
             omens = cards.filter { $0.type == .omen }
         }
         

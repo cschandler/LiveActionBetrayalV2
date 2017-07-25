@@ -98,7 +98,7 @@ extension AllCardsViewController: UITableViewDataSource, UITableViewDelegate {
 extension AllCardsViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        cards = state.gameState.cards
+        cards = state.cardState.cards
     }
     
 }

@@ -49,7 +49,7 @@
 		0867B5F01ECC715D009581EC /* AllMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */; };
 		08692B121F2686FC0083A372 /* HauntState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B111F2686FC0083A372 /* HauntState.swift */; };
 		08692B151F2687490083A372 /* CardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B141F2687490083A372 /* CardState.swift */; };
-		08692B171F2687590083A372 /* MessagesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B161F2687590083A372 /* MessagesState.swift */; };
+		08692B171F2687590083A372 /* MessageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B161F2687590083A372 /* MessageState.swift */; };
 		08692B191F2687740083A372 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08692B181F2687740083A372 /* GameState.swift */; };
 		086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086AA8B51EF73FB1007DF072 /* HauntController.swift */; };
 		088D27031F13C6C40028F680 /* TraitorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */; };
@@ -135,7 +135,7 @@
 		0867B5EF1ECC715D009581EC /* AllMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMessagesViewController.swift; sourceTree = "<group>"; };
 		08692B111F2686FC0083A372 /* HauntState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HauntState.swift; sourceTree = "<group>"; };
 		08692B141F2687490083A372 /* CardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardState.swift; sourceTree = "<group>"; };
-		08692B161F2687590083A372 /* MessagesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesState.swift; sourceTree = "<group>"; };
+		08692B161F2687590083A372 /* MessageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageState.swift; sourceTree = "<group>"; };
 		08692B181F2687740083A372 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		086AA8B51EF73FB1007DF072 /* HauntController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HauntController.swift; sourceTree = "<group>"; };
 		088D27021F13C6C40028F680 /* TraitorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitorPickerViewController.swift; sourceTree = "<group>"; };
@@ -304,7 +304,7 @@
 				084F26611E7A75AC0058F3DF /* AppState.swift */,
 				08692B111F2686FC0083A372 /* HauntState.swift */,
 				08692B141F2687490083A372 /* CardState.swift */,
-				08692B161F2687590083A372 /* MessagesState.swift */,
+				08692B161F2687590083A372 /* MessageState.swift */,
 				08692B181F2687740083A372 /* GameState.swift */,
 			);
 			path = States;
@@ -560,7 +560,7 @@
 				08FF255F1EEDA1160012949B /* Message.swift in Sources */,
 				08692B151F2687490083A372 /* CardState.swift in Sources */,
 				08AC82AD1E88C68900BA9DDD /* StatStepper.swift in Sources */,
-				08692B171F2687590083A372 /* MessagesState.swift in Sources */,
+				08692B171F2687590083A372 /* MessageState.swift in Sources */,
 				086AA8B61EF73FB1007DF072 /* HauntController.swift in Sources */,
 				081ECF311E7738DF006F9FF0 /* AppDelegate.swift in Sources */,
 			);

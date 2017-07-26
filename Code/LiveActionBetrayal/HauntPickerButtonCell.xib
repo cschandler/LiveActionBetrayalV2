@@ -21,14 +21,14 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RcE-dt-FAL">
                         <rect key="frame" x="8" y="4" width="359" height="36"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ui-yy-x9v" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ui-yy-x9v" customClass="LightBlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="175.5" height="36"/>
                                 <state key="normal" title="Reject"/>
                                 <connections>
                                     <action selector="rejectButtonTapped:" destination="zmL-Az-TYQ" eventType="touchUpInside" id="fUS-zx-75e"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcI-8B-CNr" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcI-8B-CNr" customClass="LightBlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                 <rect key="frame" x="183.5" y="0.0" width="175.5" height="36"/>
                                 <state key="normal" title="Start!"/>
                                 <connections>

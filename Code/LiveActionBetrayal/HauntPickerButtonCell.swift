@@ -20,6 +20,9 @@ final class HauntPickerButtonCell: UITableViewCell, ClassNameNibLoadable {
         super.awakeFromNib()
         
         contentView.backgroundColor = .clear
+        
+        rejectButton.setTitle("Reject", for: .normal)
+        startButton.setTitle("Start!", for: .normal)
     }
     
     @IBAction func rejectButtonTapped(_ sender: BlurButton) {

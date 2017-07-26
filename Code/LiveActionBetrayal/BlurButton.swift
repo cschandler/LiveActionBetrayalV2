@@ -47,7 +47,10 @@ class BlurButton: UIButton {
         vibrantView.translatesAutoresizingMaskIntoConstraints = false
         vibrantView.isUserInteractionEnabled = false
         
-        guard let title = titleLabel else { return }
+        guard let title = titleLabel else {
+            return
+        }
+        
         vibrantView.contentView.addSubview(title)
         
         addBorder()
@@ -62,6 +65,18 @@ extension UIView {
         self.layer.cornerRadius = 4.0
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
+    }
+    
+}
+
+class LightBlurButton: BlurButton {
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init(style: .light)
+    }
+    
+    required init(style: UIBlurEffectStyle) {
+        super.init(style: style)
     }
     
 }

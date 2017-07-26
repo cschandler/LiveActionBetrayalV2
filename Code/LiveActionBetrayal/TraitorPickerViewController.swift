@@ -31,28 +31,6 @@ final class TraitorPickerViewController: BaseViewController, Finishable {
     
     var selectedTraitor: Explorer?
     
-//    @IBAction func rejectButtonTapped(_ sender: UIButton) {
-//        cancel()
-//    }
-    
-//    @IBAction func startButtonTapped(_ sender: UIButton) {
-//        guard let text = setHauntTextField.text else {
-//            setHauntTextField.backgroundColor = .red
-//            return
-//        }
-//
-//        setHauntTextField.backgroundColor = .white
-//
-//        guard let traitor = selectedTraitor else {
-//            tableView.backgroundColor = .red
-//            return
-//        }
-//
-//        ConnectionManager.shared.updatePlayer(explorer: traitor)
-//        ConnectionManager.shared.setHaunt(withName: text)
-//        finish()
-//    }
-    
     fileprivate enum TableViewSections: Int {
         case setHaunt = 0
         case players
@@ -71,6 +49,23 @@ final class TraitorPickerViewController: BaseViewController, Finishable {
         tableView.tableHeaderView = headerView
     }
     
+    func processHauntInformation() {
+        let setHauntIndexPath = IndexPath(item: 0, section: TableViewSections.setHaunt.rawValue)
+        
+        guard let cell = tableView.cellForRow(at: setHauntIndexPath) as? SetHauntCell,
+            let text = cell.textField.text,
+            !text.isEmpty else {
+                return
+        }
+        
+        guard let traitor = selectedTraitor else {
+            return
+        }
+        
+        ConnectionManager.shared.updatePlayer(explorer: traitor)
+        ConnectionManager.shared.setHaunt(withName: text)
+    }
+    
 }
 
 extension TraitorPickerViewController: StatusType {
@@ -83,9 +78,6 @@ extension TraitorPickerViewController: StatusType {
         AppStore.shared.subscribe(self)
         
         setupTableView()
-        
-//        let tapGR = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        view.addGestureRecognizer(tapGR)
     }
     
     override func viewDidLayoutSubviews() {
@@ -150,6 +142,15 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
         case .buttons:
             let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.HauntPickerButtonCell.rawValue, for: indexPath) as! HauntPickerButtonCell
             
+            cell.rejectButtonTapped = { [weak self] in
+                self?.cancel()
+            }
+            
+            cell.startButtonTapped = { [weak self] in
+                self?.processHauntInformation()
+                self?.finish()
+            }
+            
             return cell
         }
     }
@@ -158,6 +159,8 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
         guard let section = TableViewSections(rawValue: indexPath.section) else {
             preconditionFailure("tableView misconfiguration")
         }
+        
+        print("Selecting player at indexPath: \(indexPath)")
         
         switch section {
         case .players:
@@ -177,17 +180,4 @@ extension TraitorPickerViewController: StoreSubscriber {
     }
     
 }
-
-//extension TraitorPickerViewController: UITextFieldDelegate {
-//
-//     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        dismissKeyboard()
-//
-//        return true
-//     }
-//
-//     func dismissKeyboard() {
-//        setHauntTextField.resignFirstResponder()
-//     }
-//}
 

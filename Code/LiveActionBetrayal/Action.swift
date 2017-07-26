@@ -9,8 +9,6 @@
 import Foundation
 import ReSwift
 
-typealias JSON = [String:AnyObject]
-
 enum PeerAction: Action, CustomStringConvertible {
     case lightsOn
     case lightsOff

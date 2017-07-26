@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 import ReSwift
 
+typealias JSON = [String:AnyObject]
+typealias SimpleClosure = () -> Void
+
 @UIApplicationMain
 class AppDelegate: UIResponder {
 

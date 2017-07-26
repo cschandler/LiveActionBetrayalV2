@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,8 +18,29 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="STw-yS-QU8" id="2TZ-ee-ZZy">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Set Haunt" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2s-rh-aPb">
+                        <rect key="frame" x="16" y="12" width="343" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="0.80206585566778521" colorSpace="calibratedWhite"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                        <connections>
+                            <outlet property="delegate" destination="STw-yS-QU8" id="uV6-Y7-Vt7"/>
+                        </connections>
+                    </textField>
+                </subviews>
+                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="e2s-rh-aPb" secondAttribute="trailing" constant="8" id="igR-kf-DPT"/>
+                    <constraint firstItem="e2s-rh-aPb" firstAttribute="centerY" secondItem="2TZ-ee-ZZy" secondAttribute="centerY" id="xdD-2t-b5I"/>
+                    <constraint firstItem="e2s-rh-aPb" firstAttribute="leading" secondItem="2TZ-ee-ZZy" secondAttribute="leadingMargin" constant="8" id="xmx-Ja-Qhe"/>
+                </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.0" green="0.63921568630000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="textField" destination="e2s-rh-aPb" id="rjO-Lo-RPL"/>
+            </connections>
             <point key="canvasLocation" x="25" y="3"/>
         </tableViewCell>
     </objects>

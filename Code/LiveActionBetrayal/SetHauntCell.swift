@@ -10,9 +10,22 @@ import UIKit
 
 final class SetHauntCell: UITableViewCell, ClassNameNibLoadable {
     
+    @IBOutlet weak var textField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        contentView.backgroundColor = .clear
+    }
+    
+}
+
+extension SetHauntCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
     
 }

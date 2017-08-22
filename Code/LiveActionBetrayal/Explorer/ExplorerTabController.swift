@@ -49,9 +49,7 @@ final class ExplorerTabController: UITabBarController {
             self.selectedIndex = 3
         }))
         
-        present(alert, animated: true) {
-            self.activateHauntTab()
-        }
+        present(alert, animated: true)
     }
     
     func activateHauntTab() {
@@ -83,6 +81,7 @@ extension ExplorerTabController: StoreSubscriber, TabBarUpdatable, StatusBarUpda
     func newState(state: AppState) {
         if state.hauntState.hauntStarted {
             displayHauntNotification()
+            activateHauntTab()
         }
         
         if let currentUserId = ConnectionManager.shared.currentUserID,

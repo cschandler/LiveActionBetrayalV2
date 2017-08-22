@@ -27,28 +27,20 @@ struct HauntController {
             print("Haunt roll: \(roll) for \(newOmens.count) omens.")
             
             if newOmens.count > roll {
-                triggerHaunt(withCard: getLatest(current: existingOmens, new: newOmens))
+                let card = getLatest(current: existingOmens, new: newOmens)
+                
+                let viewController = TraitorPickerViewController.build(withCard: card)
+                
+                viewController.completed = { _ in
+                    UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
+                }
+                
+                UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
             }
         }
     }
     
-    
-    /// Will choose the last omen added to the state.
-    static func triggerHaunt() {
-        guard let cards = AppStore.shared.state.cardState.cards.value else {
-            return
-        }
-        
-        let omens = cards.filter({ $0.type == .omen })
-        
-        guard let omen = omens.last else {
-            return
-        }
-        
-        triggerHaunt(withCard: omen)
-    }
-    
-    private static func triggerHaunt(withCard card: Card) {
+    static func triggerHaunt(withCard card: Card?) {
         AppStore.shared.dispatch(HauntAction.triggerHauntWithCard(card))
         ConnectionManager.shared.triggerHaunt()
     }

@@ -25,9 +25,11 @@ final class TraitorPickerViewController: BaseViewController, Finishable {
     
     var explorers: [Explorer] = [] {
         didSet {
-            
+            tableView.reloadData()
         }
     }
+    
+    var hauntName: String?
     
     var selectedTraitor: Explorer?
     
@@ -60,20 +62,24 @@ final class TraitorPickerViewController: BaseViewController, Finishable {
     }
     
     func processHauntInformation() {
-        let setHauntIndexPath = IndexPath(item: 0, section: TableViewSections.setHaunt.rawValue)
-        
-        guard let cell = tableView.cellForRow(at: setHauntIndexPath) as? SetHauntCell,
-            let text = cell.textField.text,
-            !text.isEmpty else {
-                return
-        }
-        
-        guard let traitor = selectedTraitor else {
+        guard let name = hauntName, !name.isEmpty else {
+            let alert = UIAlertController.with(title: "Error", message: "Input haunt name.")
+            present(alert, animated: true, completion: nil)
             return
         }
         
-        ConnectionManager.shared.updatePlayer(explorer: traitor)
-        ConnectionManager.shared.setHaunt(withName: text)
+        guard let traitor = selectedTraitor else {
+            let alert = UIAlertController.with(title: "Error", message: "Choose a traitor.")
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        let updatedExplorer = Explorer.traitorLens.to(true, traitor)
+        
+        ConnectionManager.shared.updatePlayer(explorer: updatedExplorer)
+        ConnectionManager.shared.setHaunt(withName: name)
+        HauntController.triggerHaunt(withCard: card)
+        finish()
     }
     
 }
@@ -137,6 +143,12 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
         case .setHaunt:
             let cell = tableView.dequeueReusableCell(withIdentifier: IDs.Cells.SetHauntCell.rawValue, for: indexPath) as! SetHauntCell
             
+            cell.hauntNameSet = { [weak self] name in
+                self?.hauntName = name
+            }
+            
+            cell.selectionStyle = .none
+            
             return cell
             
         case .players:
@@ -164,8 +176,9 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
             
             cell.startButtonTapped = { [weak self] in
                 self?.processHauntInformation()
-                self?.finish()
             }
+            
+            cell.selectionStyle = .none
             
             return cell
         }
@@ -175,8 +188,6 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
         guard let section = TableViewSections(rawValue: indexPath.section) else {
             preconditionFailure("tableView misconfiguration")
         }
-        
-        print("Selecting player at indexPath: \(indexPath)")
         
         switch section {
         case .players:
@@ -194,6 +205,20 @@ extension TraitorPickerViewController: StoreSubscriber {
     
     func newState(state: AppState) {
         explorers = state.gameState.connectedPlayers
+    }
+    
+}
+
+extension UIAlertController {
+    
+    class func with(title: String, message: String, buttonHandler: (SimpleClosure)? = nil) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            buttonHandler?()
+        }))
+        
+        return alert
     }
     
 }

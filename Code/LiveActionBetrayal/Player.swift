@@ -39,6 +39,14 @@ struct Explorer: PlayerType {
         return explorer
     }
     
+    public static let traitorLens = Lens<Explorer, Bool>(from: { $0.isTraitor }) { (isTraitor, explorer) in
+        var explorer = explorer
+        
+        explorer.isTraitor = isTraitor
+        
+        return explorer
+    }
+    
     init?(json: JSON) {
         guard let uid = json["uid"] as? String,
             let name = json["name"] as? String,

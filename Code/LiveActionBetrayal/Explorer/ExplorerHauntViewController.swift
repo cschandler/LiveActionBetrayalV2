@@ -67,8 +67,14 @@ extension ExplorerHauntViewController: ExplorerType {
 extension ExplorerHauntViewController: StoreSubscriber {
     
     func newState(state: AppState) {
-        if let _ = state.gameState.getTraitor() {
+        if state.hauntState.hauntStarted {
             getHaunt()
+        }
+        
+        if let traitor = state.gameState.getTraitor(),
+            let currentId = ConnectionManager.shared.currentUserID,
+            traitor.identifier == currentId {
+                title = "Traitor's Tome"
         }
     }
     

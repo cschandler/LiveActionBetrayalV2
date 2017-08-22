@@ -11,8 +11,8 @@ import ReSwift
 
 enum HauntAction: Action {
     case triggerHaunt
-    case triggerHauntWithCard(Card)
-    case hauntStarted(String)
+    case triggerHauntWithCard(Card?)
+    case hauntName(String)
 }
 
 struct HauntState: StateType {
@@ -39,9 +39,14 @@ struct HauntReducer {
             newState.cardTriggeringHaunt = card
             newState.hauntTriggered = true
             
-        case .hauntStarted(let name):
+        case .hauntName(let name):
             newState.hauntName = name
-            newState.hauntStarted = true
+        }
+        
+        if newState.hauntStarted == false
+            && newState.hauntTriggered == true
+            && !newState.hauntName.isEmpty {
+                newState.hauntStarted = true
         }
         
         return newState

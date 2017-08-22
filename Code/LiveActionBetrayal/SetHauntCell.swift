@@ -12,6 +12,8 @@ final class SetHauntCell: UITableViewCell, ClassNameNibLoadable {
     
     @IBOutlet weak var textField: UITextField!
     
+    var hauntNameSet: ((String) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -24,6 +26,12 @@ extension SetHauntCell: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+        guard let text = textField.text else {
+            return true
+        }
+        
+        hauntNameSet?(text)
         
         return true
     }

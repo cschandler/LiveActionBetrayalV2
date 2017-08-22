@@ -31,6 +31,16 @@ final class TraitorPickerViewController: BaseViewController, Finishable {
     
     var selectedTraitor: Explorer?
     
+    var selectedIndexPath: IndexPath? {
+        didSet {
+            guard let indexPath = selectedIndexPath else {
+                return
+            }
+            
+            selectedTraitor = explorers[indexPath.row]
+        }
+    }
+    
     fileprivate enum TableViewSections: Int {
         case setHaunt = 0
         case players
@@ -137,6 +147,12 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
             cell.name.text = explorer.name
             cell.profilePicture.image = explorer.picture
             
+            if let selectedIndexPath = selectedIndexPath, selectedIndexPath == indexPath {
+                cell.backgroundColor = theme.bright
+            } else {
+                cell.backgroundColor = .clear
+            }
+            
             return cell
             
         case .buttons:
@@ -164,7 +180,8 @@ extension TraitorPickerViewController: UITableViewDataSource, UITableViewDelegat
         
         switch section {
         case .players:
-            selectedTraitor = explorers[indexPath.row]
+            selectedIndexPath = indexPath
+            tableView.reloadSections(IndexSet(integer: section.rawValue), with: .automatic)
             
         default:
             break

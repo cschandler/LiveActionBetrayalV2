@@ -379,7 +379,7 @@ final class ConnectionManager {
                     return
             }
             
-            let cards: [Card] = json.flatMap { Card(json: $0.value as! JSON) }
+            let cards: [Card] = json.flatMap { Card(key: $0.key, json: $0.value as! JSON) }
             
             if currentUserId == AppStore.shared.state.gameState.watcher?.identifier ?? "",
                 let oldCards = AppStore.shared.state.cardState.cards.value {
@@ -387,33 +387,26 @@ final class ConnectionManager {
                 // We only want to haunt to be tested for once per omen added
                 // If we ever add support for mutiple watchers we'll need a better solution
                 HauntController.triggerHauntIfNeeded(with: oldCards, newCards: cards)
-                
-                AppStore.shared.dispatch(CardAction.cards(cards))
-                
-            } else {
-                let filteredCards = cards.filter { $0.owner == currentUserId }
-                AppStore.shared.dispatch(CardAction.cards(filteredCards))
             }
+            
+            AppStore.shared.dispatch(CardAction.cards(cards))
         })
     }
     
-    func addCard(card: Card) -> Promise<Void> {
+    func foundCard(card: Card) -> Promise<Void> {
+        guard let currentUserId = currentUserID else {
+            return Promise(error: StateError.noValidPlayer)
+        }
+        
         return Promise { fulfill in
-            
-            let values = card.toJSON()
-            
-            let itemRef = self.database.child(DatabaseTopLevel.items.rawValue).childByAutoId()
-            
-            itemRef.setValue(values, withCompletionBlock: { (error, ref) in
-                print("ADD ITEM")
-                print("------")
+            self.database.child("\(DatabaseTopLevel.items.rawValue)/\(card.id)/owner").setValue(currentUserId) { (error, ref) in
                 if let error = error {
                     fulfill(.failure(error))
                     return
                 }
                 
                 fulfill(.success())
-            })
+            }
         }
     }
     

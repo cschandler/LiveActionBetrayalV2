@@ -31,7 +31,11 @@ final class ExplorerHauntViewController: BaseViewController {
             case .loading:
                 activityIndicator.startAnimating()
                 
-            case .notAsked, .error:
+            case .error(let error):
+                descriptionTextView.text = error.localizedDescription
+                activityIndicator.stopAnimating()
+                
+            case .notAsked:
                 break
             }
         }

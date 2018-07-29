@@ -24,8 +24,16 @@ final class MessagesViewController: JSQMessagesViewController {
                 loadingIndicator.stopAnimating()
                 collectionView.reloadData()
                 scrollToBottom(animated: true)
-            default:
-                break
+                
+            case .error(let error):
+                print(error.localizedDescription)
+                loadingIndicator.stopAnimating()
+                
+            case .loading:
+                loadingIndicator.startAnimating()
+                
+            case .notAsked:
+                loadingIndicator.stopAnimating()
             }
         }
     }

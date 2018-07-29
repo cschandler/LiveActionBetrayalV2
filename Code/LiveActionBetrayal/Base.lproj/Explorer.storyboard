@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OSJ-I2-f3k">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -86,22 +86,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yei-UF-TFB">
-                                <rect key="frame" x="31" y="35" width="313" height="21"/>
+                                <rect key="frame" x="31" y="35" width="313" height="20.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Mh-KJ-t2J">
-                                    <rect key="frame" x="0.0" y="0.0" width="313" height="21"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="313" height="20.5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUf-4b-i7t">
-                                            <rect key="frame" x="0.0" y="0.0" width="313" height="21"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="313" height="20.5"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fei-az-OGn">
-                                                <rect key="frame" x="0.0" y="0.0" width="313" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="313" height="20.5"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKv-lE-eCb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="313" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="313" height="20.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -306,7 +305,7 @@
                     <tabBarItem key="tabBarItem" title="Items" image="ic-items" id="5mI-Iq-xx8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="TjP-kn-taU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -325,7 +324,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="ic-profile" id="q7q-Yt-ASh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="l5C-nN-HAl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -345,7 +344,7 @@
                     <tabBarItem key="tabBarItem" title="Messages" image="ic-messages" id="bJM-AZ-JQz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="hO8-d4-8Yk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -411,17 +410,23 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ous-bB-hT7">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bPD-SS-8Bf" secondAttribute="trailing" id="1Dp-Zx-gao"/>
+                            <constraint firstItem="ous-bB-hT7" firstAttribute="centerX" secondItem="cJq-uG-fIZ" secondAttribute="centerX" id="2IA-Xe-47u"/>
                             <constraint firstItem="bPD-SS-8Bf" firstAttribute="top" secondItem="Do0-Fh-Kiz" secondAttribute="bottom" constant="10" id="Oje-6x-X5Z"/>
                             <constraint firstItem="90p-Da-ppn" firstAttribute="top" secondItem="bPD-SS-8Bf" secondAttribute="bottom" constant="10" id="UDj-bv-RAO"/>
                             <constraint firstItem="bPD-SS-8Bf" firstAttribute="leading" secondItem="cJq-uG-fIZ" secondAttribute="leadingMargin" id="hIO-y1-fmX"/>
+                            <constraint firstItem="ous-bB-hT7" firstAttribute="centerY" secondItem="cJq-uG-fIZ" secondAttribute="centerY" id="sJ9-Zy-YNh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jO6-iE-naM"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ous-bB-hT7" id="B22-ix-HDr"/>
                         <outlet property="descriptionTextView" destination="Qtk-iQ-uB1" id="qvL-0t-bPR"/>
                         <outlet property="descriptionVisualEffectView" destination="bPD-SS-8Bf" id="m9a-Sg-riN"/>
                     </connections>
@@ -437,7 +442,7 @@
                     <tabBarItem key="tabBarItem" enabled="NO" title="Haunt" image="ic-locked" id="jmX-56-PpO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="YEb-yU-XPa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

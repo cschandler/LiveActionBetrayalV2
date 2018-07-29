@@ -11,6 +11,8 @@ import ReSwift
 
 final class ExplorerHauntViewController: BaseViewController {
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var descriptionVisualEffectView: UIVisualEffectView! {
         didSet {
             descriptionVisualEffectView.addBorder()
@@ -24,8 +26,12 @@ final class ExplorerHauntViewController: BaseViewController {
             switch hauntText {
             case .loaded(let text):
                 descriptionTextView.text = text
+                activityIndicator.stopAnimating()
                 
-            default:
+            case .loading:
+                activityIndicator.startAnimating()
+                
+            case .notAsked, .error:
                 break
             }
         }

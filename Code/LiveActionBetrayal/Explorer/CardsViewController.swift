@@ -24,6 +24,10 @@ final class CardsViewController: BaseViewController {
         
         viewController.addCard = { [weak self] card in
             self?.navigationController?.popToRootViewController(animated: true)
+            
+            let viewController = CardDetailViewController.build(card: card)
+            
+            self?.navigationController?.pushViewController(viewController, animated: true)
         }
         
         navigationController?.pushViewController(viewController, animated: true)

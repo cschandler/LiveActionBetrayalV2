@@ -12,10 +12,12 @@ import ReSwift
 enum CardAction: Action {
     case loadingCards
     case cards([Card])
+    case isScanning(Bool)
 }
 
 struct CardState: StateType {
     var cards: Loadable<[Card]> = .notAsked
+    var isScanning = false
 }
 
 struct CardReducer {
@@ -33,6 +35,9 @@ struct CardReducer {
             
         case .cards(let cards):
             newState.cards = .loaded(cards)
+            
+        case .isScanning(let isScanning):
+            newState.isScanning = isScanning
         }
         
         return newState

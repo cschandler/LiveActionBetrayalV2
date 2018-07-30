@@ -58,6 +58,22 @@ final class AddCardViewController: BaseViewController {
         AVMetadataObjectTypeQRCode
     ]
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // The torch needs to be toggled off and on again in order to turn torch on
+        // in the capture session.
+        TorchManager.turn(on: false)
+        TorchManager.turn(on: true)
+        AppStore.shared.dispatch(CardAction.isScanning(true))
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        AppStore.shared.dispatch(CardAction.isScanning(false))
+    }
+    
     func addCardToDatabase(card: Card) {
         ConnectionManager.shared.addCard(card: card)
             .onSuccess { self.addCard?(card) }

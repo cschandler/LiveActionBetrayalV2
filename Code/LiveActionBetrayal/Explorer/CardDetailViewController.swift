@@ -24,7 +24,7 @@ final class CardDetailViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var cardTextLabel: UILabel! {
+    @IBOutlet weak var cardTextLabel: UITextView! {
         didSet {
             cardTextLabel.text = card.text
         }

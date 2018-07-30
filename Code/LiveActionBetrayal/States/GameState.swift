@@ -25,7 +25,7 @@ struct GameState: StateType {
     var isConnected: Bool = false
     
     func getPlayer(withId id: String) -> Explorer? {
-        guard let player = connectedPlayers.lazy.filter({ $0.identifier == id }).first else {
+        guard let player = connectedPlayers.first(where: { $0.identifier == id }) else {
             return nil
         }
         
@@ -33,11 +33,20 @@ struct GameState: StateType {
     }
     
     func getTraitor() -> Explorer? {
-        guard let traitor = connectedPlayers.lazy.filter({ $0.isTraitor }).first else {
+        guard let traitor = connectedPlayers.first(where: { $0.isTraitor }) else {
             return nil
         }
         
         return traitor
+    }
+    
+    func getCurrentPlayer() -> Explorer? {
+        guard let id = ConnectionManager.shared.currentPlayer?.identifier,
+            let player = getPlayer(withId: id) else {
+                return nil
+        }
+        
+        return player
     }
 
 }

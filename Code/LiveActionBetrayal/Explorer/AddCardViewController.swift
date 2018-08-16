@@ -74,15 +74,8 @@ final class AddCardViewController: BaseViewController {
         AppStore.shared.dispatch(CardAction.isScanning(false))
     }
     
-    func addCardToDatabase(card: Card) {
-        ConnectionManager.shared.addCard(card: card)
-            .onSuccess { self.addCard?(card) }
-            .onFailure { error in print(error) }
-            .call()
-    }
-    
-    func presentQRCodeError() {
-        let alert = UIAlertController(title: "Error", message: "This is not a Live Action Betrayal item.", preferredStyle: .alert)
+    func presentQRCodeError(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             self.captureSession?.startRunning()
@@ -140,15 +133,36 @@ extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
             let qrCodeObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject,
             supportedCodeTypes.contains(qrCodeObject.type),
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: qrCodeObject),
-            let qrString = qrCodeObject.stringValue,
-            let uid = FIRAuth.auth()?.currentUser?.uid,
-            let card = Card(qr: qrString, currentOwner: uid) else {
-                presentQRCodeError()
+            let qrString = qrCodeObject.stringValue else {
+                presentQRCodeError(message: "This is not a LiveActionBetrayal object")
                 return
         }
         
         qrCodeFrameView?.frame = barCodeObject.bounds
-        addCardToDatabase(card: card)
+        
+        switch AppStore.shared.state.cardState.cards {
+        case .loaded(let cards):
+            guard let card = cards.first(where: { $0.name == qrString }) else {
+                presentQRCodeError(message: "Does not match any card in the database.")
+                return
+            }
+            
+            // dismisses the view controller
+            ConnectionManager.shared.foundCard(card: card)
+                .onSuccess {
+                    self.addCard?(card)
+                }
+                .onFailure { error in
+                    self.presentQRCodeError(message: error.localizedDescription)
+                }
+                .call()
+            
+        case .notAsked, .loading:
+            presentQRCodeError(message: "Waiting to fetch cards from database.")
+            
+        case .error(let error):
+            presentQRCodeError(message: error.localizedDescription)
+        }
     }
     
 }

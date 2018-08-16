@@ -26,23 +26,16 @@ final class AttributeCell: UITableViewCell, ClassNameNibLoadable {
         super.awakeFromNib()
         
         selectedBackgroundView = UIView()
-        isExpanded = false
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        isExpanded = false
+        backgroundColor = .clear
         speedValues.text = ""
         mightValues.text = ""
         sanityValues.text = ""
         knowledgeValues.text = ""
-    }
-    
-    var isExpanded: Bool = false {
-        didSet {
-            stackViewHieghtConstraint.constant = isExpanded ? 100 : 0
-        }
     }
     
     func setupLabels(withAttribute attribute: Attribute) {

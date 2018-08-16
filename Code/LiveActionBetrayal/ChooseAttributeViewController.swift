@@ -16,6 +16,7 @@ final class ChooseAttributeViewController: BaseViewController {
     @IBOutlet weak var selectButton: BlurButton!
     
     var metadata: PlayerMetadata?
+    var selected: IndexPath?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == IDs.Segues.AttributeToPicture.rawValue,
@@ -72,11 +73,24 @@ extension ChooseAttributeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
         
+        selected = indexPath
+        
         metadata?.attribute = Attributes.atIndexPath(row: indexPath.row)
         
-        cell.isExpanded = true
         cell.backgroundColor = .white
         cell.tintColor = .black
+        
+        tableView.visibleCells.forEach { attributeCell in
+            guard
+                let attributeCell = attributeCell as? AttributeCell,
+                attributeCell.attribute.text != cell.attribute.text
+            else {
+                return
+            }
+            
+            attributeCell.backgroundColor = .clear
+            attributeCell.tintColor = .white
+        }
         
         tableView.beginUpdates()
         tableView.endUpdates()
@@ -89,19 +103,15 @@ extension ChooseAttributeViewController: UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? AttributeCell else { return }
-        
-        cell.isExpanded = false
-        cell.backgroundColor = .clear
-        cell.tintColor = .white
-        
-        tableView.beginUpdates()
-        tableView.endUpdates()
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 170.0
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath == selected else { return }
+        
+        cell.backgroundColor = .white
+        cell.tintColor = .black
     }
     
 }

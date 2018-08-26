@@ -63,11 +63,16 @@ extension ChoosePictureViewController: UIImagePickerControllerDelegate, UINaviga
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         picture.image = image
         metadata?.picture = image
-        dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true) {
+            IdleTimerManager.disableIdleTimerAfterDelay()
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            IdleTimerManager.disableIdleTimerAfterDelay()
+        }
     }
     
 }

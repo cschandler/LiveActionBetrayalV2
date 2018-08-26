@@ -16,7 +16,7 @@ typealias SimpleClosure = () -> Void
 @UIApplicationMain
 class AppDelegate: UIResponder {
 
-    var window: UIWindow?
+    public var window: UIWindow?
 
 }
 
@@ -24,8 +24,7 @@ extension AppDelegate: UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
  
-        application.isIdleTimerDisabled = true
-        UIDevice.current.isProximityMonitoringEnabled = false
+        IdleTimerManager.disable()
         Defaults.shared.brightness = UIScreen.main.brightness
         FIRApp.configure()
         ConnectionManager.shared.getConnectedPlayers()
@@ -37,13 +36,9 @@ extension AppDelegate: UIApplicationDelegate {
         UIScreen.main.brightness = Defaults.shared.brightness
     }
     
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        
-    }
+    func applicationDidEnterBackground(_ application: UIApplication) {}
     
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
+    func applicationWillEnterForeground(_ application: UIApplication) {}
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         AppStore.shared.dispatch(GameAction.appForeground)
@@ -56,9 +51,11 @@ extension AppDelegate: UIApplicationDelegate {
 }
 
 extension UIApplication {
+    
     var statusBarView: UIView? {
         return value(forKey: "statusBar") as? UIView
     }
+    
 }
 
 

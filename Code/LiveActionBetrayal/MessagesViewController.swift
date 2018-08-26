@@ -101,8 +101,8 @@ extension MessagesViewController {
         
         inputToolbar.contentView.leftBarButtonItem = nil
         inputToolbar.contentView.textView.keyboardAppearance = .dark
-        inputToolbar.contentView.textView.autocorrectionType = .no
-        inputToolbar.contentView.backgroundColor = UIColor(colorLiteralRed: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
+        inputToolbar.contentView.textView.autocorrectionType = .yes
+        inputToolbar.contentView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
         
         collectionView.backgroundColor = .darkGray
         

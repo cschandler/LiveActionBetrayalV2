@@ -25,19 +25,15 @@ struct GameState: StateType {
     var isConnected: Bool = false
     
     func getPlayer(withId id: String) -> Explorer? {
-        guard let player = connectedPlayers.first(where: { $0.identifier == id }) else {
-            return nil
-        }
-        
-        return player
+        return connectedPlayers.first(where: { $0.identifier == id })
+    }
+    
+    func getPlayer(withName name: String) -> Explorer? {
+        return connectedPlayers.first(where: { $0.name == name })
     }
     
     func getTraitor() -> Explorer? {
-        guard let traitor = connectedPlayers.first(where: { $0.isTraitor }) else {
-            return nil
-        }
-        
-        return traitor
+        return connectedPlayers.first(where: { $0.isTraitor })
     }
     
     func getCurrentPlayer() -> Explorer? {

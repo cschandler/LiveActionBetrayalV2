@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,20 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IqM-1g-gHe">
-                        <rect key="frame" x="315" y="11" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEu-PN-MUM">
-                        <rect key="frame" x="18" y="11" width="42" height="21"/>
+                        <rect key="frame" x="26" y="11.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENj-Y4-Qbo">
-                        <rect key="frame" x="70" y="11" width="42" height="21"/>
+                        <rect key="frame" x="78" y="11.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -41,16 +34,13 @@
                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="mEu-PN-MUM" firstAttribute="centerY" secondItem="YZM-Hi-pD7" secondAttribute="centerY" id="6cz-XH-Wyo"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="IqM-1g-gHe" secondAttribute="trailing" constant="10" id="7Ke-my-5nH"/>
                     <constraint firstItem="ENj-Y4-Qbo" firstAttribute="leading" secondItem="mEu-PN-MUM" secondAttribute="trailing" constant="10" id="7fp-2X-SeY"/>
                     <constraint firstItem="mEu-PN-MUM" firstAttribute="leading" secondItem="YZM-Hi-pD7" secondAttribute="leadingMargin" constant="10" id="FB4-qb-EU3"/>
-                    <constraint firstItem="IqM-1g-gHe" firstAttribute="centerY" secondItem="YZM-Hi-pD7" secondAttribute="centerY" id="cHW-Gy-5ee"/>
                     <constraint firstItem="ENj-Y4-Qbo" firstAttribute="centerY" secondItem="YZM-Hi-pD7" secondAttribute="centerY" id="xid-69-Xxg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="mEu-PN-MUM" id="fdt-Bl-IAb"/>
-                <outlet property="ownerLabel" destination="IqM-1g-gHe" id="IQu-jh-ZnC"/>
                 <outlet property="typeLabel" destination="ENj-Y4-Qbo" id="DeV-ls-wLu"/>
             </connections>
             <point key="canvasLocation" x="-42" y="5"/>

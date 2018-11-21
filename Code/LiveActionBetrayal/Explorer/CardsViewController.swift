@@ -68,7 +68,6 @@ extension CardsViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.nameLabel.text = card.name
         cell.typeLabel.text = "(\(card.type.rawValue))"
-        cell.ownerLabel.text = nil
         
         return cell
     }

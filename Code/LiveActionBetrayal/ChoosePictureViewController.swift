@@ -34,7 +34,7 @@ final class ChoosePictureViewController: BaseViewController {
                                                   transitionType: .newGame(metadata))
 
         present(transition, animated: true) { [weak self] in
-            guard let mainMenu = self?.navigationController?.childViewControllers.first as? MainMenuViewController else {
+            guard let mainMenu = self?.navigationController?.children.first as? MainMenuViewController else {
                 return
             }
             
@@ -59,8 +59,11 @@ extension ChoosePictureViewController: MainMenuType {
 
 extension ChoosePictureViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
         picture.image = image
         metadata?.picture = image
         
@@ -85,4 +88,14 @@ extension UIImageView {
         layer.cornerRadius = (bounds.width / 2)
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

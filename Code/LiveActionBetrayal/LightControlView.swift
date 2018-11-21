@@ -78,7 +78,7 @@ final class LightControlView: UIView {
             switch playPauseState {
             case .play:
                 timer.isPaused = false
-                timer.add(to: .current, forMode: .defaultRunLoopMode)
+                timer.add(to: .current, forMode: RunLoop.Mode.default)
             case .pause:
                 timer.isPaused = true
             default:
@@ -121,7 +121,7 @@ final class LightControlView: UIView {
         lightsOn = !lightsOn
     }
     
-    dynamic private func tick(displayLink: CADisplayLink) {
+    @objc dynamic private func tick(displayLink: CADisplayLink) {
         timeLeft -= 1
         
         if timeLeft == 0 {

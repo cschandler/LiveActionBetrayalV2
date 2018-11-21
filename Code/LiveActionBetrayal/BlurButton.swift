@@ -10,9 +10,9 @@ import UIKit
 
 class BlurButton: UIButton {
     
-    var style: UIBlurEffectStyle = .dark
+    var style: UIBlurEffect.Style = .dark
     
-    required init(style: UIBlurEffectStyle) {
+    required init(style: UIBlurEffect.Style) {
         super.init(frame: .zero)
         self.style = style
         setup()
@@ -75,7 +75,7 @@ class LightBlurButton: BlurButton {
         self.init(style: .light)
     }
     
-    required init(style: UIBlurEffectStyle) {
+    required init(style: UIBlurEffect.Style) {
         super.init(style: style)
     }
     

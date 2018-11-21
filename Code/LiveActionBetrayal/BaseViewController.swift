@@ -41,7 +41,7 @@ extension BaseViewController {
         super.viewDidLoad()
         
         background = UIImageView(frame: view.bounds)
-        loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        loadingIndicator = UIActivityIndicatorView(style: .whiteLarge)
     }
 
 }

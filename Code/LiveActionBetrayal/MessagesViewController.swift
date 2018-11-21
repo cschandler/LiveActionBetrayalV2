@@ -68,7 +68,7 @@ final class MessagesViewController: JSQMessagesViewController {
     fileprivate var loadingIndicator: UIActivityIndicatorView! {
         didSet {
             view.addSubview(loadingIndicator)
-            view.bringSubview(toFront: loadingIndicator)
+            view.bringSubviewToFront(loadingIndicator)
             loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
             loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -110,7 +110,7 @@ extension MessagesViewController {
         tapGR.delegate = self
         collectionView.addGestureRecognizer(tapGR)
         
-        loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        loadingIndicator = UIActivityIndicatorView(style: .whiteLarge)
         
         switch messages {
         case .notAsked, .loading:

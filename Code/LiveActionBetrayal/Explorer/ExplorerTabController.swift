@@ -15,7 +15,7 @@ final class ExplorerTabController: UITabBarController {
     var hauntNotificationDisplayed = false
     
     func injectIntoMessagesViewController() {
-        for viewController in childViewControllers {
+        for viewController in children {
             guard let nav = viewController as? UINavigationController,
                 let messagesViewController = nav.topViewController as? MessagesViewController else {
                     continue

@@ -24,7 +24,7 @@ final class AddCardViewController: BaseViewController {
     var videoPreviewLayer: AVCaptureVideoPreviewLayer? {
         didSet {
             guard let videoPreviewLayer = videoPreviewLayer else { return }
-            videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+            videoPreviewLayer.videoGravity = AVLayerVideoGravity(rawValue: convertFromAVLayerVideoGravity(AVLayerVideoGravity.resizeAspectFill))
             videoPreviewLayer.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer)
         }
@@ -37,7 +37,7 @@ final class AddCardViewController: BaseViewController {
             qrCodeFrameView.layer.borderWidth = 2
             qrCodeFrameView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(qrCodeFrameView)
-            view.bringSubview(toFront: qrCodeFrameView)
+            view.bringSubviewToFront(qrCodeFrameView)
             qrCodeFrameView.widthAnchor.constraint(equalToConstant: 200).isActive = true
             qrCodeFrameView.heightAnchor.constraint(equalToConstant: 200).isActive = true
             qrCodeFrameView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -45,17 +45,17 @@ final class AddCardViewController: BaseViewController {
         }
     }
     
-    let supportedCodeTypes = [
-        AVMetadataObjectTypeUPCECode,
-        AVMetadataObjectTypeCode39Code,
-        AVMetadataObjectTypeCode39Mod43Code,
-        AVMetadataObjectTypeCode93Code,
-        AVMetadataObjectTypeCode128Code,
-        AVMetadataObjectTypeEAN8Code,
-        AVMetadataObjectTypeEAN13Code,
-        AVMetadataObjectTypeAztecCode,
-        AVMetadataObjectTypePDF417Code,
-        AVMetadataObjectTypeQRCode
+    let supportedCodeTypes: [AVMetadataObject.ObjectType] = [
+        AVMetadataObject.ObjectType.upce,
+        AVMetadataObject.ObjectType.code39,
+        AVMetadataObject.ObjectType.code39Mod43,
+        AVMetadataObject.ObjectType.code93,
+        AVMetadataObject.ObjectType.code128,
+        AVMetadataObject.ObjectType.ean8,
+        AVMetadataObject.ObjectType.ean13,
+        AVMetadataObject.ObjectType.aztec,
+        AVMetadataObject.ObjectType.pdf417,
+        AVMetadataObject.ObjectType.qr
     ]
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,21 +93,27 @@ extension AddCardViewController {
         
         title = "Add Card"
         
-        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        guard let captureDevice = AVCaptureDevice.default(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video))) else {
+            return
+        }
         
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
+            
             captureSession = AVCaptureSession()
-            captureSession?.addInput(input)
             
+            guard let captureSession = captureSession else {
+                return
+            }
+            
+            captureSession.addInput(input)
             let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
-            
+            captureSession.addOutput(captureMetadataOutput)
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
             
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            captureSession?.startRunning()
+            captureSession.startRunning()
             qrCodeFrameView = UIView()
         } catch {
             print(error)
@@ -126,10 +132,10 @@ extension AddCardViewController {
 
 extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    func metadataOutput(_ captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession?.stopRunning()
         
-        guard metadataObjects != nil && metadataObjects.count > 0,
+        guard metadataObjects.count > 0,
             let qrCodeObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject,
             supportedCodeTypes.contains(qrCodeObject.type),
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: qrCodeObject),
@@ -165,4 +171,19 @@ extension AddCardViewController: AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVLayerVideoGravity(_ input: AVLayerVideoGravity) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVMetadataObjectObjectType(_ input: AVMetadataObject.ObjectType) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVMediaType(_ input: AVMediaType) -> String {
+	return input.rawValue
 }

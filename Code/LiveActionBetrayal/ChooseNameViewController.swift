@@ -35,7 +35,7 @@ final class ChooseNameViewController: BaseViewController {
             }
         }
         
-        return .success()
+        return .success(())
     }
     
     enum ValidationFailure: Error {

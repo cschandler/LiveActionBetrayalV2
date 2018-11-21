@@ -39,7 +39,7 @@ extension ChooseAttributeViewController: MainMenuType {
         setupView()
         
         tableView.register(AttributeCell.nib, forCellReuseIdentifier: IDs.Cells.AttributeCell.rawValue)
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 150, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 150, right: 0)
         
         blurView.layer.cornerRadius = 12.0
         blurView.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor

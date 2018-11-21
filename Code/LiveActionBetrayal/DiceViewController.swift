@@ -87,7 +87,7 @@ class DiceViewController: BaseViewController, Finishable {
         return ResultView(frame: frame, color: theme.dim, result: result)
     }
     
-    func dismissSelf() {
+    @objc func dismissSelf() {
         finish()
     }
 }
@@ -227,7 +227,7 @@ extension DiceViewController {
                     
             }) { finished in
                 if finished {
-                    fulfill(.success())
+                    fulfill(.success(()))
                 }
             }
         }
@@ -249,7 +249,7 @@ extension DiceViewController {
                 
             }, completion: { finished in
                 if finished {
-                    fulfill(.success())
+                    fulfill(.success(()))
                 }
             })
         }
@@ -264,7 +264,7 @@ extension DiceViewController {
             }, completion: { finished in
                 resultView.removeFromSuperview()
                 self.resultView = nil
-                fulfill(.success())
+                fulfill(.success(()))
             })
         }
     }

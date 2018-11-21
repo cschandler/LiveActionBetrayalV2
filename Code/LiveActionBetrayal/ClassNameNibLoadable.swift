@@ -47,7 +47,7 @@ public extension ClassNameNibLoadable where Self: NSObject {
             nib = self.nib
         }
         
-        let objects = nib.instantiate(withOwner: owner, options: options)
+        let objects = nib.instantiate(withOwner: owner, options: options as? [UINib.OptionsKey : Any])
         var result: Self?
         for object in objects {
             if let object = object as? Self {

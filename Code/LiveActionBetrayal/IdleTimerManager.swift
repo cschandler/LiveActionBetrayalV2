@@ -10,7 +10,7 @@ import UIKit
 
 public struct IdleTimerManager {
     
-    private static let defaultTime: DispatchTime = .now() + 1.0
+    public static let defaultTime: DispatchTime = .now() + 1.0
     
     public static func disable() {
         UIApplication.shared.isIdleTimerDisabled = true

@@ -20,7 +20,7 @@ final class Defaults {
         static let brightness = "Brightness"
     }
     
-    open var lastRoll: Int {
+    public var lastRoll: Int {
         get {
             return UserDefaults.standard.integer(forKey: Keys.lastRoll)
         }
@@ -29,7 +29,7 @@ final class Defaults {
         }
     }
     
-    open var automaticLightReset: Bool {
+    public var automaticLightReset: Bool {
         get {
             return UserDefaults.standard.bool(forKey: Keys.automaticLightReset)
         }
@@ -38,7 +38,7 @@ final class Defaults {
         }
     }
     
-    open var lightsOff: TimeInterval {
+    public var lightsOff: TimeInterval {
         get {
             return UserDefaults.standard.double(forKey: Keys.lightsOff)
         }
@@ -47,7 +47,7 @@ final class Defaults {
         }
     }
     
-    open var lightsOn: TimeInterval {
+    public var lightsOn: TimeInterval {
         get {
             return UserDefaults.standard.double(forKey: Keys.lightsOn)
         }
@@ -56,7 +56,7 @@ final class Defaults {
         }
     }
     
-    open var brightness: CGFloat {
+    public var brightness: CGFloat {
         get {
             return CGFloat(UserDefaults.standard.double(forKey: Keys.brightness))
         }

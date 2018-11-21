@@ -17,7 +17,7 @@ class StatusViewController: BaseViewController, Finishable {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsets.init(top: 64.0, left: 0, bottom: 0, right: 0)
         }
     }
     

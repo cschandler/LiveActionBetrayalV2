@@ -12,7 +12,7 @@ import AVFoundation
 class TorchManager {
     
     static func turn(on: Bool) {
-        guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo),
+        guard let device = AVCaptureDevice.default(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video))),
             device.hasTorch,
             !AppStore.shared.state.cardState.isScanning else {
                 return
@@ -28,7 +28,7 @@ class TorchManager {
     }
     
     static var isOn: Bool {
-        guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo),
+        guard let device = AVCaptureDevice.default(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video))),
             device.hasTorch else {
                 return false
         }
@@ -41,4 +41,9 @@ class TorchManager {
         }
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVMediaType(_ input: AVMediaType) -> String {
+	return input.rawValue
 }

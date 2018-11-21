@@ -193,7 +193,7 @@ final class ConnectionManager {
                     })
                     
                     zip(add, upload)
-                        .onSuccess { _,_ in fulfill(.success()) }
+                        .onSuccess { _,_ in fulfill(.success(())) }
                         .onFailure { error in fulfill(.failure(error)) }
                         .call()
                 }
@@ -215,7 +215,7 @@ final class ConnectionManager {
                 
                 self.database.child(DatabaseTopLevel.watcher.rawValue).setValue("\(user.uid)")
                 
-                fulfill(.success())
+                fulfill(.success(()))
             })
         }
     }
@@ -262,7 +262,7 @@ final class ConnectionManager {
                     return
                 }
                 print("------")
-                fulfill(.success())
+                fulfill(.success(()))
             }
         }
     }
@@ -281,7 +281,7 @@ final class ConnectionManager {
                 return
             }
             
-            guard let data = UIImageJPEGRepresentation(image, 0.3) else {
+            guard let data = image.jpegData(compressionQuality: 0.3) else {
                 fulfill(.failure(SerializationError.corrupted("Failed to convert UIImage to Data")))
                 return
             }
@@ -301,7 +301,7 @@ final class ConnectionManager {
                 }
                 
                 print("------")
-                fulfill(.success())
+                fulfill(.success(()))
             }
             
             percentageReporter(uploadTask)
@@ -360,7 +360,7 @@ final class ConnectionManager {
                     return
                 }
                 
-                fulfill(.success())
+                fulfill(.success(()))
             })
         }
     }
@@ -379,7 +379,7 @@ final class ConnectionManager {
                     return
             }
             
-            let cards: [Card] = json.flatMap { Card(key: $0.key, json: $0.value as! JSON) }
+            let cards: [Card] = json.compactMap { Card(key: $0.key, json: $0.value as! JSON) }
             
             if currentUserId == AppStore.shared.state.gameState.watcher?.identifier ?? "",
                 let oldCards = AppStore.shared.state.cardState.cards.value {
@@ -405,7 +405,7 @@ final class ConnectionManager {
                     return
                 }
                 
-                fulfill(.success())
+                fulfill(.success(()))
             }
         }
     }
@@ -426,8 +426,8 @@ final class ConnectionManager {
             }
             
             let messages = json
-                .flatMap { $0 }
-                .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
+                .compactMap { $0 }
+                .compactMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
             
             AppStore.shared.dispatch(MessageAction.allMessages(messages))
         })
@@ -443,9 +443,9 @@ final class ConnectionManager {
             }
             
             let messages = json
-                .flatMap { $0 }
+                .compactMap { $0 }
                 .flatMap { $0.value as! JSON }
-                .flatMap { Message(json: $0.value as! JSON, autoId: $0.key) }
+                .compactMap { Message(json: $0.value as! JSON, autoId: $0.key) }
             
             AppStore.shared.dispatch(MessageAction.allMessages(messages))
         })
@@ -463,7 +463,7 @@ final class ConnectionManager {
             }
             
             let messages = json
-                .flatMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
+                .compactMap { Message.init(json: $0.value as! JSON, autoId: $0.key) }
                 .sorted { $0.timestamp < $1.timestamp }
             
             AppStore.shared.dispatch(MessageAction.currentConversation(messages))

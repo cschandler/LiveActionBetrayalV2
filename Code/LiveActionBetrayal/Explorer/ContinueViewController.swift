@@ -37,7 +37,7 @@ final class ContinueViewController: BaseViewController {
                                                   transitionType: .continueGame(explorer.metadata))
         
         present(transition, animated: true) { [weak self] in
-            guard let mainMenu = self?.navigationController?.childViewControllers.first as? MainMenuViewController else {
+            guard let mainMenu = self?.navigationController?.children.first as? MainMenuViewController else {
                 return
             }
             

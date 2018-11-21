@@ -35,8 +35,6 @@ extension UIView {
         
         translatesAutoresizingMaskIntoConstraints = false
         
-        let viewTopAnchor = useTopLayoutGuide ? viewController.topLayoutGuide.bottomAnchor : view.topAnchor
-        
         let leadingConstant: CGFloat
         let trailingConstant: CGFloat
         
@@ -48,10 +46,10 @@ extension UIView {
             trailingConstant = insets.left
         }
         
-        topAnchor.constraint(equalTo: viewTopAnchor, constant: insets.top).isActive = true
+        topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).isActive = true
         leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingConstant).isActive = true
         trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: trailingConstant).isActive = true
-        bottomAnchor.constraint(equalTo: viewController.bottomLayoutGuide.topAnchor, constant: insets.bottom).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).isActive = true
     }
     
 }

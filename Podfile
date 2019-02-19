@@ -9,10 +9,12 @@ use_frameworks!
 target :LiveActionBetrayal do
   pod 'PinkyPromise'
   pod 'ReSwift'
-#  pod 'SDWebImage'
+  pod 'SDWebImage'
+  pod 'Firebase/Core'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Database'
 	pod 'Firebase/Storage'
-#  pod 'JSQMessagesViewController'
-#  pod 'Nuke'
+  pod 'Firebase/Functions'
+  pod 'JSQMessagesViewController'
+  pod 'Nuke'
 end

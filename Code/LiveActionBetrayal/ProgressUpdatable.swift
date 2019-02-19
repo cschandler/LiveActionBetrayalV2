@@ -15,7 +15,7 @@ protocol ProgressUpdatable: class {
 
 extension ProgressUpdatable where Self: UIViewController {
     
-    func updateProgress(forTask task: FIRStorageUploadTask) {
+    func updateProgress(forTask task: StorageUploadTask) {
         progressView.setProgress(0, animated: false)
         
         UIView.animate(withDuration: 0.3) {

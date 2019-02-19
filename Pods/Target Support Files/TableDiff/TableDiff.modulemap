@@ -1,6 +1,0 @@
-framework module TableDiff {
-  umbrella header "TableDiff-umbrella.h"
-
-  export *
-  module * { export * }
-}

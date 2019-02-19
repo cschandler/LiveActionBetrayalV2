@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Spruce
 import PinkyPromise
 
 final class ChooseNameViewController: BaseViewController {

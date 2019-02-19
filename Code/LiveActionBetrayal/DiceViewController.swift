@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import CircleMenu
-import Spruce
 import GameKit
 import PinkyPromise
 
@@ -47,15 +45,6 @@ class DiceViewController: BaseViewController, Finishable {
         }
     }
     
-    var circleMenu: CircleMenu! {
-        didSet {
-            circleMenu.delegate = self
-            view.addSubview(circleMenu)
-            circleMenu.alpha = 0.0
-            circleMenu.spruce.prepare(with: [.expand(.severely), .slide(.up, .severely)])
-        }
-    }
-    
     typealias Result = (Int, String)
     
     var resultView: ResultView? {
@@ -79,8 +68,8 @@ class DiceViewController: BaseViewController, Finishable {
         
         let height: CGFloat = result.1.height(withConstrainedWidth: width, font: .boldSystemFont(ofSize: 40)) + 20
         
-        let frame = CGRect(x: circleMenu.center.x - (width / 2),
-                           y: circleMenu.center.y - (height / 2),
+        let frame = CGRect(x: view.center.x - (width / 2),
+                           y: view.center.y - (height / 2),
                            width: width,
                            height: height)
         
@@ -100,18 +89,6 @@ extension DiceViewController: MainMenuType {
         view.backgroundColor = .clear
         
         blurView = UIVisualEffectView()
-
-        let frame = CGRect(x: (view.bounds.width / 2) - (Constants.CircleMenu.width / 2),
-                           y: (view.bounds.height / 2) - (Constants.CircleMenu.width / 2),
-                           width: Constants.CircleMenu.width,
-                           height: Constants.CircleMenu.width)
-        
-        circleMenu = CircleMenu(frame: frame,
-                                normalIcon: "ic-dice",
-                                selectedIcon: "ic-clear",
-                                buttonsCount: 8,
-                                duration: 0.5,
-                                distance: 130)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,53 +101,7 @@ extension DiceViewController: MainMenuType {
 
         UIView.animate(withDuration: 0.3, animations: { 
             self.blurView.effect = UIBlurEffect(style: .dark)
-        }) { (finished) in
-            if finished {
-                self.circleMenu.spruce.animate([.expand(.severely), .slide(.up, .severely)])
-                UIView.animate(withDuration: 0.3, animations: { 
-                    self.circleMenu.alpha = 1.0
-                })
-            }
-        }
-    }
-    
-}
-
-extension DiceViewController: CircleMenuDelegate {
-    
-    func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
-        button.setTitle("\(atIndex + 1)", for: .normal)
-        let frame = CGRect(x: button.bounds.origin.x + (Constants.CircleMenu.width / 4),
-                           y: button.bounds.origin.y + (Constants.CircleMenu.width / 4),
-                           width: (Constants.CircleMenu.width / 2),
-                           height: (Constants.CircleMenu.width / 2))
-        button.frame = frame
-        button.layer.cornerRadius = (Constants.CircleMenu.width / 4)
-        button.backgroundColor = theme.dim
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-    }
-    
-    func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
-        animateResultViewIn().call { _ in
-            self.animateResultViewUp().call()
-        }
-    }
-    
-    func circleMenu(_ circleMenu: CircleMenu, buttonWillSelected button: UIButton, atIndex: Int) {
-        let result = total(forRolls: atIndex + 1)
-        delegate?.didRoll(withResult: result.0)
-        
-        if let _ = resultView {
-            animateResultViewOut().call(completion: { _ in
-                self.resultView = self.buildResultView(withResult: result)
-            })
-        } else {
-            resultView = buildResultView(withResult: result)
-        }
-    }
-    
-    func menuCollapsed(_ circleMenu: CircleMenu) {
-        print("menu collapsed")
+        })
     }
     
 }

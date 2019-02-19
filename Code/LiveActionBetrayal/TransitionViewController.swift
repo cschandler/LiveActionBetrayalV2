@@ -27,7 +27,7 @@ final class TransitionViewController: BaseViewController, ProgressUpdatable {
     let backgroundImage: UIImage?
     let type: TransitionType
     
-    var uploadTask: FIRStorageUploadTask? {
+    var uploadTask: StorageUploadTask? {
         didSet {
             guard let task = uploadTask else {
                 return

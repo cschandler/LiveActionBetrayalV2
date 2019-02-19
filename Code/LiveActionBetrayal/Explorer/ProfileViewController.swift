@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CircleMenu
 import ReSwift
 import FirebaseStorage
 
@@ -20,7 +19,7 @@ final class ProfileViewController: BaseViewController, ProgressUpdatable {
     
     let brightnessManager = BrightnessManager()
     
-    var uploadTask: FIRStorageUploadTask? {
+    var uploadTask: StorageUploadTask? {
         didSet {
             guard let task = uploadTask else {
                 return

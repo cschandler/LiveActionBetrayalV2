@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Spruce
 import ReSwift
 import FirebaseAuth
 
@@ -17,7 +16,6 @@ final class MainMenuViewController: BaseViewController {
     @IBOutlet weak var newGameButton: BlurButton!
     @IBOutlet weak var continueButton: BlurButton! 
     
-    var animations: [StockAnimation] = []
     var shouldAnimate = true
     
     @IBAction func connectionButtonTapped(_ sender: UIBarButtonItem) {
@@ -55,21 +53,7 @@ extension MainMenuViewController: MainMenuType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        
-        animations = [.fadeIn, .expand(.slightly), .slide(.up, .slightly)]
-        stackView.spruce.prepare(with: animations)
         AppStore.shared.subscribe(self)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if shouldAnimate {
-            stackView.spruce.animate(animations, duration: 0.3) { _ in
-                self.shouldAnimate = false
-            }
-        }
     }
     
 }

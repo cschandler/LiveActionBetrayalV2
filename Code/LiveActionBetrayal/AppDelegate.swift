@@ -26,7 +26,7 @@ extension AppDelegate: UIApplicationDelegate {
  
         IdleTimerManager.disable()
         Defaults.shared.brightness = UIScreen.main.brightness
-        FIRApp.configure()
+        FirebaseApp.configure()
         ConnectionManager.shared.getConnectedPlayers()
         
         return true

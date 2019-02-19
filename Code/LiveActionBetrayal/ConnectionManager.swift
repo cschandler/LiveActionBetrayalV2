@@ -21,23 +21,23 @@ final class ConnectionManager {
     private let firepass = "P7mYDDnT&M[UcZU2Q7"
     private let watcherEmail = "watcher@test.com"
     
-    private let playerUpdatedListener: FIRDatabaseHandle
-    private let playerAddedListener: FIRDatabaseHandle
-    private let torchListener: FIRDatabaseHandle
-    private let watcherListener: FIRDatabaseHandle
-    private var allMessagesListener: FIRDatabaseHandle?
-    private var messageListener: FIRDatabaseHandle?
-    private var cardListener: FIRDatabaseHandle?
-    private var hauntListener: FIRDatabaseHandle
-    private var hauntNameListener: FIRDatabaseHandle
-    private var connectionListener: FIRDatabaseHandle
+    private let playerUpdatedListener: DatabaseHandle
+    private let playerAddedListener: DatabaseHandle
+    private let torchListener: DatabaseHandle
+    private let watcherListener: DatabaseHandle
+    private var allMessagesListener: DatabaseHandle?
+    private var messageListener: DatabaseHandle?
+    private var cardListener: DatabaseHandle?
+    private var hauntListener: DatabaseHandle
+    private var hauntNameListener: DatabaseHandle
+    private var connectionListener: DatabaseHandle
     
-    lazy var database: FIRDatabaseReference = {
-        return FIRDatabase.database().reference()
+    lazy var database: DatabaseReference = {
+        return Database.database().reference()
     }()
     
-    lazy var storage: FIRStorageReference = {
-        return FIRStorage.storage().reference()
+    lazy var storage: StorageReference = {
+        return Storage.storage().reference()
     }()
     
     enum DatabaseTopLevel: String {
@@ -50,8 +50,8 @@ final class ConnectionManager {
         case hauntName
     }
     
-    var currentUser: FIRUser? {
-        return FIRAuth.auth()?.currentUser
+    var currentUser: User? {
+        return Auth.auth().currentUser
     }
     
     var currentUserID: String? {
@@ -67,12 +67,12 @@ final class ConnectionManager {
     }
     
     init() {
-        let playerRef = FIRDatabase.database().reference().child(DatabaseTopLevel.players.rawValue)
-        let torchRef = FIRDatabase.database().reference().child(DatabaseTopLevel.torchesOn.rawValue)
-        let watcherRef = FIRDatabase.database().reference().child(DatabaseTopLevel.watcher.rawValue)
-        let hauntRef = FIRDatabase.database().reference().child(DatabaseTopLevel.hauntTriggered.rawValue)
-        let hauntNameRef = FIRDatabase.database().reference().child(DatabaseTopLevel.hauntName.rawValue)
-        let connectionRef = FIRDatabase.database().reference(withPath: ".info/connected")
+        let playerRef = Database.database().reference().child(DatabaseTopLevel.players.rawValue)
+        let torchRef = Database.database().reference().child(DatabaseTopLevel.torchesOn.rawValue)
+        let watcherRef = Database.database().reference().child(DatabaseTopLevel.watcher.rawValue)
+        let hauntRef = Database.database().reference().child(DatabaseTopLevel.hauntTriggered.rawValue)
+        let hauntNameRef = Database.database().reference().child(DatabaseTopLevel.hauntName.rawValue)
+        let connectionRef = Database.database().reference(withPath: ".info/connected")
         
         playerUpdatedListener = playerRef.observe(.childChanged, with: { snapshot in
             print("PLAYER UPDATED LISTENER")
@@ -178,7 +178,7 @@ final class ConnectionManager {
         })
     }
     
-    func addPlayer(withMetadata player: PlayerMetadata?, percentageReporter: @escaping (FIRStorageUploadTask) -> Void) -> Promise<Void> {
+    func addPlayer(withMetadata player: PlayerMetadata?, percentageReporter: @escaping (StorageUploadTask) -> Void) -> Promise<Void> {
         return Promise { fulfill in
             guard let player = player, let attribute = player.attribute else {
                 fulfill(.failure(SerializationError.missing("Player metadata or attribute nil")))
@@ -204,8 +204,8 @@ final class ConnectionManager {
     
     func logWatcherIn() -> Promise<Void> {
         return Promise { fulfill in
-            FIRAuth.auth()?.signIn(withEmail: self.watcherEmail, password: self.firepass, completion: { (user, error) in
-                guard let user = user else {
+            Auth.auth().signIn(withEmail: self.watcherEmail, password: self.firepass, completion: { (result, error) in
+                guard let result = result else {
                     guard let error = error else {
                         return
                     }
@@ -213,28 +213,28 @@ final class ConnectionManager {
                     return
                 }
                 
-                self.database.child(DatabaseTopLevel.watcher.rawValue).setValue("\(user.uid)")
+                self.database.child(DatabaseTopLevel.watcher.rawValue).setValue("\(result.user.uid)")
                 
                 fulfill(.success(()))
             })
         }
     }
     
-    private func createUser(withName name: String) -> Promise<FIRUser> {
+    private func createUser(withName name: String) -> Promise<User> {
         return Promise { fulfill in
             
             let email = "\(name)@test.com"
             
-            FIRAuth.auth()?.createUser(withEmail: email, password: self.firepass) { (user, error) in
+            Auth.auth().createUser(withEmail: email, password: self.firepass) { (result, error) in
                 print("FIREBASE CREATE USER")
-                guard let user = user else {
+                guard let result = result else {
                     guard let error = error else { return }
                     fulfill(.failure(error))
                     return
                 }
                 
                 print("------")
-                fulfill(.success(user))
+                fulfill(.success(result.user))
             }
         }
     }
@@ -273,7 +273,7 @@ final class ConnectionManager {
     
     // MARK: - Profile Picture
     
-    func uploadPicture(image: UIImage?, withId uid: String, percentageReporter: @escaping (FIRStorageUploadTask) -> Void) -> Promise<Void> {
+    func uploadPicture(image: UIImage?, withId uid: String, percentageReporter: @escaping (StorageUploadTask) -> Void) -> Promise<Void> {
         return Promise { fulfill in
             
             guard let image = image else {
@@ -289,10 +289,10 @@ final class ConnectionManager {
             dump(data)
             
             let imageRef = self.storage.child("images/\(uid).jpg")
-            let metadata = FIRStorageMetadata()
+            let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
             
-            let uploadTask = imageRef.put(data, metadata: metadata) { (metadata, error) in
+            let uploadTask = imageRef.putData(data, metadata: metadata) { (metadata, error) in
                 print("FIREBASE PUT DATA")
                 guard metadata != nil else {
                     guard let error = error else { return }
@@ -320,12 +320,14 @@ final class ConnectionManager {
                     return
                 }
                 
-                Nuke.Manager.shared.loadImage(with: url, completion: { result in
-                    guard let image = result.value else {
+                let request = ImageRequest(url: url)
+                
+                ImagePipeline.shared.loadImage(with: request, progress: nil, completion: { (response, error) in
+                    guard let image = response?.image else {
                         fulfill(.failure(SerializationError.failed))
                         return
                     }
-                    
+
                     fulfill(.success(image))
                 })
             })
@@ -351,7 +353,7 @@ final class ConnectionManager {
             
             let email = "\(player.name)@test.com"
             
-            FIRAuth.auth()?.signIn(withEmail: email, password: self.firepass, completion: { (user, error) in
+            Auth.auth().signIn(withEmail: email, password: self.firepass, completion: { (user, error) in
                 print("PLAYER SIGN IN")
                 print("------")
                 guard let _ = user else {

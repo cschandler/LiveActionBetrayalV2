@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07E2A0E4522877ADE5E4F606 /* Pods_LiveActionBetrayal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */; };
 		080463031EBFACF000601DF3 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080463021EBFACF000601DF3 /* AddCardViewController.swift */; };
 		080463051EBFDA6800601DF3 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080463041EBFDA6800601DF3 /* CardDetailViewController.swift */; };
 		08057BE921336D4300812ECA /* IdleTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08057BE821336D4300812ECA /* IdleTimerManager.swift */; };
@@ -95,9 +94,11 @@
 		08FE3CB21E82E6B1005E3C3A /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE3CB11E82E6B1005E3C3A /* StatusType.swift */; };
 		08FF255D1EEDA0F30012949B /* Messanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF255C1EEDA0F30012949B /* Messanger.swift */; };
 		08FF255F1EEDA1160012949B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF255E1EEDA1160012949B /* Message.swift */; };
+		8623F0DDAF61D01A9B141AA5 /* Pods_LiveActionBetrayal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C129291E9ACB013C3766C367 /* Pods_LiveActionBetrayal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0679572768AC443A4928EFE0 /* Pods-LiveActionBetrayal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.release.xcconfig"; sourceTree = "<group>"; };
 		080463021EBFACF000601DF3 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		080463041EBFDA6800601DF3 /* CardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		08057BE821336D4300812ECA /* IdleTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTimerManager.swift; sourceTree = "<group>"; };
@@ -187,9 +188,8 @@
 		08FE3CB11E82E6B1005E3C3A /* StatusType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusType.swift; sourceTree = "<group>"; };
 		08FF255C1EEDA0F30012949B /* Messanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messanger.swift; sourceTree = "<group>"; };
 		08FF255E1EEDA1160012949B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.debug.xcconfig"; sourceTree = "<group>"; };
-		8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.release.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.release.xcconfig"; sourceTree = "<group>"; };
-		98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveActionBetrayal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C129291E9ACB013C3766C367 /* Pods_LiveActionBetrayal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LiveActionBetrayal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F696C4A064C82978050BDBF7 /* Pods-LiveActionBetrayal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveActionBetrayal.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07E2A0E4522877ADE5E4F606 /* Pods_LiveActionBetrayal.framework in Frameworks */,
+				8623F0DDAF61D01A9B141AA5 /* Pods_LiveActionBetrayal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,8 +209,8 @@
 			children = (
 				081ECF2F1E7738DF006F9FF0 /* LiveActionBetrayal */,
 				081ECF2E1E7738DF006F9FF0 /* Products */,
-				0D667429607158E02D45BDA4 /* Pods */,
-				FB319C0E5076C28D7BBBC776 /* Frameworks */,
+				C66FF3D0604FD065570A60AF /* Pods */,
+				A0B42E073B558E2364720C7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -365,21 +365,21 @@
 			name = Status;
 			sourceTree = "<group>";
 		};
-		0D667429607158E02D45BDA4 /* Pods */ = {
+		A0B42E073B558E2364720C7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */,
-				8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		FB319C0E5076C28D7BBBC776 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				98FCEAFC182BDE2AB9455C7D /* Pods_LiveActionBetrayal.framework */,
+				C129291E9ACB013C3766C367 /* Pods_LiveActionBetrayal.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C66FF3D0604FD065570A60AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F696C4A064C82978050BDBF7 /* Pods-LiveActionBetrayal.debug.xcconfig */,
+				0679572768AC443A4928EFE0 /* Pods-LiveActionBetrayal.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,12 +389,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 081ECF3F1E7738E0006F9FF0 /* Build configuration list for PBXNativeTarget "LiveActionBetrayal" */;
 			buildPhases = (
-				31A396DF90AFCE479D15309E /* [CP] Check Pods Manifest.lock */,
+				AFD090508A37E55E4CA4C884 /* [CP] Check Pods Manifest.lock */,
 				081ECF291E7738DF006F9FF0 /* Sources */,
 				081ECF2A1E7738DF006F9FF0 /* Frameworks */,
 				081ECF2B1E7738DF006F9FF0 /* Resources */,
-				4BECF17AEFAAB0EBF89E03DE /* [CP] Embed Pods Frameworks */,
-				6FEE46061E9F8EF3FBFCC51A /* [CP] Copy Pods Resources */,
+				839863460D26B4F5B2A7138F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -473,49 +472,56 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		31A396DF90AFCE479D15309E /* [CP] Check Pods Manifest.lock */ = {
+		839863460D26B4F5B2A7138F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		4BECF17AEFAAB0EBF89E03DE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PinkyPromise/PinkyPromise.framework",
+				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinkyPromise.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6FEE46061E9F8EF3FBFCC51A /* [CP] Copy Pods Resources */ = {
+		AFD090508A37E55E4CA4C884 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LiveActionBetrayal-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-LiveActionBetrayal/Pods-LiveActionBetrayal-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -749,7 +755,7 @@
 		};
 		081ECF401E7738E0006F9FF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FE2E44E5DB580842012EC86 /* Pods-LiveActionBetrayal.debug.xcconfig */;
+			baseConfigurationReference = F696C4A064C82978050BDBF7 /* Pods-LiveActionBetrayal.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -766,7 +772,7 @@
 		};
 		081ECF411E7738E0006F9FF0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A2F2A780971E25196F7CC76 /* Pods-LiveActionBetrayal.release.xcconfig */;
+			baseConfigurationReference = 0679572768AC443A4928EFE0 /* Pods-LiveActionBetrayal.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

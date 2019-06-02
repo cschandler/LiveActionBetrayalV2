@@ -26,7 +26,7 @@ extension WatcherType {
 extension WatcherType where Self: BaseViewController {
     
     func setupView() {
-        setBackground(image: theme.backgroundImage, withBlurRadius: 5.0, saturation: 0.7)
+        setBackground(image: theme.backgroundImage, saturation: 0.7)
         view.tintColor = theme.mid
         navigationController?.navigationBar.tintColor = theme.mid
     }

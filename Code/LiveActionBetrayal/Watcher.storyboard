@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dgJ-vc-Ecy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dgJ-vc-Ecy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xI3-gJ-Zf5">
-                                <rect key="frame" x="16" y="94" width="343" height="36"/>
+                                <rect key="frame" x="16" y="94" width="343" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVy-Pp-H8b" customClass="BlurButton" customModule="LiveActionBetrayal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
@@ -129,12 +129,26 @@
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ej-6p-Yh0" customClass="VibrantLabel" customModule="LiveActionBetrayal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                        <rect key="frame" x="0.0" y="51" width="343" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="vLr-IC-9Wd"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zu0-qu-Mhk">
+                                        <rect key="frame" x="0.0" y="66" width="343" height="30"/>
+                                        <state key="normal" title="View Explorer Haunt"/>
+                                        <connections>
+                                            <segue destination="mQQ-aF-RHu" kind="show" identifier="showExplorerHauntSegue" id="Rtj-gw-57x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWd-Sh-mzO">
+                                        <rect key="frame" x="0.0" y="126" width="343" height="30"/>
+                                        <state key="normal" title="View Traitor Haunt"/>
+                                        <connections>
+                                            <segue destination="mQQ-aF-RHu" kind="show" identifier="showTraitorHauntSegue" id="n2P-UW-PT0"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rVy-Pp-H8b" firstAttribute="leading" secondItem="xI3-gJ-Zf5" secondAttribute="leading" id="BAo-jB-8lD"/>
@@ -160,6 +174,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ER9-th-ECF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1532" y="1921"/>
+        </scene>
+        <!--Haunt Viewer View Controller-->
+        <scene sceneID="clu-xA-4SM">
+            <objects>
+                <viewController id="mQQ-aF-RHu" customClass="HauntViewerViewController" customModule="LiveActionBetrayal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qmy-wZ-QhX"/>
+                        <viewControllerLayoutGuide type="bottom" id="N9v-rL-jYo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jLu-ZQ-XMX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g93-RP-jcb">
+                                <rect key="frame" x="16" y="94" width="343" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="m18-8y-88W">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input Haunt Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFg-0x-IPf">
+                                <rect key="frame" x="16" y="64" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mQQ-aF-RHu" id="Tlq-7S-BSz"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="cFg-0x-IPf" secondAttribute="trailing" id="7qV-8Q-cRT"/>
+                            <constraint firstItem="g93-RP-jcb" firstAttribute="leading" secondItem="jLu-ZQ-XMX" secondAttribute="leadingMargin" id="Bbw-ef-lek"/>
+                            <constraint firstItem="cFg-0x-IPf" firstAttribute="top" secondItem="qmy-wZ-QhX" secondAttribute="bottom" id="Ntt-eg-hVP"/>
+                            <constraint firstItem="g93-RP-jcb" firstAttribute="top" secondItem="qmy-wZ-QhX" secondAttribute="bottom" constant="30" id="PuX-Ku-gJs"/>
+                            <constraint firstItem="g93-RP-jcb" firstAttribute="top" secondItem="cFg-0x-IPf" secondAttribute="bottom" id="YAH-3l-aiz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g93-RP-jcb" secondAttribute="trailing" id="ano-IR-kfz"/>
+                            <constraint firstItem="m18-8y-88W" firstAttribute="centerY" secondItem="jLu-ZQ-XMX" secondAttribute="centerY" id="jKd-RS-AHs"/>
+                            <constraint firstItem="m18-8y-88W" firstAttribute="centerX" secondItem="jLu-ZQ-XMX" secondAttribute="centerX" id="ngm-nW-yJA"/>
+                            <constraint firstItem="cFg-0x-IPf" firstAttribute="leading" secondItem="jLu-ZQ-XMX" secondAttribute="leadingMargin" id="pOh-YV-3pA"/>
+                            <constraint firstItem="N9v-rL-jYo" firstAttribute="top" secondItem="g93-RP-jcb" secondAttribute="bottom" id="sWi-X6-9Ub"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="m18-8y-88W" id="aF0-fJ-PhM"/>
+                        <outlet property="descriptionTextView" destination="g93-RP-jcb" id="vi3-cw-Za9"/>
+                        <outlet property="hauntNameTextField" destination="g93-RP-jcb" id="9ar-Um-ezm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4O-ZT-WuE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2364" y="1921"/>
         </scene>
         <!--Messages View Controller-->
         <scene sceneID="lXe-xV-Wrs">
@@ -569,4 +638,7 @@
         <image name="ic-messages" width="24" height="24"/>
         <image name="ic-settings" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rtj-gw-57x"/>
+    </inferredMetricsTieBreakers>
 </document>

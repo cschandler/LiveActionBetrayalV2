@@ -9,7 +9,6 @@ use_frameworks!
 target :LiveActionBetrayal do
   pod 'PinkyPromise'
   pod 'ReSwift'
-  pod 'SDWebImage'
   pod 'Firebase/Core'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Database'

@@ -54,6 +54,7 @@ extension MainMenuViewController: MainMenuType {
         super.viewDidLoad()
         
         AppStore.shared.subscribe(self)
+        setBackground(image: theme.backgroundImage)
     }
     
 }

@@ -14,7 +14,7 @@ enum CardType: String {
     case item
 }
 
-struct Card {
+struct Card: Equatable {
     
     let id: String
     let name: String

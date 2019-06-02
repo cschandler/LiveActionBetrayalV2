@@ -65,7 +65,7 @@ extension ExplorerHauntViewController: ExplorerType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Survivor's Guide"
+        navigationItem.title = "Survivor's Guide"
         
         setupView()
         
@@ -79,12 +79,13 @@ extension ExplorerHauntViewController: StoreSubscriber {
     func newState(state: AppState) {
         if state.hauntState.hauntStarted {
             getHaunt()
+            tabBarItem.title = "Haunt"
         }
         
         if let traitor = state.gameState.getTraitor(),
             let currentId = ConnectionManager.shared.currentUserID,
             traitor.identifier == currentId {
-                title = "Traitor's Tome"
+                navigationItem.title = "Traitor's Tome"
         }
     }
     

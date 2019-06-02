@@ -223,7 +223,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="m18-8y-88W" id="aF0-fJ-PhM"/>
                         <outlet property="descriptionTextView" destination="g93-RP-jcb" id="vi3-cw-Za9"/>
-                        <outlet property="hauntNameTextField" destination="g93-RP-jcb" id="9ar-Um-ezm"/>
+                        <outlet property="hauntNameTextField" destination="cFg-0x-IPf" id="8OF-I1-8PG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4O-ZT-WuE" userLabel="First Responder" sceneMemberID="firstResponder"/>

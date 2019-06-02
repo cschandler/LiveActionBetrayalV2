@@ -511,15 +511,18 @@ final class ConnectionManager {
     }
     
     func getHaunt(withName name: String) -> Promise<String> {
+        guard let currentUserID = self.currentUserID,
+            let currentExplorer = AppStore.shared.state.gameState.connectedPlayers.filter({ $0.identifier == currentUserID }).first else {
+                return Promise(error: StateError.noValidPlayer)
+        }
+        
+        let type = currentExplorer.isTraitor ? "traitor" : "explorer"
+        
+        return getHaunt(withName: name, type: type)
+    }
+    
+    func getHaunt(withName name: String, type: String) -> Promise<String> {
         return Promise { fulfill in
-            guard let currentUserID = self.currentUserID,
-                let currentExplorer = AppStore.shared.state.gameState.connectedPlayers.filter({ $0.identifier == currentUserID }).first else {
-                    fulfill(.failure(StateError.noValidPlayer))
-                    return
-            }
-            
-            let type = currentExplorer.isTraitor ? "traitor" : "explorer"
-            
             let hauntRef = self.storage.child("haunts/\(type)/\(name).txt")
             
             hauntRef.downloadURL(completion: { (url, error) in

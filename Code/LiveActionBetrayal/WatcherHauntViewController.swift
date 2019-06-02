@@ -31,6 +31,21 @@ final class WatcherHauntViewController: BaseViewController {
         present(viewController, animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier,
+            let destination = segue.destination as? HauntViewerViewController else {
+                return
+        }
+        
+        if identifier == "showExplorerHauntSegue" {
+            destination.hauntType = .explorer
+        }
+        
+        if identifier == "showTraitorHauntSegue" {
+            destination.hauntType = .traitor
+        }
+    }
+    
 }
 
 extension WatcherHauntViewController: WatcherType {

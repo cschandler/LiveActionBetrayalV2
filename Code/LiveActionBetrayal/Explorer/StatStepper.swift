@@ -51,7 +51,8 @@ class StatStepper: UIView {
     var selectedPosition: Position = 0
     
     func setup(withStat stat: Stat) {
-        for value in stat.values {
+        for (index, value) in stat.values.enumerated() {
+            let isStartingValue = index == stat.starting
             let label = UILabel()
             label.backgroundColor = .clear
             label.textColor = .white
@@ -59,6 +60,8 @@ class StatStepper: UIView {
             label.textAlignment = .center
             label.layer.cornerRadius = 12.0
             label.clipsToBounds = true
+            label.font = isStartingValue ? UIFont.systemFont(ofSize: 20, weight: .bold) : .systemFont(ofSize: 17.0)
+            label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
             stackView.addArrangedSubview(label)
         }
         

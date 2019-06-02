@@ -298,12 +298,12 @@
             </objects>
             <point key="canvasLocation" x="1965.5999999999999" y="-194.75262368815595"/>
         </scene>
-        <!--Items-->
+        <!--Events-->
         <scene sceneID="VFX-ka-Hzu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R4R-Ve-xdk" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Items" image="ic-items" id="5mI-Iq-xx8"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="ic-items" id="5mI-Iq-xx8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="TjP-kn-taU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

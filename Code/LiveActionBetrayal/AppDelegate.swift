@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
 import ReSwift
 
 typealias JSON = [String:AnyObject]

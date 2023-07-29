@@ -14,7 +14,6 @@ final class ProfileViewController: BaseViewController, ProgressUpdatable {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var diceBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var progressView: UIProgressView!
     
     let brightnessManager = BrightnessManager()
@@ -42,20 +41,6 @@ final class ProfileViewController: BaseViewController, ProgressUpdatable {
         }
         
         return metadata
-    }
-    
-    @IBAction func diceButtonTapped(_ sender: UIBarButtonItem) {
-        let nav = DiceViewController.build()
-        
-        if let vc = nav.topViewController as? DiceViewController {
-            vc.delegate = self
-            
-            vc.completed = { [weak self] _ in
-                self?.dismiss(animated: true)
-            }
-        }
-        
-        present(nav, animated: false, completion: nil)
     }
     
     @IBAction func profilePictureTapped(_ sender: UITapGestureRecognizer) {
@@ -99,14 +84,6 @@ extension ProfileViewController: ExplorerType {
             picture.image = image
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if Defaults.shared.lastRoll != 0 {
-            diceBarButtonItem.title = "Roll: \(Defaults.shared.lastRoll)"
-        }
-    }
 
 }
 
@@ -119,14 +96,6 @@ extension ProfileViewController: StoreSubscriber {
         
         TorchManager.turn(on: player.torchOn)
         brightnessManager.adjustScreenBrightness(forTorchMode: player.torchOn)
-    }
-    
-}
-
-extension ProfileViewController: DiceDelegate {
-    
-    func didRoll(withResult result: Int) {
-        diceBarButtonItem.title = "Roll: \(result)"
     }
     
 }

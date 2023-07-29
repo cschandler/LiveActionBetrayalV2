@@ -400,10 +400,6 @@ final class ConnectionManager {
             return Promise(error: StateError.noValidPlayer)
         }
         
-        guard !(AppStore.shared.state.cardState.cards.value ?? []).contains(where: { $0 == card }) else {
-            return Promise(error: StateError.duplicateCard)
-        }
-        
         return Promise { fulfill in
             self.database.child("\(DatabaseTopLevel.items.rawValue)/\(card.id)/owner").setValue(currentUserId) { (error, ref) in
                 if let error = error {

@@ -64,10 +64,10 @@ final class TransitionViewController: BaseViewController, ProgressUpdatable {
     
     func transitionToPlayer(withMetadata metadata: PlayerMetadata) {
         guard let vc = UIStoryboard(name: storyboardIdentifier, bundle: nil).instantiateInitialViewController() else { return }
-        vc.modalTransitionStyle = .crossDissolve
         
         if let explorer = vc as? ExplorerTabController {
             explorer.metadata = metadata
+            explorer.modalPresentationStyle = .fullScreen
         }
         
         present(vc, animated: true, completion: nil)
@@ -75,8 +75,9 @@ final class TransitionViewController: BaseViewController, ProgressUpdatable {
     
     func transitionToWatcher() {
         guard let vc = UIStoryboard(name: storyboardIdentifier, bundle: nil).instantiateInitialViewController() else { return }
-        vc.modalTransitionStyle = .crossDissolve
-        
+        if let watcher = vc as? WatcherTabController {
+            watcher.modalPresentationStyle = .fullScreen
+        }
         present(vc, animated: true, completion: nil)
     }
     
